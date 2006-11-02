@@ -1,0 +1,3 @@
+#!/bin/sh
+gcc `pkg-config gtk+-2.0 --cflags --libs` `pkg-config xmms2-client --cflags --libs` `pkg-config xmms2-client-glib --cflags --libs`  *.c -o lxmusic
+
