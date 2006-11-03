@@ -137,7 +137,11 @@ static char* get_song_name( xmmsc_result_t* res )
 {
     char *url, *file, *name;
     xmmsc_result_get_dict_entry_str( res, "url", &url );
+    if( !url )
+        return NULL;
     file = g_filename_from_uri(url, NULL, NULL);
+    if( !file )
+        return file;
     name = g_path_get_basename(file);
     gtk_label_set_text( music_title, name );
     g_free( file );
@@ -269,8 +273,9 @@ static void init_main_win()
     hbox = gtk_hbox_new( FALSE, 2 );
     gtk_box_pack_start( vbox, hbox, FALSE, FALSE, 0 );
     music_title = gtk_label_new("");
+    gtk_label_set_ellipsize( music_title, PANGO_ELLIPSIZE_END );
     gtk_misc_set_padding( music_title, 2, 2 );
-    gtk_box_pack_start( hbox, music_title, FALSE, FALSE, 2 );
+    gtk_box_pack_start( hbox, music_title, TRUE, TRUE, 2 );
 
     gtk_box_pack_start( vbox, gtk_hseparator_new(), FALSE, FALSE, 0 );
 
