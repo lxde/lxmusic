@@ -22,6 +22,7 @@ static guint current_time_len = 0;
 GtkWidget* main_win = NULL;
 GtkWidget* music_title = NULL;
 GtkWidget* time_label = NULL;
+GtkWidget* bitrate_label = NULL;
 GtkWidget* progress_bar = NULL;
 GtkWidget* status_bar = NULL;
 GtkWidget* list_view = NULL;
@@ -140,10 +141,10 @@ static char* get_song_name( xmmsc_result_t* res )
     if( !url )
         return NULL;
     file = g_filename_from_uri(url, NULL, NULL);
+
     if( !file )
         return file;
     name = g_path_get_basename(file);
-    gtk_label_set_text( music_title, name );
     g_free( file );
     return name;
 }
@@ -251,7 +252,8 @@ static void init_list_view()
 
 static void init_main_win()
 {
-    GtkWidget* vbox, *hbox, *toolbar, *scroll, *vbox2, *entry;
+    GtkWidget *vbox, *hbox, *hbox2, *scroll, *vbox2, *entry, *img, *btn;
+    GtkWidget *menubar, *menu, *item;
 
     tips = gtk_tooltips_new();
 #if GTK_CHECK_VERSION( 2, 10, 0 )
@@ -263,6 +265,7 @@ static void init_main_win()
 
     main_win = gtk_window_new( GTK_WINDOW_TOPLEVEL );
     gtk_window_set_title((GtkWindow*)main_win, "LXMusic");
+    gtk_window_set_icon_name((GtkWindow*)main_win, "stock_volume");
     gtk_window_set_default_size(main_win, 280, 480);
     g_signal_connect( main_win, "delete-event",
                       G_CALLBACK(gtk_main_quit), NULL );
@@ -270,6 +273,21 @@ static void init_main_win()
     vbox = gtk_vbox_new( FALSE, 2 );
     gtk_container_add( main_win, vbox );
 
+    /* menu bar */
+    menubar = gtk_menu_bar_new();
+    gtk_box_pack_start( vbox, menubar, FALSE, FALSE, 0 );
+
+    item = gtk_menu_item_new_with_mnemonic( "_Playlist" );
+    gtk_menu_shell_append( (GtkMenuShell*)menubar, item );
+    menu = gtk_menu_new();
+    gtk_menu_item_set_submenu( item, menu );
+
+    item = gtk_menu_item_new_with_mnemonic( "_Help" );
+    gtk_menu_shell_append( (GtkMenuShell*)menubar, item );
+    menu = gtk_menu_new();
+    gtk_menu_item_set_submenu( item, menu );
+
+    /* current song info */
     hbox = gtk_hbox_new( FALSE, 2 );
     gtk_box_pack_start( vbox, hbox, FALSE, FALSE, 0 );
     music_title = gtk_label_new("");
@@ -279,6 +297,7 @@ static void init_main_win()
 
     gtk_box_pack_start( vbox, gtk_hseparator_new(), FALSE, FALSE, 0 );
 
+    /* playback control */
     hbox = gtk_hbox_new( FALSE, 0 );
     gtk_box_pack_start( vbox, hbox, FALSE, FALSE, 0 );
 
@@ -292,13 +311,21 @@ static void init_main_win()
     add_tool_btn( hbox, GTK_STOCK_MEDIA_NEXT, _("Next"),
                   G_CALLBACK(on_prev_next), GINT_TO_POINTER(1) );
 
+    /* time & bitrate */
     vbox2 = gtk_vbox_new( FALSE, 1 );
+    hbox2 = gtk_hbox_new( FALSE, 1 );
     time_label = gtk_label_new("--:--/--:--");
     gtk_misc_set_alignment( time_label, 0.0, 0.5 );
+    gtk_box_pack_start( hbox2, time_label, FALSE, FALSE, 0 );
+    bitrate_label = gtk_label_new("192 kbps");
+    gtk_misc_set_alignment( time_label, 1.0, 0.5 );
+    gtk_box_pack_end( hbox2, bitrate_label, FALSE, FALSE, 4 );
+
+    /* progress bar */
     progress_bar = gtk_hscale_new_with_range( 0.0, 100.0, 1.0 );
     GTK_WIDGET_UNSET_FLAGS( progress_bar, GTK_CAN_FOCUS );
     gtk_scale_set_draw_value( progress_bar, FALSE );
-    gtk_box_pack_start( vbox2, time_label, FALSE, FALSE, 0 );
+    gtk_box_pack_start( vbox2, hbox2, FALSE, FALSE, 0 );
     gtk_box_pack_start( vbox2, progress_bar, FALSE, FALSE, 0 );
     gtk_box_pack_start( hbox, vbox2, TRUE, TRUE, 2 );
 
@@ -310,23 +337,25 @@ static void init_main_win()
     gtk_scrolled_window_set_shadow_type( scroll, GTK_SHADOW_IN );
     list_view = gtk_tree_view_new();
     gtk_container_add( scroll, list_view );
-    gtk_box_pack_start( vbox, scroll, TRUE, TRUE, 2 );
 
     /* play list bar */
-    hbox = gtk_hbox_new( FALSE, 2 );
-    entry = gtk_entry_new();
-    gtk_box_pack_start( hbox, entry, TRUE, TRUE, 2 );
 /*
-    img = gtk_image_new_from_stock(GTK_STOCK_ADD,
-                                   GTK_ICON_SIZE_MENU);
+    hbox = gtk_hbox_new( FALSE, 2 );
+    gtk_box_pack_start( vbox, hbox, FALSE, FALSE, 2 );
+//    entry = gtk_entry_new();
+//    gtk_box_pack_start( hbox, entry, TRUE, TRUE, 2 );
+    img = gtk_image_new_from_stock( GTK_STOCK_ADD,
+                                    GTK_ICON_SIZE_MENU);
     btn = gtk_menu_tool_button_new( img, NULL );
-    gtk_toolbar_insert( toolbar, btn, -1 );
+    gtk_box_pack_start( hbox, btn, FALSE, FALSE, 2 );
 
-    img = gtk_image_new_from_stock(GTK_STOCK_REMOVE,
-                                   GTK_ICON_SIZE_MENU);
+    img = gtk_image_new_from_stock( GTK_STOCK_REMOVE,
+                                    GTK_ICON_SIZE_MENU);
     btn = gtk_menu_tool_button_new( img, NULL );
-    gtk_toolbar_insert( toolbar, btn, -1 );
+    gtk_box_pack_start( hbox, btn, FALSE, FALSE, 2 );
 */
+    gtk_box_pack_start( vbox, scroll, TRUE, TRUE, 2 );
+
     /* status bar */
     status_bar = gtk_statusbar_new();
     gtk_box_pack_start( vbox, status_bar, FALSE, FALSE, 2 );
@@ -406,14 +435,12 @@ static void update_music_title( xmmsc_result_t* res, void* user_data )
 }
 */
 
-static void on_current_changed( xmmsc_result_t* res, void* user_data )
+static void on_current_id_changed( xmmsc_result_t* res, void* user_data )
 {
-    gboolean need_unref = GPOINTER_TO_UINT(user_data);
     if( xmmsc_result_get_uint(res, &current_id) ) {
         xmmsc_result_t *res2;
         char* name;
         res2 = xmmsc_medialib_get_info(con, current_id);
-//        xmmsc_result_notifier_set( res2, update_music_title, NULL );
         xmmsc_result_wait ( res2 );
         name = get_song_name( res2 );
         gtk_label_set_text( music_title, name );
@@ -424,8 +451,8 @@ static void on_current_changed( xmmsc_result_t* res, void* user_data )
             current_time_len = -1;
         xmmsc_result_unref(res2);
     }
-    if( need_unref )
-        xmmsc_result_unref(res);
+    else
+        g_debug("error!");
 }
 
 static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
@@ -439,6 +466,11 @@ static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
     sel = gtk_tree_view_get_selection( list_view );
     gtk_tree_selection_select_path( sel, path );
     gtk_tree_path_free( path );
+}
+
+static void on_volume_change( xmmsc_result_t* res, void* user_data )
+{
+
 }
 
 int main( int argc, char **argv )
@@ -466,45 +498,51 @@ _connect_xmms2:
     }
     xmmsc_mainloop_gmain_init(con);
 
-    res = xmmsc_playback_status(con);
-    xmmsc_result_notifier_set(res, on_status_changed, NULL);
-    xmmsc_result_unref(res);
+    init_main_win();
 
+    /* play status */
+    res = xmmsc_playback_status(con);
+    xmmsc_result_wait( res );
+    on_status_changed( res, NULL );
+    xmmsc_result_unref(res);
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_status,
                        on_status_changed, NULL );
+
+    /* current song info */
+    res = xmmsc_playback_current_id( con );
+    xmmsc_result_wait( res );
+    on_current_id_changed( res, NULL );
+    xmmsc_result_unref(res);
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_current_id,
-                       on_current_changed, GUINT_TO_POINTER(FALSE) );
+                       on_current_id_changed, NULL );
+
+    /* play time */
     XMMS_CALLBACK_SET( con , xmmsc_signal_playback_playtime,
                        on_playtime_changed, NULL);
-    XMMS_CALLBACK_SET( con, xmmsc_playback_current_id,
-                       on_current_changed, GUINT_TO_POINTER(TRUE) );
+
+    /* current pos in playlist */
+    res = xmmsc_playlist_current_pos( con );
+    xmmsc_result_wait( res );
+    on_playlist_pos_changed( res, NULL );
+    xmmsc_result_unref(res);
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_current_pos,
                        on_playlist_pos_changed, NULL);
+
+    /* volume */
+    res = xmmsc_playback_volume_get(con);
+    xmmsc_result_wait( res );
+    on_volume_change( res, NULL );
+    xmmsc_result_unref(res);
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_volume_changed,
+                       on_volume_change, NULL );
+
 /*
-    XMMS_CALLBACK_SET(con, xmmsc_playback_current_id,
-                        sig_handle_current_id, con);
-    XMMS_CALLBACK_SET(con, xmmsc_broadcast_playback_current_id,
-                        bc_handle_current_id, con);
     XMMS_CALLBACK_SET(con, xmmsc_broadcast_medialib_entry_changed,
                         bc_handle_medialib_entry_changed, con);
-    XMMS_CALLBACK_SET(con, xmmsc_signal_playback_playtime,
-                        sig_handle_playtime, title_str);
-    XMMS_CALLBACK_SET(con, xmmsc_broadcast_playback_status,
-                        bc_handle_playback_status_change, NULL);
-    XMMS_CALLBACK_SET(con, xmmsc_broadcast_playback_volume_changed,
-                        bc_handle_volume_change, NULL);
 
     xmmsc_disconnect_callback_set(con, connection_lost, NULL);
-
-    res = xmmsc_playback_status(con);
-    xmmsc_result_notifier_set(res, n_handle_playback_status_change, NULL);
-    xmmsc_result_unref(res);
-    res = xmmsc_playback_volume_get(con);
-    xmmsc_result_notifier_set(res, n_volume_init, NULL);
-    xmmsc_result_unref(res);
 */
 
-    init_main_win();
     gtk_widget_show_all( main_win );
 
     init_list_view();
