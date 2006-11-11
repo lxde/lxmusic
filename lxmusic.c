@@ -4,6 +4,8 @@
 #include <xmmsclient/xmmsclient.h>
 #include <xmmsclient/xmmsclient-glib.h>
 
+#define HAVE_XMMSC_PLAYLIST_RADD  1
+
 enum{
     COL_ID = 0,
     COL_TITLE,
@@ -40,6 +42,17 @@ static const char* timeval_to_str( guint timeval, char* buf, guint buf_len )
     g_snprintf( buf, buf_len, "%.2u:%.2u:%.2u", hr, min, sec );
 
     return buf;
+}
+
+static void show_error( const char* error )
+{
+    GtkWidget* dlg = gtk_message_dialog_new( (GtkWindow*)main_win,
+                                             GTK_DIALOG_MODAL,
+                                             GTK_MESSAGE_ERROR,
+                                             GTK_BUTTONS_OK,
+                                             error );
+    gtk_dialog_run( (GtkDialog*)dlg );
+    gtk_widget_destroy( dlg );
 }
 
 static void play_jump( int relative )
@@ -141,22 +154,45 @@ static char* get_song_name( xmmsc_result_t* res )
     return g_strdup( url );
 }
 
-static void update_song( xmmsc_result_t* res, GtkTreeIter* it )
+static void update_song( xmmsc_result_t *res, void *user_data )
 {
-    char *name = get_song_name( res );
+    char *name;
+    guint time_len = 0;
+    char time_buf[32];
     GtkTreeView *view = (GtkTreeView*)list_view;
-    gtk_list_store_set( (GtkListStore*)gtk_tree_view_get_model(view),
-                         it, COL_TITLE, name, -1 );
+    GtkListStore *list;
+    GtkTreeIter* it = (GtkTreeIter*)user_data;
+
+    if( xmmsc_result_iserror( res ) ) {
+        xmmsc_result_unref( res );
+        gtk_tree_iter_free( it );
+        return;
+    }
+
+    name = get_song_name( res );
+    xmmsc_result_get_dict_entry_int32( res, "duration",
+                                       &time_len);
+    timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
+
+    GDK_THREADS_ENTER();
+    list = (GtkListStore*)gtk_tree_view_get_model( view );
+
+    gtk_list_store_set( list, it,
+                        COL_TITLE, name,
+                        COL_LEN, time_buf, -1 );
+
     g_free( name );
+    /* This is a bad idea :-( */
     gtk_tree_iter_free( it );
+    GDK_THREADS_LEAVE();
+
+    xmmsc_result_unref( res );
 }
 
 static void on_playlist_received( xmmsc_result_t* res, void* user_data )
 {
     GtkListStore* list;
     GtkTreeIter it;
-    guint time_len = 0;
-    char time_buf[32];
 
     list = gtk_list_store_new( N_COLS,
                                G_TYPE_UINT,
@@ -168,23 +204,15 @@ static void on_playlist_received( xmmsc_result_t* res, void* user_data )
         char* name;
 
         gtk_list_store_append( list, &it );
+        gtk_list_store_set( list, &it,
+                            COL_ID, id, -1 );
 
         xmmsc_result_get_uint( res, &id );
         res2 = xmmsc_medialib_get_info( con, id );
-
-        xmmsc_result_wait( res2 );
-        name = get_song_name( res2 );
-
-        xmmsc_result_get_dict_entry_int32( res2, "duration",
-                                           &time_len);
-        timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
-
-        gtk_list_store_set( list, &it,
-                            COL_ID, id,
-                            COL_TITLE, name,
-                            COL_LEN, time_buf, -1 );
-        g_free( name );
-        xmmsc_result_unref(res2);
+        /* FIXME: is there any better way? */
+        xmmsc_result_notifier_set( res2, update_song,
+                                   gtk_tree_iter_copy( &it ) );
+        xmmsc_result_unref( res2 );
     }
     gtk_tree_view_set_model( (GtkTreeView*)list_view,
                               GTK_TREE_MODEL(list) );
@@ -270,11 +298,16 @@ static void on_pref( GtkMenuItem* item, gpointer user_data )
 
 }
 
-static void add_file( const char* file )
+static gpointer add_file( const char* file )
 {
-    if( g_file_test( file, G_FILE_TEST_IS_DIR ) ) {
+    gboolean is_dir = g_file_test( file, G_FILE_TEST_IS_DIR );
+
+/* older xmms2 client lib doesn't have this API, so we have to
+   scan the dir ourselves. :-(
+*/
+#ifndef HAVE_XMMSC_PLAYLIST_RADD
+    if( is_dir ) {
         const char *name;
-        g_debug("dir: %s", file);
         GDir *dir = g_dir_open( file, 0, NULL );
         if( !dir )
             return;
@@ -285,12 +318,24 @@ static void add_file( const char* file )
         }
         g_dir_close( dir );
     }
-    else {
+    else
+#endif
+    {
         xmmsc_result_t *res;
         char *url;
         /* Since xmms2 uses its own url format, this is annoying but inevitable. */
         url = g_strconcat( "file://", file, NULL );
-        res = xmmsc_playlist_add( con, url );
+
+/* If we have xmmsc_playlist_radd */
+#ifdef HAVE_XMMSC_PLAYLIST_RADD
+        if( is_dir ) {
+            res = xmmsc_playlist_radd( con, url );
+        }
+        else
+#endif
+        {
+            res = xmmsc_playlist_add( con, url );
+        }
         g_free( url );
 
         if( !res )
@@ -298,42 +343,44 @@ static void add_file( const char* file )
 
         xmmsc_result_wait( res );
         if( xmmsc_result_iserror( res ) ) {
-            g_debug( xmmsc_result_get_error(res) );
+            show_error( xmmsc_result_get_error(res) );
         }
         xmmsc_result_unref( res );
     }
+    return NULL;
 }
 
 static void on_add_clicked(GtkButton* btn, GtkFileChooser* dlg)
 {
-    xmmsc_result_t *res;
-
     GSList* uris = gtk_file_chooser_get_uris( (GtkFileChooser*)dlg );
     GSList* uri;
 
+    if( ! uris )
+        return;
+
     for( uri = uris; uri; uri = uri->next ) {
         gchar* file = g_filename_from_uri( uri->data, NULL, NULL );
-        g_debug( "Add %s", file );
         add_file( file );
         g_free( file );
         g_free( uri->data );
     }
     g_slist_free( uris );
+
+    gtk_dialog_response( (GtkDialog*)dlg, GTK_RESPONSE_CLOSE );
 }
 
 static void on_add_files( GtkMenuItem* item, gpointer user_data )
 {
     GtkWidget *dlg = gtk_file_chooser_dialog_new( NULL, (GtkWindow*)main_win,
                                                   GTK_FILE_CHOOSER_ACTION_OPEN,
-                                                  GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, NULL );
+                                                  GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, NULL );
     GtkWidget *add_btn = gtk_button_new_from_stock(GTK_STOCK_ADD);
-    gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->action_area, add_btn, FALSE, FALSE, 2 );
+    gtk_dialog_add_action_widget( (GtkDialog*)dlg, add_btn, GTK_RESPONSE_CLOSE );
     gtk_widget_show( add_btn );
     g_signal_connect( add_btn, "clicked", G_CALLBACK(on_add_clicked), dlg );
     gtk_file_chooser_set_select_multiple( (GtkFileChooser*)dlg, TRUE );
     /* FIXME: We should add a custom filter which filters autio files */
     /* gtk_file_chooser_add_filter(); */
-
     gtk_dialog_run( (GtkDialog*)dlg );
     gtk_widget_destroy( dlg );
 }
@@ -356,10 +403,7 @@ static void on_add_url( GtkMenuItem* item, gpointer user_data )
         xmmsc_result_wait( res );
         if ( xmmsc_result_iserror(res) ) {
             /* FIXME: display proper error msg */
-            g_print("Error!\n");
-        }
-        else {
-            /* FIXME: update the playlist? */
+            show_error( xmmsc_result_get_error(res) );
         }
         xmmsc_result_unref( res );
     }
@@ -412,7 +456,7 @@ static void on_remove_all( GtkMenuItem* item, gpointer user_data )
     res = xmmsc_playlist_clear( con );
     xmmsc_result_wait( res );
     if ( xmmsc_result_iserror(res) ) {
-        g_print( "Error: %s\n", xmmsc_result_get_error(res) );
+        show_error( xmmsc_result_get_error(res) );
     }
     xmmsc_result_unref( res );
 }
@@ -423,7 +467,7 @@ static void on_shuffle( GtkMenuItem* item, gpointer user_data )
     res = xmmsc_playlist_shuffle( con );
     xmmsc_result_wait( res );
     if ( xmmsc_result_iserror(res) ) {
-        g_print( "Error: %s\n", xmmsc_result_get_error(res) );
+        show_error( xmmsc_result_get_error(res) );
     }
     xmmsc_result_unref( res );
 }
@@ -442,9 +486,12 @@ static void on_show_playlist( GtkMenuItem* item, gpointer user_data )
                   Maybe gtk_window_set_geometry_hints is needed here. */
         gtk_window_set_resizable((GtkWindow*)main_win, FALSE);
         gtk_widget_hide( scroll );
+        /* Since the list has been hidden, the data is not needed */
+        gtk_tree_view_set_model( (GtkTreeView*)list_view, NULL );
         g_idle_add( delayed_set_win_resizable, NULL );
     }
     else {
+        update_play_list();
         gtk_widget_show( scroll );
         gtk_window_set_resizable((GtkWindow*)main_win, TRUE);
     }
@@ -715,6 +762,7 @@ static void on_playtime_changed( xmmsc_result_t* res, void* user_data )
     if( time == play_time )
         return;
     play_time = time;
+
     gtk_label_set_text( (GtkLabel*)time_label,
                         timeval_to_str( time, buf, G_N_ELEMENTS(buf) ) );
 
@@ -754,8 +802,6 @@ static void on_current_id_changed( xmmsc_result_t* res, void* user_data )
             current_time_len = -1;
         xmmsc_result_unref(res2);
     }
-    else
-        g_debug("error!");
 }
 
 static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
@@ -782,8 +828,12 @@ static void on_playlist_change( xmmsc_result_t* res, void* user_data )
     int type = 0, pos = -1;
     GtkListStore* list;
 
+    if( G_UNLIKELY( xmmsc_result_iserror( res ) ) )
+        return;
+
     if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_int32( res, "type", &type ) ) )
         return;
+    GDK_THREADS_ENTER();
     list = (GtkListStore*)gtk_tree_view_get_model( (GtkTreeView*)list_view );
 
     switch( type ) {
@@ -793,8 +843,15 @@ static void on_playlist_change( xmmsc_result_t* res, void* user_data )
                 pos = gtk_tree_model_iter_n_children( (GtkTreeModel*)list, NULL );
             if( G_LIKELY( xmmsc_result_get_dict_entry_uint32( res, "id", &id ) ) ) {
                 GtkTreeIter it;
+                xmmsc_result_t *res2;
                 gtk_list_store_insert_with_values( list, &it, pos,
                                                    COL_ID, id, -1 );
+                if( res2 = xmmsc_medialib_get_info( con, id ) ) {
+                    /* FIXME: is there any better way? */
+                    xmmsc_result_notifier_set( res2, update_song,
+                                               gtk_tree_iter_copy( &it ) );
+                    xmmsc_result_unref( res2 );
+                }
             }
             break;
         case XMMS_PLAYLIST_CHANGED_REMOVE:
@@ -816,16 +873,18 @@ static void on_playlist_change( xmmsc_result_t* res, void* user_data )
         {
             int newpos = 0;
             if( G_UNLIKELY( xmmsc_result_get_dict_entry_int32( res, "position", &pos ) ) )
-                return;
+                break;
             if( G_UNLIKELY( xmmsc_result_get_dict_entry_int32( res, "newposition", &newpos ) ) )
-                return;
+                break;
             break;
         }
         case XMMS_PLAYLIST_CHANGED_SORT:
         case XMMS_PLAYLIST_CHANGED_SHUFFLE:
             /* FIXME: We have to reload the list here */
+            update_play_list();
             break;
     }
+    GDK_THREADS_LEAVE();
 }
 
 int main( int argc, char **argv )
