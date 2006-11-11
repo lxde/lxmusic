@@ -1,6 +1,0 @@
-#!/bin/sh
-gcc -O2 -Wall \
-	`pkg-config gtk+-2.0 --cflags --libs` \
-	`pkg-config xmms2-client --cflags --libs` \
-	`pkg-config xmms2-client-glib --cflags --libs` \
-	$1.c -o $1

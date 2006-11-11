@@ -1,0 +1,16 @@
+To build this program, you have to install following developing packages:
+
+pkg-config
+gtk+ 2.0
+xmms2-client
+xmms2-client-glib
+
+The last 2 dev packages are provided by xmms2, and will be installed when you install
+ xmms2 from tarball.
+Since LXMusic is only a GUI frontend, you should have xmms2 in order to use it.
+See the official homepage of XMMS2 project <http://wiki.xmms2.xmms.se/> for detail.
+
+After you get these required packages installed, just type "make", and 
+LXMusic will be compiled. Then, type "make install" with root access, and lxmusic
+will be installed to /usr/bin.
+
