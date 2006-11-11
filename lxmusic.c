@@ -6,9 +6,8 @@
 
 enum{
     COL_ID = 0,
-    COL_NUM,
     COL_TITLE,
-    COL_TIME,
+    COL_LEN,
     N_COLS
 };
 
@@ -30,37 +29,18 @@ static GtkWidget* play_btn = NULL;
 
 GtkTooltips* tips = NULL;
 
-#if 0
-static void load_playlist()
+static const char* timeval_to_str( guint timeval, char* buf, guint buf_len )
 {
-    xmmsc_result_t *res, *res2;
-    res = xmmsc_playlist_list (con);
-    xmmsc_result_wait (res);
-    if( xmmsc_result_iserror (res) ) {
-        fprintf (stderr, "error when asking for the playlist, %s\n",
-                 xmmsc_result_get_error (res));
-        exit (EXIT_FAILURE);
-    }
-    for (;xmmsc_result_list_valid (res); xmmsc_result_list_next (res)) {
-        unsigned int id;
-        const char *url, *file, *name;
-        if( !xmmsc_result_get_uint (res, &id) ) {
-            fprintf (stderr, "Couldn't get uint from list\n");
-            exit (EXIT_FAILURE);
-        }
-        res2 = xmmsc_medialib_get_info (con, id);
-        xmmsc_result_wait (res2);
-        xmmsc_result_get_dict_entry_str(res2, "url", &url);
-        file = g_filename_from_uri(url, NULL, NULL);
-        name = g_path_get_basename(file);
-        g_free( file );
-        //g_debug("id = %d, file = %s", id, name );
-        g_free( name );
-        xmmsc_result_unref(res2);
-    }
-    xmmsc_result_unref(res);
+    guint hr, min, sec;
+
+    hr = timeval / 3600;
+    min = timeval % 3600;
+    sec = min % 60;
+    min /= 60;
+    g_snprintf( buf, buf_len, "%.2u:%.2u:%.2u", hr, min, sec );
+
+    return buf;
 }
-#endif
 
 static void play_jump( int relative )
 {
@@ -150,6 +130,7 @@ static char* get_song_name( xmmsc_result_t* res )
             const char* file = decode + 5;
             while( *file == '/' )
                 ++file;
+            /* FIXME: Should convert file name with g_filename_display_name */
             name = g_path_get_basename(file);
             return name;
         }
@@ -174,10 +155,10 @@ static void on_playlist_received( xmmsc_result_t* res, void* user_data )
 {
     GtkListStore* list;
     GtkTreeIter it;
-    guint pos = 0;
+    guint time_len = 0;
+    char time_buf[32];
 
     list = gtk_list_store_new( N_COLS,
-                               G_TYPE_UINT,
                                G_TYPE_UINT,
                                G_TYPE_STRING,
                                G_TYPE_STRING );
@@ -187,22 +168,21 @@ static void on_playlist_received( xmmsc_result_t* res, void* user_data )
         char* name;
 
         gtk_list_store_append( list, &it );
+
         xmmsc_result_get_uint( res, &id );
         res2 = xmmsc_medialib_get_info( con, id );
-/*
-        gtk_list_store_set( list, &it,
-                            COL_ID, id,
-                            COL_NUM, pos++, -1 );
-        xmmsc_result_notifier_set(res2, update_song,
-                                  gtk_tree_iter_copy(&it));
 
-*/
         xmmsc_result_wait( res2 );
         name = get_song_name( res2 );
+
+        xmmsc_result_get_dict_entry_int32( res2, "duration",
+                                           &time_len);
+        timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
+
         gtk_list_store_set( list, &it,
                             COL_ID, id,
-                            COL_NUM, pos++,
-                            COL_TITLE, name, -1 );
+                            COL_TITLE, name,
+                            COL_LEN, time_buf, -1 );
         g_free( name );
         xmmsc_result_unref(res2);
     }
@@ -239,8 +219,21 @@ static void on_row_activated( GtkTreeView* view,
         on_play_pause( (GtkButton*)play_btn, NULL );
 }
 
+static void render_num( GtkTreeViewColumn* col, GtkCellRenderer* render,
+                        GtkTreeModel* model, GtkTreeIter* it, gpointer data )
+{
+    GtkTreePath* path = gtk_tree_model_get_path( model, it );
+    char buf[16];
+    if( G_UNLIKELY( ! path ) )
+        return;
+    g_sprintf( buf, "%d", gtk_tree_path_get_indices( path )[0] );
+    gtk_tree_path_free( path );
+    g_object_set( render, "text", buf, NULL );
+}
+
 static void init_list_view()
 {
+    GtkTreeSelection* tree_sel;
     GtkTreeViewColumn* col;
     GtkCellRenderer* render;
 
@@ -248,22 +241,230 @@ static void init_list_view()
                       G_CALLBACK( on_row_activated ), NULL );
 
     render = gtk_cell_renderer_text_new();
-    col = gtk_tree_view_column_new_with_attributes( "#", render,
-                                                   "text", COL_NUM, NULL );
+    col = gtk_tree_view_column_new_with_attributes( "#", render, NULL );
+    gtk_tree_view_column_set_cell_data_func( col, render, render_num, NULL, NULL );
     gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
 
     render = gtk_cell_renderer_text_new();
+    g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
     col = gtk_tree_view_column_new_with_attributes( _("Title"), render,
                                                    "text", COL_TITLE, NULL );
-    gtk_tree_view_column_set_resizable( col, TRUE );
+    gtk_tree_view_column_set_expand( col, TRUE );
+    /* gtk_tree_view_column_set_resizable( col, TRUE ); */
     gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
 
     render = gtk_cell_renderer_text_new();
     col = gtk_tree_view_column_new_with_attributes( _("Length"), render,
-                                                   "text", COL_TIME, NULL );
+                                                   "text", COL_LEN, NULL );
     gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
 
+    gtk_tree_view_set_search_column( (GtkTreeView*)list_view, COL_TITLE );
+    tree_sel = gtk_tree_view_get_selection( (GtkTreeView*)list_view );
+    gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_MULTIPLE );
+
     update_play_list();
+}
+
+static void on_pref( GtkMenuItem* item, gpointer user_data )
+{
+
+}
+
+static void add_file( const char* file )
+{
+    if( g_file_test( file, G_FILE_TEST_IS_DIR ) ) {
+        const char *name;
+        g_debug("dir: %s", file);
+        GDir *dir = g_dir_open( file, 0, NULL );
+        if( !dir )
+            return;
+        while( name = g_dir_read_name( dir ) ) {
+            char *path = g_build_filename( file, name, NULL );
+            add_file( path );
+            g_free( path );
+        }
+        g_dir_close( dir );
+    }
+    else {
+        xmmsc_result_t *res;
+        char *url;
+        /* Since xmms2 uses its own url format, this is annoying but inevitable. */
+        url = g_strconcat( "file://", file, NULL );
+        res = xmmsc_playlist_add( con, url );
+        g_free( url );
+
+        if( !res )
+            return;
+
+        xmmsc_result_wait( res );
+        if( xmmsc_result_iserror( res ) ) {
+            g_debug( xmmsc_result_get_error(res) );
+        }
+        xmmsc_result_unref( res );
+    }
+}
+
+static void on_add_clicked(GtkButton* btn, GtkFileChooser* dlg)
+{
+    xmmsc_result_t *res;
+
+    GSList* uris = gtk_file_chooser_get_uris( (GtkFileChooser*)dlg );
+    GSList* uri;
+
+    for( uri = uris; uri; uri = uri->next ) {
+        gchar* file = g_filename_from_uri( uri->data, NULL, NULL );
+        g_debug( "Add %s", file );
+        add_file( file );
+        g_free( file );
+        g_free( uri->data );
+    }
+    g_slist_free( uris );
+}
+
+static void on_add_files( GtkMenuItem* item, gpointer user_data )
+{
+    GtkWidget *dlg = gtk_file_chooser_dialog_new( NULL, (GtkWindow*)main_win,
+                                                  GTK_FILE_CHOOSER_ACTION_OPEN,
+                                                  GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, NULL );
+    GtkWidget *add_btn = gtk_button_new_from_stock(GTK_STOCK_ADD);
+    gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->action_area, add_btn, FALSE, FALSE, 2 );
+    gtk_widget_show( add_btn );
+    g_signal_connect( add_btn, "clicked", G_CALLBACK(on_add_clicked), dlg );
+    gtk_file_chooser_set_select_multiple( (GtkFileChooser*)dlg, TRUE );
+    /* FIXME: We should add a custom filter which filters autio files */
+    /* gtk_file_chooser_add_filter(); */
+
+    gtk_dialog_run( (GtkDialog*)dlg );
+    gtk_widget_destroy( dlg );
+}
+
+static void on_add_url( GtkMenuItem* item, gpointer user_data )
+{
+    GtkWidget *dlg = gtk_dialog_new_with_buttons(
+            _("Input a URL"), (GtkWindow*)main_win, GTK_DIALOG_MODAL,
+            GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+            GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
+    GtkWidget *entry = gtk_entry_new();
+    gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->vbox, entry, FALSE, FALSE, 4 );
+    gtk_dialog_set_default_response( (GtkDialog*)dlg, GTK_RESPONSE_OK );
+    gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
+    gtk_widget_show_all( dlg );
+    if( gtk_dialog_run( (GtkDialog*)dlg ) == GTK_RESPONSE_OK ) {
+        xmmsc_result_t *res;
+        const char* url = gtk_entry_get_text( (GtkEntry*)entry );
+        res = xmmsc_playlist_add( con, url );
+        xmmsc_result_wait( res );
+        if ( xmmsc_result_iserror(res) ) {
+            /* FIXME: display proper error msg */
+            g_print("Error!\n");
+        }
+        else {
+            /* FIXME: update the playlist? */
+        }
+        xmmsc_result_unref( res );
+    }
+    gtk_widget_destroy( dlg );
+}
+
+static void on_add_from_mlib( GtkMenuItem* item, gpointer user_data )
+{
+    /* FIXME: This might be implemented in the future */
+}
+
+static int intcmp( gconstpointer a, gconstpointer b )
+{
+    return (int)b - (int)a;
+}
+
+static void on_remove_sel( GtkMenuItem* item, gpointer user_data )
+{
+    GtkTreeSelection* tree_sel;
+    tree_sel = gtk_tree_view_get_selection( (GtkTreeView*)list_view );
+    GList *sels = gtk_tree_selection_get_selected_rows( tree_sel, NULL );
+    GList *sel;
+
+    for( sel = sels; sel; sel = sel->next ) {
+        GtkTreePath* path = (GtkTreePath*)sel->data;
+        sel->data = (gpointer)gtk_tree_path_get_indices( path )[0];
+        gtk_tree_path_free( path );
+    }
+
+    /*
+        sort the list, and put rows with bigger indicies before those with smaller indicies.
+        In this way, all indicies won't be changed during removing items.
+    */
+    sels = g_list_sort( sels, intcmp );
+
+    for( sel = sels; sel; sel = sel->next ) {
+        xmmsc_result_t* res;
+        int pos = (int)sel->data;
+        res = xmmsc_playlist_remove( con, pos );
+        xmmsc_result_wait( res );
+        xmmsc_result_unref( res );
+    }
+
+    g_list_free( sels );
+}
+
+static void on_remove_all( GtkMenuItem* item, gpointer user_data )
+{
+    xmmsc_result_t *res;
+    res = xmmsc_playlist_clear( con );
+    xmmsc_result_wait( res );
+    if ( xmmsc_result_iserror(res) ) {
+        g_print( "Error: %s\n", xmmsc_result_get_error(res) );
+    }
+    xmmsc_result_unref( res );
+}
+
+static void on_shuffle( GtkMenuItem* item, gpointer user_data )
+{
+    xmmsc_result_t *res;
+    res = xmmsc_playlist_shuffle( con );
+    xmmsc_result_wait( res );
+    if ( xmmsc_result_iserror(res) ) {
+        g_print( "Error: %s\n", xmmsc_result_get_error(res) );
+    }
+    xmmsc_result_unref( res );
+}
+
+static gboolean delayed_set_win_resizable( gpointer user_data )
+{
+    gtk_window_set_resizable((GtkWindow*)main_win, TRUE);
+    return FALSE;
+}
+
+static void on_show_playlist( GtkMenuItem* item, gpointer user_data )
+{
+    GtkWidget* scroll = gtk_widget_get_parent(list_view);
+    if( GTK_WIDGET_VISIBLE(scroll) ) {
+        /* FIXME: Little dirty trick used to shrink the window.
+                  Maybe gtk_window_set_geometry_hints is needed here. */
+        gtk_window_set_resizable((GtkWindow*)main_win, FALSE);
+        gtk_widget_hide( scroll );
+        g_idle_add( delayed_set_win_resizable, NULL );
+    }
+    else {
+        gtk_widget_show( scroll );
+        gtk_window_set_resizable((GtkWindow*)main_win, TRUE);
+    }
+}
+
+#define VERSION "0.1"
+
+static void on_about( GtkMenuItem* item, gpointer user_data )
+{
+    const char* authors[] = { "洪任諭 (Hong Jen Yee) <pcman.tw@gmail.com>", NULL };
+    GtkWidget* about = gtk_about_dialog_new();
+    gtk_about_dialog_set_name( (GtkAboutDialog*)about, "LXMusic" );
+    gtk_about_dialog_set_version( (GtkAboutDialog*)about, VERSION );
+    gtk_about_dialog_set_authors( (GtkAboutDialog*)about, authors );
+    gtk_about_dialog_set_comments( (GtkAboutDialog*)about, _("Music Player for LXDE\nSimple GUI XMMS2 client") );
+    gtk_about_dialog_set_license( (GtkAboutDialog*)about, "GNU General Public License" );
+    gtk_about_dialog_set_website( (GtkAboutDialog*)about, "http://lxde.sourceforge.net/" );
+    gtk_window_set_transient_for( (GtkWindow*)about, (GtkWindow*)main_win );
+    gtk_dialog_run( (GtkDialog*)about );
+    gtk_widget_destroy( about );
 }
 
 static GtkWidget* create_menubar()
@@ -272,40 +473,92 @@ static GtkWidget* create_menubar()
 
     menubar = gtk_menu_bar_new();
 
+    /* main menu */
     item = gtk_menu_item_new_with_mnemonic( "_LXMusic" );
     gtk_menu_shell_append( (GtkMenuShell*)menubar, item );
     menu = gtk_menu_new();
     gtk_menu_item_set_submenu( (GtkMenuItem*)item, menu );
 
     item = gtk_image_menu_item_new_from_stock( GTK_STOCK_PREFERENCES, NULL );
+    g_signal_connect( item, "activate", G_CALLBACK(on_pref), NULL );
     gtk_menu_shell_append( (GtkMenuShell*)menu, item );
+    gtk_widget_set_sensitive( item, FALSE ); /* FIXME: this line should be removed in the future */
 
     gtk_menu_shell_append( (GtkMenuShell*)menu, gtk_separator_menu_item_new() );
 
     item = gtk_image_menu_item_new_from_stock( GTK_STOCK_QUIT, NULL );
+    g_signal_connect( item, "activate",
+                      G_CALLBACK(gtk_main_quit), NULL );
     gtk_menu_shell_append( (GtkMenuShell*)menu, item );
 
+    /* playlist menu */
     item = gtk_menu_item_new_with_mnemonic( "_Playlist" );
     gtk_menu_shell_append( (GtkMenuShell*)menubar, item );
     menu = gtk_menu_new();
     gtk_menu_item_set_submenu( (GtkMenuItem*)item, menu );
 
+    item = gtk_image_menu_item_new_with_mnemonic( "Add Files" );
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)item,
+                                   gtk_image_new_from_stock(GTK_STOCK_ADD, GTK_ICON_SIZE_MENU) );
+    g_signal_connect( item, "activate", G_CALLBACK(on_add_files), NULL );
+    gtk_menu_shell_append( (GtkMenuShell*)menu, item );
 
+    item = gtk_image_menu_item_new_with_mnemonic( "Add URL" );
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)item,
+                                   gtk_image_new_from_stock(GTK_STOCK_ADD, GTK_ICON_SIZE_MENU) );
+    g_signal_connect( item, "activate", G_CALLBACK(on_add_url), NULL );
+    gtk_menu_shell_append( (GtkMenuShell*)menu, item );
+
+#if 0
+    item = gtk_image_menu_item_new_with_mnemonic( "Add from Media Library" );
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)item,
+                                   gtk_image_new_from_stock(GTK_STOCK_ADD, GTK_ICON_SIZE_MENU) );
+    g_signal_connect( item, "activate", G_CALLBACK(on_add_from_mlib), NULL );
+    gtk_menu_shell_append( (GtkMenuShell*)menu, item );
+#endif
+
+
+    gtk_menu_shell_append( (GtkMenuShell*)menu, gtk_separator_menu_item_new() );
+
+    item = gtk_image_menu_item_new_with_mnemonic( "Remove Selected Items" );
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)item,
+                                   gtk_image_new_from_stock(GTK_STOCK_REMOVE, GTK_ICON_SIZE_MENU) );
+    g_signal_connect( item, "activate", G_CALLBACK(on_remove_sel), NULL );
+    gtk_menu_shell_append( (GtkMenuShell*)menu, item );
+
+    item = gtk_image_menu_item_new_with_mnemonic( "Remove All" );
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)item,
+                                   gtk_image_new_from_stock(GTK_STOCK_REMOVE, GTK_ICON_SIZE_MENU) );
+    g_signal_connect( item, "activate", G_CALLBACK(on_remove_all), NULL );
+    gtk_menu_shell_append( (GtkMenuShell*)menu, item );
+
+    gtk_menu_shell_append( (GtkMenuShell*)menu, gtk_separator_menu_item_new() );
+
+    item = gtk_menu_item_new_with_mnemonic( "Shuffle" );
+    g_signal_connect( item, "activate", G_CALLBACK(on_shuffle), NULL );
+    gtk_menu_shell_append( (GtkMenuShell*)menu, item );
+
+
+    /* view menu */
     item = gtk_menu_item_new_with_mnemonic( "_View" );
     gtk_menu_shell_append( (GtkMenuShell*)menubar, item );
     menu = gtk_menu_new();
     gtk_menu_item_set_submenu( (GtkMenuItem*)item, menu );
 
     item = gtk_check_menu_item_new_with_mnemonic( "Show _PlayList" );
+    gtk_check_menu_item_set_active( (GtkCheckMenuItem*)item, TRUE );
+    g_signal_connect( item, "activate", G_CALLBACK(on_show_playlist), NULL );
     gtk_menu_shell_append( (GtkMenuShell*)menu, item );
 
 
+    /* help menu */
     item = gtk_menu_item_new_with_mnemonic( "_Help" );
     gtk_menu_shell_append( (GtkMenuShell*)menubar, item );
     menu = gtk_menu_new();
     gtk_menu_item_set_submenu( (GtkMenuItem*)item, menu );
 
     item = gtk_image_menu_item_new_from_stock( GTK_STOCK_ABOUT, NULL );
+    g_signal_connect( item, "activate", G_CALLBACK(on_about), NULL );
     gtk_menu_shell_append( (GtkMenuShell*)menu, item );
 
     return menubar;
@@ -324,6 +577,7 @@ static void init_main_win()
 #endif
 
     main_win = gtk_window_new( GTK_WINDOW_TOPLEVEL );
+
     gtk_window_set_title( (GtkWindow*)main_win, "LXMusic" );
     gtk_window_set_icon_name( (GtkWindow*)main_win, "stock_volume" );
     gtk_window_set_default_size( (GtkWindow*)main_win, 280, 480 );
@@ -368,7 +622,7 @@ static void init_main_win()
     /* time & bitrate */
     vbox2 = gtk_vbox_new( FALSE, 1 );
     hbox2 = gtk_hbox_new( FALSE, 1 );
-    time_label = gtk_label_new("--:--/--:--");
+    time_label = gtk_label_new("--:--:--");
     gtk_misc_set_alignment( (GtkMisc*)time_label, 0.0, 0.5 );
     gtk_box_pack_start( (GtkBox*)hbox2, time_label, FALSE, FALSE, 0 );
     bitrate_label = gtk_label_new("192 kbps");
@@ -447,7 +701,6 @@ on_status_changed( xmmsc_result_t *res, void *user_data )
 static void on_playtime_changed( xmmsc_result_t* res, void* user_data )
 {
     guint time;
-    guint hr, min, sec;
     xmmsc_result_t* restart;
     char buf[32];
     if ( xmmsc_result_iserror(res)
@@ -462,12 +715,8 @@ static void on_playtime_changed( xmmsc_result_t* res, void* user_data )
     if( time == play_time )
         return;
     play_time = time;
-    hr = time / 3600;
-    min = time % 3600;
-    sec = min % 60;
-    min /= 60;
-    g_snprintf( buf, sizeof(buf), "%.2u:%.2u:%.2u", hr, min, sec );
-    gtk_label_set_text( (GtkLabel*)time_label, buf );
+    gtk_label_set_text( (GtkLabel*)time_label,
+                        timeval_to_str( time, buf, G_N_ELEMENTS(buf) ) );
 
     if( current_time_len > 0 ) {
         gtk_range_set_value( (GtkRange*)progress_bar,
@@ -527,6 +776,58 @@ static void on_volume_change( xmmsc_result_t* res, void* user_data )
 
 }
 
+static void on_playlist_change( xmmsc_result_t* res, void* user_data )
+{
+    guint id = 0;
+    int type = 0, pos = -1;
+    GtkListStore* list;
+
+    if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_int32( res, "type", &type ) ) )
+        return;
+    list = (GtkListStore*)gtk_tree_view_get_model( (GtkTreeView*)list_view );
+
+    switch( type ) {
+        case XMMS_PLAYLIST_CHANGED_ADD:
+        case XMMS_PLAYLIST_CHANGED_INSERT:
+            if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_int32( res, "position", &pos ) ) )
+                pos = gtk_tree_model_iter_n_children( (GtkTreeModel*)list, NULL );
+            if( G_LIKELY( xmmsc_result_get_dict_entry_uint32( res, "id", &id ) ) ) {
+                GtkTreeIter it;
+                gtk_list_store_insert_with_values( list, &it, pos,
+                                                   COL_ID, id, -1 );
+            }
+            break;
+        case XMMS_PLAYLIST_CHANGED_REMOVE:
+            if( G_LIKELY( xmmsc_result_get_dict_entry_int32( res, "position", &pos ) ) ) {
+                GtkTreePath* path;
+                GtkTreeIter it;
+                path = gtk_tree_path_new_from_indices( pos, -1 );
+                if( gtk_tree_model_get_iter( (GtkTreeModel*)list, &it, path ) ) {
+                    gtk_list_store_remove( list, &it );
+                }
+                gtk_tree_path_free( path );
+            }
+            break;
+        case XMMS_PLAYLIST_CHANGED_CLEAR: {
+            gtk_list_store_clear( list );
+            break;
+        }
+        case XMMS_PLAYLIST_CHANGED_MOVE:
+        {
+            int newpos = 0;
+            if( G_UNLIKELY( xmmsc_result_get_dict_entry_int32( res, "position", &pos ) ) )
+                return;
+            if( G_UNLIKELY( xmmsc_result_get_dict_entry_int32( res, "newposition", &newpos ) ) )
+                return;
+            break;
+        }
+        case XMMS_PLAYLIST_CHANGED_SORT:
+        case XMMS_PLAYLIST_CHANGED_SHUFFLE:
+            /* FIXME: We have to reload the list here */
+            break;
+    }
+}
+
 int main( int argc, char **argv )
 {
     xmmsc_result_t* res;
@@ -536,19 +837,14 @@ int main( int argc, char **argv )
     if( !(con = xmmsc_init ("lxmusic")) ) {
         return EXIT_FAILURE;
     }
-_connect_xmms2:
-    if (!xmmsc_connect (con, getenv ("XMMS_PATH"))) {
-        /* This is too dirty, but is there any better solution? */
-        static int try_xmms2d = 0;
-        if( try_xmms2d < 10 ) {
-            g_spawn_command_line_async( "xmms2d", NULL );
-            g_usleep( 500 );
-            ++try_xmms2d;
-            goto _connect_xmms2;
+
+    if( !xmmsc_connect (con, getenv ("XMMS_PATH")) ) {
+        if( ! g_spawn_command_line_sync( "xmms2-launcher", NULL, NULL, NULL, NULL )
+            || !xmmsc_connect (con, getenv ("XMMS_PATH")) ) {
+            fprintf (stderr, "Connection failed: %s\n",
+                     xmmsc_get_last_error (con));
+            return EXIT_FAILURE;
         }
-        fprintf (stderr, "Connection failed: %s\n",
-                    xmmsc_get_last_error (con));
-        return EXIT_FAILURE;
     }
     xmmsc_mainloop_gmain_init(con);
 
@@ -590,6 +886,10 @@ _connect_xmms2:
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_volume_changed,
                        on_volume_change, NULL );
 
+    /* playlist changed */
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_changed,
+                       on_playlist_change, NULL );
+
 /*
     XMMS_CALLBACK_SET(con, xmmsc_broadcast_medialib_entry_changed,
                         bc_handle_medialib_entry_changed, con);
@@ -603,6 +903,14 @@ _connect_xmms2:
 
     gtk_main();
     g_object_unref( tips );
+
+    /* If the playback has been stopped, quit xmms2d, too. */
+    if( status == XMMS_PLAYBACK_STATUS_STOP ) {
+        xmmsc_result_t *res = xmmsc_quit( con );
+        xmmsc_result_wait( res );
+        xmmsc_result_unref( res );
+    }
+
     xmmsc_unref (con);
     return EXIT_SUCCESS;
 }
