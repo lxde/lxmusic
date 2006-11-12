@@ -1,5 +1,4 @@
-VERSION = 0.1
-DESTDIR = /usr/bin
+VERSION = 0.1.1
 CC = gcc
 INSTALL=install
 STRIP=strip
@@ -17,7 +16,7 @@ lxmusic.o: lxmusic.c
 	$(CC) -c $(CFLAGS) -o lxmusic.o lxmusic.c
 
 install: $(BIN)
-	$(INSTALL) $(BIN) $(DESTDIR)
+	$(INSTALL) -t $(DESTDIR)/usr/bin $(BIN)
 	$(STRIP) $(DESTDIR)/$(BIN)
 
 clean:

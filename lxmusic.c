@@ -497,8 +497,6 @@ static void on_show_playlist( GtkMenuItem* item, gpointer user_data )
     }
 }
 
-#define VERSION "0.1"
-
 static void on_about( GtkMenuItem* item, gpointer user_data )
 {
     const char* authors[] = { "洪任諭 (Hong Jen Yee) <pcman.tw@gmail.com>", NULL };
@@ -811,10 +809,14 @@ static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
     GtkTreeSelection* sel;
 
     xmmsc_result_get_uint( res, &playlist_pos );
+/*
+    FIXME: Currently we have no way to mark current played song in the playlist.
+
     path = gtk_tree_path_new_from_indices( playlist_pos, -1 );
     sel = gtk_tree_view_get_selection( (GtkTreeView*)list_view );
     gtk_tree_selection_select_path( sel, path );
     gtk_tree_path_free( path );
+*/
 }
 
 static void on_volume_change( xmmsc_result_t* res, void* user_data )

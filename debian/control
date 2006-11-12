@@ -1,0 +1,13 @@
+Source: lxmusic
+Section: x11
+Priority: optional
+Maintainer: PCMan <pcman.tw@gmail.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: lxmusic
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Lightweight XMMS2 GUI client
+ This is the default music player of LXDE project.
+ See http://lxde.sourceforge.net/ for detail.
