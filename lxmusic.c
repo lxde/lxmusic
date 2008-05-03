@@ -506,7 +506,7 @@ static void on_about( GtkMenuItem* item, gpointer user_data )
     gtk_about_dialog_set_authors( (GtkAboutDialog*)about, authors );
     gtk_about_dialog_set_comments( (GtkAboutDialog*)about, _("Music Player for LXDE\nSimple GUI XMMS2 client") );
     gtk_about_dialog_set_license( (GtkAboutDialog*)about, "GNU General Public License" );
-    gtk_about_dialog_set_website( (GtkAboutDialog*)about, "http://lxde.sourceforge.net/" );
+    gtk_about_dialog_set_website( (GtkAboutDialog*)about, "http://lxde.org/" );
     gtk_window_set_transient_for( (GtkWindow*)about, (GtkWindow*)main_win );
     gtk_dialog_run( (GtkDialog*)about );
     gtk_widget_destroy( about );

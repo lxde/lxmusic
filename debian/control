@@ -10,4 +10,4 @@ Architecture: any
 Depends: xmms2-core ${shlibs:Depends}, ${misc:Depends}
 Description: Lightweight XMMS2 GUI client
  This is the default music player of LXDE project.
- See http://lxde.sourceforge.net/ for detail.
+ See http://lxde.org/ for detail.
