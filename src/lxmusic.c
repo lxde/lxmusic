@@ -14,13 +14,26 @@
 #include <xmmsclient/xmmsclient.h>
 #include <xmmsclient/xmmsclient-glib.h>
 
-enum{
+enum {
     COL_ID = 0,
     COL_ARTIST,
     COL_ALBUM,
     COL_TITLE,
     COL_LEN,
     N_COLS
+};
+
+enum {
+    REPEAT_NONE,
+    REPEAT_CURRENT,
+    REPEAT_ALL
+};
+
+enum {
+    FILTER_ALL,
+    FILTER_TITLE,
+    FILTER_ARTIST,
+    FILTER_ALBUM
 };
 
 typedef struct _UpdateTrack{
@@ -34,6 +47,10 @@ typedef struct _FilterCriteria{
     int cols;
 }FilterCriteria;
 
+typedef struct _PageData{
+    char* playlist;
+    FilterCriteria* criteria;
+}PageData;
 
 static xmmsc_connection_t *con = NULL;
 static GtkWidget *main_win = NULL;
@@ -48,6 +65,9 @@ static guint playback_status = 0;
 static guint play_time = 0;
 static guint current_track_len = 0;
 static guint current_id = 0;
+
+static int repeat_mode = REPEAT_ALL;
+static int filter_field = FILTER_ALL;
 
 static const char* get_cur_playlist_name()
 {
@@ -178,6 +198,8 @@ void on_filter_entry_changed(GtkEntry* entry, gpointer user_data)
     g_free(criteria->keyword);
     criteria->keyword = g_strdup(gtk_entry_get_text(entry));
     gtk_tree_model_filter_refilter(filter);
+
+    /* FIXME: keep selections and keep the selected items visible in current view. */
 }
 
 static gboolean file_filter_fnuc(const GtkFileFilterInfo *inf, gpointer user_data)
@@ -211,10 +233,11 @@ static gpointer add_file( const char* file )
 
 static void on_add_files( GtkMenuItem* item, gpointer user_data )
 {
+    enum { RESPONSE_ADD = 1 };
     GtkWidget *dlg = gtk_file_chooser_dialog_new( NULL, (GtkWindow*)main_win,
                                                   GTK_FILE_CHOOSER_ACTION_OPEN,
                                                   GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                                  GTK_STOCK_ADD, GTK_RESPONSE_OK, NULL );
+                                                  GTK_STOCK_ADD, RESPONSE_ADD, NULL );
     GtkFileFilter* filter;
 
     gtk_file_chooser_set_select_multiple( (GtkFileChooser*)dlg, TRUE );
@@ -230,7 +253,7 @@ static void on_add_files( GtkMenuItem* item, gpointer user_data )
     gtk_file_filter_add_custom( filter, 0, gtk_true, NULL, NULL );
     gtk_file_chooser_add_filter(dlg, filter);
 
-    if( gtk_dialog_run( (GtkDialog*)dlg ) == GTK_RESPONSE_OK )
+    if( gtk_dialog_run( (GtkDialog*)dlg ) == RESPONSE_ADD )
     {
         GSList* uris = gtk_file_chooser_get_uris( (GtkFileChooser*)dlg );
         GSList* uri;
@@ -261,16 +284,11 @@ static void on_add_url( GtkMenuItem* item, gpointer user_data )
     gtk_dialog_set_default_response( (GtkDialog*)dlg, GTK_RESPONSE_OK );
     gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
     gtk_widget_show_all( dlg );
-    if( gtk_dialog_run( (GtkDialog*)dlg ) == GTK_RESPONSE_OK ) {
+    if( gtk_dialog_run( (GtkDialog*)dlg ) == GTK_RESPONSE_OK )
+    {
         xmmsc_result_t *res;
         const char* url = gtk_entry_get_text( (GtkEntry*)entry );
         res = xmmsc_playlist_add_url( con, "_active", url );
-        xmmsc_result_wait( res );
-        if ( xmmsc_result_iserror(res) )
-        {
-            /* FIXME: display proper error msg */
-            //show_error( xmmsc_result_get_error(res) );
-        }
         xmmsc_result_unref( res );
     }
     gtk_widget_destroy( dlg );
@@ -878,11 +896,10 @@ static void setup_xmms_callbacks()
 static void setup_ui()
 {
     GtkBuilder *builder;
-    GtkWidget *hbox;
+    GtkWidget *hbox, *cb;
     builder = gtk_builder_new();
     if( ! gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/lxmusic.ui", NULL) )
         exit(1);
-    gtk_builder_connect_signals(builder, NULL);
 
     main_win = (GtkWidget*)gtk_builder_get_object(builder, "main_win");
     play_btn = (GtkWidget*)gtk_builder_get_object(builder, "play_btn");
@@ -891,11 +908,20 @@ static void setup_ui()
     notebook = (GtkWidget*)gtk_builder_get_object(builder, "notebook");
     status_bar = (GtkWidget*)gtk_builder_get_object(builder, "status_bar");
 
+    cb = (GtkWidget*)gtk_builder_get_object(builder, "repeat_mode");
+    gtk_combo_box_set_active(cb, repeat_mode);
+
+    cb = (GtkWidget*)gtk_builder_get_object(builder, "filter_field");
+    gtk_combo_box_set_active(cb, filter_field);
+
     /* add volume button */
     hbox = (GtkWidget*)gtk_builder_get_object(builder, "top_hbox");
     volume_btn = gtk_volume_button_new();
     gtk_widget_show(volume_btn);
     gtk_box_pack_start(hbox, volume_btn, FALSE, TRUE, 0);
+
+    /* signal handlers */
+    gtk_builder_connect_signals(builder, NULL);
 
     g_object_unref(builder);
     gtk_widget_show_all(notebook);
