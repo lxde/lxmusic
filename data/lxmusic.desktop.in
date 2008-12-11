@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=LXMusic
+GenericName=Music Player
+Comment=Play your music files easily
+Categories=AudioVideo;Audio;Player;GTK;
+Icon=lxmusic
+Exec=lxmusic
+Terminal=false
+StartupNotify=true
+
