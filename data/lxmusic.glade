@@ -17,12 +17,27 @@
           <widget class="GtkMenuBar" id="menubar">
             <property name="visible">True</property>
             <child>
-              <widget class="GtkMenuItem" id="menuitem1">
+              <widget class="GtkMenuItem" id="file_mi">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">_File</property>
                 <property name="use_underline">True</property>
                 <child>
                   <widget class="GtkMenu" id="menuitem1_menu">
+                    <child>
+                      <widget class="GtkImageMenuItem" id="file_properties">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">File Properties</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_file_properties"/>
+                        <child internal-child="image">
+                          <widget class="GtkImage" id="image90">
+                            <property name="visible">True</property>
+                            <property name="stock">gtk-properties</property>
+                            <property name="icon_size">1</property>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="pref_mi">
                         <property name="visible">True</property>
@@ -51,22 +66,115 @@
               </widget>
             </child>
             <child>
-              <widget class="GtkMenuItem" id="menuitem2">
+              <widget class="GtkMenuItem" id="playlist_mi">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">_Playlist</property>
                 <property name="use_underline">True</property>
                 <child>
                   <widget class="GtkMenu" id="menuitem2_menu">
                     <child>
+                      <widget class="GtkImageMenuItem" id="switch_to_pl">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">_Switch To Playlist</property>
+                        <property name="use_underline">True</property>
+                        <child internal-child="image">
+                          <widget class="GtkImage" id="image91">
+                            <property name="visible">True</property>
+                            <property name="stock">gtk-jump-to</property>
+                            <property name="icon_size">1</property>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkSeparatorMenuItem" id="sep3">
+                        <property name="visible">True</property>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkImageMenuItem" id="add_to_pl">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Add To Playlist</property>
+                        <property name="use_underline">True</property>
+                        <child>
+                          <widget class="GtkMenu" id="add_to_pl_menu">
+                            <child>
+                              <widget class="GtkMenuItem" id="add_files">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Add Files or Folders</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="on_add_files"/>
+                              </widget>
+                            </child>
+                            <child>
+                              <widget class="GtkMenuItem" id="add_url">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Add URL</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="on_add_url"/>
+                              </widget>
+                            </child>
+                          </widget>
+                        </child>
+                        <child internal-child="image">
+                          <widget class="GtkImage" id="image94">
+                            <property name="visible">True</property>
+                            <property name="stock">gtk-add</property>
+                            <property name="icon_size">1</property>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkImageMenuItem" id="remove_from_pl">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Remove From Playlist</property>
+                        <property name="use_underline">True</property>
+                        <child>
+                          <widget class="GtkMenu" id="remove_from_pl_menu">
+                            <child>
+                              <widget class="GtkMenuItem" id="remove_selected">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Remove Selected Items</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="on_remove_selected"/>
+                              </widget>
+                            </child>
+                            <child>
+                              <widget class="GtkMenuItem" id="remove_all">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Remove All Items</property>
+                                <property name="use_underline">True</property>
+                                <signal name="activate" handler="on_remove_all"/>
+                              </widget>
+                            </child>
+                          </widget>
+                        </child>
+                        <child internal-child="image">
+                          <widget class="GtkImage" id="image95">
+                            <property name="visible">True</property>
+                            <property name="stock">gtk-remove</property>
+                            <property name="icon_size">1</property>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkSeparatorMenuItem" id="sep4">
+                        <property name="visible">True</property>
+                      </widget>
+                    </child>
+                    <child>
                       <widget class="GtkImageMenuItem" id="new_pl_mi">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">_New Playlist</property>
+                        <property name="label" translatable="yes">Create _New Playlist</property>
                         <property name="use_underline">True</property>
-                        <signal name="activate" handler="on_new_pl"/>
+                        <signal name="activate" handler="on_new_playlist"/>
                         <child internal-child="image">
-                          <widget class="GtkImage" id="menu-item-image1">
+                          <widget class="GtkImage" id="image92">
                             <property name="visible">True</property>
                             <property name="stock">gtk-new</property>
+                            <property name="icon_size">1</property>
                           </widget>
                         </child>
                       </widget>
@@ -74,18 +182,20 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="remove_pl_mi">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">_Delete Playlist</property>
+                        <property name="label" translatable="yes">_Delete Current Playlist</property>
                         <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_del_playlist"/>
                         <child internal-child="image">
-                          <widget class="GtkImage" id="menu-item-image2">
+                          <widget class="GtkImage" id="image93">
                             <property name="visible">True</property>
                             <property name="stock">gtk-delete</property>
+                            <property name="icon_size">1</property>
                           </widget>
                         </child>
                       </widget>
                     </child>
                     <child>
-                      <widget class="GtkSeparatorMenuItem" id="separatormenuitem1">
+                      <widget class="GtkSeparatorMenuItem" id="sep2">
                         <property name="visible">True</property>
                       </widget>
                     </child>
@@ -95,11 +205,7 @@
                         <property name="label">gtk-cut</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <child>
-                          <widget class="GtkMenu" id="menu1">
-                            <property name="visible">True</property>
-                          </widget>
-                        </child>
+                        <signal name="activate" handler="on_playlist_cut"/>
                       </widget>
                     </child>
                     <child>
@@ -108,14 +214,7 @@
                         <property name="label">gtk-paste</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                      </widget>
-                    </child>
-                    <child>
-                      <widget class="GtkImageMenuItem" id="delete_mi">
-                        <property name="visible">True</property>
-                        <property name="label">gtk-delete</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_playlist_paste"/>
                       </widget>
                     </child>
                   </widget>
@@ -123,17 +222,18 @@
               </widget>
             </child>
             <child>
-              <widget class="GtkMenuItem" id="menuitem3">
+              <widget class="GtkMenuItem" id="view_mi">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">_View</property>
                 <property name="use_underline">True</property>
                 <child>
                   <widget class="GtkMenu" id="menuitem3_menu">
                     <child>
-                      <widget class="GtkMenuItem" id="show_pl_mi">
+                      <widget class="GtkCheckMenuItem" id="show_pl">
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Show Playlist</property>
                         <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_show_playlist"/>
                       </widget>
                     </child>
                   </widget>
@@ -141,7 +241,14 @@
               </widget>
             </child>
             <child>
-              <widget class="GtkMenuItem" id="menuitem4">
+              <widget class="GtkMenuItem" id="tools_mi">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Tools</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkMenuItem" id="help_mi">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">_Help</property>
                 <property name="use_underline">True</property>
@@ -295,8 +402,6 @@
             <child>
               <widget class="GtkComboBox" id="repeat_mode">
                 <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Repeat Mode</property>
-                <property name="has_frame">False</property>
                 <property name="focus_on_click">False</property>
                 <property name="items" translatable="yes">No Repeat
 Repeat Current
@@ -321,9 +426,64 @@ Repeat All</property>
             <child>
               <widget class="GtkNotebook" id="notebook">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
+                <property name="show_tabs">False</property>
                 <property name="scrollable">True</property>
+                <child>
+                  <widget class="GtkScrolledWindow" id="scrolledwindow1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+                    <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+                    <property name="shadow_type">GTK_SHADOW_IN</property>
+                    <child>
+                      <widget class="GtkTreeView" id="playlist_view">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="reorderable">True</property>
+                        <signal name="row_activated" handler="on_playlist_row_activated"/>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label3">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Current Playlist</property>
+                  </widget>
+                  <packing>
+                    <property name="type">tab</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label4">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Favorites</property>
+                  </widget>
+                  <packing>
+                    <property name="type">tab</property>
+                    <property name="position">1</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label7">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Media Library</property>
+                  </widget>
+                  <packing>
+                    <property name="type">tab</property>
+                    <property name="position">2</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
               </widget>
             </child>
             <child>
@@ -333,7 +493,7 @@ Repeat All</property>
                   <widget class="GtkButton" id="add_btn">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="tooltip" translatable="yes">Add</property>
+                    <property name="tooltip" translatable="yes">Add files to the playlist</property>
                     <property name="relief">GTK_RELIEF_NONE</property>
                     <property name="focus_on_click">False</property>
                     <property name="response_id">0</property>
@@ -354,7 +514,7 @@ Repeat All</property>
                   <widget class="GtkButton" id="remove_btn">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="tooltip" translatable="yes">Remove</property>
+                    <property name="tooltip" translatable="yes">Remove items from the playlist</property>
                     <property name="relief">GTK_RELIEF_NONE</property>
                     <property name="focus_on_click">False</property>
                     <property name="response_id">0</property>
@@ -407,8 +567,6 @@ Repeat All</property>
                 <child>
                   <widget class="GtkComboBox" id="filter_field">
                     <property name="visible">True</property>
-                    <property name="tooltip" translatable="yes">Apply the filter to...</property>
-                    <property name="has_frame">False</property>
                     <property name="focus_on_click">False</property>
                     <property name="items" translatable="yes">All
 Track Name

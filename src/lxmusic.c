@@ -47,11 +47,6 @@ typedef struct _FilterCriteria{
     int cols;
 }FilterCriteria;
 
-typedef struct _PageData{
-    char* playlist;
-    FilterCriteria* criteria;
-}PageData;
-
 static xmmsc_connection_t *con = NULL;
 static GtkWidget *main_win = NULL;
 static GtkWidget *play_btn = NULL;
@@ -60,55 +55,27 @@ static GtkWidget *progress_bar = NULL;
 static GtkWidget *status_bar = NULL;
 static GtkWidget *notebook = NULL;
 static GtkWidget *volume_btn = NULL;
+static GtkWidget *playlist_view = NULL;
+
+static GtkWidget *switch_pl_menu = NULL;
+static GtkWidget *show_pl_mi = NULL;
+
+static char* cur_playlist = NULL;
 
 static guint playback_status = 0;
 static guint play_time = 0;
-static guint current_track_len = 0;
-static guint current_id = 0;
+static guint cur_track_duration = 0;
+static guint cur_track_id = 0;
 
 static int repeat_mode = REPEAT_ALL;
 static int filter_field = FILTER_ALL;
 
-static const char* get_cur_playlist_name()
-{
-    int i = gtk_notebook_get_current_page(notebook);
-    GtkWidget* scroll = gtk_notebook_get_nth_page(notebook, i);
-    GtkWidget* view = gtk_bin_get_child(scroll);
-    return (const char*)g_object_get_data( view, "pl_name" );
-}
 
-static GtkWidget* get_cur_playlist_view()
+static GtkWidget* get_playlist_store()
 {
-    int i = gtk_notebook_get_current_page(notebook);
-    GtkWidget* scroll = gtk_notebook_get_nth_page(notebook, i);
-    GtkWidget* view = gtk_bin_get_child(scroll);
-    return view;
-}
-
-static GtkWidget* get_playlist_view( const char* pl_name )
-{
-    int i, n;
-    n = gtk_notebook_get_n_pages(notebook);
-    for(i =0; i< n; ++i)
-    {
-        GtkWidget* scroll = gtk_notebook_get_nth_page(notebook, i);
-        GtkWidget* view = gtk_bin_get_child(scroll);
-        char* name = (char*)g_object_get_data(view, "pl_name");
-        if( name && strcmp( pl_name, name) == 0 )
-            return view;
-    }
-    return NULL;
-}
-
-static GtkWidget* get_playlist_store( const char* name )
-{
-    GtkWidget* view = get_playlist_view(name);
-    if( view )
-    {
-        GtkTreeModel* filter = gtk_tree_view_get_model(view);
-        if( filter )
-            return gtk_tree_model_filter_get_model((GtkTreeModelFilter*)filter);
-    }
+    GtkTreeModel* filter = gtk_tree_view_get_model(playlist_view);
+    if( filter )
+        return gtk_tree_model_filter_get_model((GtkTreeModelFilter*)filter);
     return NULL;
 }
 
@@ -137,6 +104,16 @@ void on_about(GtkWidget* mi, gpointer data)
     gtk_window_set_transient_for( (GtkWindow*)about, (GtkWindow*)main_win );
     gtk_dialog_run( (GtkDialog*)about );
     gtk_widget_destroy( about );
+}
+
+void on_preference(GtkAction* act, gpointer data)
+{
+
+}
+
+void on_file_properties(GtkAction* act, gpointer data)
+{
+
 }
 
 void on_playlist_row_activated(GtkTreeView* view,
@@ -199,7 +176,7 @@ static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, Filte
 
 void on_filter_entry_changed(GtkEntry* entry, gpointer user_data)
 {
-    GtkWidget* view = get_cur_playlist_view();
+    GtkWidget* view = playlist_view;
     GtkTreeModelFilter* filter = (GtkTreeModelFilter*)gtk_tree_view_get_model(view);
     FilterCriteria* criteria = (FilterCriteria*)g_object_get_data(filter, "criteria");
     g_free(criteria->keyword);
@@ -218,19 +195,15 @@ static gpointer add_file( const char* file )
 {
     gboolean is_dir = g_file_test( file, G_FILE_TEST_IS_DIR );
     xmmsc_result_t *res;
-    const char* pl = get_cur_playlist_name();
     char *url;
-
-    if( ! pl )
-        return;
 
     /* Since xmms2 uses its own url format, this is annoying but inevitable. */
     url = g_strconcat( "file://", file, NULL );
 
     if( is_dir )
-        res = xmmsc_playlist_radd( con, pl, url );
+        res = xmmsc_playlist_radd( con, cur_playlist, url );
     else
-        res = xmmsc_playlist_add_url( con, pl, url );
+        res = xmmsc_playlist_add_url( con, cur_playlist, url );
     g_free( url );
 
     if( res )
@@ -238,7 +211,7 @@ static gpointer add_file( const char* file )
     return NULL;
 }
 
-static void on_add_files( GtkMenuItem* item, gpointer user_data )
+void on_add_files( GtkMenuItem* item, gpointer user_data )
 {
     enum { RESPONSE_ADD = 1 };
     GtkWidget *dlg = gtk_file_chooser_dialog_new( NULL, (GtkWindow*)main_win,
@@ -280,7 +253,7 @@ static void on_add_files( GtkMenuItem* item, gpointer user_data )
     gtk_widget_destroy( dlg );
 }
 
-static void on_add_url( GtkMenuItem* item, gpointer user_data )
+void on_add_url( GtkMenuItem* item, gpointer user_data )
 {
     GtkWidget *dlg = gtk_dialog_new_with_buttons(
             _("Input a URL"), (GtkWindow*)main_win, GTK_DIALOG_MODAL,
@@ -337,14 +310,20 @@ static int intcmp( gconstpointer a, gconstpointer b )
     return (int)b - (int)a;
 }
 
-void on_remove_btn_clicked(GtkButton* btn, gpointer user_data)
+void on_remove_all(GtkAction* act, gpointer user_data)
 {
     xmmsc_result_t* res;
-    const char* pl = get_cur_playlist_name();
-    if( pl )
+    res = xmmsc_playlist_clear(con, cur_playlist);
+    xmmsc_result_unref(res);
+}
+
+void on_remove_selected(GtkAction* act, gpointer user_data)
+{
+    xmmsc_result_t* res;
+    if( cur_playlist )
     {
         GtkTreeSelection* tree_sel;
-        tree_sel = gtk_tree_view_get_selection( (GtkTreeView*)get_cur_playlist_view() );
+        tree_sel = gtk_tree_view_get_selection( (GtkTreeView*)playlist_view );
         GList *sels = gtk_tree_selection_get_selected_rows( tree_sel, NULL );
         GList *sel;
         if( ! sels )
@@ -367,11 +346,16 @@ void on_remove_btn_clicked(GtkButton* btn, gpointer user_data)
         {
             xmmsc_result_t* res;
             int pos = (int)sel->data;
-            res = xmmsc_playlist_remove_entry( con, pl, pos );
+            res = xmmsc_playlist_remove_entry( con, cur_playlist, pos );
             xmmsc_result_unref( res );
         }
         g_list_free( sels );
     }
+}
+
+void on_remove_btn_clicked(GtkButton* btn, gpointer user_data)
+{
+
 }
 
 void on_repeat_mode_changed(GtkComboBox* cb, gpointer user_data)
@@ -383,7 +367,7 @@ void on_progress_bar_changed(GtkScale* bar, gpointer user_data)
 {
     xmmsc_result_t* res;
     gdouble p = gtk_range_get_value(bar);
-    guint new_play_time = p * current_track_len / 100;
+    guint new_play_time = p * cur_track_duration / 100;
     res = xmmsc_playback_seek_ms( con, new_play_time );
     xmmsc_result_unref(res);
 }
@@ -471,6 +455,16 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
     xmmsc_result_get_dict_entry_int( res, "duration", &time_len);
     timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
+    /* use file name to replace track name if it doesn't have id3. */
+    if( !title )
+    {
+        char *url, *file;
+        xmmsc_result_get_dict_entry_string( res, "url", &url );
+        file = g_filename_from_uri(url, NULL, NULL);
+        title = g_path_get_basename(file);
+        g_free(file);
+    }
+
     gtk_list_store_set( ut->list, &ut->it,
                         COL_ARTIST, artist,
                         COL_ALBUM, album,
@@ -548,20 +542,11 @@ static void update_play_list( GtkWidget* list_view )
     xmmsc_result_unref(res);
 }
 
-static GtkWidget* create_playlist( const char* pl_name )
+static GtkWidget* init_playlist(GtkWidget* list_view)
 {
-    GtkWidget* list_view;
     GtkTreeSelection* tree_sel;
     GtkTreeViewColumn* col;
     GtkCellRenderer* render;
-
-    list_view = gtk_tree_view_new();
-    /* gtk_tree_view_set_rules_hint(list_view, TRUE); */
-
-    g_object_set_data_full(list_view, "pl_name", g_strdup(pl_name), g_free);
-
-    g_signal_connect( list_view, "row-activated",
-                      G_CALLBACK( on_playlist_row_activated ), NULL );
 
     render = gtk_cell_renderer_text_new();
     col = gtk_tree_view_column_new_with_attributes( "#", render, NULL );
@@ -607,16 +592,30 @@ static GtkWidget* create_playlist( const char* pl_name )
     return list_view;
 }
 
+static void on_playlist_loaded(xmmsc_result_t* res, gpointer user_data)
+{
+    cur_playlist = (char*)user_data;
+    xmmsc_result_unref(res);
+
+    update_play_list( playlist_view );
+}
+
+static void on_switch_to_pl(GtkWidget* mi, char* pl_name)
+{
+    xmmsc_result_t* res;
+    res = xmmsc_playlist_load(con, pl_name);
+    xmmsc_result_notifier_set(res, on_playlist_loaded, pl_name);
+    xmmsc_result_unref(res);
+}
+
 static void add_playlist(const char* pl_name)
 {
-    GtkWidget* pl, *scroll;
-    pl = create_playlist(pl_name);
-    scroll = gtk_scrolled_window_new(NULL,NULL);
-    gtk_container_add(scroll, pl);
-    gtk_scrolled_window_set_policy(scroll, GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-    gtk_scrolled_window_set_shadow_type( (GtkScrolledWindow*)scroll, GTK_SHADOW_IN );
-    gtk_widget_show_all(scroll);
-    gtk_notebook_append_page( notebook, scroll, gtk_label_new(pl_name));
+    GtkWidget* mi = gtk_menu_item_new_with_label(pl_name);
+    char* name = g_strdup(pl_name);
+    g_object_set_data_full( mi, "pl_name", name, g_free);
+    g_signal_connect( mi, "activate", G_CALLBACK(on_switch_to_pl), name);
+    gtk_widget_show(mi);
+    gtk_menu_shell_append(switch_pl_menu, mi);
 }
 
 static void on_playlist_created( xmmsc_result_t* res, void* user_data )
@@ -658,17 +657,20 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
     char* name;
 
     if( G_UNLIKELY( xmmsc_result_iserror( res ) ) )
-        return;
+        goto _out;
 
     if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_int( res, "type", &type ) ) )
-        return;
+        goto _out;
 
     if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_string( res, "name", &name ) ) )
-        return;
+        goto _out;
 
-    list = get_playlist_store(name);
+    if( strcmp(name, cur_playlist) )
+        goto _out;
+
+    list = get_playlist_store();
     if( ! list )
-        return;
+        goto _out;
 
     switch( type )
     {
@@ -685,9 +687,7 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
                 if( res2 = xmmsc_medialib_get_info( con, id ) )
                 {
                     UpdateTrack* ut = g_slice_new(UpdateTrack);
-                    /* FIXME: this is dirty */
-                    GtkWidget* view = get_playlist_view(name);
-                    ut->playlist = (char*)g_object_get_data(view, "pl_name");
+                    ut->playlist = (char*)g_object_get_data(playlist_view, "pl_name");
                     ut->list = list;
                     ut->it = it;
                     xmmsc_result_notifier_set_full( res2, update_track, ut, free_update_track );
@@ -723,13 +723,13 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
         case XMMS_PLAYLIST_CHANGED_SORT:
         case XMMS_PLAYLIST_CHANGED_SHUFFLE:
         {
-            GtkWidget* view = get_playlist_view(name);
-            if(view)
-                update_play_list( view );
+            update_play_list(playlist_view);
             break;
         }
+        case XMMS_PLAYLIST_CHANGED_UPDATE:
+            break;
     }
-
+_out:
     if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
         xmmsc_result_unref(res);
 }
@@ -762,6 +762,7 @@ static void on_playback_status_changed( xmmsc_result_t *res, void *user_data )
             break;
     }
 
+out:
     if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
         xmmsc_result_unref(res);
 }
@@ -787,11 +788,11 @@ static void on_playback_playtime_changed( xmmsc_result_t* res, void* user_data )
     gtk_label_set_text( (GtkLabel*)time_label,
                         timeval_to_str( time, buf, G_N_ELEMENTS(buf) ) );
 
-    if( current_track_len > 0 )
+    if( cur_track_duration > 0 )
     {
         g_signal_handlers_block_by_func(progress_bar, on_progress_bar_changed, user_data);
         gtk_range_set_value( (GtkRange*)progress_bar,
-                              (((gdouble)100000 * time) / current_track_len) );
+                              (((gdouble)100000 * time) / cur_track_duration) );
         g_signal_handlers_unblock_by_func(progress_bar, on_progress_bar_changed, user_data);
     }
 }
@@ -802,8 +803,8 @@ static void on_playback_track_loaded( xmmsc_result_t* res, void* user_data )
     char* title;
     char* tmp;
     if( !xmmsc_result_get_dict_entry_int( res, "duration",
-                                          &current_track_len) )
-        current_track_len = 0;
+                                          &cur_track_duration) )
+        cur_track_duration = 0;
 
     if( !xmmsc_result_get_dict_entry_string( res, "artist", &artist ) )
         artist = NULL;
@@ -825,11 +826,11 @@ static void on_playback_track_loaded( xmmsc_result_t* res, void* user_data )
 
 static void on_playback_cur_track_changed( xmmsc_result_t* res, void* user_data )
 {
-    if( xmmsc_result_get_uint(res, &current_id) )
+    if( xmmsc_result_get_uint(res, &cur_track_id) )
     {
         xmmsc_result_t *res2;
         char* name;
-        res2 = xmmsc_medialib_get_info(con, current_id);
+        res2 = xmmsc_medialib_get_info(con, cur_track_id);
         xmmsc_result_notifier_set(res2, on_playback_track_loaded, NULL);
         xmmsc_result_unref(res2);
     }
@@ -858,14 +859,27 @@ static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
         xmmsc_result_unref(res);
 }
 
+static void get_channel_volumes(const void *key, xmmsc_result_value_type_t type, const void *value, void *user_data)
+{
+    GSList** volumes = (GSList**)user_data;
+    *volumes = g_slist_prepend(*volumes, value);
+}
+
 static void on_playback_volume_changed( xmmsc_result_t* res, void* user_data )
 {
-    guint left, right;
-    xmmsc_result_get_dict_entry_uint(res, "left", &left);
-    xmmsc_result_get_dict_entry_uint(res, "right", &right);
+    GSList* volumes = NULL, *l;
+    guint vol = 0;
+    xmmsc_result_dict_foreach(res, get_channel_volumes, &volumes);
+    for( l = volumes; l; l = l->next )
     {
-        g_debug("vol: %d, %d", left, right);
+        if( vol < GPOINTER_TO_UINT(l->data) )
+            vol = GPOINTER_TO_UINT(l->data);
     }
+    g_slist_free(volumes);
+    if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
+        xmmsc_result_unref(res);
+
+    gtk_scale_button_set_value( volume_btn, vol );
 }
 
 static void setup_xmms_callbacks()
@@ -913,7 +927,8 @@ static void setup_xmms_callbacks()
 static void setup_ui()
 {
     GtkBuilder *builder;
-    GtkWidget *hbox, *cb;
+    GtkUIManager* mgr;
+    GtkWidget *hbox, *cb, *switch_pl_mi;
     builder = gtk_builder_new();
     if( ! gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/lxmusic.ui", NULL) )
         exit(1);
@@ -925,6 +940,15 @@ static void setup_ui()
     notebook = (GtkWidget*)gtk_builder_get_object(builder, "notebook");
     status_bar = (GtkWidget*)gtk_builder_get_object(builder, "status_bar");
 
+    playlist_view = (GtkWidget*)gtk_builder_get_object(builder, "playlist_view");
+
+    mgr = (GtkUIManager*)gtk_builder_get_object(builder, "uimanager1");
+    switch_pl_mi = gtk_ui_manager_get_widget( mgr, "/menubar/playlist_mi/switch_to_pl" );
+    switch_pl_menu = gtk_menu_new();
+    gtk_menu_item_set_submenu(switch_pl_mi, switch_pl_menu);
+
+    show_pl_mi = (GtkWidget*)gtk_builder_get_object(builder, "show_pl");
+
     cb = (GtkWidget*)gtk_builder_get_object(builder, "repeat_mode");
     gtk_combo_box_set_active(cb, repeat_mode);
 
@@ -934,6 +958,7 @@ static void setup_ui()
     /* add volume button */
     hbox = (GtkWidget*)gtk_builder_get_object(builder, "top_hbox");
     volume_btn = gtk_volume_button_new();
+    gtk_scale_button_get_adjustment(volume_btn)->upper = 100;
     gtk_widget_show(volume_btn);
     gtk_box_pack_start(hbox, volume_btn, FALSE, TRUE, 0);
 
@@ -985,6 +1010,9 @@ int main (int argc, char *argv[])
     res = xmmsc_playlist_list( con );
     xmmsc_result_notifier_set(res, on_playlists_listed, NULL);
     xmmsc_result_unref(res);
+
+    /* init the playlist widget */
+    init_playlist(playlist_view);
 
     /* register callbacks */
     setup_xmms_callbacks();
