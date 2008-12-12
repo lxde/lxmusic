@@ -145,17 +145,24 @@ void on_playlist_row_activated(GtkTreeView* view,
                               gpointer user_data)
 {
     xmmsc_result_t* res;
-    guint pos = gtk_tree_path_get_indices(path)[0];
-    /* FIXME: need to swtich to another playlist sometimes. */
-    res = xmmsc_playlist_set_next( con, pos );
-    xmmsc_result_unref(res);
+    GtkTreeModelFilter* filter = (GtkTreeModelFilter*)gtk_tree_view_get_model(view);
+    /* convert from model filter path to path of underlying liststore */
+    path = gtk_tree_model_filter_convert_path_to_child_path(filter, path);
+    if( path )
+    {
+        guint pos = gtk_tree_path_get_indices(path)[0];
+        /* FIXME: need to swtich to another playlist sometimes. */
+        res = xmmsc_playlist_set_next( con, pos );
+        xmmsc_result_unref(res);
 
-    res = xmmsc_playback_tickle(con);
-    xmmsc_result_unref(res);
+        res = xmmsc_playback_tickle(con);
+        xmmsc_result_unref(res);
 
-    /* FIXME: just call play is not enough? */
-    if( playback_status != XMMS_PLAYBACK_STATUS_PLAY )
-        on_play_btn_clicked(play_btn, NULL);
+        /* FIXME: just call play is not enough? */
+        if( playback_status != XMMS_PLAYBACK_STATUS_PLAY )
+            on_play_btn_clicked(play_btn, NULL);
+        gtk_tree_path_free(path);
+    }
 }
 
 void on_filter_field_changed(GtkComboBox* cb, gpointer user_data)
@@ -722,6 +729,9 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
             break;
         }
     }
+
+    if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
+        xmmsc_result_unref(res);
 }
 
 static void on_playback_status_changed( xmmsc_result_t *res, void *user_data )
@@ -751,6 +761,9 @@ static void on_playback_status_changed( xmmsc_result_t *res, void *user_data )
                                       GTK_ICON_SIZE_BUTTON );
             break;
     }
+
+    if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
+        xmmsc_result_unref(res);
 }
 
 static void on_playback_playtime_changed( xmmsc_result_t* res, void* user_data )
@@ -820,6 +833,8 @@ static void on_playback_cur_track_changed( xmmsc_result_t* res, void* user_data 
         xmmsc_result_notifier_set(res2, on_playback_track_loaded, NULL);
         xmmsc_result_unref(res2);
     }
+    if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
+        xmmsc_result_unref(res);
 }
 
 static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
@@ -839,6 +854,8 @@ static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
     gtk_tree_selection_select_path( sel, path );
     gtk_tree_path_free( path );
 */
+    if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
+        xmmsc_result_unref(res);
 }
 
 static void on_playback_volume_changed( xmmsc_result_t* res, void* user_data )
