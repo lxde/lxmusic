@@ -55,10 +55,16 @@ static GtkWidget *progress_bar = NULL;
 static GtkWidget *status_bar = NULL;
 static GtkWidget *notebook = NULL;
 static GtkWidget *volume_btn = NULL;
+static GtkWidget *inner_vbox = NULL;
 static GtkWidget *playlist_view = NULL;
 
 static GtkWidget *switch_pl_menu = NULL;
 static GtkWidget *show_pl_mi = NULL;
+static GSList* switch_pl_menu_group = NULL;
+
+static GtkWidget *add_to_pl_menu = NULL;
+static GtkWidget *rm_from_pl_menu = NULL;
+
 
 static char* cur_playlist = NULL;
 
@@ -70,6 +76,11 @@ static guint cur_track_id = 0;
 static int repeat_mode = REPEAT_ALL;
 static int filter_field = FILTER_ALL;
 
+/* used to debug only */
+static void dict_foreach(const void *key, xmmsc_result_value_type_t type, const void *value, void *user_data)
+{
+    g_debug("key=%s, type=%d", key, type);
+}
 
 static GtkWidget* get_playlist_store()
 {
@@ -281,28 +292,7 @@ static void on_add_from_mlib( GtkMenuItem* item, gpointer user_data )
 
 void on_add_btn_clicked(GtkButton* btn, gpointer user_data)
 {
-    GtkWidget* pop = (GtkWidget*)g_object_get_data(btn, "popup");
-    GtkWidget* mi;
-
-    if( ! pop )
-    {
-        pop = gtk_menu_new();
-        mi = gtk_menu_item_new_with_mnemonic(_("Add _Files or Folders To Playlist"));
-        g_signal_connect(mi, "activate", G_CALLBACK(on_add_files), NULL);
-        gtk_menu_shell_append(pop, mi);
-
-        mi = gtk_menu_item_new_with_mnemonic(_("Add _URL To Playlist"));
-        g_signal_connect(mi, "activate", G_CALLBACK(on_add_url), NULL);
-        gtk_menu_shell_append(pop, mi);
-/*
-        mi = gtk_menu_item_new_with_mnemonic(_("Add Music from _MediaLib"));
-        g_signal_connect(mi, "activate", G_CALLBACK(on_add_from_mlib), NULL);
-        gtk_menu_shell_append(pop, mi);
-*/
-        gtk_widget_show_all(pop);
-        g_object_set_data_full(btn, "popup", pop, gtk_widget_destroy);
-    }
-    gtk_menu_popup(pop, NULL, NULL, NULL, NULL, 1, GDK_CURRENT_TIME );
+    gtk_menu_popup(add_to_pl_menu, NULL, NULL, NULL, NULL, 1, GDK_CURRENT_TIME );
 }
 
 static int intcmp( gconstpointer a, gconstpointer b )
@@ -355,7 +345,7 @@ void on_remove_selected(GtkAction* act, gpointer user_data)
 
 void on_remove_btn_clicked(GtkButton* btn, gpointer user_data)
 {
-
+    gtk_menu_popup(rm_from_pl_menu, NULL, NULL, NULL, NULL, 1, GDK_CURRENT_TIME );
 }
 
 void on_repeat_mode_changed(GtkComboBox* cb, gpointer user_data)
@@ -608,43 +598,84 @@ static void on_switch_to_pl(GtkWidget* mi, char* pl_name)
     xmmsc_result_unref(res);
 }
 
-static void add_playlist(const char* pl_name)
+static void add_playlist(const char* pl_name, gboolean need_sort)
 {
-    GtkWidget* mi = gtk_menu_item_new_with_label(pl_name);
+    GtkWidget* mi = gtk_radio_menu_item_new_with_label(switch_pl_menu_group, pl_name);
     char* name = g_strdup(pl_name);
+    switch_pl_menu_group = gtk_radio_menu_item_get_group(mi);
     g_object_set_data_full( mi, "pl_name", name, g_free);
-    g_signal_connect( mi, "activate", G_CALLBACK(on_switch_to_pl), name);
+    g_signal_connect( mi, "toggle", G_CALLBACK(on_switch_to_pl), name);
     gtk_widget_show(mi);
-    gtk_menu_shell_append(switch_pl_menu, mi);
+
+    if( need_sort )
+    {
+        GSList* l;
+        int i = 0;
+        for(l=switch_pl_menu_group; l; l = l->next, ++i)
+        {
+            GtkRadioMenuItem* mi2 = (GtkRadioMenuItem*)l->data;
+            name = (char*)g_object_get_data(mi2, "pl_name");
+            if( g_utf8_collate(pl_name, name) < 0 )
+                break;
+        }
+        gtk_menu_shell_insert(switch_pl_menu, mi, i);
+    }
+    else
+        gtk_menu_shell_append(switch_pl_menu, mi);
+}
+
+static void remove_playlist(const char* pl_name)
+{
+    GSList* l;
+    for( l = switch_pl_menu_group; l; l = l->next )
+    {
+        GtkRadioMenuItem* mi = (GtkRadioMenuItem*)l->data;
+        char* name = (char*)g_object_get_data(mi, "pl_name");
+        if( name && strcmp(name, pl_name)==0 )
+            break;
+    }
+    if( l )
+    {
+        /* switch_pl_menu_group might be out of date here. */
+        if( l == switch_pl_menu_group )
+            switch_pl_menu_group = l->next;
+        gtk_widget_destroy(GTK_WIDGET(l->data));
+    }
+    /* FIXME: should we load another playlist here if the removed one is
+     * the current one in use? */
 }
 
 static void on_playlist_created( xmmsc_result_t* res, void* user_data )
 {
     char* name = (char*)user_data;
-    if(  name && name[0] && name[0] != '_' )
-        add_playlist(name);
+    if( name && name[0] && name[0] != '_' )
+        add_playlist(name, TRUE);
     xmmsc_result_unref(res);
-    g_free(name);
 }
 
 static void on_playlists_listed( xmmsc_result_t* res, void* user_data )
 {
+    GSList* lists = NULL, *l;
     while( xmmsc_result_list_valid(res) )
     {
         char* str = NULL;
         guint r = xmmsc_result_get_string(res, &str);
         if( str && str[0] && str[0] != '_' )
-            add_playlist(str);
+            lists = g_slist_prepend(lists, str);
         xmmsc_result_list_next(res);
     }
+    lists = g_slist_sort(lists, (GCompareFunc)g_utf8_collate);
+    for(l = lists; l; l = l->next)
+        add_playlist((char*)l->data, FALSE);
+    g_slist_free(lists);
     xmmsc_result_unref(res);
 
     /* If there is no playlist, create one */
-    if( gtk_notebook_get_n_pages(notebook) == 0 )
+    if( lists == NULL )
     {
         char* name = g_strdup(_("Default"));
         res = xmmsc_playlist_create(con, name);
-        xmmsc_result_notifier_set(res, on_playlist_created, name);
+        xmmsc_result_notifier_set_full(res, on_playlist_created, name, g_free);
         xmmsc_result_unref(res);
     }
 }
@@ -654,19 +685,22 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
     guint id = 0;
     int type = 0, pos = -1;
     GtkListStore* list;
-    char* name;
+    char* name = NULL;
 
     if( G_UNLIKELY( xmmsc_result_iserror( res ) ) )
         goto _out;
 
     if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_int( res, "type", &type ) ) )
         goto _out;
+g_debug("type=%d", type);
 
     if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_string( res, "name", &name ) ) )
         goto _out;
 
-    if( strcmp(name, cur_playlist) )
+    if( ! name || !cur_playlist || strcmp(name, cur_playlist) )
         goto _out;
+
+g_debug("type=%d, name=%s", type, name);
 
     list = get_playlist_store();
     if( ! list )
@@ -882,6 +916,36 @@ static void on_playback_volume_changed( xmmsc_result_t* res, void* user_data )
     gtk_scale_button_set_value( volume_btn, vol );
 }
 
+static void on_collection_changed( xmmsc_result_t* res, void* user_data )
+{
+    char *name, *ns;
+    gint32 type;
+    /* xmmsc_result_dict_foreach(res, dict_foreach, NULL); */
+    xmmsc_result_get_dict_entry_string(res, "name", &name);
+    xmmsc_result_get_dict_entry_string(res, "namespace", &ns);
+    xmmsc_result_get_dict_entry_int(res, "type", &type);
+    /* g_debug("name=%s, ns=%s, type=%d", name, ns, type); */
+
+    /* currently we only care about playlists */
+    if( ns && strcmp(ns, "Playlists") == 0 )
+    {
+        switch(type)
+        {
+        case XMMS_COLLECTION_CHANGED_ADD:
+            add_playlist( name, TRUE );
+            break;
+        case XMMS_COLLECTION_CHANGED_UPDATE:
+            break;
+        case XMMS_COLLECTION_CHANGED_RENAME:
+            // rename_playlist( name, newname );
+            break;
+        case XMMS_COLLECTION_CHANGED_REMOVE:
+            remove_playlist( name );
+            break;
+        }
+    }
+}
+
 static void setup_xmms_callbacks()
 {
     xmmsc_result_t* res;
@@ -922,6 +986,10 @@ static void setup_xmms_callbacks()
     xmmsc_result_unref(res);
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_volume_changed,
                        on_playback_volume_changed, NULL );
+
+    /* collections */
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_collection_changed,
+                       on_collection_changed, NULL );
 }
 
 static void setup_ui()
@@ -940,12 +1008,16 @@ static void setup_ui()
     notebook = (GtkWidget*)gtk_builder_get_object(builder, "notebook");
     status_bar = (GtkWidget*)gtk_builder_get_object(builder, "status_bar");
 
+    inner_vbox = (GtkWidget*)gtk_builder_get_object(builder, "inner_vbox");
     playlist_view = (GtkWidget*)gtk_builder_get_object(builder, "playlist_view");
 
     mgr = (GtkUIManager*)gtk_builder_get_object(builder, "uimanager1");
     switch_pl_mi = gtk_ui_manager_get_widget( mgr, "/menubar/playlist_mi/switch_to_pl" );
     switch_pl_menu = gtk_menu_new();
     gtk_menu_item_set_submenu(switch_pl_mi, switch_pl_menu);
+
+    add_to_pl_menu = gtk_menu_item_get_submenu(gtk_ui_manager_get_widget( mgr, "/menubar/playlist_mi/add_to_pl" ));
+    rm_from_pl_menu = gtk_menu_item_get_submenu(gtk_ui_manager_get_widget( mgr, "/menubar/playlist_mi/remove_from_pl" ));
 
     show_pl_mi = (GtkWidget*)gtk_builder_get_object(builder, "show_pl");
 
@@ -969,6 +1041,71 @@ static void setup_ui()
     gtk_widget_show_all(notebook);
     gtk_widget_show (main_win);
 }
+
+void on_new_playlist(GtkAction* act, gpointer user_data)
+{
+    GtkWidget *dlg = gtk_dialog_new_with_buttons(
+            _("Create new playlist"), (GtkWindow*)main_win, GTK_DIALOG_MODAL,
+            GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+            GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
+    GtkWidget *entry = gtk_entry_new();
+    gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->vbox, entry, FALSE, FALSE, 4 );
+    gtk_dialog_set_default_response( (GtkDialog*)dlg, GTK_RESPONSE_OK );
+    gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
+    gtk_widget_show_all( dlg );
+    if( gtk_dialog_run( (GtkDialog*)dlg ) == GTK_RESPONSE_OK )
+    {
+        xmmsc_result_t *res;
+        const char* name = gtk_entry_get_text( (GtkEntry*)entry );
+        res = xmmsc_playlist_create( con, name );
+        xmmsc_result_unref( res );
+    }
+    gtk_widget_destroy( dlg );
+}
+
+void on_del_playlist(GtkAction* act, gpointer user_data)
+{
+    /* FIXME: we should at least have one playlist */
+    if( cur_playlist )
+    {
+        xmmsc_result_t* res;
+        res = xmmsc_playlist_remove(con, cur_playlist);
+        xmmsc_result_unref(res);
+        /* FIXME: load another one */
+        
+    }
+}
+
+void on_show_playlist(GtkAction* act, gpointer user_data)
+{
+    if(GTK_WIDGET_VISIBLE(inner_vbox))
+    {
+        gtk_widget_hide(inner_vbox);
+        /* Dirty trick used to shrink the window to its minimal size */
+        gtk_window_resize(main_win, 1, 1);
+        /* FIXME: need to save current size to restore it later. */
+    }
+    else
+    {
+        gtk_widget_show(inner_vbox);
+    }
+}
+
+void on_playlist_cut(GtkAction* act, gpointer user_data)
+{
+    g_debug("Not yet implemented");
+}
+
+void on_playlist_copy(GtkAction* act, gpointer user_data)
+{
+    g_debug("Not yet implemented");
+}
+
+void on_playlist_paste(GtkAction* act, gpointer user_data)
+{
+
+}
+
 
 int main (int argc, char *argv[])
 {
