@@ -37,7 +37,7 @@ enum {
 };
 
 typedef struct _UpdateTrack{
-    const char* playlist;
+    guint32 id;
     GtkListStore* list;
     GtkTreeIter it;
 }UpdateTrack;
@@ -65,8 +65,8 @@ static GSList* switch_pl_menu_group = NULL;
 static GtkWidget *add_to_pl_menu = NULL;
 static GtkWidget *rm_from_pl_menu = NULL;
 
-
 static char* cur_playlist = NULL;
+static GSList* pending_update_tracks = NULL;
 
 static guint playback_status = 0;
 static guint play_time = 0;
@@ -96,8 +96,26 @@ static void filter_criteria_free( FilterCriteria* f )
     g_slice_free(FilterCriteria, f);
 }
 
+static void free_update_track( UpdateTrack* ut )
+{
+    g_slice_free(UpdateTrack, ut);
+}
+
+static void cancel_pending_update_tracks()
+{
+    /* g_debug("try to cancel"); */
+    if( pending_update_tracks )
+    {
+        /* g_debug("cancel %d reqs", g_slist_length(pending_update_tracks)); */
+        g_slist_foreach(pending_update_tracks, free_update_track, NULL);
+        g_slist_free(pending_update_tracks);
+        pending_update_tracks = NULL;
+    }
+}
+
 void on_main_win_destroy(GtkWidget* win)
 {
+    cancel_pending_update_tracks();
     gtk_main_quit();
 }
 
@@ -434,6 +452,22 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
     guint time_len = 0;
     char time_buf[32];
 
+    /* OK, now it's time to send the next request.
+     * This is inefficient, but it's used to overcome
+     * some design flaws of xmms2d.
+     * Some optimization can be done here by send about
+     * 10 requets or so at the same time. */
+    if( pending_update_tracks )
+    {
+        xmmsc_result_t* res2;
+        UpdateTrack* ut = (UpdateTrack*)pending_update_tracks->data;
+        pending_update_tracks = g_slist_delete_link(pending_update_tracks, pending_update_tracks);
+
+        res2 = xmmsc_medialib_get_info( con, ut->id );
+        xmmsc_result_notifier_set_full( res2, update_track, ut, free_update_track );
+        xmmsc_result_unref( res2 );
+    }
+
     if( xmmsc_result_iserror( res ) ) {
         xmmsc_result_unref( res );
         return;
@@ -461,16 +495,27 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
                         COL_TITLE, title,
                         COL_LEN, time_buf, -1 );
 
-    g_free( artist );
-    g_free( album );
-    g_free( title );
-
-    /* xmmsc_result_unref( res ); */
+    xmmsc_result_unref( res );
 }
 
-static void free_update_track( UpdateTrack* ut )
+static gboolean on_idle_update_track_info( gpointer user_data )
 {
-    g_slice_free(UpdateTrack, ut);
+    int i;
+
+    if( !pending_update_tracks )
+        return FALSE;
+
+    for( i = 0; pending_update_tracks && i < 10; ++i )
+    {
+        xmmsc_result_t* res;
+        UpdateTrack* ut = (UpdateTrack*)pending_update_tracks->data;
+        pending_update_tracks = g_slist_delete_link(pending_update_tracks, pending_update_tracks);
+
+        res = xmmsc_medialib_get_info( con, ut->id );
+        xmmsc_result_notifier_set_full( res, update_track, ut, free_update_track );
+        xmmsc_result_unref( res );
+    }
+    return (pending_update_tracks != NULL);
 }
 
 static void on_playlist_content_received( xmmsc_result_t* res, GtkWidget* list_view )
@@ -478,7 +523,7 @@ static void on_playlist_content_received( xmmsc_result_t* res, GtkWidget* list_v
     GtkListStore* list;
     GtkTreeModelFilter* mf;
     GtkTreeIter it;
-    const char* pl_name = (char*)g_object_get_data(list_view, "pl_name");
+    const char* pl_name = cur_playlist;
 
     FilterCriteria* criteria = g_slice_new0(FilterCriteria);
 
@@ -500,19 +545,49 @@ static void on_playlist_content_received( xmmsc_result_t* res, GtkWidget* list_v
         gtk_list_store_set( list, &it,
                             COL_ID, id, -1 );
 
-        ut->playlist = pl_name;
+        ut->id = id;
         ut->list = list;
         ut->it = it;
 
+        /* add this request to pending list */
+        pending_update_tracks = g_slist_prepend(pending_update_tracks, ut);
+/*
         res2 = xmmsc_medialib_get_info( con, id );
         xmmsc_result_notifier_set_full( res2, update_track, ut, free_update_track );
         xmmsc_result_unref( res2 );
+*/
+        /* NOTE: lets do the requests in idle handler */
     }
+
+    if( pending_update_tracks )
+    {
+        pending_update_tracks = g_slist_reverse(pending_update_tracks);
+
+        UpdateTrack* ut = (UpdateTrack*)pending_update_tracks->data;
+        pending_update_tracks = g_slist_delete_link(pending_update_tracks, pending_update_tracks);
+        /* only send the first request, and subsequent requests will
+         * be sent after the previous one is returned. */
+        res = xmmsc_medialib_get_info( con, ut->id );
+        xmmsc_result_notifier_set_full( res, update_track, ut, free_update_track );
+        xmmsc_result_unref( res );
+    }
+
     if( GTK_WIDGET_REALIZED( list_view ) )
         gdk_window_set_cursor( list_view->window, NULL );
 
     gtk_tree_view_set_model( list_view, mf );
     g_object_unref(mf);
+}
+
+static void on_playlist_get_active(xmmsc_result_t* res, void* user_data)
+{
+    char* name;
+    if( xmmsc_result_get_string(res, &name) )
+    {
+        g_free(cur_playlist);
+        cur_playlist = g_strdup(name);
+    }
+    xmmsc_result_unref(res);
 }
 
 static void update_play_list( GtkWidget* list_view )
@@ -526,8 +601,7 @@ static void update_play_list( GtkWidget* list_view )
         gdk_window_set_cursor( list_view->window, cur );
         gdk_cursor_unref( cur );
     }
-    pl_name = (char*)g_object_get_data(list_view, "pl_name");
-    res = xmmsc_playlist_list_entries( con, pl_name );
+    res = xmmsc_playlist_list_entries( con, cur_playlist );
     xmmsc_result_notifier_set( res, on_playlist_content_received, list_view );
     xmmsc_result_unref(res);
 }
@@ -578,33 +652,50 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
     tree_sel = gtk_tree_view_get_selection( (GtkTreeView*)list_view );
     gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_MULTIPLE );
 
-    update_play_list(list_view);
     return list_view;
 }
 
 static void on_playlist_loaded(xmmsc_result_t* res, gpointer user_data)
 {
-    cur_playlist = (char*)user_data;
-    xmmsc_result_unref(res);
+    if( !user_data )
+        return;
+
+    /* FIXME: is this possible? */
+    if( cur_playlist && 0 == strcmp((char*)user_data, cur_playlist) )
+        return;
+
+    g_free(cur_playlist);
+    cur_playlist = g_strdup((char*)user_data);
+
+    /* if there are pending requests, cancel them */
+    cancel_pending_update_tracks();
+
+    if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
+        xmmsc_result_unref(res);
 
     update_play_list( playlist_view );
 }
 
-static void on_switch_to_pl(GtkWidget* mi, char* pl_name)
+static void on_switch_to_playlist(GtkWidget* mi, char* pl_name)
 {
     xmmsc_result_t* res;
-    res = xmmsc_playlist_load(con, pl_name);
-    xmmsc_result_notifier_set(res, on_playlist_loaded, pl_name);
-    xmmsc_result_unref(res);
+    if( gtk_check_menu_item_get_active(mi) )
+    {
+        /* if there are pending requests to current playlist, cancel them */
+        cancel_pending_update_tracks();
+
+        res = xmmsc_playlist_load(con, pl_name);
+        xmmsc_result_notifier_set(res, on_playlist_loaded, pl_name);
+        xmmsc_result_unref(res);
+    }
 }
 
-static void add_playlist(const char* pl_name, gboolean need_sort)
+static void add_playlist_to_menu(const char* pl_name, gboolean need_sort)
 {
     GtkWidget* mi = gtk_radio_menu_item_new_with_label(switch_pl_menu_group, pl_name);
     char* name = g_strdup(pl_name);
     switch_pl_menu_group = gtk_radio_menu_item_get_group(mi);
-    g_object_set_data_full( mi, "pl_name", name, g_free);
-    g_signal_connect( mi, "toggle", G_CALLBACK(on_switch_to_pl), name);
+    g_signal_connect( mi, "toggled", G_CALLBACK(on_switch_to_playlist), name);
     gtk_widget_show(mi);
 
     if( need_sort )
@@ -622,9 +713,13 @@ static void add_playlist(const char* pl_name, gboolean need_sort)
     }
     else
         gtk_menu_shell_append(switch_pl_menu, mi);
+
+    /* toggle the menu item. This can trigger the load of the list into tree view */
+    if( cur_playlist && 0 == strcmp(pl_name, cur_playlist) )
+        gtk_check_menu_item_set_active(mi, TRUE);
 }
 
-static void remove_playlist(const char* pl_name)
+static void remove_playlist_from_menu(const char* pl_name)
 {
     GSList* l;
     for( l = switch_pl_menu_group; l; l = l->next )
@@ -649,7 +744,7 @@ static void on_playlist_created( xmmsc_result_t* res, void* user_data )
 {
     char* name = (char*)user_data;
     if( name && name[0] && name[0] != '_' )
-        add_playlist(name, TRUE);
+        add_playlist_to_menu(name, TRUE);
     xmmsc_result_unref(res);
 }
 
@@ -666,7 +761,7 @@ static void on_playlists_listed( xmmsc_result_t* res, void* user_data )
     }
     lists = g_slist_sort(lists, (GCompareFunc)g_utf8_collate);
     for(l = lists; l; l = l->next)
-        add_playlist((char*)l->data, FALSE);
+        add_playlist_to_menu((char*)l->data, FALSE);
     g_slist_free(lists);
     xmmsc_result_unref(res);
 
@@ -678,6 +773,9 @@ static void on_playlists_listed( xmmsc_result_t* res, void* user_data )
         xmmsc_result_notifier_set_full(res, on_playlist_created, name, g_free);
         xmmsc_result_unref(res);
     }
+
+    if( cur_playlist )
+        update_play_list( playlist_view );
 }
 
 static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
@@ -692,7 +790,6 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
 
     if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_int( res, "type", &type ) ) )
         goto _out;
-g_debug("type=%d", type);
 
     if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_string( res, "name", &name ) ) )
         goto _out;
@@ -700,7 +797,7 @@ g_debug("type=%d", type);
     if( ! name || !cur_playlist || strcmp(name, cur_playlist) )
         goto _out;
 
-g_debug("type=%d, name=%s", type, name);
+    /* g_debug("type=%d, name=%s", type, name); */
 
     list = get_playlist_store();
     if( ! list )
@@ -721,7 +818,6 @@ g_debug("type=%d, name=%s", type, name);
                 if( res2 = xmmsc_medialib_get_info( con, id ) )
                 {
                     UpdateTrack* ut = g_slice_new(UpdateTrack);
-                    ut->playlist = (char*)g_object_get_data(playlist_view, "pl_name");
                     ut->list = list;
                     ut->it = it;
                     xmmsc_result_notifier_set_full( res2, update_track, ut, free_update_track );
@@ -786,7 +882,7 @@ static void on_playback_status_changed( xmmsc_result_t *res, void *user_data )
                                       GTK_ICON_SIZE_BUTTON );
             break;
         case XMMS_PLAYBACK_STATUS_STOP:
-            gtk_label_set_text( time_label, "--:--:--" );
+            gtk_label_set_text( time_label, "--:--" );
             gtk_range_set_value( progress_bar, 0.0 );
         case XMMS_PLAYBACK_STATUS_PAUSE:
             gtk_widget_set_tooltip_text( play_btn, _("Play") );
@@ -855,6 +951,8 @@ static void on_playback_track_loaded( xmmsc_result_t* res, void* user_data )
     g_free(artist);
     g_free(title);
     gtk_window_set_title( main_win, tmp );
+    /* gtk_statusbar_push(status_bar, 0, tmp); */
+
     g_free(tmp);
 }
 
@@ -880,7 +978,7 @@ static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
     guint playlist_pos = 0;
 
     xmmsc_result_get_uint( res, &playlist_pos );
-    g_debug("pos: %s", playlist_pos);
+    g_debug("pos: %d", playlist_pos);
 /*
     FIXME: Currently we have no way to mark current played song in the playlist.
 
@@ -932,7 +1030,7 @@ static void on_collection_changed( xmmsc_result_t* res, void* user_data )
         switch(type)
         {
         case XMMS_COLLECTION_CHANGED_ADD:
-            add_playlist( name, TRUE );
+            add_playlist_to_menu( name, TRUE );
             break;
         case XMMS_COLLECTION_CHANGED_UPDATE:
             break;
@@ -940,7 +1038,7 @@ static void on_collection_changed( xmmsc_result_t* res, void* user_data )
             // rename_playlist( name, newname );
             break;
         case XMMS_COLLECTION_CHANGED_REMOVE:
-            remove_playlist( name );
+            remove_playlist_from_menu( name );
             break;
         }
     }
@@ -965,6 +1063,10 @@ static void setup_xmms_callbacks()
     /* playlist changed */
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_changed,
                        on_playlist_content_changed, NULL );
+
+    /* playlist changed */
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_loaded,
+                       on_playlist_loaded, NULL );
 
     /* current track info */
     res = xmmsc_playback_current_id( con );
@@ -1033,6 +1135,9 @@ static void setup_ui()
     gtk_scale_button_get_adjustment(volume_btn)->upper = 100;
     gtk_widget_show(volume_btn);
     gtk_box_pack_start(hbox, volume_btn, FALSE, TRUE, 0);
+
+    /* init the playlist widget */
+    init_playlist(playlist_view);
 
     /* signal handlers */
     gtk_builder_connect_signals(builder, NULL);
@@ -1143,13 +1248,15 @@ int main (int argc, char *argv[])
         gtk_main_iteration();
     gdk_display_sync(gtk_widget_get_display(main_win));
 
-    /* load all existing playlists */
+    /* display currently active playlist */
+    res = xmmsc_playlist_current_active(con);
+    xmmsc_result_notifier_set(res, on_playlist_get_active, NULL);
+    xmmsc_result_unref(res);
+
+    /* load all existing playlists and add them to the menu */
     res = xmmsc_playlist_list( con );
     xmmsc_result_notifier_set(res, on_playlists_listed, NULL);
     xmmsc_result_unref(res);
-
-    /* init the playlist widget */
-    init_playlist(playlist_view);
 
     /* register callbacks */
     setup_xmms_callbacks();

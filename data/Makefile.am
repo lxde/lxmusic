@@ -1,0 +1,25 @@
+desktop_DATA=lxmusic.desktop
+desktopdir=$(datadir)/applications
+
+icon_DATA=lxmusic.png
+icondir=$(datadir)/icons/hicolor/128x128/apps
+
+uidir=$(datadir)/lxmusic
+# GtkBuilder UI definition files
+ui_in_files= \
+	lxmusic.glade
+ui_DATA = $(ui_in_files:.glade=.ui)
+
+EXTRA_DIST = \
+	$(desktop_DATA) \
+	$(icon_DATA) \
+	$(ui_DATA)
+
+CLEANFILES = \
+	$(ui_DATA) 
+
+# Generate GtkBuilder UI files from Glade files
+%.ui: %.glade
+	$(top_srcdir)/gtk-builder-convert $< $@
+#	$(top_builddir)/src/xml-purge $@
+
