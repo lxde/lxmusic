@@ -66,6 +66,8 @@ static GtkWidget *add_to_pl_menu = NULL;
 static GtkWidget *rm_from_pl_menu = NULL;
 
 static char* cur_playlist = NULL;
+static GSList* all_playlists = NULL;
+
 static GSList* pending_update_tracks = NULL;
 
 static guint playback_status = 0;
@@ -655,27 +657,6 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
     return list_view;
 }
 
-static void on_playlist_loaded(xmmsc_result_t* res, gpointer user_data)
-{
-    if( !user_data )
-        return;
-
-    /* FIXME: is this possible? */
-    if( cur_playlist && 0 == strcmp((char*)user_data, cur_playlist) )
-        return;
-
-    g_free(cur_playlist);
-    cur_playlist = g_strdup((char*)user_data);
-
-    /* if there are pending requests, cancel them */
-    cancel_pending_update_tracks();
-
-    if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
-        xmmsc_result_unref(res);
-
-    update_play_list( playlist_view );
-}
-
 static void on_switch_to_playlist(GtkWidget* mi, char* pl_name)
 {
     xmmsc_result_t* res;
@@ -685,9 +666,47 @@ static void on_switch_to_playlist(GtkWidget* mi, char* pl_name)
         cancel_pending_update_tracks();
 
         res = xmmsc_playlist_load(con, pl_name);
-        xmmsc_result_notifier_set(res, on_playlist_loaded, pl_name);
         xmmsc_result_unref(res);
     }
+}
+
+static void on_playlist_loaded(xmmsc_result_t* res, gpointer user_data)
+{
+    char* name;
+    if( !xmmsc_result_iserror(res) && xmmsc_result_get_string(res, &name) )
+    {
+        /* FIXME: is this possible? */
+        if( cur_playlist && 0 == strcmp((char*)name, cur_playlist) )
+            return;
+
+        g_free(cur_playlist);
+        cur_playlist = g_strdup(name);
+
+        /* update the menu */
+        if( cur_playlist )
+        {
+            GSList* l;
+            for( l = switch_pl_menu_group; l; l=l->next )
+            {
+                GtkRadioMenuItem* mi = (GtkRadioMenuItem*)l->data;
+                char* pl_name = (char*)g_object_get_data(mi, "pl_name");
+                if( strcmp(cur_playlist, pl_name) == 0 )
+                {
+                    g_signal_handlers_block_by_func(mi, on_switch_to_playlist, pl_name);
+                    gtk_check_menu_item_set_active(mi, TRUE);
+                    g_signal_handlers_unblock_by_func(mi, on_switch_to_playlist, pl_name);
+                    break;
+                }
+            }
+        }
+
+        /* if there are pending requests, cancel them */
+        cancel_pending_update_tracks();
+
+        update_play_list( playlist_view );
+    }
+    if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
+        xmmsc_result_unref(res);
 }
 
 static void add_playlist_to_menu(const char* pl_name, gboolean need_sort)
@@ -695,6 +714,7 @@ static void add_playlist_to_menu(const char* pl_name, gboolean need_sort)
     GtkWidget* mi = gtk_radio_menu_item_new_with_label(switch_pl_menu_group, pl_name);
     char* name = g_strdup(pl_name);
     switch_pl_menu_group = gtk_radio_menu_item_get_group(mi);
+    g_object_set_data_full(mi, "pl_name", name, g_free);
     g_signal_connect( mi, "toggled", G_CALLBACK(on_switch_to_playlist), name);
     gtk_widget_show(mi);
 
@@ -702,17 +722,19 @@ static void add_playlist_to_menu(const char* pl_name, gboolean need_sort)
     {
         GSList* l;
         int i = 0;
-        for(l=switch_pl_menu_group; l; l = l->next, ++i)
+        for(l=all_playlists; l; l = l->next, ++i)
         {
-            GtkRadioMenuItem* mi2 = (GtkRadioMenuItem*)l->data;
-            name = (char*)g_object_get_data(mi2, "pl_name");
-            if( g_utf8_collate(pl_name, name) < 0 )
+            if( g_utf8_collate(pl_name, (char*)l->data) < 0 )
                 break;
         }
         gtk_menu_shell_insert(switch_pl_menu, mi, i);
+        all_playlists = g_slist_insert(all_playlists, name, i);
     }
     else
+    {
         gtk_menu_shell_append(switch_pl_menu, mi);
+        all_playlists = g_slist_append(all_playlists, name );
+    }
 
     /* toggle the menu item. This can trigger the load of the list into tree view */
     if( cur_playlist && 0 == strcmp(pl_name, cur_playlist) )
@@ -722,6 +744,9 @@ static void add_playlist_to_menu(const char* pl_name, gboolean need_sort)
 static void remove_playlist_from_menu(const char* pl_name)
 {
     GSList* l;
+    l = g_slist_find_custom(all_playlists, pl_name, (GCompareFunc)strcmp);
+    all_playlists = g_slist_delete_link(all_playlists, l);
+
     for( l = switch_pl_menu_group; l; l = l->next )
     {
         GtkRadioMenuItem* mi = (GtkRadioMenuItem*)l->data;
@@ -1064,7 +1089,7 @@ static void setup_xmms_callbacks()
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_changed,
                        on_playlist_content_changed, NULL );
 
-    /* playlist changed */
+    /* playlist loaded */
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_loaded,
                        on_playlist_loaded, NULL );
 
@@ -1170,14 +1195,38 @@ void on_new_playlist(GtkAction* act, gpointer user_data)
 
 void on_del_playlist(GtkAction* act, gpointer user_data)
 {
-    /* FIXME: we should at least have one playlist */
-    if( cur_playlist )
+    GSList *prev=NULL, *l;
+    char* switch_to = NULL;
+
+    /* NOTE: we should at least have one playlist */
+    if( !switch_pl_menu_group || !switch_pl_menu_group )
+        return;
+    if( ! cur_playlist )
+        return;
+
+    /* switching to another playlist before removing the current one. */
+    for( l = all_playlists; l; l = l->next )
+    {
+        char* name = (char*)l->data;
+        if( 0 == strcmp( name, cur_playlist ) )
+        {
+            if( l->next )
+                switch_to = (char*)l->next->data;
+            else if(prev)
+                switch_to = (char*)prev->data;
+            break;
+        }
+        prev= l;
+    }
+    if( switch_to )
     {
         xmmsc_result_t* res;
+        res = xmmsc_playlist_load(con, switch_to);
+        xmmsc_result_unref(res);
+
+        g_debug("remove: %s", cur_playlist);
         res = xmmsc_playlist_remove(con, cur_playlist);
         xmmsc_result_unref(res);
-        /* FIXME: load another one */
-        
     }
 }
 
