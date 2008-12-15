@@ -172,14 +172,27 @@ void on_main_win_destroy(GtkWidget* win)
     gtk_main_quit();
 }
 
+static void open_url(GtkAboutDialog* dlg, const char* url, gpointer user_data)
+{
+    const char* argv[] = {"xdg-open", NULL, NULL};
+    argv[1] = url;
+    g_spawn_async("/", argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
+}
+
 void on_about(GtkWidget* mi, gpointer data)
 {
     const char* authors[] = { "洪任諭 (Hong Jen Yee) <pcman.tw@gmail.com>", NULL };
-    GtkWidget* about = gtk_about_dialog_new();
+    const char* artists[] = { N_("Official icon of xmms2 by Arnaud DIDRY"), NULL };
+    GtkWidget* about;
+
+    gtk_about_dialog_set_url_hook(open_url, NULL, NULL);
+
+    about = gtk_about_dialog_new();
     gtk_about_dialog_set_name( (GtkAboutDialog*)about, "LXMusic" );
     gtk_about_dialog_set_logo_icon_name(about, "lxmusic");
     gtk_about_dialog_set_version( (GtkAboutDialog*)about, VERSION );
     gtk_about_dialog_set_authors( (GtkAboutDialog*)about, authors );
+    gtk_about_dialog_set_artists( (GtkAboutDialog*)about, artists );
     gtk_about_dialog_set_comments( (GtkAboutDialog*)about, _("Music Player for LXDE\nSimple GUI XMMS2 client") );
     gtk_about_dialog_set_license( (GtkAboutDialog*)about, "GNU General Public License" );
     gtk_about_dialog_set_website( (GtkAboutDialog*)about, "http://lxde.org/" );
