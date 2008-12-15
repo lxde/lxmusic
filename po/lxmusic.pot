@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-15 15:33+0800\n"
+"POT-Creation-Date: 2008-12-15 15:59+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,57 +16,61 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:183
+#: ../src/lxmusic.c:185
+msgid "Official icon of xmms2 by Arnaud DIDRY"
+msgstr ""
+
+#: ../src/lxmusic.c:196
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
 
-#: ../src/lxmusic.c:246 ../data/lxmusic.ui.h:14
+#: ../src/lxmusic.c:259 ../data/lxmusic.ui.h:14
 msgid "LXMusic"
 msgstr ""
 
-#: ../src/lxmusic.c:505
+#: ../src/lxmusic.c:518
 msgid "Audio Files"
 msgstr ""
 
-#: ../src/lxmusic.c:510
+#: ../src/lxmusic.c:523
 msgid "All Files"
 msgstr ""
 
-#: ../src/lxmusic.c:537
+#: ../src/lxmusic.c:550
 msgid "Input a URL"
 msgstr ""
 
-#: ../src/lxmusic.c:886 ../data/lxmusic.ui.h:7
+#: ../src/lxmusic.c:907 ../data/lxmusic.ui.h:7
 msgid "Artist"
 msgstr ""
 
-#: ../src/lxmusic.c:895 ../data/lxmusic.ui.h:5
+#: ../src/lxmusic.c:916 ../data/lxmusic.ui.h:5
 msgid "Album"
 msgstr ""
 
-#: ../src/lxmusic.c:904
+#: ../src/lxmusic.c:925
 msgid "Title"
 msgstr ""
 
-#: ../src/lxmusic.c:911
+#: ../src/lxmusic.c:932
 msgid "Length"
 msgstr ""
 
-#: ../src/lxmusic.c:1065
+#: ../src/lxmusic.c:1086
 msgid "Default"
 msgstr ""
 
-#: ../src/lxmusic.c:1173
+#: ../src/lxmusic.c:1194
 msgid "Pause"
 msgstr ""
 
-#: ../src/lxmusic.c:1182
+#: ../src/lxmusic.c:1203
 msgid "Play"
 msgstr ""
 
-#: ../src/lxmusic.c:1569
+#: ../src/lxmusic.c:1590
 msgid "Create new playlist"
 msgstr ""
 

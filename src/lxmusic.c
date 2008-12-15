@@ -39,7 +39,6 @@ enum {
 
 typedef struct _UpdateTrack{
     guint32 id;
-    GtkListStore* list;
     GtkTreeIter it;
 }UpdateTrack;
 
@@ -77,7 +76,8 @@ static GtkWidget *rm_from_pl_menu = NULL;
 static char* cur_playlist = NULL;
 static GSList* all_playlists = NULL;
 
-static GSList* pending_update_tracks = NULL;
+static GQueue* pending_update_tracks = NULL;
+static GtkListStore* list_store = NULL;
 
 static guint playback_status = 0;
 static guint play_time = 0;
@@ -134,14 +134,15 @@ static void save_config()
     }
 }
 
-
-static GtkWidget* get_playlist_store()
+/*
+static GtkListStore* get_playlist_store()
 {
     GtkTreeModel* filter = gtk_tree_view_get_model(playlist_view);
     if( filter )
         return gtk_tree_model_filter_get_model((GtkTreeModelFilter*)filter);
     return NULL;
 }
+*/
 
 static void filter_criteria_free( FilterCriteria* f )
 {
@@ -157,12 +158,10 @@ static void free_update_track( UpdateTrack* ut )
 static void cancel_pending_update_tracks()
 {
     /* g_debug("try to cancel"); */
-    if( pending_update_tracks )
+    if( ! g_queue_is_empty(pending_update_tracks) )
     {
-        /* g_debug("cancel %d reqs", g_slist_length(pending_update_tracks)); */
-        g_slist_foreach(pending_update_tracks, free_update_track, NULL);
-        g_slist_free(pending_update_tracks);
-        pending_update_tracks = NULL;
+        g_queue_foreach(pending_update_tracks, free_update_track, NULL);
+        g_queue_clear(pending_update_tracks);
     }
 }
 
@@ -728,17 +727,17 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
     char *artist, *album, *title;
     guint time_len = 0;
     char time_buf[32];
+    /* g_debug("do update track: %d", ut->id); */
 
     /* OK, now it's time to send the next request.
      * This is inefficient, but it's used to overcome
      * some design flaws of xmms2d.
      * Some optimization can be done here by send about
      * 10 requets or so at the same time. */
-    if( pending_update_tracks )
+    if( ! g_queue_is_empty(pending_update_tracks) )
     {
         xmmsc_result_t* res2;
-        UpdateTrack* ut = (UpdateTrack*)pending_update_tracks->data;
-        pending_update_tracks = g_slist_delete_link(pending_update_tracks, pending_update_tracks);
+        UpdateTrack* ut = (UpdateTrack*)g_queue_pop_head(pending_update_tracks);
 
         res2 = xmmsc_medialib_get_info( con, ut->id );
         xmmsc_result_notifier_set_full( res2, update_track, ut, free_update_track );
@@ -766,7 +765,7 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
         g_free(file);
     }
 
-    gtk_list_store_set( ut->list, &ut->it,
+    gtk_list_store_set( list_store, &ut->it,
                         COL_ARTIST, artist,
                         COL_ALBUM, album,
                         COL_TITLE, title,
@@ -775,40 +774,53 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
     xmmsc_result_unref( res );
 }
 
-static gboolean on_idle_update_track_info( gpointer user_data )
+static void queue_update_track( guint32 id, GtkTreeIter* it )
 {
-    int i;
-
-    if( !pending_update_tracks )
-        return FALSE;
-
-    for( i = 0; pending_update_tracks && i < 10; ++i )
+    UpdateTrack* ut;
+    /* if it's already in the queue */
+    if( ! g_queue_is_empty( pending_update_tracks ) )
     {
-        xmmsc_result_t* res;
-        UpdateTrack* ut = (UpdateTrack*)pending_update_tracks->data;
-        pending_update_tracks = g_slist_delete_link(pending_update_tracks, pending_update_tracks);
+        GList* l;
+        for( l = pending_update_tracks->head; l; l = l->next )
+        {
+            ut = (UpdateTrack*)l->data;
+            if( id == ut->id )
+                return;
+        }
+    }
 
-        res = xmmsc_medialib_get_info( con, ut->id );
+    ut = g_slice_new(UpdateTrack);
+    ut->id = id;
+    ut->it = *it;
+
+    if( g_queue_is_empty( pending_update_tracks ) )
+    {
+        xmmsc_result_t *res;
+        res = xmmsc_medialib_get_info( con, id );
         xmmsc_result_notifier_set_full( res, update_track, ut, free_update_track );
         xmmsc_result_unref( res );
     }
-    return (pending_update_tracks != NULL);
+    else
+    {
+        g_queue_push_tail(pending_update_tracks, ut);
+    }
 }
 
 static void on_playlist_content_received( xmmsc_result_t* res, GtkWidget* list_view )
 {
-    GtkListStore* list;
     GtkTreeModelFilter* mf;
     GtkTreeIter it;
     const char* pl_name = cur_playlist;
 
     FilterCriteria* criteria = g_slice_new0(FilterCriteria);
 
-    list = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING );
-    mf = gtk_tree_model_filter_new(list, NULL);
+    list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING );
+    mf = gtk_tree_model_filter_new(list_store, NULL);
     g_object_set_data(mf, "criteria", criteria);
     gtk_tree_model_filter_set_visible_func( mf, playlist_filter_func, criteria, filter_criteria_free );
-    g_object_unref(list);
+    g_object_unref(list_store);
+
+    cancel_pending_update_tracks();
 
     for (; xmmsc_result_list_valid(res); xmmsc_result_list_next(res))
     {
@@ -816,32 +828,21 @@ static void on_playlist_content_received( xmmsc_result_t* res, GtkWidget* list_v
         xmmsc_result_t* res2;
         UpdateTrack* ut = g_slice_new(UpdateTrack);
 
-        gtk_list_store_append( list, &it );
+        gtk_list_store_append( list_store, &it );
         xmmsc_result_get_uint( res, &id );
 
-        gtk_list_store_set( list, &it,
+        gtk_list_store_set( list_store, &it,
                             COL_ID, id, -1 );
 
         ut->id = id;
-        ut->list = list;
         ut->it = it;
-
         /* add this request to pending list */
-        pending_update_tracks = g_slist_prepend(pending_update_tracks, ut);
-/*
-        res2 = xmmsc_medialib_get_info( con, id );
-        xmmsc_result_notifier_set_full( res2, update_track, ut, free_update_track );
-        xmmsc_result_unref( res2 );
-*/
-        /* NOTE: lets do the requests in idle handler */
+        g_queue_push_tail( pending_update_tracks, ut );
     }
 
-    if( pending_update_tracks )
+    if( !g_queue_is_empty(pending_update_tracks) )
     {
-        pending_update_tracks = g_slist_reverse(pending_update_tracks);
-
-        UpdateTrack* ut = (UpdateTrack*)pending_update_tracks->data;
-        pending_update_tracks = g_slist_delete_link(pending_update_tracks, pending_update_tracks);
+        UpdateTrack* ut = (UpdateTrack*)g_queue_pop_head(pending_update_tracks);
         /* only send the first request, and subsequent requests will
          * be sent after the previous one is returned. */
         res = xmmsc_medialib_get_info( con, ut->id );
@@ -1097,7 +1098,6 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
 {
     guint id = 0;
     int type = 0, pos = -1;
-    GtkListStore* list;
     char* name = NULL;
 
     if( G_UNLIKELY( xmmsc_result_iserror( res ) ) )
@@ -1114,8 +1114,7 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
 
     /* g_debug("type=%d, name=%s", type, name); */
 
-    list = get_playlist_store();
-    if( ! list )
+    if( ! list_store )
         goto _out;
 
     switch( type )
@@ -1123,21 +1122,14 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
         case XMMS_PLAYLIST_CHANGED_ADD:
         case XMMS_PLAYLIST_CHANGED_INSERT:
             if( G_UNLIKELY( ! xmmsc_result_get_dict_entry_int( res, "position", &pos ) ) )
-                pos = gtk_tree_model_iter_n_children( (GtkTreeModel*)list, NULL );
+                pos = gtk_tree_model_iter_n_children( (GtkTreeModel*)list_store, NULL );
             if( G_LIKELY( xmmsc_result_get_dict_entry_uint( res, "id", &id ) ) )
             {
                 GtkTreeIter it;
-                xmmsc_result_t *res2;
-                gtk_list_store_insert_with_values( list, &it, pos,
+                gtk_list_store_insert_with_values( list_store, &it, pos,
                                                    COL_ID, id, -1 );
-                if( res2 = xmmsc_medialib_get_info( con, id ) )
-                {
-                    UpdateTrack* ut = g_slice_new(UpdateTrack);
-                    ut->list = list;
-                    ut->it = it;
-                    xmmsc_result_notifier_set_full( res2, update_track, ut, free_update_track );
-                    xmmsc_result_unref( res2 );
-                }
+                g_debug("playlist_added: %d", id);
+                queue_update_track( id, &it );
             }
             break;
         case XMMS_PLAYLIST_CHANGED_REMOVE:
@@ -1146,14 +1138,14 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
                 GtkTreePath* path;
                 GtkTreeIter it;
                 path = gtk_tree_path_new_from_indices( pos, -1 );
-                if( gtk_tree_model_get_iter( (GtkTreeModel*)list, &it, path ) )
-                    gtk_list_store_remove( list, &it );
+                if( gtk_tree_model_get_iter( (GtkTreeModel*)list_store, &it, path ) )
+                    gtk_list_store_remove( list_store, &it );
                 gtk_tree_path_free( path );
             }
             break;
         case XMMS_PLAYLIST_CHANGED_CLEAR:
         {
-            gtk_list_store_clear( list );
+            gtk_list_store_clear( list_store );
             break;
         }
         case XMMS_PLAYLIST_CHANGED_MOVE:
@@ -1293,7 +1285,7 @@ static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
     guint playlist_pos = 0;
 
     xmmsc_result_get_uint( res, &playlist_pos );
-    g_debug("pos: %d", playlist_pos);
+    /* g_debug("pos: %d", playlist_pos); */
 /*
     FIXME: Currently we have no way to mark current played song in the playlist.
 
@@ -1390,6 +1382,35 @@ static void on_collection_changed( xmmsc_result_t* res, void* user_data )
     }
 }
 
+static void on_media_lib_entry_changed(xmmsc_result_t* res, void* user_data)
+{
+    /* g_debug("mlib entry changed"); */
+    uint32_t id = 0;
+    if( xmmsc_result_get_uint(res, &id) )
+    {
+        GtkTreeModel* model = (GtkTreeModel*)list_store;
+        GtkTreeIter it;
+        if( !model )
+            return;
+        /* FIXME: This is damn inefficient, but I didn't have a
+         * better way now.
+         * Maybe it can be improved using custom tree model. :-( */
+        if( gtk_tree_model_get_iter_first(model, &it) )
+        {
+            uint32_t _id;
+            do{
+                gtk_tree_model_get(model, &it, COL_ID, &_id, -1);
+                if( _id == id )
+                {
+                    /* g_debug("found! update: %d", id); */
+                    queue_update_track( id, &it );
+                    break;
+                }
+            }while(gtk_tree_model_iter_next(model, &it));
+        }
+    }
+}
+
 static void config_changed_foreach(const void* _key, xmmsc_result_value_type_t type, const void* _val, void* user_data)
 {
     const char* key = (const char*)_key;
@@ -1475,9 +1496,13 @@ static void setup_xmms_callbacks()
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_volume_changed,
                        on_playback_volume_changed, NULL );
 
-    /* collections */
+    /* media lib */
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_medialib_entry_changed,
+                       on_media_lib_entry_changed, NULL );
+
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_collection_changed,
                        on_collection_changed, NULL );
+
 
     /* config values */
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_configval_changed,
@@ -1714,6 +1739,8 @@ int main (int argc, char *argv[])
         gtk_main_iteration();
     gdk_display_sync(gtk_widget_get_display(main_win));
 
+    pending_update_tracks = g_queue_new();
+
     /* display currently active playlist */
     res = xmmsc_playlist_current_active(con);
     xmmsc_result_notifier_set(res, on_playlist_get_active, NULL);
@@ -1729,6 +1756,7 @@ int main (int argc, char *argv[])
 
     gtk_main ();
 
+    g_queue_free(pending_update_tracks);
     save_config();
 
     return 0;
