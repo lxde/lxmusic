@@ -305,7 +305,10 @@ class GtkBuilderConverter(object):
                     continue
                 object_id = node.getAttribute('id')
                 response = prop.childNodes[0].data
-                self._convert_dialog_response(node, object_id, response)
+
+                # Due to severe bugs of Glade 3, we need to check if response is 0
+                if response != '0':
+                    self._convert_dialog_response(node, object_id, response)
                 prop.parentNode.removeChild(prop)
             elif prop_name == "adjustment":
                 self._convert_adjustment(prop)

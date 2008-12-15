@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-14 00:13+0800\n"
-"PO-Revision-Date: 2008-12-14 00:14+0800\n"
+"POT-Creation-Date: 2008-12-15 13:26+0800\n"
+"PO-Revision-Date: 2008-12-15 13:26+0800\n"
 "Last-Translator: \n"
 "Language-Team: pcman.tw@gmail.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:130
+#: ../src/lxmusic.c:140
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -23,185 +23,232 @@ msgstr ""
 "LXDE 的音樂播放程式\n"
 "簡單的圖形介面 XMMS2 客戶端"
 
-#: ../src/lxmusic.c:256
+#: ../src/lxmusic.c:352
 msgid "Audio Files"
 msgstr "音樂檔"
 
-#: ../src/lxmusic.c:261
+#: ../src/lxmusic.c:357
 msgid "All Files"
 msgstr "所有檔案"
 
-#: ../src/lxmusic.c:288
+#: ../src/lxmusic.c:384
 msgid "Input a URL"
 msgstr "輸入一個 URL"
 
-#: ../src/lxmusic.c:612
-#: ../data/lxmusic.ui.h:8
+#: ../src/lxmusic.c:733
+#: ../data/lxmusic.ui.h:7
 msgid "Artist"
 msgstr "演唱者"
 
-#: ../src/lxmusic.c:621
-#: ../data/lxmusic.ui.h:6
+#: ../src/lxmusic.c:742
+#: ../data/lxmusic.ui.h:5
 msgid "Album"
 msgstr "專輯"
 
-#: ../src/lxmusic.c:630
+#: ../src/lxmusic.c:751
 msgid "Title"
 msgstr "標題"
 
-#: ../src/lxmusic.c:637
+#: ../src/lxmusic.c:758
 msgid "Length"
 msgstr "長度"
 
-#: ../src/lxmusic.c:759
+#: ../src/lxmusic.c:912
 msgid "Default"
 msgstr "預設"
 
-#: ../src/lxmusic.c:864
+#: ../src/lxmusic.c:1020
 msgid "Pause"
 msgstr "暫停"
 
-#: ../src/lxmusic.c:873
+#: ../src/lxmusic.c:1029
 msgid "Play"
 msgstr "播放"
 
-#: ../src/lxmusic.c:1135
+#: ../src/lxmusic.c:1380
 msgid "Create new playlist"
 msgstr "建立新的播放清單"
 
 #: ../data/lxmusic.ui.h:1
-msgid "--:--"
-msgstr ""
-
-#: ../data/lxmusic.ui.h:2
 msgid "Add Files or Folders"
 msgstr "加入檔案或資料夾"
 
-#: ../data/lxmusic.ui.h:3
+#: ../data/lxmusic.ui.h:2
 msgid "Add To Playlist"
 msgstr "加入到播放清單"
 
-#: ../data/lxmusic.ui.h:4
+#: ../data/lxmusic.ui.h:3
 msgid "Add URL"
 msgstr "加入 URL"
 
-#: ../data/lxmusic.ui.h:5
+#: ../data/lxmusic.ui.h:4
 msgid "Add files to the playlist"
 msgstr "加入檔案到播放清單"
 
-#: ../data/lxmusic.ui.h:7
+#: ../data/lxmusic.ui.h:6
 msgid "All"
 msgstr "全部"
 
-#: ../data/lxmusic.ui.h:9
+#: ../data/lxmusic.ui.h:8
 msgid "Create _New Playlist"
 msgstr "建立新的播放清單(_N)"
 
-#: ../data/lxmusic.ui.h:10
+#: ../data/lxmusic.ui.h:9
 msgid "Current Playlist"
 msgstr "目前的播放清單"
 
-#: ../data/lxmusic.ui.h:11
+#: ../data/lxmusic.ui.h:10
 msgid "Enter keyword here"
 msgstr "在此輸入關鍵字"
 
-#: ../data/lxmusic.ui.h:12
+#: ../data/lxmusic.ui.h:11
 msgid "Favorites"
 msgstr "最愛"
 
-#: ../data/lxmusic.ui.h:13
+#: ../data/lxmusic.ui.h:12
 msgid "File Properties"
 msgstr "檔案屬性"
 
-#: ../data/lxmusic.ui.h:14
+#: ../data/lxmusic.ui.h:13
 msgid "Filter:"
 msgstr "過濾器："
 
-#: ../data/lxmusic.ui.h:15
+#: ../data/lxmusic.ui.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../data/lxmusic.ui.h:16
+#: ../data/lxmusic.ui.h:15
 msgid "Media Library"
 msgstr "媒體庫"
 
-#: ../data/lxmusic.ui.h:17
+#: ../data/lxmusic.ui.h:16
 msgid "Next"
 msgstr "下一首"
 
-#: ../data/lxmusic.ui.h:18
+#: ../data/lxmusic.ui.h:17
 msgid "No Repeat"
 msgstr "不要重複"
 
-#: ../data/lxmusic.ui.h:19
+#: ../data/lxmusic.ui.h:18
 msgid "Play/Pause"
 msgstr "播放/暫停"
 
-#: ../data/lxmusic.ui.h:20
+#: ../data/lxmusic.ui.h:19
 msgid "Previous"
 msgstr "前一首 "
 
-#: ../data/lxmusic.ui.h:21
+#: ../data/lxmusic.ui.h:20
 msgid "Remove All Items"
 msgstr "移除所有項目"
 
-#: ../data/lxmusic.ui.h:22
+#: ../data/lxmusic.ui.h:21
 msgid "Remove From Playlist"
 msgstr "從播放清單移除"
 
-#: ../data/lxmusic.ui.h:23
+#: ../data/lxmusic.ui.h:22
 msgid "Remove Selected Items"
 msgstr "移除選取的項目"
 
-#: ../data/lxmusic.ui.h:24
+#: ../data/lxmusic.ui.h:23
 msgid "Remove items from the playlist"
 msgstr "從播放清單移除項目"
 
-#: ../data/lxmusic.ui.h:25
+#: ../data/lxmusic.ui.h:24
 msgid "Repeat All"
 msgstr "重複全部"
 
-#: ../data/lxmusic.ui.h:26
+#: ../data/lxmusic.ui.h:25
 msgid "Repeat Current"
 msgstr "重複目前的"
 
-#: ../data/lxmusic.ui.h:27
+#: ../data/lxmusic.ui.h:26
 msgid "Show Playlist"
 msgstr "顯示播放清單"
 
-#: ../data/lxmusic.ui.h:28
+#: ../data/lxmusic.ui.h:27
 msgid "Stop"
 msgstr "停止"
 
-#: ../data/lxmusic.ui.h:29
+#: ../data/lxmusic.ui.h:28
 msgid "Track Name"
 msgstr "歌曲名稱"
 
-#: ../data/lxmusic.ui.h:30
+#: ../data/lxmusic.ui.h:29
 msgid "_Delete Current Playlist"
 msgstr "刪除目前的播放清單(_D)"
 
-#: ../data/lxmusic.ui.h:31
+#: ../data/lxmusic.ui.h:30
 msgid "_File"
 msgstr "檔案(_F)"
 
-#: ../data/lxmusic.ui.h:32
+#: ../data/lxmusic.ui.h:31
 msgid "_Help"
 msgstr "說明(_H)"
 
-#: ../data/lxmusic.ui.h:33
+#: ../data/lxmusic.ui.h:32
 msgid "_Playlist"
 msgstr "播放清單(_P)"
 
-#: ../data/lxmusic.ui.h:34
+#: ../data/lxmusic.ui.h:33
 msgid "_Switch To Playlist"
 msgstr "切換到播放清單(_S)"
 
-#: ../data/lxmusic.ui.h:35
+#: ../data/lxmusic.ui.h:34
 msgid "_Tools"
 msgstr "工具(_T)"
 
-#: ../data/lxmusic.ui.h:36
+#: ../data/lxmusic.ui.h:35
 msgid "_View"
 msgstr "檢視(_V)"
+
+#: ../data/pref-dlg.ui.h:1
+msgid "<b>Audio CD</b>"
+msgstr "<b>音樂 CD</b>"
+
+#: ../data/pref-dlg.ui.h:2
+msgid "<b>Output</b>"
+msgstr "<b>輸出</b>"
+
+#: ../data/pref-dlg.ui.h:3
+msgid "Audio"
+msgstr "聲音"
+
+#: ../data/pref-dlg.ui.h:4
+msgid "Buffer Size: "
+msgstr "緩衝區大小："
+
+#: ../data/pref-dlg.ui.h:5
+msgid "CD-ROM Device: "
+msgstr "CD-ROM 裝置："
+
+#: ../data/pref-dlg.ui.h:6
+msgid "Default ID3 V1 Encoding: "
+msgstr "預設 ID3 V1 編碼："
+
+#: ../data/pref-dlg.ui.h:7
+msgid "General"
+msgstr "一般"
+
+#: ../data/pref-dlg.ui.h:8
+msgid "KB"
+msgstr ""
+
+#: ../data/pref-dlg.ui.h:9
+msgid "Misc"
+msgstr "雜項"
+
+#: ../data/pref-dlg.ui.h:10
+msgid "Plugin: "
+msgstr "外掛："
+
+#: ../data/pref-dlg.ui.h:11
+msgid "Preference"
+msgstr "偏好設定"
+
+#: ../data/pref-dlg.ui.h:12
+msgid "Show system tray icon"
+msgstr "顯示系統列圖示"
+
+#~ msgid "Settings"
+#~ msgstr "設定"
 

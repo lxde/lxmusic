@@ -9,6 +9,7 @@
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <xmmsclient/xmmsclient.h>
@@ -47,6 +48,12 @@ typedef struct _FilterCriteria{
     int cols;
 }FilterCriteria;
 
+const char* known_plugins[] = {
+    "pulse",
+    "alsa",
+    "ao"
+};
+
 static xmmsc_connection_t *con = NULL;
 static GtkWidget *main_win = NULL;
 static GtkWidget *play_btn = NULL;
@@ -57,6 +64,7 @@ static GtkWidget *notebook = NULL;
 static GtkWidget *volume_btn = NULL;
 static GtkWidget *inner_vbox = NULL;
 static GtkWidget *playlist_view = NULL;
+static GtkWidget *repeat_mode_cb = NULL;
 
 static GtkWidget *switch_pl_menu = NULL;
 static GtkWidget *show_pl_mi = NULL;
@@ -75,14 +83,57 @@ static guint play_time = 0;
 static guint cur_track_duration = 0;
 static guint cur_track_id = 0;
 
-static int repeat_mode = REPEAT_ALL;
+static int repeat_mode = REPEAT_NONE;
 static int filter_field = FILTER_ALL;
+
+/* config values */
+static gboolean show_tray_icon = TRUE;
+static int filter = 0;
+static guint32 volume = 60;
+
 
 /* used to debug only */
 static void dict_foreach(const void *key, xmmsc_result_value_type_t type, const void *value, void *user_data)
 {
     g_debug("key=%s, type=%d", key, type);
 }
+
+static void load_config()
+{
+    char* path = g_build_filename(g_get_user_config_dir(), "lxmusic", "config", NULL );
+    GKeyFile* kf = g_key_file_new();
+    if( g_key_file_load_from_file(kf, path, 0, NULL) )
+    {
+        const char grp[] = "Main";
+        show_tray_icon = g_key_file_get_boolean(kf, grp, "show_tray_icon", NULL);
+        filter = g_key_file_get_integer(kf, grp, "filter", NULL);
+        volume = g_key_file_get_boolean(kf, grp, "volume", NULL);
+    }
+    g_free(path);
+    g_key_file_free(kf);
+}
+
+static void save_config()
+{
+    FILE* f;
+    char* dir = g_build_filename(g_get_user_config_dir(), "lxmusic", NULL);
+    char* path = g_build_filename(dir, "config", NULL );
+
+    g_mkdir_with_parents(dir, 0700);
+    g_free( dir );
+
+    f = fopen(path, "w");
+    g_free(path);
+    if( f )
+    {
+        fprintf(f, "[Main]\n");
+        fprintf( f, "show_tray_icon=%d\n", show_tray_icon );
+        fprintf( f, "filter=%d\n", filter );
+        fprintf( f, "volume=%d\n", volume );
+        fclose(f);
+    }
+}
+
 
 static GtkWidget* get_playlist_store()
 {
@@ -137,9 +188,95 @@ void on_about(GtkWidget* mi, gpointer data)
     gtk_widget_destroy( about );
 }
 
+static void on_pref_dlg_init_widget(xmmsc_result_t* res, void* user_data)
+{
+    GtkWidget* w = (GtkWidget*)user_data;
+    char* val;
+    if( xmmsc_result_get_string(res, &val) )
+    {
+        /* g_debug("val = %s, w is a %s", val, G_OBJECT_TYPE_NAME(w)); */
+        if( GTK_IS_SPIN_BUTTON(w) )
+            gtk_spin_button_set_value(w, atoi(val));
+        else if( GTK_IS_ENTRY(w) )
+            gtk_entry_set_text(w, val);
+        else if( GTK_IS_COMBO_BOX_ENTRY(w) )
+            gtk_entry_set_text(gtk_bin_get_child(w), val);
+        else
+            g_debug("%s is not supported", G_OBJECT_TYPE_NAME(w));
+    }
+    xmmsc_result_unref(res);
+}
+
+static void on_pref_dlg_init_output_plugin(xmmsc_result_t* res, void* user_data)
+{
+    GtkWidget* w = (GtkWidget*)user_data;
+    char* val;
+    if( xmmsc_result_get_string(res, &val) )
+    {
+        int i;
+        for( i=0; i < G_N_ELEMENTS(known_plugins); ++i )
+        {
+            if( strcmp(val, known_plugins[i]) == 0 )
+            {
+                gtk_combo_box_set_active(w, i);
+                break;
+            }
+        }
+    }
+    xmmsc_result_unref(res);
+}
+
+
 void on_preference(GtkAction* act, gpointer data)
 {
+    GtkBuilder* builder = gtk_builder_new();
+    if( gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/pref-dlg.ui", NULL ) )
+    {
+        xmmsc_result_t* res;
+        GtkWidget* output_plugin_cb = gtk_builder_get_object(builder, "output_plugin_cb");
+        GtkWidget* output_bufsize = gtk_builder_get_object(builder, "output_bufsize");
+        GtkWidget* cdrom_cb_entry = gtk_builder_get_object(builder, "cdrom_cb_entry");
+        GtkWidget* id3v1_encoding = gtk_builder_get_object(builder, "id3v1_encoding");
+        GtkWidget* dlg = gtk_builder_get_object(builder, "pref_dlg");
 
+        res = xmmsc_configval_get(con, "output.plugin");
+        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_output_plugin, g_object_ref(output_plugin_cb), g_object_unref );
+        xmmsc_result_unref(res);
+
+        res = xmmsc_configval_get(con, "output.buffersize");
+        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(output_bufsize), g_object_unref );
+        xmmsc_result_unref(res);
+
+        res = xmmsc_configval_get(con, "cdda.device");
+        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(cdrom_cb_entry), g_object_unref );
+        xmmsc_result_unref(res);
+
+        res = xmmsc_configval_get(con, "mad.id3v1_encoding");
+        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(id3v1_encoding), g_object_unref );
+        xmmsc_result_unref(res);
+
+        if( gtk_dialog_run(dlg) == GTK_RESPONSE_OK )
+        {
+            int i;
+            char str[32];
+
+            i = gtk_combo_box_get_active(output_plugin_cb);
+            res = xmmsc_configval_set( con, "output.plugin", known_plugins[i] );
+            xmmsc_result_unref(res);
+
+            g_snprintf(str, 32, "%u",(guint)gtk_spin_button_get_value(output_bufsize) );
+            res = xmmsc_configval_set( con, "output.buffersize", str );
+            xmmsc_result_unref(res);
+
+            res = xmmsc_configval_set( con, "cdda.device", gtk_entry_get_text(cdrom_cb_entry) );
+            xmmsc_result_unref(res);
+
+            res = xmmsc_configval_set( con, "mad.id3v1_encoding", gtk_entry_get_text(id3v1_encoding) );
+            xmmsc_result_unref(res);
+        }
+        gtk_widget_destroy(dlg);
+    }
+    g_object_unref(builder);
 }
 
 void on_file_properties(GtkAction* act, gpointer data)
@@ -370,7 +507,22 @@ void on_remove_btn_clicked(GtkButton* btn, gpointer user_data)
 
 void on_repeat_mode_changed(GtkComboBox* cb, gpointer user_data)
 {
-
+    xmmsc_result_t* res;
+    const char* repeat_one = "0";
+    const char* repeat_all = "0";
+    switch(gtk_combo_box_get_active(cb))
+    {
+    case REPEAT_CURRENT:
+        repeat_one = "1";
+        break;
+    case REPEAT_ALL:
+        repeat_all = "1";
+        break;
+    }
+    res = xmmsc_configval_set(con, "playlist.repeat_all", repeat_all);
+    xmmsc_result_unref(res);
+    res = xmmsc_configval_set(con, "playlist.repeat_one", repeat_one);
+    xmmsc_result_unref(res);
 }
 
 void on_progress_bar_changed(GtkScale* bar, gpointer user_data)
@@ -771,6 +923,13 @@ static void on_playlist_created( xmmsc_result_t* res, void* user_data )
     if( name && name[0] && name[0] != '_' )
         add_playlist_to_menu(name, TRUE);
     xmmsc_result_unref(res);
+
+    if( ! cur_playlist )
+    {
+        /* load the default list */
+        res = xmmsc_playlist_load(con, name);
+        xmmsc_result_unref(res);
+    }
 }
 
 static void on_playlists_listed( xmmsc_result_t* res, void* user_data )
@@ -1069,6 +1228,46 @@ static void on_collection_changed( xmmsc_result_t* res, void* user_data )
     }
 }
 
+static void config_changed_foreach(const void* _key, xmmsc_result_value_type_t type, const void* _val, void* user_data)
+{
+    const char* key = (const char*)_key;
+    /* g_debug("key=%s, val=%s", key, _val); */
+    if( strncmp( key, "playlist.", 9) == 0 )
+    {
+        const char* val = (const char*)_val;
+        if( ! val )
+            return;
+        if( strcmp( key + 9, "repeat_one") == 0 )
+        {
+            if( val[0] == '1' )
+                repeat_mode = REPEAT_CURRENT;
+            else
+            {
+                if( repeat_mode == REPEAT_CURRENT )
+                    repeat_mode = REPEAT_NONE;
+            }
+        }
+        else if( strcmp( key + 9, "repeat_all") == 0 )
+        {
+            if( val[0] == '1' )
+                repeat_mode = REPEAT_ALL;
+            else
+            {
+                if( repeat_mode == REPEAT_ALL )
+                    repeat_mode = REPEAT_NONE;
+            }
+        }
+        g_signal_handlers_block_by_func(repeat_mode_cb, on_repeat_mode_changed, NULL );
+        gtk_combo_box_set_active( repeat_mode_cb, repeat_mode );
+        g_signal_handlers_unblock_by_func(repeat_mode_cb, on_repeat_mode_changed, NULL );
+    }
+}
+
+static void on_configval_changed(xmmsc_result_t* res, void* user_data)
+{
+    xmmsc_result_dict_foreach(res, config_changed_foreach, NULL);
+}
+
 static void setup_xmms_callbacks()
 {
     xmmsc_result_t* res;
@@ -1117,13 +1316,50 @@ static void setup_xmms_callbacks()
     /* collections */
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_collection_changed,
                        on_collection_changed, NULL );
+
+    /* config values */
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_configval_changed,
+                       on_configval_changed, NULL );
 }
+
+void on_cfg_repeat_all_received(xmmsc_result_t* res, void* user_data)
+{
+    char* val;
+    GtkComboBox* cb = (GtkComboBox*)user_data;
+    if( xmmsc_result_get_string(res, &val) )
+    {
+        if( val && val[0] == '1' )
+        {
+            repeat_mode = REPEAT_ALL;
+            gtk_combo_box_set_active( cb, repeat_mode );
+        }
+    }
+    xmmsc_result_unref(res);
+}
+
+void on_cfg_repeat_one_received(xmmsc_result_t* res, void* user_data)
+{
+    GtkComboBox* cb = (GtkComboBox*)user_data;
+    char* val;
+    if( xmmsc_result_get_string(res, &val) )
+    {
+        if( val && val[0] == '1' )
+        {
+            repeat_mode = REPEAT_CURRENT;
+            gtk_combo_box_set_active( cb, repeat_mode );
+        }
+    }
+    xmmsc_result_unref(res);
+}
+
 
 static void setup_ui()
 {
     GtkBuilder *builder;
     GtkUIManager* mgr;
     GtkWidget *hbox, *cb, *switch_pl_mi;
+    xmmsc_result_t* res;
+
     builder = gtk_builder_new();
     if( ! gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/lxmusic.ui", NULL) )
         exit(1);
@@ -1138,6 +1374,8 @@ static void setup_ui()
     inner_vbox = (GtkWidget*)gtk_builder_get_object(builder, "inner_vbox");
     playlist_view = (GtkWidget*)gtk_builder_get_object(builder, "playlist_view");
 
+    repeat_mode_cb = (GtkWidget*)gtk_builder_get_object(builder, "repeat_mode");
+
     mgr = (GtkUIManager*)gtk_builder_get_object(builder, "uimanager1");
     switch_pl_mi = gtk_ui_manager_get_widget( mgr, "/menubar/playlist_mi/switch_to_pl" );
     switch_pl_menu = gtk_menu_new();
@@ -1149,10 +1387,17 @@ static void setup_ui()
     show_pl_mi = (GtkWidget*)gtk_builder_get_object(builder, "show_pl");
 
     cb = (GtkWidget*)gtk_builder_get_object(builder, "repeat_mode");
-    gtk_combo_box_set_active(cb, repeat_mode);
+    gtk_combo_box_set_active(cb, REPEAT_NONE);
+//    gtk_combo_box_set_active(cb, repeat_mode);
+    res = xmmsc_configval_get( con, "playlist.repeat_all" );
+    xmmsc_result_notifier_set( res, on_cfg_repeat_all_received, cb );
+    xmmsc_result_unref(res);
+    res = xmmsc_configval_get( con, "playlist.repeat_one" );
+    xmmsc_result_notifier_set( res, on_cfg_repeat_one_received, cb );
+    xmmsc_result_unref(res);
 
     cb = (GtkWidget*)gtk_builder_get_object(builder, "filter_field");
-    gtk_combo_box_set_active(cb, filter_field);
+//    gtk_combo_box_set_active(cb, filter_field);
 
     /* add volume button */
     hbox = (GtkWidget*)gtk_builder_get_object(builder, "top_hbox");
@@ -1224,7 +1469,6 @@ void on_del_playlist(GtkAction* act, gpointer user_data)
         res = xmmsc_playlist_load(con, switch_to);
         xmmsc_result_unref(res);
 
-        g_debug("remove: %s", cur_playlist);
         res = xmmsc_playlist_remove(con, cur_playlist);
         xmmsc_result_unref(res);
     }
@@ -1289,6 +1533,8 @@ int main (int argc, char *argv[])
     gtk_init(&argc, &argv);
     xmmsc_mainloop_gmain_init(con);
 
+    load_config();
+
     /* build the GUI */
     setup_ui();
 
@@ -1311,6 +1557,8 @@ int main (int argc, char *argv[])
     setup_xmms_callbacks();
 
     gtk_main ();
+
+    save_config();
 
     return 0;
 }

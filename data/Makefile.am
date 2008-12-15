@@ -7,7 +7,8 @@ icondir=$(datadir)/icons/hicolor/128x128/apps
 uidir=$(datadir)/lxmusic
 # GtkBuilder UI definition files
 ui_in_files= \
-	lxmusic.glade
+	lxmusic.glade \
+	pref-dlg.glade
 ui_DATA = $(ui_in_files:.glade=.ui)
 
 EXTRA_DIST = \

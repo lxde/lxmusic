@@ -1,3 +1,4 @@
 [encoding: UTF-8]
 src/lxmusic.c
 [type: gettext/glade]data/lxmusic.ui
+[type: gettext/glade]data/pref-dlg.ui
