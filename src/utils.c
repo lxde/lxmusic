@@ -44,3 +44,21 @@ void kf_get_int(GKeyFile* kf, const char* grp, const char* key, int* val)
     else
         *val = ret;
 }
+
+
+
+const char* timeval_to_str( guint timeval, char* buf, guint buf_len )
+{
+    guint hr, min, sec;
+
+    hr = timeval / 3600;
+    min = timeval % 3600;
+    sec = min % 60;
+    min /= 60;
+    if( hr > 0 )
+        g_snprintf( buf, buf_len, "%.2u:%.2u:%.2u", hr, min, sec );
+    else
+        g_snprintf( buf, buf_len, "%.2u:%.2u", min, sec );
+
+    return buf;
+}

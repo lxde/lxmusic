@@ -29,6 +29,7 @@ G_BEGIN_DECLS
 void kf_get_bool(GKeyFile* kf, const char* grp, const char* key, gboolean* val);
 void kf_get_int(GKeyFile* kf, const char* grp, const char* key, int* val);
 
+const char* timeval_to_str( guint timeval, char* buf, guint buf_len );
 
 G_END_DECLS
 

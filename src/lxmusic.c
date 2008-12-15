@@ -470,21 +470,30 @@ void on_playlist_row_activated(GtkTreeView* view,
 
 void on_filter_field_changed(GtkComboBox* cb, gpointer user_data)
 {
+    GtkTreeModelFilter* mf = (GtkTreeModelFilter*)gtk_tree_view_get_model(playlist_view);
     filter_field = gtk_combo_box_get_active(cb);
+    gtk_tree_model_filter_refilter(mf);
 }
 
 static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, FilterCriteria* criteria)
 {
-    char *artist, *album, *title;
+    char *artist=NULL, *album=NULL, *title=NULL;
     gboolean ret = FALSE;
 
     if( ! criteria->keyword )
         return TRUE;
 
-    gtk_tree_model_get(model, it,
-                       COL_ARTIST, &artist,
-                       COL_ALBUM, &album,
-                       COL_TITLE, &title, -1);
+    if( filter_field == FILTER_ALL || filter_field == FILTER_ARTIST )
+        gtk_tree_model_get(model, it,
+                           COL_ARTIST, &artist, -1);
+    
+    if( filter_field == FILTER_ALL || filter_field == FILTER_ALBUM )
+        gtk_tree_model_get(model, it,
+                           COL_ALBUM, &album, -1);
+
+    if( filter_field == FILTER_ALL || filter_field == FILTER_TITLE )
+        gtk_tree_model_get(model, it,
+                           COL_TITLE, &title, -1);
 
     if( artist && strstr( artist, criteria->keyword ) )
         ret = TRUE;
@@ -742,21 +751,6 @@ static void render_num( GtkTreeViewColumn* col, GtkCellRenderer* render,
     g_object_set( render, "text", buf, NULL );
 }
 
-static const char* timeval_to_str( guint timeval, char* buf, guint buf_len )
-{
-    guint hr, min, sec;
-
-    hr = timeval / 3600;
-    min = timeval % 3600;
-    sec = min % 60;
-    min /= 60;
-    if( hr > 0 )
-        g_snprintf( buf, buf_len, "%.2u:%.2u:%.2u", hr, min, sec );
-    else
-        g_snprintf( buf, buf_len, "%.2u:%.2u", min, sec );
-
-    return buf;
-}
 
 static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
 {
