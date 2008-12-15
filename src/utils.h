@@ -22,6 +22,7 @@
 #ifndef __LXMUSIC_UTILS_H__
 #define __LXMUSIC_UTILS_H__
 
+#include <gtk/gtk.h>
 #include <glib.h>
 
 G_BEGIN_DECLS
@@ -30,6 +31,9 @@ void kf_get_bool(GKeyFile* kf, const char* grp, const char* key, gboolean* val);
 void kf_get_int(GKeyFile* kf, const char* grp, const char* key, int* val);
 
 const char* timeval_to_str( guint timeval, char* buf, guint buf_len );
+const char* file_size_to_str( char* buf, guint64 size );
+
+void show_error(GtkWindow* parent, const char* title, const char* msg);
 
 G_END_DECLS
 

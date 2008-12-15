@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-15 15:59+0800\n"
+"POT-Creation-Date: 2008-12-16 00:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,62 +16,70 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:185
+#: ../src/lxmusic.c:236
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr ""
 
-#: ../src/lxmusic.c:196
+#: ../src/lxmusic.c:247
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
 
-#: ../src/lxmusic.c:259 ../data/lxmusic.ui.h:14
+#: ../src/lxmusic.c:310 ../data/lxmusic.ui.h:14
 msgid "LXMusic"
 msgstr ""
 
-#: ../src/lxmusic.c:518
+#: ../src/lxmusic.c:440
+msgid "Bitrate: "
+msgstr ""
+
+#: ../src/lxmusic.c:597
 msgid "Audio Files"
 msgstr ""
 
-#: ../src/lxmusic.c:523
+#: ../src/lxmusic.c:602
 msgid "All Files"
 msgstr ""
 
-#: ../src/lxmusic.c:550
+#: ../src/lxmusic.c:629
 msgid "Input a URL"
 msgstr ""
 
-#: ../src/lxmusic.c:907 ../data/lxmusic.ui.h:7
+#: ../src/lxmusic.c:972 ../data/lxmusic.ui.h:7
 msgid "Artist"
 msgstr ""
 
-#: ../src/lxmusic.c:916 ../data/lxmusic.ui.h:5
+#: ../src/lxmusic.c:981 ../data/lxmusic.ui.h:5
 msgid "Album"
 msgstr ""
 
-#: ../src/lxmusic.c:925
+#: ../src/lxmusic.c:990
 msgid "Title"
 msgstr ""
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:997
 msgid "Length"
 msgstr ""
 
-#: ../src/lxmusic.c:1086
+#: ../src/lxmusic.c:1151
 msgid "Default"
 msgstr ""
 
-#: ../src/lxmusic.c:1194
+#: ../src/lxmusic.c:1250
 msgid "Pause"
 msgstr ""
 
-#: ../src/lxmusic.c:1203
+#: ../src/lxmusic.c:1259
 msgid "Play"
 msgstr ""
 
-#: ../src/lxmusic.c:1590
+#: ../src/lxmusic.c:1695
 msgid "Create new playlist"
+msgstr ""
+
+#: ../src/utils.c:138
+msgid "Error"
 msgstr ""
 
 #: ../data/lxmusic.ui.h:1
@@ -110,7 +118,7 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-#: ../data/lxmusic.ui.h:12 ../data/track-info.ui.h:7
+#: ../data/lxmusic.ui.h:12 ../data/track-info.ui.h:8
 msgid "File Properties"
 msgstr ""
 
@@ -259,11 +267,11 @@ msgid "<b>Artist: </b>"
 msgstr ""
 
 #: ../data/track-info.ui.h:3
-msgid "<b>Bitrate: </b>"
+msgid "<b>Comment: </b>"
 msgstr ""
 
 #: ../data/track-info.ui.h:4
-msgid "<b>Comment: </b>"
+msgid "<b>File Type: </b>"
 msgstr ""
 
 #: ../data/track-info.ui.h:5
@@ -271,5 +279,9 @@ msgid "<b>File: </b>"
 msgstr ""
 
 #: ../data/track-info.ui.h:6
+msgid "<b>Size: </b>"
+msgstr ""
+
+#: ../data/track-info.ui.h:7
 msgid "<b>Title: </b>"
 msgstr ""

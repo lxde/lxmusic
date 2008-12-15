@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-15 15:59+0800\n"
-"PO-Revision-Date: 2008-12-15 16:00+0800\n"
+"POT-Creation-Date: 2008-12-16 00:06+0800\n"
+"PO-Revision-Date: 2008-12-16 00:06+0800\n"
 "Last-Translator: \n"
 "Language-Team: pcman.tw@gmail.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:185
+#: ../src/lxmusic.c:236
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "由 Arnaud DIDRY 製作的 xmms2 官方圖示"
 
-#: ../src/lxmusic.c:196
+#: ../src/lxmusic.c:247
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -27,56 +27,64 @@ msgstr ""
 "LXDE 的音樂播放程式\n"
 "簡單的圖形介面 XMMS2 客戶端"
 
-#: ../src/lxmusic.c:259
+#: ../src/lxmusic.c:310
 #: ../data/lxmusic.ui.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:518
+#: ../src/lxmusic.c:440
+msgid "Bitrate: "
+msgstr "位元率："
+
+#: ../src/lxmusic.c:597
 msgid "Audio Files"
 msgstr "音樂檔"
 
-#: ../src/lxmusic.c:523
+#: ../src/lxmusic.c:602
 msgid "All Files"
 msgstr "所有檔案"
 
-#: ../src/lxmusic.c:550
+#: ../src/lxmusic.c:629
 msgid "Input a URL"
 msgstr "輸入一個 URL"
 
-#: ../src/lxmusic.c:907
+#: ../src/lxmusic.c:972
 #: ../data/lxmusic.ui.h:7
 msgid "Artist"
 msgstr "藝人"
 
-#: ../src/lxmusic.c:916
+#: ../src/lxmusic.c:981
 #: ../data/lxmusic.ui.h:5
 msgid "Album"
 msgstr "專輯"
 
-#: ../src/lxmusic.c:925
+#: ../src/lxmusic.c:990
 msgid "Title"
 msgstr "標題"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:997
 msgid "Length"
 msgstr "長度"
 
-#: ../src/lxmusic.c:1086
+#: ../src/lxmusic.c:1151
 msgid "Default"
 msgstr "預設"
 
-#: ../src/lxmusic.c:1194
+#: ../src/lxmusic.c:1250
 msgid "Pause"
 msgstr "暫停"
 
-#: ../src/lxmusic.c:1203
+#: ../src/lxmusic.c:1259
 msgid "Play"
 msgstr "播放"
 
-#: ../src/lxmusic.c:1590
+#: ../src/lxmusic.c:1695
 msgid "Create new playlist"
 msgstr "建立新的播放清單"
+
+#: ../src/utils.c:138
+msgid "Error"
+msgstr "錯誤"
 
 #: ../data/lxmusic.ui.h:1
 msgid "Add Files or Folders"
@@ -115,7 +123,7 @@ msgid "Favorites"
 msgstr "最愛"
 
 #: ../data/lxmusic.ui.h:12
-#: ../data/track-info.ui.h:7
+#: ../data/track-info.ui.h:8
 msgid "File Properties"
 msgstr "檔案屬性"
 
@@ -264,18 +272,22 @@ msgid "<b>Artist: </b>"
 msgstr "<b>藝人：</b>"
 
 #: ../data/track-info.ui.h:3
-msgid "<b>Bitrate: </b>"
-msgstr "<b>位元率：</b>"
-
-#: ../data/track-info.ui.h:4
 msgid "<b>Comment: </b>"
 msgstr "<b>註解：</b>"
+
+#: ../data/track-info.ui.h:4
+msgid "<b>File Type: </b>"
+msgstr "<b>檔案類型：</b>"
 
 #: ../data/track-info.ui.h:5
 msgid "<b>File: </b>"
 msgstr "<b>檔案：</b>"
 
 #: ../data/track-info.ui.h:6
+msgid "<b>Size: </b>"
+msgstr "<b>大小：</b>"
+
+#: ../data/track-info.ui.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>標題：</b>"
 

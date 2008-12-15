@@ -186,6 +186,12 @@ static void cancel_pending_update_tracks()
     }
 }
 
+static void on_xmms_quit(xmmsc_result_t* res, void* user_data)
+{
+    xmmsc_result_unref(res);
+    gtk_main_quit();
+}
+
 void on_quit(GtkAction* act, gpointer user_data)
 {
     cancel_pending_update_tracks();
@@ -194,7 +200,17 @@ void on_quit(GtkAction* act, gpointer user_data)
         gtk_window_get_size(main_win, &win_width, &win_height);
 
     gtk_widget_destroy(main_win);
-    gtk_main_quit();
+
+    /* FIXME: Is this apporpriate? */
+    if( playback_status == XMMS_PLAYBACK_STATUS_STOP )
+    {
+        /* quit the server */
+        xmmsc_result_t* res = xmmsc_quit(con);
+        xmmsc_result_notifier_set(res, on_xmms_quit, NULL);
+        xmmsc_result_unref(res);
+    }
+    else
+        gtk_main_quit();
 }
 
 gboolean on_main_win_delete_event(GtkWidget* win, GdkEvent* evt, gpointer user_data)
@@ -372,26 +388,25 @@ static void on_track_info_received(xmmsc_result_t* res, void* user_data)
     GtkBuilder* builder = (GtkBuilder*)user_data;
     GtkWidget* w;
     const char* keys[] = {
-        "title", "album", "artist", "comment", "bitrate", NULL
+        "title", "album", "artist", "comment", "mime", NULL
     };
     const char** key;
     char* val;
+    int ival;
 
+    /* xmmsc_result_propdict_foreach(res, dict_foreach, NULL); */
+
+    /* file name */
     if( xmmsc_result_get_dict_entry_string(res, "url", &val) )
     {
         w = (GtkWidget*)gtk_builder_get_object(builder, "url");
         if( g_str_has_prefix(val, "file://") )
         {
-            char* fn = g_filename_from_uri(val, NULL, NULL);
-            if( fn )
-            {
-                char* disp = g_filename_display_name(fn);
-                g_free(fn);
-                gtk_entry_set_text(w, disp);
-                g_free(disp);
-            }
-            else
-                gtk_entry_set_text(w, val);
+            char* disp;
+            val = xmmsc_result_decode_url(res, val) + 7; /* skip file:// */
+            disp = g_filename_display_name(val);
+            gtk_entry_set_text(w, disp);
+            g_free(disp);
         }
         else
             gtk_entry_set_text(w, val);
@@ -407,6 +422,26 @@ static void on_track_info_received(xmmsc_result_t* res, void* user_data)
             else if( GTK_IS_LABEL(w) )
                 gtk_label_set_text((GtkLabel*)w, val);
         }
+    }
+
+    /* size & bitrate */
+    if( xmmsc_result_get_dict_entry_int(res, "size", &ival) )
+    {
+        char buf[100];
+        if( xmmsc_result_get_dict_entry_int(res, "size", &ival) )
+        {
+            int len;
+            file_size_to_str(buf, ival);
+            if( xmmsc_result_get_dict_entry_int(res, "bitrate", &ival) )
+            {
+                gint32 vbr = 0;
+                len = strlen(buf);
+                xmmsc_result_get_dict_entry_int(res, "isvbr", &vbr);
+                g_snprintf(buf + len, 100 - len, " (%s%d Kbps%s)", _("Bitrate: "), ival/1000, vbr ? ", vbr" : "" );
+            }
+        }
+        w = (GtkWidget*)gtk_builder_get_object(builder, "size");
+        gtk_label_set_text((GtkLabel*)w, buf);
     }
 }
 
@@ -486,7 +521,7 @@ static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, Filte
     if( filter_field == FILTER_ALL || filter_field == FILTER_ARTIST )
         gtk_tree_model_get(model, it,
                            COL_ARTIST, &artist, -1);
-    
+
     if( filter_field == FILTER_ALL || filter_field == FILTER_ALBUM )
         gtk_tree_model_get(model, it,
                            COL_ALBUM, &album, -1);
@@ -790,9 +825,8 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
     {
         char *url, *file;
         xmmsc_result_get_dict_entry_string( res, "url", &url );
-        file = g_filename_from_uri(url, NULL, NULL);
-        title = g_path_get_basename(file);
-        g_free(file);
+        url = xmmsc_result_decode_url(res, url);
+        title = g_filename_display_basename(url);
     }
 
     gtk_list_store_set( list_store, &ut->it,
@@ -1367,19 +1401,31 @@ static void on_playback_volume_changed( xmmsc_result_t* res, void* user_data )
 {
     GSList* volumes = NULL, *l;
     guint vol = 0;
-    xmmsc_result_dict_foreach(res, get_channel_volumes, &volumes);
-    for( l = volumes; l; l = l->next )
+
+    /* FIXME: OSS4 and pulse audio disconnect when playback is stopped,
+     * and hence we will receive a empty result here when playback is stopped.
+     * We need to handle this more gracefully in the future. */
+
+    if( xmmsc_result_get_type(res) != XMMSC_RESULT_VALUE_TYPE_NONE )
     {
-        if( vol < GPOINTER_TO_UINT(l->data) )
-            vol = GPOINTER_TO_UINT(l->data);
+        /* g_debug("type: %d", xmmsc_result_get_type(res)); */
+        xmmsc_result_dict_foreach(res, dict_foreach, NULL);
+        xmmsc_result_dict_foreach(res, get_channel_volumes, &volumes);
+        for( l = volumes; l; l = l->next )
+        {
+            if( vol < GPOINTER_TO_UINT(l->data) )
+                vol = GPOINTER_TO_UINT(l->data);
+        }
+        g_slist_free(volumes);
+
+        /* g_debug("status=%d, volume=%d", playback_status, vol); */
+        g_signal_handlers_block_by_func( volume_btn, on_volume_btn_changed, NULL );
+        gtk_scale_button_set_value( volume_btn, vol );
+        g_signal_handlers_unblock_by_func( volume_btn, on_volume_btn_changed, NULL );
     }
-    g_slist_free(volumes);
+
     if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
         xmmsc_result_unref(res);
-
-    g_signal_handlers_block_by_func( volume_btn, on_volume_btn_changed, NULL );
-    gtk_scale_button_set_value( volume_btn, vol );
-    g_signal_handlers_unblock_by_func( volume_btn, on_volume_btn_changed, NULL );
 }
 
 static void on_collection_changed( xmmsc_result_t* res, void* user_data )
@@ -1730,12 +1776,12 @@ void on_show_playlist(GtkAction* act, gpointer user_data)
 
 void on_playlist_cut(GtkAction* act, gpointer user_data)
 {
-    g_debug("Not yet implemented");
+    show_error( main_win, NULL, "Not yet implemented");
 }
 
 void on_playlist_copy(GtkAction* act, gpointer user_data)
 {
-    g_debug("Not yet implemented");
+    show_error( main_win, NULL, "Not yet implemented");
 }
 
 void on_playlist_paste(GtkAction* act, gpointer user_data)
