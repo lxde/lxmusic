@@ -3,13 +3,12 @@
 <!--*- mode: xml -*-->
 <glade-interface>
   <widget class="GtkWindow" id="main_win">
-    <property name="visible">True</property>
     <property name="title" translatable="yes">LXMusic</property>
     <property name="default_width">512</property>
     <property name="default_height">480</property>
     <property name="icon_name">lxmusic</property>
     <signal name="destroy" handler="on_main_win_destroy"/>
-    <signal name="delete_event" handler="gtk_widget_destroy"/>
+    <signal name="delete_event" handler="on_main_win_delete_event"/>
     <child>
       <widget class="GtkVBox" id="vbox">
         <property name="visible">True</property>
@@ -58,7 +57,7 @@
                         <property name="label">gtk-quit</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="gtk_widget_destroy" object="main_win"/>
+                        <signal name="activate" handler="on_quit" object="main_win"/>
                       </widget>
                     </child>
                   </widget>
@@ -229,6 +228,7 @@
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Show Playlist</property>
                         <property name="use_underline">True</property>
+                        <property name="active">True</property>
                         <signal name="activate" handler="on_show_playlist"/>
                       </widget>
                     </child>

@@ -15,6 +15,8 @@
 #include <xmmsclient/xmmsclient.h>
 #include <xmmsclient/xmmsclient-glib.h>
 
+#include "utils.h"
+
 enum {
     COL_ID = 0,
     COL_ARTIST,
@@ -67,7 +69,6 @@ static GtkWidget *playlist_view = NULL;
 static GtkWidget *repeat_mode_cb = NULL;
 
 static GtkWidget *switch_pl_menu = NULL;
-static GtkWidget *show_pl_mi = NULL;
 static GSList* switch_pl_menu_group = NULL;
 
 static GtkWidget *add_to_pl_menu = NULL;
@@ -88,8 +89,15 @@ static int repeat_mode = REPEAT_NONE;
 
 /* config values */
 static gboolean show_tray_icon = TRUE;
+static gboolean show_playlist = TRUE;
+static gboolean close_to_tray = TRUE;
+
 static int filter_field = FILTER_ALL;
 static guint32 volume = 60;
+
+/* window size */
+static int win_width = 480;
+static int win_height = 320;
 
 
 /* used to debug only */
@@ -104,10 +112,20 @@ static void load_config()
     GKeyFile* kf = g_key_file_new();
     if( g_key_file_load_from_file(kf, path, 0, NULL) )
     {
+        int v;
         const char grp[] = "Main";
-        show_tray_icon = g_key_file_get_boolean(kf, grp, "show_tray_icon", NULL);
+        v = g_key_file_get_integer(kf, grp, "width", NULL);
+        if( v > 0 )
+            win_width = v;
+        v = g_key_file_get_integer(kf, grp, "height", NULL);
+        if( v > 0 )
+            win_height = v;
+        kf_get_bool(kf, grp, "show_tray_icon", &show_tray_icon);
+        kf_get_bool(kf, grp, "show_playlist", &show_playlist);
+        kf_get_bool(kf, grp, "close_to_tray", &close_to_tray);
         filter_field = g_key_file_get_integer(kf, grp, "filter", NULL);
-        volume = g_key_file_get_integer(kf, grp, "volume", NULL);
+        if(g_key_file_has_key(kf, grp, "volume", NULL))
+            volume = g_key_file_get_integer(kf, grp, "volume", NULL);
     }
     g_free(path);
     g_key_file_free(kf);
@@ -127,7 +145,10 @@ static void save_config()
     if( f )
     {
         fprintf(f, "[Main]\n");
+        fprintf( f, "width=%d\n", win_width );
+        fprintf( f, "height=%d\n", win_height );
         fprintf( f, "show_tray_icon=%d\n", show_tray_icon );
+        fprintf( f, "show_playlist=%d\n", show_playlist );
         fprintf( f, "filter=%d\n", filter_field );
         fprintf( f, "volume=%d\n", (int)volume );
         fclose(f);
@@ -165,10 +186,25 @@ static void cancel_pending_update_tracks()
     }
 }
 
-void on_main_win_destroy(GtkWidget* win)
+void on_quit(GtkAction* act, gpointer user_data)
 {
     cancel_pending_update_tracks();
+
+    if( show_playlist )
+        gtk_window_get_size(main_win, &win_width, &win_height);
+
+    gtk_widget_destroy(main_win);
     gtk_main_quit();
+}
+
+gboolean on_main_win_delete_event(GtkWidget* win, GdkEvent* evt, gpointer user_data)
+{
+    on_quit(NULL, NULL);
+    return FALSE;
+}
+
+void on_main_win_destroy(GtkWidget* win)
+{
 }
 
 static void open_url(GtkAboutDialog* dlg, const char* url, gpointer user_data)
@@ -1544,7 +1580,7 @@ static void setup_ui()
 {
     GtkBuilder *builder;
     GtkUIManager* mgr;
-    GtkWidget *hbox, *cb, *switch_pl_mi;
+    GtkWidget *hbox, *cb, *switch_pl_mi, *show_pl_mi;
     xmmsc_result_t* res;
 
     builder = gtk_builder_new();
@@ -1571,7 +1607,7 @@ static void setup_ui()
     add_to_pl_menu = gtk_menu_item_get_submenu(gtk_ui_manager_get_widget( mgr, "/menubar/playlist_mi/add_to_pl" ));
     rm_from_pl_menu = gtk_menu_item_get_submenu(gtk_ui_manager_get_widget( mgr, "/menubar/playlist_mi/remove_from_pl" ));
 
-    show_pl_mi = (GtkWidget*)gtk_builder_get_object(builder, "show_pl");
+    show_pl_mi = gtk_ui_manager_get_widget( mgr, "/menubar/view_mi/show_pl" );
 
     cb = (GtkWidget*)gtk_builder_get_object(builder, "repeat_mode");
     gtk_combo_box_set_active(cb, REPEAT_NONE);
@@ -1599,6 +1635,10 @@ static void setup_ui()
 
     /* signal handlers */
     gtk_builder_connect_signals(builder, NULL);
+
+    gtk_window_set_default_size(main_win, win_width, win_height);
+    /* this can trigger signal handler and show or hide the playlist. */
+    gtk_check_menu_item_set_active(show_pl_mi, show_playlist);
 
     g_object_unref(builder);
     gtk_widget_show_all(notebook);
@@ -1672,16 +1712,25 @@ void on_del_playlist(GtkAction* act, gpointer user_data)
 
 void on_show_playlist(GtkAction* act, gpointer user_data)
 {
+    show_playlist = gtk_toggle_action_get_active(act);
     if(GTK_WIDGET_VISIBLE(inner_vbox))
     {
-        gtk_widget_hide(inner_vbox);
-        /* Dirty trick used to shrink the window to its minimal size */
-        gtk_window_resize(main_win, 1, 1);
-        /* FIXME: need to save current size to restore it later. */
+        if( ! show_playlist )
+        {
+            /* save current size to restore it later. */
+            gtk_window_get_size(main_win, &win_width, &win_height );
+            gtk_widget_hide(inner_vbox);
+            /* Dirty trick used to shrink the window to its minimal size */
+            gtk_window_resize(main_win, 1, 1);
+        }
     }
     else
     {
-        gtk_widget_show(inner_vbox);
+        if( show_playlist )
+        {
+            gtk_window_resize(main_win, win_width, win_height );
+            gtk_widget_show(inner_vbox);
+        }
     }
 }
 

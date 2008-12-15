@@ -9,7 +9,8 @@ INCLUDES = \
 bin_PROGRAMS = lxmusic
 
 lxmusic_SOURCES = \
-	lxmusic.c
+	lxmusic.c \
+	utils.c utils.h
 
 lxmusic_LDADD = @GTK_LIBS@ @XMMSC_LIBS@ $(INTLLIBS)
 
