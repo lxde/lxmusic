@@ -196,12 +196,10 @@
                     </child>
                     <child>
                       <widget class="GtkSeparatorMenuItem" id="sep2">
-                        <property name="visible">True</property>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="cut_mi">
-                        <property name="visible">True</property>
                         <property name="label">gtk-cut</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
@@ -210,7 +208,6 @@
                     </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="paste_mi">
-                        <property name="visible">True</property>
                         <property name="label">gtk-paste</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
@@ -223,7 +220,6 @@
             </child>
             <child>
               <widget class="GtkMenuItem" id="view_mi">
-                <property name="visible">True</property>
                 <property name="label" translatable="yes">_View</property>
                 <property name="use_underline">True</property>
                 <child>

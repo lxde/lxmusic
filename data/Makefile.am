@@ -8,7 +8,8 @@ uidir=$(datadir)/lxmusic
 # GtkBuilder UI definition files
 ui_in_files= \
 	lxmusic.glade \
-	pref-dlg.glade
+	pref-dlg.glade \
+	track-info.glade
 ui_DATA = $(ui_in_files:.glade=.ui)
 
 EXTRA_DIST = \

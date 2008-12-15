@@ -20,7 +20,7 @@
                 <property name="border_width">10</property>
                 <property name="spacing">6</property>
                 <child>
-                  <widget class="GtkCheckButton" id="tray_icon">
+                  <widget class="GtkCheckButton" id="show_tray_icon">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="label" translatable="yes">Show system tray icon</property>
@@ -271,14 +271,10 @@ AO</property>
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkComboBoxEntry" id="cdrom_cb">
+                              <widget class="GtkEntry" id="cdrom">
                                 <property name="visible">True</property>
-                                <property name="items">/dev/cdrom
-/dev/dvd</property>
-                                <child internal-child="entry">
-                                  <widget class="GtkEntry" id="cdrom_cb_entry">
-                                  </widget>
-                                </child>
+                                <property name="can_focus">True</property>
+                                <property name="text">/dev/cdrom</property>
                               </widget>
                               <packing>
                                 <property name="position">1</property>

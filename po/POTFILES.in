@@ -2,3 +2,5 @@
 src/lxmusic.c
 [type: gettext/glade]data/lxmusic.ui
 [type: gettext/glade]data/pref-dlg.ui
+[type: gettext/glade]data/track-info.ui
+
