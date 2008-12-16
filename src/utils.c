@@ -167,7 +167,7 @@ void show_error(GtkWindow* parent, const char* title, const char* msg)
 {
     GtkMessageDialog* dlg;
     dlg = gtk_message_dialog_new_with_markup(parent, GTK_DIALOG_MODAL,
-                                GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, msg );
+                                GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", msg );
     gtk_window_set_title(dlg, title ? title:_("Error"));
     gtk_dialog_run(dlg);
     gtk_widget_destroy(dlg);
