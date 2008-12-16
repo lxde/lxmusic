@@ -40,7 +40,7 @@ enum {
 };
 
 typedef struct _UpdateTrack{
-    guint32 id;
+    uint32_t id;
     GtkTreeIter it;
 }UpdateTrack;
 
@@ -77,15 +77,15 @@ static GSList* all_playlists = NULL;
 static GQueue* pending_update_tracks = NULL;
 static GtkListStore* list_store = NULL;
 
-static guint playback_status = 0;
-static guint play_time = 0;
-static guint cur_track_duration = 0;
-static guint cur_track_id = 0;
+static uint32_t playback_status = 0;
+static uint32_t play_time = 0;
+static uint32_t cur_track_duration = 0;
+static uint32_t cur_track_id = 0;
 
 static int repeat_mode = REPEAT_NONE;
 
 static char* filter_keyword = NULL;
-static guint filter_timeout = 0;
+static uint32_t filter_timeout = 0;
 
 /* config values */
 static gboolean show_tray_icon = TRUE;
@@ -93,7 +93,7 @@ static gboolean show_playlist = TRUE;
 static gboolean close_to_tray = TRUE;
 
 static int filter_field = FILTER_ALL;
-static guint32 volume = 60;
+static uint32_t volume = 60;
 
 /* window size */
 static int win_width = 480;
@@ -303,7 +303,7 @@ static void on_tray_icon_activate(GtkStatusIcon* icon, gpointer user_data)
         gtk_widget_show(main_win);
 }
 
-static void on_tray_icon_popup_menu(GtkStatusIcon* icon, guint btn, guint time, gpointer user_data)
+static void on_tray_icon_popup_menu(GtkStatusIcon* icon, uint32_t btn, uint32_t time, gpointer user_data)
 {
 
 }
@@ -381,7 +381,7 @@ void on_preference(GtkAction* act, gpointer data)
             res = xmmsc_configval_set( con, "output.plugin", known_plugins[i] );
             xmmsc_result_unref(res);
 
-            g_snprintf(str, 32, "%u",(guint)gtk_spin_button_get_value(output_bufsize) );
+            g_snprintf(str, 32, "%u",(uint32_t)gtk_spin_button_get_value(output_bufsize) );
             res = xmmsc_configval_set( con, "output.buffersize", str );
             xmmsc_result_unref(res);
 
@@ -499,7 +499,7 @@ void on_file_properties(GtkAction* act, gpointer data)
         if( gtk_tree_model_get_iter(model, &it, tp) )
         {
             GtkBuilder* builder = gtk_builder_new();
-            guint id;
+            uint32_t id;
             gtk_tree_model_get( model, &it, COL_ID, &id, -1 );
             if( gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/track-info.ui", NULL ) )
             {
@@ -530,7 +530,7 @@ void on_playlist_view_row_activated(GtkTreeView* view,
     path = gtk_tree_model_filter_convert_path_to_child_path(filter, path);
     if( path )
     {
-        guint pos = gtk_tree_path_get_indices(path)[0];
+        uint32_t pos = gtk_tree_path_get_indices(path)[0];
         /* FIXME: need to swtich to another playlist sometimes. */
         res = xmmsc_playlist_set_next( con, pos );
         xmmsc_result_unref(res);
@@ -550,8 +550,8 @@ void on_playlist_view_drag_data_received(GtkWidget          *widget,
                                          gint                x,
                                          gint                y,
                                          GtkSelectionData   *data,
-                                         guint               info,
-                                         guint               time)
+                                         uint32_t               info,
+                                         uint32_t               time)
 {
     char** uris;
     g_signal_stop_emission_by_name(widget, "drag-data-received");
@@ -587,7 +587,7 @@ gboolean on_playlist_view_drag_drop(GtkWidget      *widget,
                                     GdkDragContext *drag_ctx,
                                     gint            x,
                                     gint            y,
-                                    guint           time,
+                                    uint32_t           time,
                                     gpointer        user_data)
 {
     GdkAtom target = gdk_atom_intern_static_string("text/uri-list");
@@ -845,7 +845,7 @@ void on_progress_bar_changed(GtkScale* bar, gpointer user_data)
 {
     xmmsc_result_t* res;
     gdouble p = gtk_range_get_value(bar);
-    guint new_play_time = p * cur_track_duration / 100;
+    uint32_t new_play_time = p * cur_track_duration / 100;
     res = xmmsc_playback_seek_ms( con, new_play_time );
     xmmsc_result_unref(res);
 }
@@ -904,7 +904,7 @@ static void render_num( GtkTreeViewColumn* col, GtkCellRenderer* render,
 static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
 {
     char *artist, *album, *title;
-    guint time_len = 0;
+    uint32_t time_len = 0;
     char time_buf[32];
     /* g_debug("do update track: %d", ut->id); */
 
@@ -952,7 +952,7 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
     xmmsc_result_unref( res );
 }
 
-static void queue_update_track( guint32 id, GtkTreeIter* it )
+static void queue_update_track( uint32_t id, GtkTreeIter* it )
 {
     UpdateTrack* ut;
     /* if it's already in the queue */
@@ -999,7 +999,7 @@ static void on_playlist_content_received( xmmsc_result_t* res, GtkWidget* list_v
 
     for (; xmmsc_result_list_valid(res); xmmsc_result_list_next(res))
     {
-        guint32 id;
+        uint32_t id;
         xmmsc_result_t* res2;
         UpdateTrack* ut = g_slice_new(UpdateTrack);
 
@@ -1245,7 +1245,7 @@ static void on_playlists_listed( xmmsc_result_t* res, void* user_data )
     while( xmmsc_result_list_valid(res) )
     {
         char* str = NULL;
-        guint r = xmmsc_result_get_string(res, &str);
+        uint32_t r = xmmsc_result_get_string(res, &str);
         if( str && str[0] && str[0] != '_' )
             lists = g_slist_prepend(lists, str);
         xmmsc_result_list_next(res);
@@ -1271,7 +1271,7 @@ static void on_playlists_listed( xmmsc_result_t* res, void* user_data )
 
 static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
 {
-    guint id = 0;
+    uint32_t id = 0;
     int type = 0, pos = -1;
     char* name = NULL;
 
@@ -1381,7 +1381,7 @@ out:
 
 static void on_playback_playtime_changed( xmmsc_result_t* res, void* user_data )
 {
-    guint time;
+    uint32_t time;
     xmmsc_result_t* restart;
     char buf[32];
     if ( xmmsc_result_iserror(res)
@@ -1454,10 +1454,10 @@ static void on_playback_cur_track_changed( xmmsc_result_t* res, void* user_data 
 
 static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
 {
-    guint pos;
+    uint32_t pos;
     GtkTreePath* path;
     GtkTreeSelection* sel;
-    guint playlist_pos = 0;
+    uint32_t playlist_pos = 0;
 
     xmmsc_result_get_uint( res, &playlist_pos );
     /* g_debug("pos: %d", playlist_pos); */
@@ -1488,7 +1488,7 @@ static void get_channel_volume_names(const void *key, xmmsc_result_value_type_t 
 void on_volume_btn_set_volume(xmmsc_result_t* res, void* user_data)
 {
     GSList* volumes = NULL, *l;
-    guint32 val = GPOINTER_TO_UINT(user_data);
+    uint32_t val = GPOINTER_TO_UINT(user_data);
     xmmsc_result_dict_foreach(res, get_channel_volume_names, &volumes);
     for( l = volumes; l; l = l->next )
     {
@@ -1504,14 +1504,14 @@ static void on_volume_btn_changed(GtkScaleButton* btn, gdouble val, gpointer use
 {
     xmmsc_result_t* res;
     res = xmmsc_playback_volume_get(con);
-    xmmsc_result_notifier_set(res, on_volume_btn_set_volume, GUINT_TO_POINTER((guint32)val));
+    xmmsc_result_notifier_set(res, on_volume_btn_set_volume, GUINT_TO_POINTER((uint32_t)val));
     xmmsc_result_unref(res);
 }
 
 static void on_playback_volume_changed( xmmsc_result_t* res, void* user_data )
 {
     GSList* volumes = NULL, *l;
-    guint vol = 0;
+    uint32_t vol = 0;
 
     /* FIXME: OSS4 and pulse audio disconnect when playback is stopped,
      * and hence we will receive a empty result here when playback is stopped.
