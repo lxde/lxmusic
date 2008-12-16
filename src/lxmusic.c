@@ -327,6 +327,10 @@ void on_preference(GtkAction* act, gpointer data)
         GtkWidget* close_to_tray_btn = gtk_builder_get_object(builder, "close_to_tray");
         GtkWidget* output_plugin_cb = gtk_builder_get_object(builder, "output_plugin_cb");
         GtkWidget* output_bufsize = gtk_builder_get_object(builder, "output_bufsize");
+        GtkWidget* alsa_device = gtk_builder_get_object(builder, "alsa_device");
+        GtkWidget* alsa_mixer = gtk_builder_get_object(builder, "alsa_mixer");
+        GtkWidget* ao_device = gtk_builder_get_object(builder, "ao_device");
+        GtkWidget* ao_driver = gtk_builder_get_object(builder, "ao_driver");
         GtkWidget* cdrom = gtk_builder_get_object(builder, "cdrom");
         GtkWidget* id3v1_encoding = gtk_builder_get_object(builder, "id3v1_encoding");
         GtkWidget* dlg = gtk_builder_get_object(builder, "pref_dlg");
@@ -342,6 +346,22 @@ void on_preference(GtkAction* act, gpointer data)
 
         res = xmmsc_configval_get(con, "output.buffersize");
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(output_bufsize), g_object_unref );
+        xmmsc_result_unref(res);
+
+        res = xmmsc_configval_get(con, "alsa.device");
+        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(alsa_device), g_object_unref );
+        xmmsc_result_unref(res);
+
+        res = xmmsc_configval_get(con, "alsa.mixer");
+        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(alsa_mixer), g_object_unref );
+        xmmsc_result_unref(res);
+
+        res = xmmsc_configval_get(con, "ao.device");
+        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(ao_device), g_object_unref );
+        xmmsc_result_unref(res);
+
+        res = xmmsc_configval_get(con, "ao.driver");
+        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(ao_driver), g_object_unref );
         xmmsc_result_unref(res);
 
         res = xmmsc_configval_get(con, "cdda.device");
@@ -363,6 +383,18 @@ void on_preference(GtkAction* act, gpointer data)
 
             g_snprintf(str, 32, "%u",(guint)gtk_spin_button_get_value(output_bufsize) );
             res = xmmsc_configval_set( con, "output.buffersize", str );
+            xmmsc_result_unref(res);
+
+            res = xmmsc_configval_set( con, "alsa.device", gtk_entry_get_text(alsa_device) );
+            xmmsc_result_unref(res);
+
+            res = xmmsc_configval_set( con, "alsa.mixer", gtk_entry_get_text(alsa_mixer) );
+            xmmsc_result_unref(res);
+
+            res = xmmsc_configval_set( con, "ao.device", gtk_entry_get_text(ao_device) );
+            xmmsc_result_unref(res);
+
+            res = xmmsc_configval_set( con, "ao.driver", gtk_entry_get_text(ao_driver) );
             xmmsc_result_unref(res);
 
             res = xmmsc_configval_set( con, "cdda.device", gtk_entry_get_text(cdrom) );
