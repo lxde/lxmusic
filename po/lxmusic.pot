@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-16 00:06+0800\n"
+"POT-Creation-Date: 2008-12-16 15:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,69 +16,69 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:236
+#: ../src/lxmusic.c:232
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr ""
 
-#: ../src/lxmusic.c:247
+#: ../src/lxmusic.c:243
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
 
-#: ../src/lxmusic.c:310 ../data/lxmusic.ui.h:14
+#: ../src/lxmusic.c:306 ../data/lxmusic.ui.h:14
 msgid "LXMusic"
 msgstr ""
 
-#: ../src/lxmusic.c:440
+#: ../src/lxmusic.c:436
 msgid "Bitrate: "
 msgstr ""
 
-#: ../src/lxmusic.c:597
+#: ../src/lxmusic.c:665
 msgid "Audio Files"
 msgstr ""
 
-#: ../src/lxmusic.c:602
+#: ../src/lxmusic.c:670
 msgid "All Files"
 msgstr ""
 
-#: ../src/lxmusic.c:629
+#: ../src/lxmusic.c:697
 msgid "Input a URL"
 msgstr ""
 
-#: ../src/lxmusic.c:972 ../data/lxmusic.ui.h:7
+#: ../src/lxmusic.c:1037 ../data/lxmusic.ui.h:7
 msgid "Artist"
 msgstr ""
 
-#: ../src/lxmusic.c:981 ../data/lxmusic.ui.h:5
+#: ../src/lxmusic.c:1046 ../data/lxmusic.ui.h:5
 msgid "Album"
 msgstr ""
 
-#: ../src/lxmusic.c:990
+#: ../src/lxmusic.c:1055
 msgid "Title"
 msgstr ""
 
-#: ../src/lxmusic.c:997
+#: ../src/lxmusic.c:1062
 msgid "Length"
 msgstr ""
 
-#: ../src/lxmusic.c:1151
+#: ../src/lxmusic.c:1216
 msgid "Default"
 msgstr ""
 
-#: ../src/lxmusic.c:1250
+#: ../src/lxmusic.c:1315
 msgid "Pause"
 msgstr ""
 
-#: ../src/lxmusic.c:1259
+#: ../src/lxmusic.c:1324
 msgid "Play"
 msgstr ""
 
-#: ../src/lxmusic.c:1695
+#: ../src/lxmusic.c:1761
 msgid "Create new playlist"
 msgstr ""
 
-#: ../src/utils.c:138
+#: ../src/utils.c:171
 msgid "Error"
 msgstr ""
 
@@ -243,18 +243,22 @@ msgid "KB"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:9
-msgid "Misc"
+msgid "Minimize to system tray on close"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:10
-msgid "Plugin: "
+msgid "Misc"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:11
-msgid "Preference"
+msgid "Plugin: "
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:12
+msgid "Preference"
+msgstr ""
+
+#: ../data/pref-dlg.ui.h:13
 msgid "Show system tray icon"
 msgstr ""
 

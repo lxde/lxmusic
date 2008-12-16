@@ -44,15 +44,12 @@ typedef struct _UpdateTrack{
     GtkTreeIter it;
 }UpdateTrack;
 
-typedef struct _FilterCriteria{
-    char* keyword;
-    int cols;
-}FilterCriteria;
 
 const char* known_plugins[] = {
     "pulse",
     "alsa",
-    "ao"
+    "ao",
+/*    "oss" */
 };
 
 static xmmsc_connection_t *con = NULL;
@@ -86,6 +83,9 @@ static guint cur_track_duration = 0;
 static guint cur_track_id = 0;
 
 static int repeat_mode = REPEAT_NONE;
+
+static char* filter_keyword = NULL;
+static guint filter_timeout = 0;
 
 /* config values */
 static gboolean show_tray_icon = TRUE;
@@ -123,9 +123,8 @@ static void load_config()
         kf_get_bool(kf, grp, "show_tray_icon", &show_tray_icon);
         kf_get_bool(kf, grp, "show_playlist", &show_playlist);
         kf_get_bool(kf, grp, "close_to_tray", &close_to_tray);
-        filter_field = g_key_file_get_integer(kf, grp, "filter", NULL);
-        if(g_key_file_has_key(kf, grp, "volume", NULL))
-            volume = g_key_file_get_integer(kf, grp, "volume", NULL);
+        kf_get_int(kf, grp, "volume", &volume);
+        kf_get_int(kf, grp, "filter", &filter_field);
     }
     g_free(path);
     g_key_file_free(kf);
@@ -148,27 +147,12 @@ static void save_config()
         fprintf( f, "width=%d\n", win_width );
         fprintf( f, "height=%d\n", win_height );
         fprintf( f, "show_tray_icon=%d\n", show_tray_icon );
+        fprintf( f, "close_to_tray=%d\n", close_to_tray );
         fprintf( f, "show_playlist=%d\n", show_playlist );
         fprintf( f, "filter=%d\n", filter_field );
         fprintf( f, "volume=%d\n", (int)volume );
         fclose(f);
     }
-}
-
-/*
-static GtkListStore* get_playlist_store()
-{
-    GtkTreeModel* filter = gtk_tree_view_get_model(playlist_view);
-    if( filter )
-        return gtk_tree_model_filter_get_model((GtkTreeModelFilter*)filter);
-    return NULL;
-}
-*/
-
-static void filter_criteria_free( FilterCriteria* f )
-{
-    g_free(f->keyword);
-    g_slice_free(FilterCriteria, f);
 }
 
 static void free_update_track( UpdateTrack* ut )
@@ -189,6 +173,7 @@ static void cancel_pending_update_tracks()
 static void on_xmms_quit(xmmsc_result_t* res, void* user_data)
 {
     xmmsc_result_unref(res);
+    gtk_widget_destroy(main_win);
     gtk_main_quit();
 }
 
@@ -199,8 +184,6 @@ void on_quit(GtkAction* act, gpointer user_data)
     if( show_playlist )
         gtk_window_get_size(main_win, &win_width, &win_height);
 
-    gtk_widget_destroy(main_win);
-
     /* FIXME: Is this apporpriate? */
     if( playback_status == XMMS_PLAYBACK_STATUS_STOP )
     {
@@ -210,17 +193,31 @@ void on_quit(GtkAction* act, gpointer user_data)
         xmmsc_result_unref(res);
     }
     else
+    {
+        gtk_widget_destroy(main_win);
         gtk_main_quit();
+    }
 }
 
 gboolean on_main_win_delete_event(GtkWidget* win, GdkEvent* evt, gpointer user_data)
 {
-    on_quit(NULL, NULL);
+    if( close_to_tray )
+    {
+        gtk_widget_hide( win );
+        return TRUE;
+    }
+    else
+        on_quit(NULL, NULL);
     return FALSE;
 }
 
 void on_main_win_destroy(GtkWidget* win)
 {
+    if( filter_timeout )
+    {
+        g_source_remove(filter_timeout);
+        filter_timeout = 0;
+    }
 }
 
 static void open_url(GtkAboutDialog* dlg, const char* url, gpointer user_data)
@@ -320,6 +317,7 @@ void on_preference(GtkAction* act, gpointer data)
     {
         xmmsc_result_t* res;
         GtkWidget* show_tray_icon_btn = gtk_builder_get_object(builder, "show_tray_icon");
+        GtkWidget* close_to_tray_btn = gtk_builder_get_object(builder, "close_to_tray");
         GtkWidget* output_plugin_cb = gtk_builder_get_object(builder, "output_plugin_cb");
         GtkWidget* output_bufsize = gtk_builder_get_object(builder, "output_bufsize");
         GtkWidget* cdrom = gtk_builder_get_object(builder, "cdrom");
@@ -327,6 +325,7 @@ void on_preference(GtkAction* act, gpointer data)
         GtkWidget* dlg = gtk_builder_get_object(builder, "pref_dlg");
 
         gtk_toggle_button_set_active(show_tray_icon_btn, show_tray_icon);
+        gtk_toggle_button_set_active(close_to_tray_btn, close_to_tray);
 
         res = xmmsc_configval_get(con, "output.plugin");
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_output_plugin, g_object_ref(output_plugin_cb), g_object_unref );
@@ -364,6 +363,8 @@ void on_preference(GtkAction* act, gpointer data)
             xmmsc_result_unref(res);
 
             show_tray_icon = gtk_toggle_button_get_active(show_tray_icon_btn);
+            close_to_tray = gtk_toggle_button_get_active(close_to_tray_btn);
+
             if( show_tray_icon )
             {
                 if( ! tray_icon )
@@ -477,7 +478,7 @@ void on_file_properties(GtkAction* act, gpointer data)
     }
 }
 
-void on_playlist_row_activated(GtkTreeView* view,
+void on_playlist_view_row_activated(GtkTreeView* view,
                               GtkTreePath* path,
                               GtkTreeViewColumn* col,
                               gpointer user_data)
@@ -503,6 +504,69 @@ void on_playlist_row_activated(GtkTreeView* view,
     }
 }
 
+void on_playlist_view_drag_data_received(GtkWidget          *widget,
+                                         GdkDragContext     *drag_ctx,
+                                         gint                x,
+                                         gint                y,
+                                         GtkSelectionData   *data,
+                                         guint               info,
+                                         guint               time)
+{
+    char** uris;
+    g_signal_stop_emission_by_name(widget, "drag-data-received");
+
+    if( uris = gtk_selection_data_get_uris(data) )
+    {
+        char** uri;
+        for( uri = uris; *uri; ++uri )
+        {
+            xmmsc_result_t* res;
+            if( g_str_has_prefix(*uri, "file://") )
+            {
+                char* fn = g_filename_from_uri(*uri, NULL, NULL);
+                if(fn)
+                {
+                    if(g_file_test(fn, G_FILE_TEST_IS_DIR))
+                        res = xmmsc_playlist_radd_encoded(con, cur_playlist, *uri);
+                    else
+                        res = xmmsc_playlist_add_encoded(con, cur_playlist, *uri);
+                    g_free(fn);
+                }
+            }
+            else
+                res = xmmsc_playlist_radd_encoded(con, cur_playlist, *uri);
+
+            xmmsc_result_unref(res);
+        }
+        g_strfreev(uris);
+    }
+}
+
+gboolean on_playlist_view_drag_drop(GtkWidget      *widget,
+                                    GdkDragContext *drag_ctx,
+                                    gint            x,
+                                    gint            y,
+                                    guint           time,
+                                    gpointer        user_data)
+{
+    GdkAtom target = gdk_atom_intern_static_string("text/uri-list");
+
+    /*  Don't call the default handler  */
+//    g_signal_stop_emission_by_name( widget, "drag-drop" );
+
+    if( g_list_find( drag_ctx->targets, target ) )
+    {
+        gtk_drag_get_data( widget, drag_ctx, target, time );
+        return TRUE;
+    }
+    else
+    {
+    }
+    gtk_drag_finish(drag_ctx, TRUE, FALSE, time);
+    return TRUE;
+}
+
+
 void on_filter_field_changed(GtkComboBox* cb, gpointer user_data)
 {
     GtkTreeModelFilter* mf = (GtkTreeModelFilter*)gtk_tree_view_get_model(playlist_view);
@@ -510,12 +574,12 @@ void on_filter_field_changed(GtkComboBox* cb, gpointer user_data)
     gtk_tree_model_filter_refilter(mf);
 }
 
-static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, FilterCriteria* criteria)
+static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, gpointer user_data)
 {
     char *artist=NULL, *album=NULL, *title=NULL;
     gboolean ret = FALSE;
 
-    if( ! criteria->keyword )
+    if( ! filter_keyword || '\0' == *filter_keyword )
         return TRUE;
 
     if( filter_field == FILTER_ALL || filter_field == FILTER_ARTIST )
@@ -530,11 +594,11 @@ static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, Filte
         gtk_tree_model_get(model, it,
                            COL_TITLE, &title, -1);
 
-    if( artist && strstr( artist, criteria->keyword ) )
+    if( artist && utf8_strcasestr( artist, filter_keyword ) )
         ret = TRUE;
-    else if( album && strstr( album, criteria->keyword ) )
+    else if( album && utf8_strcasestr( album, filter_keyword ) )
         ret = TRUE;
-    else if( title && strstr( title, criteria->keyword ) )
+    else if( title && utf8_strcasestr( title, filter_keyword ) )
         ret = TRUE;
 
     g_free(artist);
@@ -544,16 +608,25 @@ static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, Filte
     return ret;
 }
 
-void on_filter_entry_changed(GtkEntry* entry, gpointer user_data)
+static gboolean on_filter_timeout(GtkEntry* entry)
 {
     GtkWidget* view = playlist_view;
     GtkTreeModelFilter* filter = (GtkTreeModelFilter*)gtk_tree_view_get_model(view);
-    FilterCriteria* criteria = (FilterCriteria*)g_object_get_data(filter, "criteria");
-    g_free(criteria->keyword);
-    criteria->keyword = g_strdup(gtk_entry_get_text(entry));
+    g_free(filter_keyword);
+    filter_keyword = g_strdup(gtk_entry_get_text(entry));
     gtk_tree_model_filter_refilter(filter);
 
     /* FIXME: keep selections and keep the selected items visible in current view. */
+
+    filter_timeout = 0;
+    return FALSE;
+}
+
+void on_filter_entry_changed(GtkEntry* entry, gpointer user_data)
+{
+    if( filter_timeout )
+        g_source_remove(filter_timeout);
+    filter_timeout = g_timeout_add( 600, on_filter_timeout, entry );
 }
 
 static gboolean file_filter_fnuc(const GtkFileFilterInfo *inf, gpointer user_data)
@@ -638,7 +711,7 @@ void on_add_url( GtkMenuItem* item, gpointer user_data )
     {
         xmmsc_result_t *res;
         const char* url = gtk_entry_get_text( (GtkEntry*)entry );
-        res = xmmsc_playlist_add_url( con, "_active", url );
+        res = xmmsc_playlist_add_encoded( con, cur_playlist, url );
         xmmsc_result_unref( res );
     }
     gtk_widget_destroy( dlg );
@@ -876,12 +949,9 @@ static void on_playlist_content_received( xmmsc_result_t* res, GtkWidget* list_v
     GtkTreeIter it;
     const char* pl_name = cur_playlist;
 
-    FilterCriteria* criteria = g_slice_new0(FilterCriteria);
-
     list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING );
     mf = gtk_tree_model_filter_new(list_store, NULL);
-    g_object_set_data(mf, "criteria", criteria);
-    gtk_tree_model_filter_set_visible_func( mf, playlist_filter_func, criteria, filter_criteria_free );
+    gtk_tree_model_filter_set_visible_func( mf, playlist_filter_func, NULL, NULL );
     g_object_unref(list_store);
 
     cancel_pending_update_tracks();
@@ -1192,7 +1262,7 @@ static void on_playlist_content_changed( xmmsc_result_t* res, void* user_data )
                 GtkTreeIter it;
                 gtk_list_store_insert_with_values( list_store, &it, pos,
                                                    COL_ID, id, -1 );
-                g_debug("playlist_added: %d", id);
+                /* g_debug("playlist_added: %d", id); */
                 queue_update_track( id, &it );
             }
             break;
@@ -1636,6 +1706,7 @@ static void setup_ui()
 
     inner_vbox = (GtkWidget*)gtk_builder_get_object(builder, "inner_vbox");
     playlist_view = (GtkWidget*)gtk_builder_get_object(builder, "playlist_view");
+    gtk_drag_dest_add_uri_targets(playlist_view);
 
     repeat_mode_cb = (GtkWidget*)gtk_builder_get_object(builder, "repeat_mode");
 
@@ -1786,7 +1857,7 @@ void on_playlist_copy(GtkAction* act, gpointer user_data)
 
 void on_playlist_paste(GtkAction* act, gpointer user_data)
 {
-
+    show_error( main_win, NULL, "Not yet implemented");
 }
 
 

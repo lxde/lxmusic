@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-16 00:06+0800\n"
-"PO-Revision-Date: 2008-12-16 00:06+0800\n"
+"POT-Creation-Date: 2008-12-16 15:18+0800\n"
+"PO-Revision-Date: 2008-12-16 15:18+0800\n"
 "Last-Translator: \n"
 "Language-Team: pcman.tw@gmail.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:236
+#: ../src/lxmusic.c:232
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "由 Arnaud DIDRY 製作的 xmms2 官方圖示"
 
-#: ../src/lxmusic.c:247
+#: ../src/lxmusic.c:243
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -27,62 +27,62 @@ msgstr ""
 "LXDE 的音樂播放程式\n"
 "簡單的圖形介面 XMMS2 客戶端"
 
-#: ../src/lxmusic.c:310
+#: ../src/lxmusic.c:306
 #: ../data/lxmusic.ui.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:440
+#: ../src/lxmusic.c:436
 msgid "Bitrate: "
 msgstr "位元率："
 
-#: ../src/lxmusic.c:597
+#: ../src/lxmusic.c:665
 msgid "Audio Files"
 msgstr "音樂檔"
 
-#: ../src/lxmusic.c:602
+#: ../src/lxmusic.c:670
 msgid "All Files"
 msgstr "所有檔案"
 
-#: ../src/lxmusic.c:629
+#: ../src/lxmusic.c:697
 msgid "Input a URL"
 msgstr "輸入一個 URL"
 
-#: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:1037
 #: ../data/lxmusic.ui.h:7
 msgid "Artist"
 msgstr "藝人"
 
-#: ../src/lxmusic.c:981
+#: ../src/lxmusic.c:1046
 #: ../data/lxmusic.ui.h:5
 msgid "Album"
 msgstr "專輯"
 
-#: ../src/lxmusic.c:990
+#: ../src/lxmusic.c:1055
 msgid "Title"
 msgstr "標題"
 
-#: ../src/lxmusic.c:997
+#: ../src/lxmusic.c:1062
 msgid "Length"
 msgstr "長度"
 
-#: ../src/lxmusic.c:1151
+#: ../src/lxmusic.c:1216
 msgid "Default"
 msgstr "預設"
 
-#: ../src/lxmusic.c:1250
+#: ../src/lxmusic.c:1315
 msgid "Pause"
 msgstr "暫停"
 
-#: ../src/lxmusic.c:1259
+#: ../src/lxmusic.c:1324
 msgid "Play"
 msgstr "播放"
 
-#: ../src/lxmusic.c:1695
+#: ../src/lxmusic.c:1761
 msgid "Create new playlist"
 msgstr "建立新的播放清單"
 
-#: ../src/utils.c:138
+#: ../src/utils.c:171
 msgid "Error"
 msgstr "錯誤"
 
@@ -248,18 +248,22 @@ msgid "KB"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:9
+msgid "Minimize to system tray on close"
+msgstr "關閉時最小化到系統列"
+
+#: ../data/pref-dlg.ui.h:10
 msgid "Misc"
 msgstr "雜項"
 
-#: ../data/pref-dlg.ui.h:10
+#: ../data/pref-dlg.ui.h:11
 msgid "Plugin: "
 msgstr "外掛："
 
-#: ../data/pref-dlg.ui.h:11
+#: ../data/pref-dlg.ui.h:12
 msgid "Preference"
 msgstr "偏好設定"
 
-#: ../data/pref-dlg.ui.h:12
+#: ../data/pref-dlg.ui.h:13
 msgid "Show system tray icon"
 msgstr "顯示系統列圖示"
 

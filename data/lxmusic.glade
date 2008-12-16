@@ -440,7 +440,9 @@ Repeat All</property>
                         <property name="has_focus">True</property>
                         <property name="is_focus">True</property>
                         <property name="reorderable">True</property>
-                        <signal name="row_activated" handler="on_playlist_row_activated"/>
+                        <signal name="row_activated" handler="on_playlist_view_row_activated"/>
+                        <signal name="drag_data_received" handler="on_playlist_view_drag_data_received"/>
+                        <signal name="drag_drop" handler="on_playlist_view_drag_drop"/>
                       </widget>
                     </child>
                   </widget>
