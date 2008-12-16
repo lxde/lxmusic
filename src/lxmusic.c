@@ -249,6 +249,13 @@ void on_about(GtkWidget* mi, gpointer data)
     gtk_widget_destroy( about );
 }
 
+void on_pref_output_plugin_changed(GtkNotebook* nb, GtkComboBox* output)
+{
+    int i = gtk_combo_box_get_active(output);
+    if( i >= 0 )
+        gtk_notebook_set_current_page(nb, i);
+}
+
 static void on_pref_dlg_init_widget(xmmsc_result_t* res, void* user_data)
 {
     GtkWidget* w = (GtkWidget*)user_data;
@@ -323,6 +330,8 @@ void on_preference(GtkAction* act, gpointer data)
         GtkWidget* cdrom = gtk_builder_get_object(builder, "cdrom");
         GtkWidget* id3v1_encoding = gtk_builder_get_object(builder, "id3v1_encoding");
         GtkWidget* dlg = gtk_builder_get_object(builder, "pref_dlg");
+
+        gtk_builder_connect_signals(builder, NULL);
 
         gtk_toggle_button_set_active(show_tray_icon_btn, show_tray_icon);
         gtk_toggle_button_set_active(close_to_tray_btn, close_to_tray);
