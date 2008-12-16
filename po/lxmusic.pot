@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-16 15:18+0800\n"
+"POT-Creation-Date: 2008-12-16 20:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,65 +16,65 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:232
+#: ../src/lxmusic.c:233
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr ""
 
-#: ../src/lxmusic.c:243
+#: ../src/lxmusic.c:244
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
 
-#: ../src/lxmusic.c:306 ../data/lxmusic.ui.h:14
+#: ../src/lxmusic.c:314 ../data/lxmusic.ui.h:14
 msgid "LXMusic"
 msgstr ""
 
-#: ../src/lxmusic.c:436
+#: ../src/lxmusic.c:482
 msgid "Bitrate: "
 msgstr ""
 
-#: ../src/lxmusic.c:665
+#: ../src/lxmusic.c:711
 msgid "Audio Files"
 msgstr ""
 
-#: ../src/lxmusic.c:670
+#: ../src/lxmusic.c:716
 msgid "All Files"
 msgstr ""
 
-#: ../src/lxmusic.c:697
+#: ../src/lxmusic.c:743
 msgid "Input a URL"
 msgstr ""
 
-#: ../src/lxmusic.c:1037 ../data/lxmusic.ui.h:7
+#: ../src/lxmusic.c:1083 ../data/lxmusic.ui.h:7
 msgid "Artist"
 msgstr ""
 
-#: ../src/lxmusic.c:1046 ../data/lxmusic.ui.h:5
+#: ../src/lxmusic.c:1092 ../data/lxmusic.ui.h:5
 msgid "Album"
 msgstr ""
 
-#: ../src/lxmusic.c:1055
+#: ../src/lxmusic.c:1101
 msgid "Title"
 msgstr ""
 
-#: ../src/lxmusic.c:1062
+#: ../src/lxmusic.c:1108
 msgid "Length"
 msgstr ""
 
-#: ../src/lxmusic.c:1216
+#: ../src/lxmusic.c:1262
 msgid "Default"
 msgstr ""
 
-#: ../src/lxmusic.c:1315
+#: ../src/lxmusic.c:1361
 msgid "Pause"
 msgstr ""
 
-#: ../src/lxmusic.c:1324
+#: ../src/lxmusic.c:1370
 msgid "Play"
 msgstr ""
 
-#: ../src/lxmusic.c:1761
+#: ../src/lxmusic.c:1807
 msgid "Create new playlist"
 msgstr ""
 
@@ -235,31 +235,51 @@ msgid "Default ID3 V1 Encoding: "
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:7
-msgid "General"
+msgid "Device:"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:8
-msgid "KB"
+msgid "Driver:"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:9
-msgid "Minimize to system tray on close"
+msgid "General"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:10
-msgid "Misc"
+msgid "KB"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:11
-msgid "Plugin: "
+msgid "Minimize to system tray on close"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:12
-msgid "Preference"
+msgid "Misc"
 msgstr ""
 
 #: ../data/pref-dlg.ui.h:13
+msgid "Mixer:"
+msgstr ""
+
+#: ../data/pref-dlg.ui.h:14
+msgid "Plugin: "
+msgstr ""
+
+#: ../data/pref-dlg.ui.h:15
+msgid "Preference"
+msgstr ""
+
+#: ../data/pref-dlg.ui.h:16
 msgid "Show system tray icon"
+msgstr ""
+
+#: ../data/pref-dlg.ui.h:17
+msgid "Use OSS for audio output"
+msgstr ""
+
+#: ../data/pref-dlg.ui.h:18
+msgid "Use Pulse Audio for audio output"
 msgstr ""
 
 #: ../data/track-info.ui.h:1
