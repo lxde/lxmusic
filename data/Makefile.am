@@ -9,7 +9,8 @@ uidir=$(datadir)/lxmusic
 ui_in_files= \
 	lxmusic.glade \
 	pref-dlg.glade \
-	track-info.glade
+	track-info.glade \
+	popup.glade
 ui_DATA = $(ui_in_files:.glade=.ui)
 
 EXTRA_DIST = \

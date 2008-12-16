@@ -5,4 +5,4 @@ src/utils.c
 [type: gettext/glade]data/lxmusic.ui
 [type: gettext/glade]data/pref-dlg.ui
 [type: gettext/glade]data/track-info.ui
-
+[type: gettext/glade]data/popup.ui

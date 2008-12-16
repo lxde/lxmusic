@@ -91,6 +91,7 @@ static uint32_t filter_timeout = 0;
 static gboolean show_tray_icon = TRUE;
 static gboolean show_playlist = TRUE;
 static gboolean close_to_tray = TRUE;
+static gboolean play_after_exit = FALSE;
 
 static int filter_field = FILTER_ALL;
 static uint32_t volume = 60;
@@ -123,6 +124,7 @@ static void load_config()
         kf_get_bool(kf, grp, "show_tray_icon", &show_tray_icon);
         kf_get_bool(kf, grp, "show_playlist", &show_playlist);
         kf_get_bool(kf, grp, "close_to_tray", &close_to_tray);
+        kf_get_bool(kf, grp, "play_after_exit", &play_after_exit);
         kf_get_int(kf, grp, "volume", &volume);
         kf_get_int(kf, grp, "filter", &filter_field);
     }
@@ -148,6 +150,7 @@ static void save_config()
         fprintf( f, "height=%d\n", win_height );
         fprintf( f, "show_tray_icon=%d\n", show_tray_icon );
         fprintf( f, "close_to_tray=%d\n", close_to_tray );
+        fprintf( f, "play_after_exit=%d\n", play_after_exit );
         fprintf( f, "show_playlist=%d\n", show_playlist );
         fprintf( f, "filter=%d\n", filter_field );
         fprintf( f, "volume=%d\n", (int)volume );
@@ -185,7 +188,7 @@ void on_quit(GtkAction* act, gpointer user_data)
         gtk_window_get_size(main_win, &win_width, &win_height);
 
     /* FIXME: Is this apporpriate? */
-    if( playback_status == XMMS_PLAYBACK_STATUS_STOP )
+    if( ! play_after_exit || playback_status == XMMS_PLAYBACK_STATUS_STOP )
     {
         /* quit the server */
         xmmsc_result_t* res = xmmsc_quit(con);
@@ -303,9 +306,21 @@ static void on_tray_icon_activate(GtkStatusIcon* icon, gpointer user_data)
         gtk_widget_show(main_win);
 }
 
-static void on_tray_icon_popup_menu(GtkStatusIcon* icon, uint32_t btn, uint32_t time, gpointer user_data)
+void on_show_main_win(GtkAction* act, gpointer user_data)
 {
+    gtk_window_present(main_win);
+}
 
+static void on_tray_icon_popup_menu(GtkStatusIcon* icon, guint btn, guint time, gpointer user_data)
+{
+    GtkBuilder* builder = gtk_builder_new();
+    if(gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/popup.ui", NULL))
+    {
+        GtkWidget* popup = gtk_builder_get_object(builder, "popup");
+        gtk_builder_connect_signals(builder, NULL);
+        gtk_menu_popup(popup, NULL, NULL, NULL, NULL, btn, time);
+    }
+    g_object_unref(builder);
 }
 
 static void create_tray_icon()
@@ -325,6 +340,7 @@ void on_preference(GtkAction* act, gpointer data)
         xmmsc_result_t* res;
         GtkWidget* show_tray_icon_btn = gtk_builder_get_object(builder, "show_tray_icon");
         GtkWidget* close_to_tray_btn = gtk_builder_get_object(builder, "close_to_tray");
+        GtkWidget* play_after_exit_btn = gtk_builder_get_object(builder, "play_after_exit");
         GtkWidget* output_plugin_cb = gtk_builder_get_object(builder, "output_plugin_cb");
         GtkWidget* output_bufsize = gtk_builder_get_object(builder, "output_bufsize");
         GtkWidget* alsa_device = gtk_builder_get_object(builder, "alsa_device");
@@ -339,6 +355,7 @@ void on_preference(GtkAction* act, gpointer data)
 
         gtk_toggle_button_set_active(show_tray_icon_btn, show_tray_icon);
         gtk_toggle_button_set_active(close_to_tray_btn, close_to_tray);
+        gtk_toggle_button_set_active(play_after_exit_btn, play_after_exit);
 
         res = xmmsc_configval_get(con, "output.plugin");
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_output_plugin, g_object_ref(output_plugin_cb), g_object_unref );
@@ -405,6 +422,7 @@ void on_preference(GtkAction* act, gpointer data)
 
             show_tray_icon = gtk_toggle_button_get_active(show_tray_icon_btn);
             close_to_tray = gtk_toggle_button_get_active(close_to_tray_btn);
+            play_after_exit = gtk_toggle_button_get_active(play_after_exit_btn);
 
             if( show_tray_icon )
             {
