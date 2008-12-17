@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-17 01:05+0800\n"
-"PO-Revision-Date: 2008-12-17 01:07+0800\n"
+"POT-Creation-Date: 2008-12-17 13:00+0800\n"
+"PO-Revision-Date: 2008-12-17 13:01+0800\n"
 "Last-Translator: \n"
 "Language-Team: pcman.tw@gmail.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:236
+#: ../src/lxmusic.c:238
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "由 Arnaud DIDRY 製作的 xmms2 官方圖示"
 
-#: ../src/lxmusic.c:247
+#: ../src/lxmusic.c:249
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -27,58 +27,58 @@ msgstr ""
 "LXDE 的音樂播放程式\n"
 "簡單的圖形介面 XMMS2 客戶端"
 
-#: ../src/lxmusic.c:329
+#: ../src/lxmusic.c:331
 #: ../data/lxmusic.ui.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:500
+#: ../src/lxmusic.c:502
 msgid "Bitrate: "
 msgstr "位元率："
 
-#: ../src/lxmusic.c:729
+#: ../src/lxmusic.c:731
 msgid "Audio Files"
 msgstr "音樂檔"
 
-#: ../src/lxmusic.c:734
+#: ../src/lxmusic.c:736
 msgid "All Files"
 msgstr "所有檔案"
 
-#: ../src/lxmusic.c:761
+#: ../src/lxmusic.c:763
 msgid "Input a URL"
 msgstr "輸入一個 URL"
 
-#: ../src/lxmusic.c:1101
+#: ../src/lxmusic.c:1116
 #: ../data/lxmusic.ui.h:7
 msgid "Artist"
 msgstr "藝人"
 
-#: ../src/lxmusic.c:1110
+#: ../src/lxmusic.c:1125
 #: ../data/lxmusic.ui.h:5
 msgid "Album"
 msgstr "專輯"
 
-#: ../src/lxmusic.c:1119
+#: ../src/lxmusic.c:1134
 msgid "Title"
 msgstr "標題"
 
-#: ../src/lxmusic.c:1126
+#: ../src/lxmusic.c:1141
 msgid "Length"
 msgstr "長度"
 
-#: ../src/lxmusic.c:1280
+#: ../src/lxmusic.c:1302
 msgid "Default"
 msgstr "預設"
 
-#: ../src/lxmusic.c:1379
+#: ../src/lxmusic.c:1403
 msgid "Pause"
 msgstr "暫停"
 
-#: ../src/lxmusic.c:1388
+#: ../src/lxmusic.c:1419
 msgid "Play"
 msgstr "播放"
 
-#: ../src/lxmusic.c:1825
+#: ../src/lxmusic.c:1888
 msgid "Create new playlist"
 msgstr "建立新的播放清單"
 
@@ -132,86 +132,94 @@ msgid "Filter:"
 msgstr "過濾器："
 
 #: ../data/lxmusic.ui.h:15
+msgid "Locate currently played track"
+msgstr "跳到正在播放的歌曲"
+
+#: ../data/lxmusic.ui.h:16
 msgid "Media Library"
 msgstr "媒體庫"
 
-#: ../data/lxmusic.ui.h:16
+#: ../data/lxmusic.ui.h:17
 msgid "Next"
 msgstr "下一首"
 
-#: ../data/lxmusic.ui.h:17
+#: ../data/lxmusic.ui.h:18
 msgid "No Repeat"
 msgstr "不要重複"
 
-#: ../data/lxmusic.ui.h:18
+#: ../data/lxmusic.ui.h:19
 msgid "Play/Pause"
 msgstr "播放/暫停"
 
-#: ../data/lxmusic.ui.h:19
+#: ../data/lxmusic.ui.h:20
 msgid "Previous"
 msgstr "前一首 "
 
-#: ../data/lxmusic.ui.h:20
+#: ../data/lxmusic.ui.h:21
 msgid "Remove All Items"
 msgstr "移除所有項目"
 
-#: ../data/lxmusic.ui.h:21
+#: ../data/lxmusic.ui.h:22
 msgid "Remove From Playlist"
 msgstr "從播放清單移除"
 
-#: ../data/lxmusic.ui.h:22
+#: ../data/lxmusic.ui.h:23
 msgid "Remove Selected Items"
 msgstr "移除選取的項目"
 
-#: ../data/lxmusic.ui.h:23
+#: ../data/lxmusic.ui.h:24
 msgid "Remove items from the playlist"
 msgstr "從播放清單移除項目"
 
-#: ../data/lxmusic.ui.h:24
+#: ../data/lxmusic.ui.h:25
 msgid "Repeat All"
 msgstr "重複全部"
 
-#: ../data/lxmusic.ui.h:25
+#: ../data/lxmusic.ui.h:26
 msgid "Repeat Current"
 msgstr "重複目前的"
 
-#: ../data/lxmusic.ui.h:26
+#: ../data/lxmusic.ui.h:27
 msgid "Show Playlist"
 msgstr "顯示播放清單"
 
-#: ../data/lxmusic.ui.h:27
+#: ../data/lxmusic.ui.h:28
 msgid "Stop"
 msgstr "停止"
 
-#: ../data/lxmusic.ui.h:28
+#: ../data/lxmusic.ui.h:29
 msgid "Track Name"
 msgstr "歌曲名稱"
 
-#: ../data/lxmusic.ui.h:29
+#: ../data/lxmusic.ui.h:30
 msgid "_Delete Current Playlist"
 msgstr "刪除目前的播放清單(_D)"
 
-#: ../data/lxmusic.ui.h:30
+#: ../data/lxmusic.ui.h:31
 msgid "_File"
 msgstr "檔案(_F)"
 
-#: ../data/lxmusic.ui.h:31
+#: ../data/lxmusic.ui.h:32
 msgid "_Help"
 msgstr "說明(_H)"
 
-#: ../data/lxmusic.ui.h:32
+#: ../data/lxmusic.ui.h:33
+msgid "_Locate Currently Played"
+msgstr "跳到正在播放的歌曲(_L)"
+
+#: ../data/lxmusic.ui.h:34
 msgid "_Playlist"
 msgstr "播放清單(_P)"
 
-#: ../data/lxmusic.ui.h:33
+#: ../data/lxmusic.ui.h:35
 msgid "_Switch To Playlist"
 msgstr "切換到播放清單(_S)"
 
-#: ../data/lxmusic.ui.h:34
+#: ../data/lxmusic.ui.h:36
 msgid "_Tools"
 msgstr "工具(_T)"
 
-#: ../data/lxmusic.ui.h:35
+#: ../data/lxmusic.ui.h:37
 msgid "_View"
 msgstr "檢視(_V)"
 

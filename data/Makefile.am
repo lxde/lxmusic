@@ -2,7 +2,7 @@ desktop_DATA=lxmusic.desktop
 desktopdir=$(datadir)/applications
 
 icon_DATA=lxmusic.png
-icondir=$(datadir)/icons/hicolor/128x128/apps
+icondir=$(datadir)/pixmaps
 
 uidir=$(datadir)/lxmusic
 # GtkBuilder UI definition files

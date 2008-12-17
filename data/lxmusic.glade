@@ -72,15 +72,22 @@
                 <child>
                   <widget class="GtkMenu" id="menuitem2_menu">
                     <child>
-                      <widget class="GtkImageMenuItem" id="switch_to_pl">
+                      <widget class="GtkMenuItem" id="switch_to_pl">
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">_Switch To Playlist</property>
                         <property name="use_underline">True</property>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkImageMenuItem" id="locate_cur_mi">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">_Locate Currently Played</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_locate_cur_track"/>
                         <child internal-child="image">
-                          <widget class="GtkImage" id="image91">
+                          <widget class="GtkImage" id="menu-item-image6">
                             <property name="visible">True</property>
                             <property name="stock">gtk-jump-to</property>
-                            <property name="icon_size">1</property>
                           </widget>
                         </child>
                       </widget>
@@ -508,7 +515,6 @@ Repeat All</property>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">False</property>
                   </packing>
                 </child>
                 <child>
@@ -529,8 +535,28 @@ Repeat All</property>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">False</property>
                     <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkButton" id="locate_cur_btn">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip" translatable="yes">Locate currently played track</property>
+                    <property name="relief">GTK_RELIEF_NONE</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="response_id">0</property>
+                    <signal name="clicked" handler="on_locate_cur_track"/>
+                    <child>
+                      <widget class="GtkImage" id="image7">
+                        <property name="visible">True</property>
+                        <property name="stock">gtk-jump-to</property>
+                      </widget>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
                 <child>
@@ -539,7 +565,7 @@ Repeat All</property>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="position">2</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
                 <child>
@@ -549,9 +575,8 @@ Repeat All</property>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">False</property>
                     <property name="padding">3</property>
-                    <property name="position">3</property>
+                    <property name="position">4</property>
                   </packing>
                 </child>
                 <child>
@@ -562,7 +587,7 @@ Repeat All</property>
                     <signal name="changed" handler="on_filter_entry_changed"/>
                   </widget>
                   <packing>
-                    <property name="position">4</property>
+                    <property name="position">5</property>
                   </packing>
                 </child>
                 <child>
@@ -577,7 +602,7 @@ Album</property>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="position">5</property>
+                    <property name="position">6</property>
                   </packing>
                 </child>
               </widget>

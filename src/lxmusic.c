@@ -23,6 +23,7 @@ enum {
     COL_ALBUM,
     COL_TITLE,
     COL_LEN,
+    COL_WEIGHT, /* font weight, used to show bold font for current track. */
     N_COLS
 };
 
@@ -81,6 +82,7 @@ static uint32_t playback_status = 0;
 static uint32_t play_time = 0;
 static uint32_t cur_track_duration = 0;
 static uint32_t cur_track_id = 0;
+static GtkTreeIter cur_track_iter = {0};
 
 static int repeat_mode = REPEAT_NONE;
 
@@ -884,12 +886,24 @@ void on_next_btn_clicked(GtkButton* btn, gpointer user_data)
     xmmsc_result_unref(res);
 }
 
+static void on_playback_started( xmmsc_result_t* res, void* user_data )
+{
+#if 0
+    xmmsc_result_unref(res);
+    /* FIXME: this can cause some problems sometimes... */
+    res = xmmsc_playlist_current_pos(con, cur_playlist);
+    xmmsc_result_notifier_set(res, on_playlist_pos_changed, NULL);
+    xmmsc_result_unref(res);
+#endif
+}
+
 void on_play_btn_clicked(GtkButton* btn, gpointer user_data)
 {
     xmmsc_result_t *res;
     if( playback_status == XMMS_PLAYBACK_STATUS_PLAY )
     {
         res = xmmsc_playback_pause(con);
+        xmmsc_result_notifier_set(res, on_playback_started, NULL);
         xmmsc_result_unref(res);
     }
     else
@@ -1008,7 +1022,7 @@ static void on_playlist_content_received( xmmsc_result_t* res, GtkWidget* list_v
     GtkTreeIter it;
     const char* pl_name = cur_playlist;
 
-    list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING );
+    list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT );
     mf = gtk_tree_model_filter_new(list_store, NULL);
     gtk_tree_model_filter_set_visible_func( mf, playlist_filter_func, NULL, NULL );
     g_object_unref(list_store);
@@ -1025,7 +1039,8 @@ static void on_playlist_content_received( xmmsc_result_t* res, GtkWidget* list_v
         xmmsc_result_get_uint( res, &id );
 
         gtk_list_store_set( list_store, &it,
-                            COL_ID, id, -1 );
+                            COL_ID, id,
+                            COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
 
         ut->id = id;
         ut->it = it;
@@ -1092,14 +1107,14 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
     GtkCellRenderer* render;
 
     render = gtk_cell_renderer_text_new();
-    col = gtk_tree_view_column_new_with_attributes( "#", render, NULL );
+    col = gtk_tree_view_column_new_with_attributes( "#", render, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_column_set_cell_data_func( col, render, render_num, NULL, NULL );
     gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
 
     render = gtk_cell_renderer_text_new();
     g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
     col = gtk_tree_view_column_new_with_attributes( _("Artist"), render,
-                                                   "text", COL_ARTIST, NULL );
+                                                   "text", COL_ARTIST, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_column_set_fixed_width( col, 80 );
     gtk_tree_view_column_set_sizing( col, GTK_TREE_VIEW_COLUMN_FIXED );
     gtk_tree_view_column_set_resizable( col, TRUE );
@@ -1108,7 +1123,7 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
     render = gtk_cell_renderer_text_new();
     g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
     col = gtk_tree_view_column_new_with_attributes( _("Album"), render,
-                                                   "text", COL_ALBUM, NULL );
+                                                   "text", COL_ALBUM, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_column_set_fixed_width( col, 100 );
     gtk_tree_view_column_set_sizing( col, GTK_TREE_VIEW_COLUMN_FIXED );
     gtk_tree_view_column_set_resizable( col, TRUE );
@@ -1117,14 +1132,14 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
     render = gtk_cell_renderer_text_new();
     g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
     col = gtk_tree_view_column_new_with_attributes( _("Title"), render,
-                                                   "text", COL_TITLE, NULL );
+                                                   "text", COL_TITLE, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_column_set_expand( col, TRUE );
     gtk_tree_view_column_set_resizable( col, TRUE );
     gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
 
     render = gtk_cell_renderer_text_new();
     col = gtk_tree_view_column_new_with_attributes( _("Length"), render,
-                                                   "text", COL_LEN, NULL );
+                                                   "text", COL_LEN, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
 
     gtk_tree_view_set_search_column( (GtkTreeView*)list_view, COL_TITLE );
@@ -1147,17 +1162,24 @@ static void on_switch_to_playlist(GtkWidget* mi, char* pl_name)
     }
 }
 
+static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data );
+
 static void on_playlist_loaded(xmmsc_result_t* res, gpointer user_data)
 {
     char* name;
     if( !xmmsc_result_iserror(res) && xmmsc_result_get_string(res, &name) )
     {
+        xmmsc_result_t* res2;
+
         /* FIXME: is this possible? */
         if( cur_playlist && 0 == strcmp((char*)name, cur_playlist) )
             return;
 
         g_free(cur_playlist);
         cur_playlist = g_strdup(name);
+
+        cur_track_iter.stamp = 0; /* invalidate the GtkTreeIter of currenyly played track. */
+        cur_track_id = -1;
 
         /* update the menu */
         if( cur_playlist )
@@ -1376,11 +1398,20 @@ static void on_playback_status_changed( xmmsc_result_t *res, void *user_data )
     switch( playback_status )
     {
         case XMMS_PLAYBACK_STATUS_PLAY:
+        {
+            xmmsc_result_t* res2;
             gtk_widget_set_tooltip_text( play_btn, _("Pause") );
             img = gtk_bin_get_child( (GtkBin*)play_btn );
             gtk_image_set_from_stock( (GtkImage*)img, GTK_STOCK_MEDIA_PAUSE,
                                       GTK_ICON_SIZE_BUTTON );
+
+            /* FIXME: this can cause some problems sometimes... */
+            res2 = xmmsc_playlist_current_pos(con, cur_playlist);
+            /* mark currently played track */
+            xmmsc_result_notifier_set(res2, on_playlist_pos_changed, NULL);
+            xmmsc_result_unref(res2);
             break;
+        }
         case XMMS_PLAYBACK_STATUS_STOP:
             gtk_label_set_text( time_label, "--:--" );
             gtk_range_set_value( progress_bar, 0.0 );
@@ -1472,23 +1503,55 @@ static void on_playback_cur_track_changed( xmmsc_result_t* res, void* user_data 
 
 static void on_playlist_pos_changed( xmmsc_result_t* res, void* user_data )
 {
-    uint32_t pos;
-    GtkTreePath* path;
-    GtkTreeSelection* sel;
-    uint32_t playlist_pos = 0;
+    char* name;
+    uint32_t pos = 0;
 
-    xmmsc_result_get_uint( res, &playlist_pos );
-    /* g_debug("pos: %d", playlist_pos); */
-/*
-    FIXME: Currently we have no way to mark current played song in the playlist.
+    if( xmmsc_result_get_dict_entry_string(res, "name", &name) )
+    {
+        if( name && cur_playlist && 0 == strcmp(cur_playlist, name) )
+        {
+            if( xmmsc_result_get_dict_entry_uint( res, "position", &pos ) )
+            {
+                /* mark currently played song in the playlist with bold font. */
+                GtkTreePath* path = gtk_tree_path_new_from_indices( pos, -1 );
+                GtkTreeIter it;
+                if( gtk_tree_model_get_iter( list_store, &it, path ) )
+                {
+                    if( cur_track_iter.stamp )
+                        gtk_list_store_set(list_store, &cur_track_iter, COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1);
 
-    path = gtk_tree_path_new_from_indices( playlist_pos, -1 );
-    sel = gtk_tree_view_get_selection( (GtkTreeView*)list_view );
-    gtk_tree_selection_select_path( sel, path );
-    gtk_tree_path_free( path );
-*/
+                    gtk_list_store_set(list_store, &it, COL_WEIGHT, PANGO_WEIGHT_BOLD, -1);
+                    cur_track_iter = it;
+                }
+                gtk_tree_path_free( path );
+            }
+        }
+    }
     if( xmmsc_result_get_class(res) != XMMSC_RESULT_CLASS_BROADCAST )
         xmmsc_result_unref(res);
+}
+
+void on_locate_cur_track(GtkAction* act, gpointer user_data)
+{
+    if( cur_track_iter.stamp )
+    {
+        GtkTreeModelFilter* mf;
+        GtkTreeIter it;
+        mf = (GtkTreeModelFilter*)gtk_tree_view_get_model(playlist_view);
+        if( gtk_tree_model_filter_convert_child_iter_to_iter(mf, &it, &cur_track_iter) )
+        {
+            GtkTreePath* path;
+            /*
+            GtkTreeSelection* sel = gtk_tree_view_get_selection(playlist_view);
+            gtk_tree_selection_select_iter(sel, &it);
+            */
+            if( path = gtk_tree_model_get_path(mf, &it) )
+            {
+                gtk_tree_view_scroll_to_cell(playlist_view, path, NULL, FALSE, 0.0, 0.0);
+                gtk_tree_path_free(path);
+            }
+        }
+    }
 }
 
 static void get_channel_volumes(const void *key, xmmsc_result_value_type_t type, const void *value, void *user_data)
