@@ -637,12 +637,12 @@ gboolean on_playlist_view_drag_drop(GtkWidget      *widget,
 static void refilter_and_keep_sel_visible()
 {
     GtkTreeSelection* sel = gtk_tree_view_get_selection(playlist_view);
-    GtkTreeModelFilter* mf = (GtkTreeModelFilter*)gtk_tree_view_get_model(playlist_view);
+    GtkTreeModelFilter* mf;
     GList* sels, *l;
     GtkTreePath* tp;
 
     /* save paths of selected rows */
-    sels = gtk_tree_selection_get_selected_rows(sel, mf);
+    sels = gtk_tree_selection_get_selected_rows(sel, &mf);
 
     /* convert to child paths */
     for( l = sels; l; l = l->next )
