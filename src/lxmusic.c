@@ -15,6 +15,10 @@
 #include <xmmsclient/xmmsclient.h>
 #include <xmmsclient/xmmsclient-glib.h>
 
+/* for status icon */
+#include <X11/Xlib.h>
+#include <gdk/gdkx.h>
+
 #include "utils.h"
 
 enum {
@@ -188,6 +192,9 @@ void on_quit(GtkAction* act, gpointer user_data)
 
     if( show_playlist )
         gtk_window_get_size(main_win, &win_width, &win_height);
+
+    if(tray_icon)
+        g_object_unref(tray_icon);
 
     /* FIXME: Is this apporpriate? */
     if( ! play_after_exit || playback_status == XMMS_PLAYBACK_STATUS_STOP )
@@ -627,12 +634,50 @@ gboolean on_playlist_view_drag_drop(GtkWidget      *widget,
     return TRUE;
 }
 
+static void refilter_and_keep_sel_visible()
+{
+    GtkTreeSelection* sel = gtk_tree_view_get_selection(playlist_view);
+    GtkTreeModelFilter* mf = (GtkTreeModelFilter*)gtk_tree_view_get_model(playlist_view);
+    GList* sels, *l;
+    GtkTreePath* tp;
+
+    /* save paths of selected rows */
+    sels = gtk_tree_selection_get_selected_rows(sel, mf);
+
+    /* convert to child paths */
+    for( l = sels; l; l = l->next )
+    {
+        tp = gtk_tree_model_filter_convert_path_to_child_path(mf, (GtkTreePath*)l->data);
+        gtk_tree_path_free((GtkTreePath*)l->data);
+        l->data = tp;
+    }
+
+    /* refilter */
+    gtk_tree_model_filter_refilter(mf);
+
+    /* scroll to selected rows */
+    for( l = sels; l; l = l->next )
+    {
+        tp = gtk_tree_model_filter_convert_child_path_to_path( mf, (GtkTreePath*)l->data );
+        if( tp )
+        {
+            gtk_tree_view_scroll_to_cell(playlist_view, tp, NULL, FALSE, 0.0, 0.0 );
+            gtk_tree_path_free(tp);
+            break;
+        }
+    }
+    g_list_foreach(sels, gtk_tree_path_free, NULL);
+    g_list_free(sels);
+}
 
 void on_filter_field_changed(GtkComboBox* cb, gpointer user_data)
 {
-    GtkTreeModelFilter* mf = (GtkTreeModelFilter*)gtk_tree_view_get_model(playlist_view);
     filter_field = gtk_combo_box_get_active(cb);
+/*
+    GtkTreeModelFilter* mf = (GtkTreeModelFilter*)gtk_tree_view_get_model(playlist_view);
     gtk_tree_model_filter_refilter(mf);
+*/
+    refilter_and_keep_sel_visible();
 }
 
 static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, gpointer user_data)
@@ -675,9 +720,9 @@ static gboolean on_filter_timeout(GtkEntry* entry)
     GtkTreeModelFilter* filter = (GtkTreeModelFilter*)gtk_tree_view_get_model(view);
     g_free(filter_keyword);
     filter_keyword = g_strdup(gtk_entry_get_text(entry));
-    gtk_tree_model_filter_refilter(filter);
+ //   gtk_tree_model_filter_refilter(filter);
 
-    /* FIXME: keep selections and keep the selected items visible in current view. */
+    refilter_and_keep_sel_visible();
 
     filter_timeout = 0;
     return FALSE;
@@ -972,7 +1017,9 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
         char *url, *file;
         xmmsc_result_get_dict_entry_string( res, "url", &url );
         url = xmmsc_result_decode_url(res, url);
-        title = g_filename_display_basename(url);
+        file = g_utf8_strrchr(url, -1, '/');
+        if( file )
+            title = file + 1;
     }
 
     gtk_list_store_set( list_store, &ut->it,
@@ -1462,7 +1509,9 @@ static void on_playback_track_loaded( xmmsc_result_t* res, void* user_data )
 {
     char* artist;
     char* title;
+    char* filename;
     char* tmp;
+
     if( !xmmsc_result_get_dict_entry_int( res, "duration",
                                           &cur_track_duration) )
         cur_track_duration = 0;
@@ -1471,7 +1520,18 @@ static void on_playback_track_loaded( xmmsc_result_t* res, void* user_data )
         artist = NULL;
 
     if( !xmmsc_result_get_dict_entry_string( res, "title", &title ) )
+    {
+        char* url;
         title = NULL;
+        if( xmmsc_result_get_dict_entry_string( res, "url", &url) )
+        {
+            char* file;
+            url = xmmsc_result_decode_url(res, url);
+            file = g_utf8_strrchr(url, -1, '/');
+            if( file )
+                title = file + 1;
+        }
+    }
 
     if( artist )
         tmp = g_strdup_printf( "LXMusic - %s - %s", artist, title );
@@ -1479,11 +1539,57 @@ static void on_playback_track_loaded( xmmsc_result_t* res, void* user_data )
         tmp = g_strdup_printf( "LXMusic - %s", title );
     else
         tmp = g_strdup_printf( "LXMusic" );
-    g_free(artist);
-    g_free(title);
+
     gtk_window_set_title( main_win, tmp );
     /* gtk_statusbar_push(status_bar, 0, tmp); */
 
+    if( tray_icon )
+        gtk_status_icon_set_tooltip(tray_icon, tmp);
+
+    if( ! GTK_WIDGET_VISIBLE(main_win) /*|| ! GTK_WIDGET_HAS_FOCUS(main_win)*/ )
+    {
+        /* send notifications via notify-send command. */
+        const char* argv[] = {
+            "notify-send",
+            "--urgency", "normal",
+            "--expire-time", "3000",
+            "--icon", "lxmusic",
+            NULL, NULL, /* hint x */
+            NULL, NULL, /* hint y */
+            NULL, NULL, /* summary, body */
+            NULL
+        };
+        char xhint[32], yhint[32];
+
+        if( tray_icon )
+        {
+    #if GTK_CHECK_VERSION(2, 14, 0)
+            guint32 wid = gtk_status_icon_get_x11_window_id(tray_icon);
+            Window root, child;
+            int x, y, w, h, b, d, x2, y2;
+
+            XGetGeometry(GDK_DISPLAY(), (Drawable*)wid, &root, &x, &y, &w, &h, &b, &d);
+            XTranslateCoordinates(GDK_DISPLAY(), (Drawable*)wid, root, x, y, &x2, &y2, &child);
+
+            argv[7] = "--hint";
+            g_snprintf(xhint, 32, "int:x:%u", x2 + w/2);
+            argv[8] = xhint;
+
+            argv[9] = "--hint";
+            g_snprintf(yhint, 32, "int:y:%u", y2 + h/2);
+            argv[10] = yhint;
+
+    #define REST_IDX    11
+    #else
+    #define REST_IDX    7
+    #endif
+        }
+
+        argv[REST_IDX] = _("Now Playing:");
+        argv[REST_IDX+1] = tmp;
+    #undef REST_IDX
+        g_spawn_async(NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
+    }
     g_free(tmp);
 }
 
