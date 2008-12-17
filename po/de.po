@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marcus Schulderinsky <Marcus.Schulderinsky@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: ../src/lxmusic.c:236
+#, fuzzy
+msgid "Official icon of xmms2 by Arnaud DIDRY"
+msgstr "Offizielle Icons von XMMS2 (Arnaud DIDRY)"
+
+#: ../src/lxmusic.c:247
+#, fuzzy
+msgid ""
+"Music Player for LXDE\n"
+"Simple GUI XMMS2 client"
+msgstr ""
+"Musik Player für LXDE\n"
+"Einfache GUI für XMMS2"
+
+#: ../src/lxmusic.c:310
+#: ../data/lxmusic.ui.h:14
+msgid "LXMusic"
+msgstr "LXMusic"
+
+#: ../src/lxmusic.c:440
+#, fuzzy
+msgid "Bitrate: "
+msgstr "Bitrate:"
+
+#: ../src/lxmusic.c:597
+msgid "Audio Files"
+msgstr "Audio Dateien"
+
+#: ../src/lxmusic.c:602
+msgid "All Files"
+msgstr "Alle Dateien"
+
+#: ../src/lxmusic.c:629
+msgid "Input a URL"
+msgstr "URL einfügen"
+
+#: ../src/lxmusic.c:972
+#: ../data/lxmusic.ui.h:7
+msgid "Artist"
+msgstr "Interpret"
+
+#: ../src/lxmusic.c:981
+#: ../data/lxmusic.ui.h:5
+msgid "Album"
+msgstr "Album"
+
+#: ../src/lxmusic.c:990
+msgid "Title"
+msgstr "Titel"
+
+#: ../src/lxmusic.c:997
+msgid "Length"
+msgstr "Länge"
+
+#: ../src/lxmusic.c:1151
+msgid "Default"
+msgstr "Standart"
+
+#: ../src/lxmusic.c:1250
+msgid "Pause"
+msgstr "Pause"
+
+#: ../src/lxmusic.c:1259
+msgid "Play"
+msgstr "Abspielen"
+
+#: ../src/lxmusic.c:1695
+msgid "Create new playlist"
+msgstr "Erstelle eine neue Playliste"
+
+#: ../src/utils.c:138
+msgid "Error"
+msgstr "Fehler"
+
+#: ../data/lxmusic.ui.h:1
+msgid "Add Files or Folders"
+msgstr "Füge Dateien oder Ordner hinzu"
+
+#: ../data/lxmusic.ui.h:2
+#, fuzzy
+msgid "Add To Playlist"
+msgstr "Füge zur Playlist hinzu"
+
+#: ../data/lxmusic.ui.h:3
+msgid "Add URL"
+msgstr "URL hinzufügen"
+
+#: ../data/lxmusic.ui.h:4
+msgid "Add files to the playlist"
+msgstr "Füge Dateien zur Playliste hinzu"
+
+#: ../data/lxmusic.ui.h:6
+msgid "All"
+msgstr "Alles"
+
+#: ../data/lxmusic.ui.h:8
+msgid "Create _New Playlist"
+msgstr "Erstelle _Neue Playliste"
+
+#: ../data/lxmusic.ui.h:9
+msgid "Current Playlist"
+msgstr "Aktuelle Playliste"
+
+#: ../data/lxmusic.ui.h:10
+#, fuzzy
+msgid "Enter keyword here"
+msgstr "Tippe das Suchword hier ein"
+
+#: ../data/lxmusic.ui.h:11
+msgid "Favorites"
+msgstr "Favoriten"
+
+#: ../data/lxmusic.ui.h:12
+#: ../data/track-info.ui.h:8
+msgid "File Properties"
+msgstr "Datei Eigenschaften"
+
+#: ../data/lxmusic.ui.h:13
+msgid "Filter:"
+msgstr "Filter:"
+
+#: ../data/lxmusic.ui.h:15
+msgid "Media Library"
+msgstr "Medien Bibliothek"
+
+#: ../data/lxmusic.ui.h:16
+#, fuzzy
+msgid "Next"
+msgstr "Nächster"
+
+#: ../data/lxmusic.ui.h:17
+msgid "No Repeat"
+msgstr "Keine Wiederholung"
+
+#: ../data/lxmusic.ui.h:18
+msgid "Play/Pause"
+msgstr "Wiedergabe/Pause"
+
+#: ../data/lxmusic.ui.h:19
+msgid "Previous"
+msgstr "Zurück"
+
+#: ../data/lxmusic.ui.h:20
+msgid "Remove All Items"
+msgstr "Entferne alle Lieder"
+
+#: ../data/lxmusic.ui.h:21
+msgid "Remove From Playlist"
+msgstr "Entferne von der Playliste"
+
+#: ../data/lxmusic.ui.h:22
+msgid "Remove Selected Items"
+msgstr "Enferne markierte Lieder"
+
+#: ../data/lxmusic.ui.h:23
+msgid "Remove items from the playlist"
+msgstr "Entferne Lieder von der Playliste"
+
+#: ../data/lxmusic.ui.h:24
+msgid "Repeat All"
+msgstr "Wiederhole alle"
+
+#: ../data/lxmusic.ui.h:25
+msgid "Repeat Current"
+msgstr "Wiederhole aktuelles Lied"
+
+#: ../data/lxmusic.ui.h:26
+msgid "Show Playlist"
+msgstr "Zeige Playliste"
+
+#: ../data/lxmusic.ui.h:27
+msgid "Stop"
+msgstr "Stop"
+
+#: ../data/lxmusic.ui.h:28
+#, fuzzy
+msgid "Track Name"
+msgstr "Liedname"
+
+#: ../data/lxmusic.ui.h:29
+msgid "_Delete Current Playlist"
+msgstr "_Lösche aktuelle Playliste"
+
+#: ../data/lxmusic.ui.h:30
+msgid "_File"
+msgstr "_Datei"
+
+#: ../data/lxmusic.ui.h:31
+msgid "_Help"
+msgstr "_Hilfe"
+
+#: ../data/lxmusic.ui.h:32
+msgid "_Playlist"
+msgstr "_Playliste"
+
+#: ../data/lxmusic.ui.h:33
+msgid "_Switch To Playlist"
+msgstr "_Wechsle zur Playlist"
+
+#: ../data/lxmusic.ui.h:34
+msgid "_Tools"
+msgstr "_Werkzeuge"
+
+#: ../data/lxmusic.ui.h:35
+msgid "_View"
+msgstr "_Ansicht"
+
+#: ../data/pref-dlg.ui.h:1
+msgid "<b>Audio CD</b>"
+msgstr "<b>Audio CD</b>"
+
+#: ../data/pref-dlg.ui.h:2
+msgid "<b>Output</b>"
+msgstr "<b>Ausgabe</b>"
+
+#: ../data/pref-dlg.ui.h:3
+msgid "Audio"
+msgstr "Audio"
+
+#: ../data/pref-dlg.ui.h:4
+msgid "Buffer Size: "
+msgstr "Puffergröße:"
+
+#: ../data/pref-dlg.ui.h:5
+#, fuzzy
+msgid "CD-ROM Device: "
+msgstr "CD-ROM Laufwerk:"
+
+#: ../data/pref-dlg.ui.h:6
+#, fuzzy
+msgid "Default ID3 V1 Encoding: "
+msgstr "Standart ID3 V1 Encoding:"
+
+#: ../data/pref-dlg.ui.h:7
+msgid "General"
+msgstr "Allgemein"
+
+#: ../data/pref-dlg.ui.h:8
+msgid "KB"
+msgstr "KB"
+
+#: ../data/pref-dlg.ui.h:9
+#, fuzzy
+msgid "Misc"
+msgstr "Sonstiges"
+
+#: ../data/pref-dlg.ui.h:10
+msgid "Plugin: "
+msgstr "Plugin:"
+
+#: ../data/pref-dlg.ui.h:11
+msgid "Preference"
+msgstr "Einstellungen"
+
+#: ../data/pref-dlg.ui.h:12
+msgid "Show system tray icon"
+msgstr "Zeige Tray-Icon"
+
+#: ../data/track-info.ui.h:1
+msgid "<b>Album: </b>"
+msgstr "<b>Album: </b>"
+
+#: ../data/track-info.ui.h:2
+msgid "<b>Artist: </b>"
+msgstr "<b>Interpret: </b>"
+
+#: ../data/track-info.ui.h:3
+msgid "<b>Comment: </b>"
+msgstr "<b>Kommentar: </b>"
+
+#: ../data/track-info.ui.h:4
+msgid "<b>File Type: </b>"
+msgstr "<b>Dateien nach Typ: </b>"
+
+#: ../data/track-info.ui.h:5
+msgid "<b>File: </b>"
+msgstr "<b>Datei: </b>"
+
+#: ../data/track-info.ui.h:6
+msgid "<b>Size: </b>"
+msgstr "<b>Größe: </b>"
+
+#: ../data/track-info.ui.h:7
+msgid "<b>Title: </b>"
+msgstr "<b>Titel: </b>"
+
