@@ -1009,7 +1009,7 @@ static void update_track( xmmsc_result_t *res, UpdateTrack* ut )
     xmmsc_result_get_dict_entry_string( res, "artist", (const char**)&artist );
     xmmsc_result_get_dict_entry_string( res, "album", (const char**)&album );
     xmmsc_result_get_dict_entry_string( res, "title", (const char**)&title );
-    xmmsc_result_get_dict_entry_uint( res, "duration", &time_len);
+    xmmsc_result_get_dict_entry_int( res, "duration", &time_len);
     timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
     /* use file name to replace track name if it doesn't have id3. */
