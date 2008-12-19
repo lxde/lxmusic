@@ -166,9 +166,9 @@ const char* file_size_to_str( char* buf, guint64 size )
 void show_error(GtkWindow* parent, const char* title, const char* msg)
 {
     GtkMessageDialog* dlg;
-    dlg = gtk_message_dialog_new_with_markup(parent, GTK_DIALOG_MODAL,
+    dlg = (GtkMessageDialog*)gtk_message_dialog_new_with_markup(parent, GTK_DIALOG_MODAL,
                                 GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", msg );
-    gtk_window_set_title(dlg, title ? title:_("Error"));
-    gtk_dialog_run(dlg);
-    gtk_widget_destroy(dlg);
+    gtk_window_set_title(GTK_WINDOW(dlg), title ? title:_("Error"));
+    gtk_dialog_run(GTK_DIALOG(dlg));
+    gtk_widget_destroy(GTK_WIDGET(dlg));
 }
