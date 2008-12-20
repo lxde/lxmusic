@@ -106,6 +106,10 @@ static uint32_t volume = 60;
 static int win_width = 480;
 static int win_height = 320;
 
+/* window position */
+static int win_xpos = 0;
+static int win_ypos = 0;
+
 void on_play_btn_clicked(GtkButton* btn, gpointer user_data);
 
 /* used to debug only */
@@ -128,6 +132,8 @@ static void load_config()
         v = g_key_file_get_integer(kf, grp, "height", NULL);
         if( v > 0 )
             win_height = v;
+		win_xpos = g_key_file_get_integer(kf, grp, "xpos", NULL);
+		win_ypos = g_key_file_get_integer(kf, grp, "ypos", NULL);
         kf_get_bool(kf, grp, "show_tray_icon", &show_tray_icon);
         kf_get_bool(kf, grp, "show_playlist", &show_playlist);
         kf_get_bool(kf, grp, "close_to_tray", &close_to_tray);
@@ -155,6 +161,8 @@ static void save_config()
         fprintf(f, "[Main]\n");
         fprintf( f, "width=%d\n", win_width );
         fprintf( f, "height=%d\n", win_height );
+        fprintf( f, "xpos=%d\n", win_xpos );
+        fprintf( f, "ypos=%d\n", win_ypos );
         fprintf( f, "show_tray_icon=%d\n", show_tray_icon );
         fprintf( f, "close_to_tray=%d\n", close_to_tray );
         fprintf( f, "play_after_exit=%d\n", play_after_exit );
@@ -311,14 +319,23 @@ static void on_tray_icon_activate(GtkStatusIcon* icon, gpointer user_data)
 {
     /* FIXME: should we unload the playlist to free resources here? */
     if( GTK_WIDGET_VISIBLE(main_win) )
-        gtk_widget_hide(main_win);
+    {
+		/* save window position before we hide the window */
+		gtk_window_get_position((GtkWindow*)main_win, &win_xpos, &win_ypos);
+		save_config();
+		gtk_widget_hide(main_win);
+	}
     else
-        gtk_widget_show(main_win);
+	{
+        /* restore the window position */
+		gtk_window_move((GtkWindow*)main_win, win_xpos, win_ypos);
+		gtk_widget_show(main_win);
+	}
 }
 
 void on_show_main_win(GtkAction* act, gpointer user_data)
 {
-    gtk_window_present(GTK_WINDOW(main_win));
+	gtk_window_present(GTK_WINDOW(main_win));
 }
 
 static void on_tray_icon_popup_menu(GtkStatusIcon* icon, guint btn, guint time, gpointer user_data)
@@ -2009,7 +2026,8 @@ static void setup_ui()
 
     g_object_unref(builder);
     gtk_widget_show_all(notebook);
-    gtk_widget_show (main_win);
+    gtk_window_move(main_win, win_xpos, win_ypos);
+	gtk_widget_show (main_win);
 
     /* tray icon */
     if( show_tray_icon )
