@@ -1480,6 +1480,7 @@ static void on_playback_status_changed( xmmsc_result_t *res, void *user_data )
         case XMMS_PLAYBACK_STATUS_STOP:
             gtk_label_set_text( GTK_LABEL(time_label), "--:--" );
             gtk_range_set_value( GTK_RANGE(progress_bar), 0.0 );
+			gtk_window_set_title ((GtkWindow*)main_win, "LXMusic");
         case XMMS_PLAYBACK_STATUS_PAUSE:
             gtk_widget_set_tooltip_text( play_btn, _("Play") );
             img = gtk_bin_get_child( (GtkBin*)play_btn );
