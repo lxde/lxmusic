@@ -1552,12 +1552,20 @@ static void on_playback_track_loaded( xmmsc_result_t* res, void* user_data )
         }
     }
 
-    if( artist )
-        tmp = g_strdup_printf( "LXMusic - %s - %s", artist, title );
-    else if( title )
-        tmp = g_strdup_printf( "LXMusic - %s", title );
-    else
-        tmp = g_strdup_printf( "LXMusic" );
+	if (playback_status == XMMS_PLAYBACK_STATUS_STOP)
+	{
+          tmp = g_strdup_printf( "LXMusic" );
+	}
+	else
+	{
+		if( artist )
+		  tmp = g_strdup_printf( "LXMusic - %s - %s", artist, title );
+		else if( title )
+		  tmp = g_strdup_printf( "LXMusic - %s", title );
+		else
+          tmp = g_strdup_printf( "LXMusic" );
+	}
+
 
     gtk_window_set_title( GTK_WINDOW(main_win), tmp );
     /* gtk_statusbar_push(status_bar, 0, tmp); */
