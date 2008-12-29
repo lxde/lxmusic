@@ -1,88 +1,89 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.5 on Wed Dec 17 01:02:23 2008 -->
+<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
+<!DOCTYPE glade-interface SYSTEM "http://glade.gnome.org/glade-2.0.dtd">
+
 <glade-interface>
-  <widget class="GtkMenu" id="popup">
-    <property name="visible">True</property>
-    <signal name="selection_done" handler="gtk_widget_destroy"/>
-    <child>
-      <widget class="GtkImageMenuItem" id="show_main_win">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">_Show Main Window</property>
-        <property name="use_underline">True</property>
-        <signal name="activate" handler="on_show_main_win"/>
-        <child internal-child="image">
-          <widget class="GtkImage" id="menu-item-image1">
-            <property name="visible">True</property>
-            <property name="stock">gtk-open</property>
-          </widget>
-        </child>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkSeparatorMenuItem" id="sep1">
-        <property name="visible">True</property>
-        <property name="label">-</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="play">
-        <property name="visible">True</property>
-        <property name="label">gtk-media-play</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_play_btn_clicked"/>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="pause">
-        <property name="visible">True</property>
-        <property name="label">gtk-media-pause</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_play_btn_clicked"/>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="stop">
-        <property name="visible">True</property>
-        <property name="label">gtk-media-stop</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_stop_btn_clicked"/>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="prev">
-        <property name="visible">True</property>
-        <property name="label">gtk-media-previous</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_prev_btn_clicked"/>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="next">
-        <property name="visible">True</property>
-        <property name="label">gtk-media-next</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_next_btn_clicked"/>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkSeparatorMenuItem" id="sep2">
-        <property name="visible">True</property>
-      </widget>
-    </child>
-    <child>
-      <widget class="GtkImageMenuItem" id="quit">
-        <property name="visible">True</property>
-        <property name="label">gtk-quit</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_quit"/>
-      </widget>
-    </child>
-  </widget>
+
+<widget class="GtkMenu" id="popup">
+  <property name="visible">True</property>
+  <signal name="selection_done" handler="gtk_widget_destroy"/>
+
+  <child>
+    <widget class="GtkImageMenuItem" id="show_main_win">
+      <property name="visible">True</property>
+      <property name="label" translatable="yes">_Show Main Window</property>
+      <property name="use_underline">True</property>
+      <signal name="activate" handler="on_show_main_win"/>
+
+      <child internal-child="image">
+	<widget class="GtkImage" id="image1">
+	  <property name="visible">True</property>
+	  <property name="stock">gtk-open</property>
+	  <property name="icon_size">1</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	</widget>
+      </child>
+    </widget>
+  </child>
+
+  <child>
+    <widget class="GtkSeparatorMenuItem" id="sep1">
+      <property name="visible">True</property>
+    </widget>
+  </child>
+
+  <child>
+    <widget class="GtkImageMenuItem" id="play">
+      <property name="visible">True</property>
+      <property name="label">gtk-media-play</property>
+      <property name="use_stock">True</property>
+      <signal name="activate" handler="on_play_btn_clicked"/>
+    </widget>
+  </child>
+
+  <child>
+    <widget class="GtkImageMenuItem" id="stop">
+      <property name="visible">True</property>
+      <property name="label">gtk-media-stop</property>
+      <property name="use_stock">True</property>
+      <signal name="activate" handler="on_stop_btn_clicked"/>
+    </widget>
+  </child>
+
+  <child>
+    <widget class="GtkImageMenuItem" id="prev">
+      <property name="visible">True</property>
+      <property name="label">gtk-media-previous</property>
+      <property name="use_stock">True</property>
+      <signal name="activate" handler="on_prev_btn_clicked"/>
+    </widget>
+  </child>
+
+  <child>
+    <widget class="GtkImageMenuItem" id="next">
+      <property name="visible">True</property>
+      <property name="label">gtk-media-next</property>
+      <property name="use_stock">True</property>
+      <signal name="activate" handler="on_next_btn_clicked"/>
+    </widget>
+  </child>
+
+  <child>
+    <widget class="GtkSeparatorMenuItem" id="sep2">
+      <property name="visible">True</property>
+    </widget>
+  </child>
+
+  <child>
+    <widget class="GtkImageMenuItem" id="quit">
+      <property name="visible">True</property>
+      <property name="label">gtk-quit</property>
+      <property name="use_stock">True</property>
+      <signal name="activate" handler="on_quit"/>
+    </widget>
+  </child>
+</widget>
+
 </glade-interface>

@@ -340,14 +340,28 @@ void on_show_main_win(GtkAction* act, gpointer user_data)
 
 static void on_tray_icon_popup_menu(GtkStatusIcon* icon, guint btn, guint time, gpointer user_data)
 {
-    GtkBuilder* builder = gtk_builder_new();
-    if(gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/popup.ui", NULL))
-    {
-        GtkWidget* popup = GTK_WIDGET(gtk_builder_get_object(builder, "popup"));
-        gtk_builder_connect_signals(builder, NULL);
-        gtk_menu_popup(GTK_MENU(popup), NULL, NULL, NULL, NULL, btn, time);
-    }
-    g_object_unref(builder);
+	/* init tray icon widgets */
+	GtkBuilder *builder = gtk_builder_new ();
+	if(gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/popup.ui", NULL))
+	{
+        	GtkWidget *tray_play_btn = (GtkWidget*)gtk_builder_get_object(builder, "play");
+		GtkWidget *tray_popup = (GtkWidget*)gtk_builder_get_object(builder, "popup");
+        	gtk_builder_connect_signals(builder, NULL);
+		switch (playback_status)
+		{
+			case XMMS_PLAYBACK_STATUS_PLAY:
+				g_object_set ( (GObject*)tray_play_btn, "stock-id", "gtk-media-pause", NULL);
+				break;
+			case XMMS_PLAYBACK_STATUS_PAUSE:
+			case XMMS_PLAYBACK_STATUS_STOP:
+				g_object_set ( (GObject*)tray_play_btn, "stock-id", "gtk-media-play", NULL);
+				break;
+		}
+		gtk_menu_popup((GtkMenu*)tray_popup, NULL, NULL, NULL, NULL, btn, time);
+	}
+	g_object_unref(builder);
+
+	return;
 }
 
 static void create_tray_icon()
@@ -357,7 +371,6 @@ static void create_tray_icon()
     g_signal_connect(tray_icon, "activate", G_CALLBACK(on_tray_icon_activate), NULL );
     g_signal_connect(tray_icon, "popup-menu", G_CALLBACK(on_tray_icon_popup_menu), NULL );
 }
-
 
 void on_preference(GtkAction* act, gpointer data)
 {
@@ -1469,7 +1482,6 @@ static void on_playback_status_changed( xmmsc_result_t *res, void *user_data )
             img = gtk_bin_get_child( (GtkBin*)play_btn );
             gtk_image_set_from_stock( (GtkImage*)img, GTK_STOCK_MEDIA_PAUSE,
                                       GTK_ICON_SIZE_BUTTON );
-
             /* FIXME: this can cause some problems sometimes... */
             res2 = xmmsc_playlist_current_pos(con, cur_playlist);
             /* mark currently played track */
