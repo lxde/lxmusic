@@ -1338,8 +1338,6 @@ static void remove_playlist_from_menu(const char* pl_name)
             switch_pl_menu_group = l->next;
         gtk_widget_destroy(GTK_WIDGET(l->data));
     }
-    /* FIXME: should we load another playlist here if the removed one is
-     * the current one in use? */
 }
 
 static void on_playlist_created( xmmsc_result_t* res, void* user_data )

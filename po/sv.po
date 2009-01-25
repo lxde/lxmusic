@@ -1,0 +1,343 @@
+# Translation of lxmusic to Swedish
+# Copyright (C) 2009 Martin Bagge <brother@bsnet.se>
+# This file is distributed under the same license as the lxmusic package.
+#
+# Martin Bagge <brother@bsnet.se>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: lxmusic\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-05 01:49+0100\n"
+"PO-Revision-Date: 2009-01-06 20:03+0100\n"
+"Last-Translator: Martin Bagge <brother@bsnet.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+
+#: ../data/lxmusic.glade.h:1
+msgid "Add Files or Folders"
+msgstr "Lägg till filer eller kataloger"
+
+#: ../data/lxmusic.glade.h:2
+msgid "Add To Playlist"
+msgstr "Lägg till i spellista"
+
+#: ../data/lxmusic.glade.h:3
+msgid "Add URL"
+msgstr "Lägg till URL"
+
+#: ../data/lxmusic.glade.h:4
+msgid "Add files to the playlist"
+msgstr "Lägg till filer i spellistan"
+
+#: ../data/lxmusic.glade.h:5
+msgid ""
+"All\n"
+"Track Name\n"
+"Artist\n"
+"Album"
+msgstr ""
+"Alla\n"
+"Låtnamn\n"
+"Artist\n"
+"Album"
+
+#: ../data/lxmusic.glade.h:9
+msgid "Create _New Playlist"
+msgstr "Skapa _ny spellista"
+
+#: ../data/lxmusic.glade.h:10
+msgid "Current Playlist"
+msgstr "Aktuell spellista"
+
+#: ../data/lxmusic.glade.h:11
+msgid "Enter keyword here"
+msgstr "Ange nyckelord här"
+
+#: ../data/lxmusic.glade.h:12
+msgid "Favorites"
+msgstr "Favoriter"
+
+#: ../data/lxmusic.glade.h:13
+#: ../data/track-info.glade.h:8
+msgid "File Properties"
+msgstr "Filegenskaper"
+
+#: ../data/lxmusic.glade.h:14
+msgid "Filter:"
+msgstr "Filter:"
+
+#: ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:370
+msgid "LXMusic"
+msgstr "LXMusic"
+
+#: ../data/lxmusic.glade.h:16
+msgid "Locate currently played track"
+msgstr "Lokalisera aktuellt spår"
+
+#: ../data/lxmusic.glade.h:17
+msgid "Media Library"
+msgstr "Mediabibliotek"
+
+#: ../data/lxmusic.glade.h:18
+msgid "Next"
+msgstr "Nästa"
+
+#: ../data/lxmusic.glade.h:19
+msgid ""
+"No Repeat\n"
+"Repeat Current\n"
+"Repeat All"
+msgstr ""
+"Ingen upprepning\n"
+"Repetera aktuell\n"
+"Repetera alla"
+
+#: ../data/lxmusic.glade.h:22
+msgid "Play/Pause"
+msgstr "Spela/Pausa"
+
+#: ../data/lxmusic.glade.h:23
+msgid "Previous"
+msgstr "Föregående"
+
+#: ../data/lxmusic.glade.h:24
+msgid "Remove All Items"
+msgstr "Ta bort alla objekt"
+
+#: ../data/lxmusic.glade.h:25
+msgid "Remove From Playlist"
+msgstr "Ta bort från spellista"
+
+#: ../data/lxmusic.glade.h:26
+msgid "Remove Selected Items"
+msgstr "Ta bort markerad"
+
+#: ../data/lxmusic.glade.h:27
+msgid "Remove items from the playlist"
+msgstr "Tar bort objekt från spellista"
+
+#: ../data/lxmusic.glade.h:28
+msgid "Show Playlist"
+msgstr "Visa spellista"
+
+#: ../data/lxmusic.glade.h:29
+msgid "Stop"
+msgstr "Stoppa"
+
+#: ../data/lxmusic.glade.h:30
+msgid "_Delete Current Playlist"
+msgstr "_Ta bort aktuell spellista"
+
+#: ../data/lxmusic.glade.h:31
+msgid "_File"
+msgstr "_Arkiv"
+
+#: ../data/lxmusic.glade.h:32
+msgid "_Help"
+msgstr "_Hjälp"
+
+#: ../data/lxmusic.glade.h:33
+msgid "_Locate Currently Played"
+msgstr "_Lokalisera aktuell uppspelning"
+
+#: ../data/lxmusic.glade.h:34
+msgid "_Playlist"
+msgstr "_Spellista"
+
+#: ../data/lxmusic.glade.h:35
+msgid "_Switch To Playlist"
+msgstr "_Växla till spellista"
+
+#: ../data/lxmusic.glade.h:36
+msgid "_Tools"
+msgstr "Ver_ktyg"
+
+#: ../data/lxmusic.glade.h:37
+msgid "_View"
+msgstr "_Visa"
+
+#: ../data/popup.glade.h:1
+msgid "_Show Main Window"
+msgstr "_Visa huvudfönster"
+
+#: ../data/pref-dlg.glade.h:1
+msgid "<b>Audio CD</b>"
+msgstr "<b>Ljud-CD</b>"
+
+# hu? context?
+#: ../data/pref-dlg.glade.h:2
+msgid "<b>Output</b>"
+msgstr "<b>Utgång</b>"
+
+#: ../data/pref-dlg.glade.h:3
+msgid "Audio"
+msgstr "Ljud"
+
+#: ../data/pref-dlg.glade.h:4
+msgid "Buffer Size: "
+msgstr "Buffertstorlek:"
+
+#: ../data/pref-dlg.glade.h:5
+msgid "CD-ROM Device: "
+msgstr "CR-ROM-enhet:"
+
+#: ../data/pref-dlg.glade.h:6
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "Fortsätt att spela i bakgrunden även när LXMusic har avslutats"
+
+#: ../data/pref-dlg.glade.h:7
+msgid "Default ID3 V1 Encoding: "
+msgstr "Standardiserad ID3 V1-kodning:"
+
+#: ../data/pref-dlg.glade.h:8
+msgid "Device:"
+msgstr "Enhet:"
+
+#: ../data/pref-dlg.glade.h:9
+msgid "Driver:"
+msgstr "Drivrutin:"
+
+#: ../data/pref-dlg.glade.h:10
+msgid "General"
+msgstr "Allmänt"
+
+#: ../data/pref-dlg.glade.h:11
+msgid "KB"
+msgstr "KB"
+
+#: ../data/pref-dlg.glade.h:12
+msgid "Minimize to system tray on close"
+msgstr "Minimera till systemdocka istället för att stänga av "
+
+#: ../data/pref-dlg.glade.h:13
+msgid "Misc"
+msgstr "Diverse"
+
+#: ../data/pref-dlg.glade.h:14
+msgid "Mixer:"
+msgstr "Mixer:"
+
+#: ../data/pref-dlg.glade.h:15
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Musikfiler kan spelas utan det grafiska gränssnittet för att spara systemresurser"
+
+#: ../data/pref-dlg.glade.h:16
+msgid "Plugin: "
+msgstr "Instick:"
+
+#: ../data/pref-dlg.glade.h:17
+msgid "Preference"
+msgstr "Inställning"
+
+#: ../data/pref-dlg.glade.h:18
+msgid "Show system tray icon"
+msgstr "Visa ikon i systemdocka"
+
+#: ../data/pref-dlg.glade.h:19
+msgid "Use OSS for audio output"
+msgstr "Använd OSS för ljudutmatning"
+
+#: ../data/pref-dlg.glade.h:20
+msgid "Use Pulse Audio for audio output"
+msgstr "Använd Pulse Audio för ljudutmatning"
+
+#: ../data/track-info.glade.h:1
+msgid "<b>Album: </b>"
+msgstr "<b>Album: </b>"
+
+#: ../data/track-info.glade.h:2
+msgid "<b>Artist: </b>"
+msgstr "<b>Artist: </b>"
+
+#: ../data/track-info.glade.h:3
+msgid "<b>Comment: </b>"
+msgstr "<b>Kommentar: </b>"
+
+#: ../data/track-info.glade.h:4
+msgid "<b>File Type: </b>"
+msgstr "<b>Filtyp: </b>"
+
+#: ../data/track-info.glade.h:5
+msgid "<b>File: </b>"
+msgstr "<b>Fil: </b>"
+
+#: ../data/track-info.glade.h:6
+msgid "<b>Size: </b>"
+msgstr "<b>Storlek: </b>"
+
+#: ../data/track-info.glade.h:7
+msgid "<b>Title: </b>"
+msgstr "<b>Titel: </b>"
+
+#: ../src/lxmusic.c:254
+msgid "Official icon of xmms2 by Arnaud DIDRY"
+msgstr "Officiell ikon för xmms2 av Arnaud DIDRY"
+
+#: ../src/lxmusic.c:265
+msgid ""
+"Music Player for LXDE\n"
+"Simple GUI XMMS2 client"
+msgstr ""
+"Musikspelare för LXDE\n"
+"Enkel klient till XMMS2"
+
+#: ../src/lxmusic.c:540
+msgid "Bitrate: "
+msgstr "Bitfrekvens:"
+
+#: ../src/lxmusic.c:807
+msgid "Audio Files"
+msgstr "Ljudfiler"
+
+#: ../src/lxmusic.c:812
+msgid "All Files"
+msgstr "Alla filer"
+
+#: ../src/lxmusic.c:839
+msgid "Input a URL"
+msgstr "Ange URL"
+
+#: ../src/lxmusic.c:1194
+msgid "Artist"
+msgstr "Artist"
+
+#: ../src/lxmusic.c:1203
+msgid "Album"
+msgstr "Album"
+
+#: ../src/lxmusic.c:1212
+msgid "Title"
+msgstr "Titel"
+
+#: ../src/lxmusic.c:1219
+msgid "Length"
+msgstr "Speltid"
+
+#: ../src/lxmusic.c:1380
+msgid "Default"
+msgstr "Standard"
+
+#: ../src/lxmusic.c:1481
+msgid "Pause"
+msgstr "Paus"
+
+#: ../src/lxmusic.c:1497
+msgid "Play"
+msgstr "Spela"
+
+#: ../src/lxmusic.c:1627
+msgid "Now Playing:"
+msgstr "Nu spelas:"
+
+#: ../src/lxmusic.c:2061
+msgid "Create new playlist"
+msgstr "Skapa ny spellista"
+
+#: ../src/utils.c:171
+msgid "Error"
+msgstr "Fel"
+

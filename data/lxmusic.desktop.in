@@ -1,11 +1,13 @@
 [Desktop Entry]
 Type=Application
-Name=LXMusic
+Name=Music Player
+Name[zh_TW]=音樂播放程式
 GenericName=Music Player
+GenericName[zh_TW]=音樂播放程式
 Comment=Play your music files easily
+Comment[zh_TW]=簡單地播放你的音樂檔案
 Categories=AudioVideo;Audio;Player;GTK;
 Icon=lxmusic
 Exec=lxmusic
 Terminal=false
 StartupNotify=true
-
