@@ -4,6 +4,7 @@
 	* lxmusic.pot: Updated.
 	* POTFILES.in: Added correct file names. Fixes SF.net #2535432.
 	* .po: Updated Message catalogs.
+	* pt_PT.po: Renamed to pt.po as there is no pt_PT.
 
 2009-01-05 Og Maciel <ogmaciel@gnome.org>
 
