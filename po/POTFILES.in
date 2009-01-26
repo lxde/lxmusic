@@ -1,8 +1,8 @@
 [encoding: UTF-8]
 src/lxmusic.c
 src/utils.c
-
-[type: gettext/glade]data/lxmusic.ui
-[type: gettext/glade]data/pref-dlg.ui
-[type: gettext/glade]data/track-info.ui
-[type: gettext/glade]data/popup.ui
+data/lxmusic.desktop.in
+data/lxmusic.glade
+data/popup.glade
+data/pref-dlg.glade
+data/track-info.glade
