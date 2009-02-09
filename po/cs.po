@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 09:38-0500\n"
+"POT-Creation-Date: 2009-02-09 01:40+0100\n"
 "PO-Revision-Date: 2009-02-02 01:43+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech\n"
@@ -28,8 +28,7 @@ msgstr ""
 "Hudební přehrávač pro prostředí LXDE\n"
 "Jednoduchý grafický klient aplikace XMMS2"
 
-#: ../src/lxmusic.c:370
-#: ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -133,8 +132,7 @@ msgstr "Zde zadejte klíčové slovo"
 msgid "Favorites"
 msgstr "Oblíbené"
 
-#: ../data/lxmusic.glade.h:13
-#: ../data/track-info.glade.h:8
+#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "Vlastnosti souboru"
 
@@ -289,8 +287,12 @@ msgid "Mixer:"
 msgstr "Směšovač:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Soubory hudby lze přehrát bez použití grafického uživatelského prostředí z důvodu úspory systémových zdrojů"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"Soubory hudby lze přehrát bez použití grafického uživatelského prostředí z "
+"důvodu úspory systémových zdrojů"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
@@ -342,12 +344,15 @@ msgstr "<b>Název: </b>"
 
 #~ msgid "All"
 #~ msgstr "Vše"
+
 #~ msgid "No Repeat"
 #~ msgstr "Neopakovat"
+
 #~ msgid "Repeat All"
 #~ msgstr "Opavovat vše"
+
 #~ msgid "Repeat Current"
 #~ msgstr "Opakovat tento"
+
 #~ msgid "Track Name"
 #~ msgstr "Název stopy"
-

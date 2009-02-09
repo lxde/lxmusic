@@ -1,35 +1,34 @@
-# translation of pl_PL.po to Polish
-# translation of pl_PL.po to
-# translation of pol_PL.po to
-# translation of lxmusic.po to
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Portuguese translations for lxmusic package.
+# Copyright (C) 2009 THE lxmusic'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lxmusic package.
+#  <alvarommorais@gmail.com>, 2009.
 #
-# Grzegorz Gibas <amigib@gmail.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: pl_PL\n"
+"Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 09:38-0500\n"
-"PO-Revision-Date: 2009-01-10 19:47+0100\n"
-"Last-Translator: Grzegorz Gibas <amigib@gmail.com>\n"
-"Language-Team: Polish\n"
+"POT-Creation-Date: 2009-02-09 01:40+0100\n"
+"PO-Revision-Date: 2009-01-15 07:50+0100\n"
+"Last-Translator: Álvaro Morais <alvarommorais@gmail.com>\n"
+"Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: PORTUGAL\n"
 
 #: ../src/lxmusic.c:254
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Oficjalna ikona xmms2 stworzona przez Arnaud DIDRY"
+msgstr "Icone oficial de xmms2 por Arnaud DIDRY"
 
 #: ../src/lxmusic.c:265
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Odtwarzacz muzyki dla LXDE\n"
-"Prosty interfejs graficzny dla klienta XMMS2"
+"Leitor de Música para o LXDE\n"
+"Simples cliente GUI XMMS2"
 
 #: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
 msgid "LXMusic"
@@ -37,75 +36,75 @@ msgstr "LXMusic"
 
 #: ../src/lxmusic.c:540
 msgid "Bitrate: "
-msgstr "Bitrate: "
+msgstr "Taxa de Bit's:"
 
 #: ../src/lxmusic.c:807
 msgid "Audio Files"
-msgstr "Pliki Audio"
+msgstr "Ficheiros de Audio"
 
 #: ../src/lxmusic.c:812
 msgid "All Files"
-msgstr "Wszystkie pliki"
+msgstr "Todos os ficheiros"
 
 #: ../src/lxmusic.c:839
 msgid "Input a URL"
-msgstr "Wpisz URL"
+msgstr "Introduza um URL"
 
 #: ../src/lxmusic.c:1194
 msgid "Artist"
-msgstr "Artysta"
+msgstr "Artista"
 
 #: ../src/lxmusic.c:1203
 msgid "Album"
-msgstr "Album"
+msgstr "Álbum"
 
 #: ../src/lxmusic.c:1212
 msgid "Title"
-msgstr "Tytuł"
+msgstr "Título"
 
 #: ../src/lxmusic.c:1219
 msgid "Length"
-msgstr "Długość"
+msgstr "Tamanho"
 
 #: ../src/lxmusic.c:1378
 msgid "Default"
-msgstr "Domyślne"
+msgstr "Por Omissão"
 
 #: ../src/lxmusic.c:1479
 msgid "Pause"
-msgstr "Pauza"
+msgstr "Pausa"
 
 #: ../src/lxmusic.c:1495
 msgid "Play"
-msgstr "Odtwarzaj"
+msgstr "Reproduzir"
 
 #: ../src/lxmusic.c:1625
 msgid "Now Playing:"
-msgstr "Teraz gra:"
+msgstr "A Reproduzir:"
 
 #: ../src/lxmusic.c:2059
 msgid "Create new playlist"
-msgstr "Utwórz nową listę odtwarzania"
+msgstr "Criar um nova Lista de Reprodução"
 
 #: ../src/utils.c:171
 msgid "Error"
-msgstr "Błąd"
+msgstr "Erro"
 
 #: ../data/lxmusic.glade.h:1
 msgid "Add Files or Folders"
-msgstr "Dodaj pliki lub katalog"
+msgstr "Adicionar Ficheiros ou Pastas"
 
 #: ../data/lxmusic.glade.h:2
 msgid "Add To Playlist"
-msgstr "Dodaj do listy odtwarzania"
+msgstr "Adicionar á lista de reprodução"
 
 #: ../data/lxmusic.glade.h:3
 msgid "Add URL"
-msgstr "Dodaj URL"
+msgstr "Adicionar URL"
 
 #: ../data/lxmusic.glade.h:4
 msgid "Add files to the playlist"
-msgstr "Dodaj pliki do listy odtwarzania"
+msgstr "Adicionar ficheiros à lista de reprodução"
 
 #: ../data/lxmusic.glade.h:5
 msgid ""
@@ -117,39 +116,39 @@ msgstr ""
 
 #: ../data/lxmusic.glade.h:9
 msgid "Create _New Playlist"
-msgstr "Utwórz _Nową  listę"
+msgstr "Criar _Nova Lista de Reprodução"
 
 #: ../data/lxmusic.glade.h:10
 msgid "Current Playlist"
-msgstr "Bieżąca Lista Odtwarzania"
+msgstr "Lista de Reprodução Actual"
 
 #: ../data/lxmusic.glade.h:11
 msgid "Enter keyword here"
-msgstr "Wpisz słowo kluczowe"
+msgstr "Introduza palavra-chave aqui"
 
 #: ../data/lxmusic.glade.h:12
 msgid "Favorites"
-msgstr "Ulubione"
+msgstr "Favoritos"
 
 #: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
 msgid "File Properties"
-msgstr "Właściwości Pliku"
+msgstr "Propriedades do ficheiro"
 
 #: ../data/lxmusic.glade.h:14
 msgid "Filter:"
-msgstr "Filtr:"
+msgstr "Filtro:"
 
 #: ../data/lxmusic.glade.h:16
 msgid "Locate currently played track"
-msgstr "Zlokalizuj odtwarzany plik"
+msgstr "Localizar a pista a reproduzir actualmente"
 
 #: ../data/lxmusic.glade.h:17
 msgid "Media Library"
-msgstr "Biblioteka mediów"
+msgstr "Biblioteca de Media"
 
 #: ../data/lxmusic.glade.h:18
 msgid "Next"
-msgstr "Następny"
+msgstr "Seguinte"
 
 #: ../data/lxmusic.glade.h:19
 msgid ""
@@ -160,111 +159,111 @@ msgstr ""
 
 #: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
-msgstr "Odtwarzaj/Pauza"
+msgstr "Reproduzir/Pausa"
 
 #: ../data/lxmusic.glade.h:23
 msgid "Previous"
-msgstr "Poprzedni"
+msgstr "Anterior"
 
 #: ../data/lxmusic.glade.h:24
 msgid "Remove All Items"
-msgstr "Usuń Wszystkie"
+msgstr "Remover todos os Itens"
 
 #: ../data/lxmusic.glade.h:25
 msgid "Remove From Playlist"
-msgstr "Usuń z Listy Odtwarzania"
+msgstr "Remover da Lista de Reprodução"
 
 #: ../data/lxmusic.glade.h:26
 msgid "Remove Selected Items"
-msgstr "Usuń Zaznaczone"
+msgstr "Remover os itens seleccionados"
 
 #: ../data/lxmusic.glade.h:27
 msgid "Remove items from the playlist"
-msgstr "Usuń pozycje z listy odtwarzania"
+msgstr "Remover itens da Lista de Reprodução"
 
 #: ../data/lxmusic.glade.h:28
 msgid "Show Playlist"
-msgstr "Pokaż Listę Odtwarzania"
+msgstr "Mostrar Lista de Reprodução"
 
 #: ../data/lxmusic.glade.h:29
 msgid "Stop"
-msgstr "Zatrzymaj"
+msgstr "Parar"
 
 #: ../data/lxmusic.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr "_Usuń Bieżącą Listę"
+msgstr "A_pagar a Lista de Reprodução Actual"
 
 #: ../data/lxmusic.glade.h:31
 msgid "_File"
-msgstr "_Plik"
+msgstr "_Ficheiro"
 
 #: ../data/lxmusic.glade.h:32
 msgid "_Help"
-msgstr "_Pomoc"
+msgstr "_Ajuda"
 
 #: ../data/lxmusic.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Zlokalizuj Odtwarzany Plik"
+msgstr "_Localizar actualmente a reproduzir"
 
 #: ../data/lxmusic.glade.h:34
 msgid "_Playlist"
-msgstr "_Lista Odtwarzania"
+msgstr "_Lista de Reprodução"
 
 #: ../data/lxmusic.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "_Przełącz Na Listę Odtwarzania"
+msgstr "_Mudar para a Lista de Reprodução"
 
 #: ../data/lxmusic.glade.h:36
 msgid "_Tools"
-msgstr "_Narzędzia"
+msgstr "_Ferramentas"
 
 #: ../data/lxmusic.glade.h:37
 msgid "_View"
-msgstr "_Widok"
+msgstr "_Ver"
 
 #: ../data/popup.glade.h:1
 msgid "_Show Main Window"
-msgstr "Pokaż _Okno Główne"
+msgstr "_Mostrar a janela principal"
 
 #: ../data/pref-dlg.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr "<b>Audio CD</b>"
+msgstr "<b>CD de Áudio</b>"
 
 #: ../data/pref-dlg.glade.h:2
 msgid "<b>Output</b>"
-msgstr "<b>Wyjście</b>"
+msgstr "<b>Saída</b>"
 
 #: ../data/pref-dlg.glade.h:3
 msgid "Audio"
-msgstr "Dźwięk"
+msgstr "Áudio"
 
 #: ../data/pref-dlg.glade.h:4
 msgid "Buffer Size: "
-msgstr "Rozmiar Bufora:"
+msgstr "Tamanho do Buffer"
 
 #: ../data/pref-dlg.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "Urządzenie CD-ROM: "
+msgstr "Dispositivo CD-ROM"
 
 #: ../data/pref-dlg.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "Kontynuuj odtwarzanie w tle po wyjściu z LXMusic"
+msgstr "Continuar a tocar no plano de fundo depois de sair do LXMusic"
 
 #: ../data/pref-dlg.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "Domyślne kodowanie ID3 V1: "
+msgstr "Codificação ID3 V1 por defeito:"
 
 #: ../data/pref-dlg.glade.h:8
 msgid "Device:"
-msgstr "Urządzenie: "
+msgstr "Dispositivo:"
 
 #: ../data/pref-dlg.glade.h:9
 msgid "Driver:"
-msgstr "Wyjście:"
+msgstr "Controlador (Driver):"
 
 #: ../data/pref-dlg.glade.h:10
 msgid "General"
-msgstr "Główne"
+msgstr "Geral"
 
 #: ../data/pref-dlg.glade.h:11
 msgid "KB"
@@ -272,83 +271,83 @@ msgstr "KB"
 
 #: ../data/pref-dlg.glade.h:12
 msgid "Minimize to system tray on close"
-msgstr "Minimalizuj do tacki systemowej"
+msgstr "Minimizar para área de notificação ao fechar"
 
 #: ../data/pref-dlg.glade.h:13
 msgid "Misc"
-msgstr "Inne"
+msgstr "Outros"
 
 #: ../data/pref-dlg.glade.h:14
 msgid "Mixer:"
-msgstr "Mixer:"
+msgstr "Misturador:"
 
 #: ../data/pref-dlg.glade.h:15
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
-"Pliki muzyczne mogą być odtwarzane bez graficznego interfejsu, żeby "
-"zaoszczędzić systemowych zasobów"
+"Ficheiros de música podem ser tocados sem a interface gráfica para "
+"economizar recursos de sistema."
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
-msgstr "Wtyczka:"
+msgstr "Plugin:"
 
 #: ../data/pref-dlg.glade.h:17
 msgid "Preference"
-msgstr "Ustawienia"
+msgstr "Preferência"
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr "Pokaż ikonę w tacce systemowej"
+msgstr "Mostrar ícone na área de notificação"
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
-msgstr "Użyj wtyczki OSS"
+msgstr "Usar OSS para saída de áudio."
 
 #: ../data/pref-dlg.glade.h:20
 msgid "Use Pulse Audio for audio output"
-msgstr "Użyj wtyczki Pulse Audio"
+msgstr "Utilizar o servidor Pulse Audio para a saída de áudio"
 
 #: ../data/track-info.glade.h:1
 msgid "<b>Album: </b>"
-msgstr "<b>Album: </b>"
+msgstr "<b>Álbum: </b>"
 
 #: ../data/track-info.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr "<b>Artysta: </b>"
+msgstr "<b>Artista: </b>"
 
 #: ../data/track-info.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr "<b>Komentarz: </b>"
+msgstr "<b>Comentário: </b>"
 
 #: ../data/track-info.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Typ Pliku: </b>"
+msgstr "<b>Tipo de Ficheiro : </b>"
 
 #: ../data/track-info.glade.h:5
 msgid "<b>File: </b>"
-msgstr "<b>Plik: </b>"
+msgstr "<b>Ficheiro: </b>"
 
 #: ../data/track-info.glade.h:6
 msgid "<b>Size: </b>"
-msgstr "<b>Rozmiar: </b>"
+msgstr "<b>Tamanho: <b>"
 
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
-msgstr "<b>Tytuł: </b>"
+msgstr "<b>Titulo: </b>"
 
 #~ msgid "All"
-#~ msgstr "Wszystkie"
+#~ msgstr "Todos"
 
 #~ msgid "No Repeat"
-#~ msgstr "Nie Powtarzaj"
+#~ msgstr "Sem Repetição"
 
 #~ msgid "Repeat All"
-#~ msgstr "Powtórz Wszystkie"
+#~ msgstr "Repetir todas"
 
 #~ msgid "Repeat Current"
-#~ msgstr "Powtórz bieżący"
+#~ msgstr "Repetir a actual"
 
 #~ msgid "Track Name"
-#~ msgstr "Nazwa Utworu"
+#~ msgstr "Nome da Pista"

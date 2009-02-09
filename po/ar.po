@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXMusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 19:39+0200\n"
+"POT-Creation-Date: 2009-02-09 01:40+0100\n"
 "PO-Revision-Date: 2009-01-26 20:16+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
@@ -27,8 +27,7 @@ msgstr ""
 "مشغل موسيقى لـLXDE\n"
 "عميل رسومي بسيط لـXMMS2"
 
-#: ../src/lxmusic.c:370
-#: ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -132,8 +131,7 @@ msgstr "أدخل كلمة مفتاحية هنا"
 msgid "Favorites"
 msgstr "المفضلة"
 
-#: ../data/lxmusic.glade.h:13
-#: ../data/track-info.glade.h:8
+#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "خصائص الملف"
 
@@ -288,7 +286,9 @@ msgid "Mixer:"
 msgstr "المازج:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid "Music files can be played without graphical user interface to save system resources"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
 msgstr "يمكن تشغيل ملفات الموسيقى بدون واجهة رسومية لحفظ موارد النظام"
 
 #: ../data/pref-dlg.glade.h:16
@@ -338,6 +338,3 @@ msgstr "<b>الحجم: </b>"
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>الاسم: </b>"
-
-
- 	  	 
