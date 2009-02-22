@@ -6,17 +6,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Grzegorz Gibas <amigib@gmail.com>, 2009.
+# Artur Kruszewski <mazdac@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:40+0100\n"
-"PO-Revision-Date: 2009-01-10 19:47+0100\n"
-"Last-Translator: Grzegorz Gibas <amigib@gmail.com>\n"
+"PO-Revision-Date: 2009-02-16 00:29-0000\n"
+"Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../src/lxmusic.c:254
@@ -31,7 +33,8 @@ msgstr ""
 "Odtwarzacz muzyki dla LXDE\n"
 "Prosty interfejs graficzny dla klienta XMMS2"
 
-#: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:370
+#: ../data/lxmusic.glade.h:15
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -114,6 +117,10 @@ msgid ""
 "Artist\n"
 "Album"
 msgstr ""
+"Wszystko\n"
+"Nazwa utworu\n"
+"Artysta\n"
+"Album"
 
 #: ../data/lxmusic.glade.h:9
 msgid "Create _New Playlist"
@@ -131,7 +138,8 @@ msgstr "Wpisz słowo kluczowe"
 msgid "Favorites"
 msgstr "Ulubione"
 
-#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
+#: ../data/lxmusic.glade.h:13
+#: ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "Właściwości Pliku"
 
@@ -157,6 +165,9 @@ msgid ""
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
+"Nie powrarzaj\n"
+"Powtarzaj ten utwór\n"
+"Powtarzaj wszystko"
 
 #: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
@@ -283,12 +294,8 @@ msgid "Mixer:"
 msgstr "Mixer:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Pliki muzyczne mogą być odtwarzane bez graficznego interfejsu, żeby "
-"zaoszczędzić systemowych zasobów"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Pliki muzyczne mogą być odtwarzane bez graficznego interfejsu, żeby zaoszczędzić systemowych zasobów"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
@@ -340,15 +347,12 @@ msgstr "<b>Tytuł: </b>"
 
 #~ msgid "All"
 #~ msgstr "Wszystkie"
-
 #~ msgid "No Repeat"
 #~ msgstr "Nie Powtarzaj"
-
 #~ msgid "Repeat All"
 #~ msgstr "Powtórz Wszystkie"
-
 #~ msgid "Repeat Current"
 #~ msgstr "Powtórz bieżący"
-
 #~ msgid "Track Name"
 #~ msgstr "Nazwa Utworu"
+
