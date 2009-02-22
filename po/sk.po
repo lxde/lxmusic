@@ -1,106 +1,108 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Slovak translation of lxmusic
+# Copyright (C) 2006 lxde team
+# This file is distributed under the same license as the lxmusic package.
+# Ivan MasÃ¡r <helix84@centrum.sk>, 2007, 2009.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:40+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2009-02-13 16:42+0100\n"
+"Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
+"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../src/lxmusic.c:254
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr ""
+msgstr "Officiálna ikona xmms2 (autor: Arnaud DIDRY)"
 
 #: ../src/lxmusic.c:265
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
+"prehrávač hudby pre projekt LXDE\n"
+"Jednoduchý grafický klient XMMS2"
 
-#: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:370
+#: ../data/lxmusic.glade.h:15
 msgid "LXMusic"
-msgstr ""
+msgstr "LXMusic"
 
 #: ../src/lxmusic.c:540
 msgid "Bitrate: "
-msgstr ""
+msgstr "Bitrate: "
 
 #: ../src/lxmusic.c:807
 msgid "Audio Files"
-msgstr ""
+msgstr "Zvukové súbory"
 
 #: ../src/lxmusic.c:812
 msgid "All Files"
-msgstr ""
+msgstr "Všetky súbory"
 
 #: ../src/lxmusic.c:839
 msgid "Input a URL"
-msgstr ""
+msgstr "Zadať URL"
 
 #: ../src/lxmusic.c:1194
 msgid "Artist"
-msgstr ""
+msgstr "Autor"
 
 #: ../src/lxmusic.c:1203
 msgid "Album"
-msgstr ""
+msgstr "Album"
 
 #: ../src/lxmusic.c:1212
 msgid "Title"
-msgstr ""
+msgstr "Názov"
 
 #: ../src/lxmusic.c:1219
 msgid "Length"
-msgstr ""
+msgstr "Dĺžka"
 
 #: ../src/lxmusic.c:1378
 msgid "Default"
-msgstr ""
+msgstr "Predvolené"
 
 #: ../src/lxmusic.c:1479
 msgid "Pause"
-msgstr ""
+msgstr "Pozastaviť"
 
 #: ../src/lxmusic.c:1495
 msgid "Play"
-msgstr ""
+msgstr "Prehrať"
 
 #: ../src/lxmusic.c:1625
 msgid "Now Playing:"
-msgstr ""
+msgstr "Teraz hrá:"
 
 #: ../src/lxmusic.c:2059
 msgid "Create new playlist"
-msgstr ""
+msgstr "Vytvoriť nový zoznam stôp"
 
 #: ../src/utils.c:171
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 #: ../data/lxmusic.glade.h:1
 msgid "Add Files or Folders"
-msgstr ""
+msgstr "Pridať súbory alebo priečinky"
 
 #: ../data/lxmusic.glade.h:2
 msgid "Add To Playlist"
-msgstr ""
+msgstr "Pridať do zoznamu stôp"
 
 #: ../data/lxmusic.glade.h:3
 msgid "Add URL"
-msgstr ""
+msgstr "Pridať URL"
 
 #: ../data/lxmusic.glade.h:4
 msgid "Add files to the playlist"
-msgstr ""
+msgstr "Pridať súbory do zoznamu stôp"
 
 #: ../data/lxmusic.glade.h:5
 msgid ""
@@ -109,42 +111,47 @@ msgid ""
 "Artist\n"
 "Album"
 msgstr ""
+"Všetko\n"
+"Názov stopy\n"
+"Autor\n"
+"Album"
 
 #: ../data/lxmusic.glade.h:9
 msgid "Create _New Playlist"
-msgstr ""
+msgstr "Vytvoriť _nový zoznam stôp"
 
 #: ../data/lxmusic.glade.h:10
 msgid "Current Playlist"
-msgstr ""
+msgstr "Aktuálny zoznam stôp"
 
 #: ../data/lxmusic.glade.h:11
 msgid "Enter keyword here"
-msgstr ""
+msgstr "Sem zadajte kľúčové slovo"
 
 #: ../data/lxmusic.glade.h:12
 msgid "Favorites"
-msgstr ""
+msgstr "Obľúbené"
 
-#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
+#: ../data/lxmusic.glade.h:13
+#: ../data/track-info.glade.h:8
 msgid "File Properties"
-msgstr ""
+msgstr "Vlastnosti súboru"
 
 #: ../data/lxmusic.glade.h:14
 msgid "Filter:"
-msgstr ""
+msgstr "Filter:"
 
 #: ../data/lxmusic.glade.h:16
 msgid "Locate currently played track"
-msgstr ""
+msgstr "Lokalizovať momentálne hrajúcu stopu"
 
 #: ../data/lxmusic.glade.h:17
 msgid "Media Library"
-msgstr ""
+msgstr "Knižnica multimédií"
 
 #: ../data/lxmusic.glade.h:18
 msgid "Next"
-msgstr ""
+msgstr "Ďalšia"
 
 #: ../data/lxmusic.glade.h:19
 msgid ""
@@ -152,181 +159,183 @@ msgid ""
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
+"Neopakovať\n"
+"Opakovať stopu\n"
+"Opakovať zoznam stôp"
 
 #: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
-msgstr ""
+msgstr "Prehrať/pozastaviť"
 
 #: ../data/lxmusic.glade.h:23
 msgid "Previous"
-msgstr ""
+msgstr "Predošlá"
 
 #: ../data/lxmusic.glade.h:24
 msgid "Remove All Items"
-msgstr ""
+msgstr "Odstrániť všetky položky"
 
 #: ../data/lxmusic.glade.h:25
 msgid "Remove From Playlist"
-msgstr ""
+msgstr "Odstrániť zo zoznamu stôp"
 
 #: ../data/lxmusic.glade.h:26
 msgid "Remove Selected Items"
-msgstr ""
+msgstr "Odstrániť vybrané položky"
 
 #: ../data/lxmusic.glade.h:27
 msgid "Remove items from the playlist"
-msgstr ""
+msgstr "Odstrániť položky zo zoznamu stôp"
 
 #: ../data/lxmusic.glade.h:28
 msgid "Show Playlist"
-msgstr ""
+msgstr "Zobraziť zoznam stôp"
 
 #: ../data/lxmusic.glade.h:29
 msgid "Stop"
-msgstr ""
+msgstr "Zastaviť"
 
 #: ../data/lxmusic.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr ""
+msgstr "_Zmazať aktuálny zoznam stôp"
 
 #: ../data/lxmusic.glade.h:31
 msgid "_File"
-msgstr ""
+msgstr "_Súbor"
 
 #: ../data/lxmusic.glade.h:32
 msgid "_Help"
-msgstr ""
+msgstr "_Pomocník"
 
 #: ../data/lxmusic.glade.h:33
 msgid "_Locate Currently Played"
-msgstr ""
+msgstr "_Lokalizovať momentálne hrajúcu"
 
 #: ../data/lxmusic.glade.h:34
 msgid "_Playlist"
-msgstr ""
+msgstr "Zoznam stô_p"
 
 #: ../data/lxmusic.glade.h:35
 msgid "_Switch To Playlist"
-msgstr ""
+msgstr "P_repnúť na zoznam stôp"
 
 #: ../data/lxmusic.glade.h:36
 msgid "_Tools"
-msgstr ""
+msgstr "_Nástroje"
 
 #: ../data/lxmusic.glade.h:37
 msgid "_View"
-msgstr ""
+msgstr "_Zobraziť"
 
 #: ../data/popup.glade.h:1
 msgid "_Show Main Window"
-msgstr ""
+msgstr "_Zobraziť hlavné okno"
 
 #: ../data/pref-dlg.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr ""
+msgstr "<b>Zvukové CD</b>"
 
 #: ../data/pref-dlg.glade.h:2
 msgid "<b>Output</b>"
-msgstr ""
+msgstr "<b>Výstup</b>"
 
 #: ../data/pref-dlg.glade.h:3
 msgid "Audio"
-msgstr ""
+msgstr "Zvuk"
 
 #: ../data/pref-dlg.glade.h:4
 msgid "Buffer Size: "
-msgstr ""
+msgstr "Veľkosť buffera: "
 
 #: ../data/pref-dlg.glade.h:5
 msgid "CD-ROM Device: "
-msgstr ""
+msgstr "Zariadenie CD-ROM: "
 
 #: ../data/pref-dlg.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr ""
+msgstr "Pokračovať v prehrávaní v pozadí po ukončení LXMusic"
 
 #: ../data/pref-dlg.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr ""
+msgstr "Štandardné kódovanie ID3 V1: "
 
 #: ../data/pref-dlg.glade.h:8
 msgid "Device:"
-msgstr ""
+msgstr "Zaraidenie:"
 
 #: ../data/pref-dlg.glade.h:9
 msgid "Driver:"
-msgstr ""
+msgstr "Ovládač:"
 
 #: ../data/pref-dlg.glade.h:10
 msgid "General"
-msgstr ""
+msgstr "Všeobecné"
 
 #: ../data/pref-dlg.glade.h:11
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: ../data/pref-dlg.glade.h:12
 msgid "Minimize to system tray on close"
-msgstr ""
+msgstr "Po zatvorení minimalizovať do oznamovacej oblasti"
 
 #: ../data/pref-dlg.glade.h:13
 msgid "Misc"
-msgstr ""
+msgstr "Rôzne"
 
 #: ../data/pref-dlg.glade.h:14
 msgid "Mixer:"
-msgstr ""
+msgstr "Mixer:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Hudobné súbory možno prehrávať bez grafického rozhrania, aby sa šetrili zdroje systému"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
-msgstr ""
+msgstr "Zásuvný modul: "
 
 #: ../data/pref-dlg.glade.h:17
 msgid "Preference"
-msgstr ""
+msgstr "Nastavenie"
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Zobrazovať ikonu v oznamovacej oblasti"
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
-msgstr ""
+msgstr "Na výstup zvuku používať OSS"
 
 #: ../data/pref-dlg.glade.h:20
 msgid "Use Pulse Audio for audio output"
-msgstr ""
+msgstr "Na výstup zvuku používať Pulse Audio"
 
 #: ../data/track-info.glade.h:1
 msgid "<b>Album: </b>"
-msgstr ""
+msgstr "<b>Album: </b>"
 
 #: ../data/track-info.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr ""
+msgstr "<b>Autor: </b>"
 
 #: ../data/track-info.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr ""
+msgstr "<b>Komentár: </b>"
 
 #: ../data/track-info.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr ""
+msgstr "<b>Typ súboru: </b>"
 
 #: ../data/track-info.glade.h:5
 msgid "<b>File: </b>"
-msgstr ""
+msgstr "<b>Súbor: </b>"
 
 #: ../data/track-info.glade.h:6
 msgid "<b>Size: </b>"
-msgstr ""
+msgstr "<b>Veľkosť: </b>"
 
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "<b>Názov: </b>"
+
