@@ -2039,6 +2039,9 @@ static void setup_ui()
     /* signal handlers */
     gtk_builder_connect_signals(builder, NULL);
 
+    /* window icon */
+    gtk_window_set_icon_from_file(GTK_WINDOW(main_win), PACKAGE_DATA_DIR"/pixmaps/lxmusic.png", NULL );
+
     gtk_window_set_default_size(GTK_WINDOW(main_win), win_width, win_height);
     /* this can trigger signal handler and show or hide the playlist. */
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(show_pl_mi), show_playlist);
