@@ -2,14 +2,15 @@
 # Copyright (C) 2009 THE lxmusic'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxmusic package.
 # Og Maciel <ogmaciel@gnome.org>, 2009.
+# Henrique P. Machado <zehrique@gmail.com>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:40+0100\n"
-"PO-Revision-Date: 2009-01-05 21:40-0500\n"
-"Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
+"PO-Revision-Date: 2009-03-11 18:48-0300\n"
+"Last-Translator: Henrique P. Machado <zehrique@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -42,11 +43,11 @@ msgstr "Arquivos de áudio"
 
 #: ../src/lxmusic.c:812
 msgid "All Files"
-msgstr "Todos arquivos"
+msgstr "Todos os arquivos"
 
 #: ../src/lxmusic.c:839
 msgid "Input a URL"
-msgstr "Entrar um URL"
+msgstr "Digitar um URL"
 
 #: ../src/lxmusic.c:1194
 msgid "Artist"
@@ -111,6 +112,10 @@ msgid ""
 "Artist\n"
 "Album"
 msgstr ""
+"Todos\n"
+"Nome da faixa\n"
+"Artista\n"
+"Álbum"
 
 #: ../data/lxmusic.glade.h:9
 msgid "Create _New Playlist"
@@ -154,6 +159,9 @@ msgid ""
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
+"Repetir: desligado\n"
+"Repetir: faixa\n"
+"Repetir: tudo"
 
 #: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
@@ -165,7 +173,7 @@ msgstr "Anterior"
 
 #: ../data/lxmusic.glade.h:24
 msgid "Remove All Items"
-msgstr "Remover todos itens"
+msgstr "Remover todos os itens"
 
 #: ../data/lxmusic.glade.h:25
 msgid "Remove From Playlist"
@@ -245,7 +253,7 @@ msgstr "Dispositivo de CD-ROM: "
 
 #: ../data/pref-dlg.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "Continuar a reprodução no segundo plano depois de sair do LXMusic"
+msgstr "Continuar a reprodução em segundo plano depois de sair do LXMusic"
 
 #: ../data/pref-dlg.glade.h:7
 msgid "Default ID3 V1 Encoding: "
@@ -273,11 +281,11 @@ msgstr "Minimizar para a área de notificação ao fechar"
 
 #: ../data/pref-dlg.glade.h:13
 msgid "Misc"
-msgstr "Misc"
+msgstr "Miscelânea"
 
 #: ../data/pref-dlg.glade.h:14
 msgid "Mixer:"
-msgstr "Mixador:"
+msgstr "Equalizador:"
 
 #: ../data/pref-dlg.glade.h:15
 msgid ""
@@ -297,7 +305,7 @@ msgstr "Preferência"
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr "Mostrar um ícone na área de notificação"
+msgstr "Mostrar ícone na área de notificação"
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
