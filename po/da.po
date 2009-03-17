@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:40+0100\n"
-"PO-Revision-Date: 2009-03-13 14:50+0100\n"
-"Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>\n"
+"PO-Revision-Date: 2009-03-16 20:54+0100\n"
+"Last-Translator: charlie tyrrestrup <chalze06@gmail.com>\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +52,7 @@ msgstr "Skriv en URL"
 
 #: ../src/lxmusic.c:1194
 msgid "Artist"
-msgstr "Artist"
+msgstr "Kunstner"
 
 #: ../src/lxmusic.c:1203
 msgid "Album"
@@ -68,7 +68,7 @@ msgstr "Længde"
 
 #: ../src/lxmusic.c:1378
 msgid "Default"
-msgstr "Default"
+msgstr "Standard"
 
 #: ../src/lxmusic.c:1479
 msgid "Pause"
@@ -148,7 +148,7 @@ msgstr "Lokaliser den fil der afspilles"
 
 #: ../data/lxmusic.glade.h:17
 msgid "Media Library"
-msgstr "Media Bibliotek"
+msgstr "Medie Bibliotek"
 
 #: ../data/lxmusic.glade.h:18
 msgid "Next"
@@ -210,7 +210,7 @@ msgstr "_Hjælp"
 
 #: ../data/lxmusic.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Lokaliser Den Titel Der Spilles Nu"
+msgstr "_Lokaliser Seneste Afspillede"
 
 #: ../data/lxmusic.glade.h:34
 msgid "_Playlist"
@@ -234,7 +234,7 @@ msgstr "_Vis Hoved Vindue"
 
 #: ../data/pref-dlg.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr "<b>Audio CD</b>"
+msgstr "<b>Lyd CD</b>"
 
 #: ../data/pref-dlg.glade.h:2
 msgid "<b>Output</b>"
@@ -242,7 +242,7 @@ msgstr "<b>Output</b>"
 
 #: ../data/pref-dlg.glade.h:3
 msgid "Audio"
-msgstr "Audio"
+msgstr "Lyd"
 
 #: ../data/pref-dlg.glade.h:4
 msgid "Buffer Size: "
@@ -258,7 +258,7 @@ msgstr "Fortsæt afspilning i baggrunden efter lukning af LXMusic"
 
 #: ../data/pref-dlg.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "Default ID3 V1 Kodning: "
+msgstr "Standard ID3 V1 Kodning: "
 
 #: ../data/pref-dlg.glade.h:8
 msgid "Device:"
@@ -322,7 +322,7 @@ msgstr "<b>Album: </b>"
 
 #: ../data/track-info.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr "<b>Artist: </b>"
+msgstr "<b>Kunstner: </b>"
 
 #: ../data/track-info.glade.h:3
 msgid "<b>Comment: </b>"
@@ -330,7 +330,7 @@ msgstr "<b>Kommentar: </b>"
 
 #: ../data/track-info.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>FilType: </b>"
+msgstr "<b>Fil Type: </b>"
 
 #: ../data/track-info.glade.h:5
 msgid "<b>File: </b>"
