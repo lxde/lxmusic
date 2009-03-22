@@ -8,12 +8,13 @@ msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:40+0100\n"
-"PO-Revision-Date: 2008-12-17 18:16-0400\n"
-"Last-Translator: sebasmagri <sebasmagri@gmail.com>\n"
+"PO-Revision-Date: 2009-03-21 22:21+0100\n"
+"Last-Translator: Guillermo Iguaran <johnnyprez@gmail.com>\n"
 "Language-Team: pcman.tw@gmail.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.1.0\n"
 
 #: ../src/lxmusic.c:254
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -77,7 +78,7 @@ msgstr "Reproducir"
 
 #: ../src/lxmusic.c:1625
 msgid "Now Playing:"
-msgstr "Ahora Reproduciendo："
+msgstr "Reproduciendo:"
 
 #: ../src/lxmusic.c:2059
 msgid "Create new playlist"
@@ -110,6 +111,10 @@ msgid ""
 "Artist\n"
 "Album"
 msgstr ""
+"Todo\r\n"
+"Nombre de la pista\r\n"
+"Artista\r\n"
+"Álbum"
 
 #: ../data/lxmusic.glade.h:9
 msgid "Create _New Playlist"
@@ -153,10 +158,13 @@ msgid ""
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
+"No repetir\r\n"
+"Repetir actual\r\n"
+"Repetir todo"
 
 #: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
-msgstr "Reproducir/Detener"
+msgstr "Reproducir/Pausar"
 
 #: ../data/lxmusic.glade.h:23
 msgid "Previous"
@@ -164,19 +172,19 @@ msgstr "Anterior"
 
 #: ../data/lxmusic.glade.h:24
 msgid "Remove All Items"
-msgstr "Remover todos los Ítems"
+msgstr "Quitar todos los Ítems"
 
 #: ../data/lxmusic.glade.h:25
 msgid "Remove From Playlist"
-msgstr "Remover de la Lista de Reproducción"
+msgstr "Quitar de la Lista de Reproducción"
 
 #: ../data/lxmusic.glade.h:26
 msgid "Remove Selected Items"
-msgstr "Remover Ítems Seleccionados"
+msgstr "Quitar Ítems Seleccionados"
 
 #: ../data/lxmusic.glade.h:27
 msgid "Remove items from the playlist"
-msgstr "Remover Ítems de la Lista de Reproducción"
+msgstr "Quitar Ítems de la Lista de Reproducción"
 
 #: ../data/lxmusic.glade.h:28
 msgid "Show Playlist"
@@ -188,11 +196,11 @@ msgstr "Detener"
 
 #: ../data/lxmusic.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr "Borrar Lista _De Reproducción Actual"
+msgstr "Borrar Lista _de Reproducción Actual"
 
 #: ../data/lxmusic.glade.h:31
 msgid "_File"
-msgstr "_Fichero"
+msgstr "_Archivo"
 
 #: ../data/lxmusic.glade.h:32
 msgid "_Help"
@@ -200,7 +208,7 @@ msgstr "Ayuda(_H)"
 
 #: ../data/lxmusic.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Localizar Reproducida Actualmente"
+msgstr "_Localizar el archivo reproducido"
 
 #: ../data/lxmusic.glade.h:34
 msgid "_Playlist"
@@ -264,11 +272,11 @@ msgstr "General"
 
 #: ../data/pref-dlg.glade.h:11
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: ../data/pref-dlg.glade.h:12
 msgid "Minimize to system tray on close"
-msgstr "Minimizar a bandeja de sistema al cerrar"
+msgstr "Minimizar a la bandeja del sistema al cerrar"
 
 #: ../data/pref-dlg.glade.h:13
 msgid "Misc"
@@ -283,7 +291,7 @@ msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
-"Archivos de música se pueden reproducir sin interfaz gráfica para ahorrar "
+"Los archivos de música pueden reproducirse sin interfaz gráfica para ahorrar "
 "recursos"
 
 #: ../data/pref-dlg.glade.h:16
@@ -296,7 +304,7 @@ msgstr "Preferencia"
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr "Mostrar Ícono en Bandeja de Sistema"
+msgstr "Mostrar ícono en la Bandeja del Sistema"
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
