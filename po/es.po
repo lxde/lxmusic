@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:40+0100\n"
-"PO-Revision-Date: 2009-03-21 22:21+0100\n"
+"PO-Revision-Date: 2009-03-22 22:24+0100\n"
 "Last-Translator: Guillermo Iguaran <johnnyprez@gmail.com>\n"
 "Language-Team: pcman.tw@gmail.com\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../src/lxmusic.c:254
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Íconos oficiales de xmms2 por Arnaud DIDRY"
+msgstr "Iconos oficiales de xmms2 por Arnaud DIDRY"
 
 #: ../src/lxmusic.c:265
 msgid ""
@@ -111,9 +111,9 @@ msgid ""
 "Artist\n"
 "Album"
 msgstr ""
-"Todo\r\n"
-"Nombre de la pista\r\n"
-"Artista\r\n"
+"Todo\n"
+"Nombre de la pista\n"
+"Artista\n"
 "Álbum"
 
 #: ../data/lxmusic.glade.h:9
@@ -146,7 +146,7 @@ msgstr "Localizar pista reproducida actualmente"
 
 #: ../data/lxmusic.glade.h:17
 msgid "Media Library"
-msgstr "Fonoteca"
+msgstr "Biblioteca de Medios"
 
 #: ../data/lxmusic.glade.h:18
 msgid "Next"
@@ -158,8 +158,8 @@ msgid ""
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
-"No repetir\r\n"
-"Repetir actual\r\n"
+"No repetir\n"
+"Repetir actual\n"
 "Repetir todo"
 
 #: ../data/lxmusic.glade.h:22
@@ -204,7 +204,7 @@ msgstr "_Archivo"
 
 #: ../data/lxmusic.glade.h:32
 msgid "_Help"
-msgstr "Ayuda(_H)"
+msgstr "A_yuda"
 
 #: ../data/lxmusic.glade.h:33
 msgid "_Locate Currently Played"
@@ -212,15 +212,15 @@ msgstr "_Localizar el archivo reproducido"
 
 #: ../data/lxmusic.glade.h:34
 msgid "_Playlist"
-msgstr "Lista de Repoducción(_P)"
+msgstr "Lista de Re_producción"
 
 #: ../data/lxmusic.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "Cambiar a Lista de Reproducción(_S)"
+msgstr "Cambiar a Li_sta de Reproducción"
 
 #: ../data/lxmusic.glade.h:36
 msgid "_Tools"
-msgstr "Herramientas(_T)"
+msgstr "Herramien_tas"
 
 #: ../data/lxmusic.glade.h:37
 msgid "_View"
@@ -228,7 +228,7 @@ msgstr "_Ver"
 
 #: ../data/popup.glade.h:1
 msgid "_Show Main Window"
-msgstr "Mostrar Ventana Principal(_S)"
+msgstr "Mo_strar Ventana Principal"
 
 #: ../data/pref-dlg.glade.h:1
 msgid "<b>Audio CD</b>"
@@ -304,7 +304,7 @@ msgstr "Preferencia"
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr "Mostrar ícono en la Bandeja del Sistema"
+msgstr "Mostrar icono en la Bandeja del Sistema"
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
@@ -328,19 +328,19 @@ msgstr "<b>Comentario: </b>"
 
 #: ../data/track-info.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Tipo de Archivo:</b>"
+msgstr "<b>Tipo de Archivo: </b>"
 
 #: ../data/track-info.glade.h:5
 msgid "<b>File: </b>"
-msgstr "<b>Archivo:</b>"
+msgstr "<b>Archivo: </b>"
 
 #: ../data/track-info.glade.h:6
 msgid "<b>Size: </b>"
-msgstr "<b>Tamaño:</b>"
+msgstr "<b>Tamaño: </b>"
 
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
-msgstr "<b>Título:</b>"
+msgstr "<b>Título: </b>"
 
 #~ msgid "All"
 #~ msgstr "Todos"
