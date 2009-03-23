@@ -3,11 +3,11 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:40+0100\n"
-"PO-Revision-Date: 2009-02-25 02:39+0100\n"
-"Last-Translator: Christoph Wickert <christoph.wickert@googlemail.com>\n"
+"PO-Revision-Date: 2009-03-22 14:45+0100\n"
+"Last-Translator: Benedikt Klus <b.klus89@web.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
@@ -17,20 +17,19 @@ msgstr ""
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #: ../src/lxmusic.c:254
-#, fuzzy
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Offizielle Icons von XMMS2 (Arnaud DIDRY)"
+msgstr "Offizielles Icon von XMMS2 (Arnaud DIDRY)"
 
 #: ../src/lxmusic.c:265
-#, fuzzy
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Musik Player für LXDE\n"
+"Audio-Player für LXDE\n"
 "Einfache GUI für XMMS2"
 
-#: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:370
+#: ../data/lxmusic.glade.h:15
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -79,7 +78,6 @@ msgid "Play"
 msgstr "Abspielen"
 
 #: ../src/lxmusic.c:1625
-#, fuzzy
 msgid "Now Playing:"
 msgstr "Aktuelle Wiedergabe:"
 
@@ -135,7 +133,8 @@ msgstr "Suchbegriff hier eingeben"
 msgid "Favorites"
 msgstr "Favoriten"
 
-#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
+#: ../data/lxmusic.glade.h:13
+#: ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "Datei-Eigenschaften"
 
@@ -156,14 +155,14 @@ msgid "Next"
 msgstr "Nächster"
 
 #: ../data/lxmusic.glade.h:19
-#, fuzzy
 msgid ""
 "No Repeat\n"
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
 "Keine Wiederholung\n"
-"Aktuellen Titel wiederholen\\Alle wiederholen"
+"Aktuellen Titel wiederholen\n"
+"Alle wiederholen"
 
 #: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
@@ -210,12 +209,10 @@ msgid "_Help"
 msgstr "_Hilfe"
 
 #: ../data/lxmusic.glade.h:33
-#, fuzzy
 msgid "_Locate Currently Played"
 msgstr "_Momentan wiedergegebenen Titel anzeigen"
 
 #: ../data/lxmusic.glade.h:34
-#, fuzzy
 msgid "_Playlist"
 msgstr "_Wiedergabeliste"
 
@@ -260,7 +257,6 @@ msgid "Continue playback in background after exiting LXMusic"
 msgstr "Wiedergabe nach dem Schließen von LXMusic im Hintergrund fortführen"
 
 #: ../data/pref-dlg.glade.h:7
-#, fuzzy
 msgid "Default ID3 V1 Encoding: "
 msgstr "Standard ID3 V1 Kodierung:"
 
@@ -281,27 +277,20 @@ msgid "KB"
 msgstr "KB"
 
 #: ../data/pref-dlg.glade.h:12
-#, fuzzy
 msgid "Minimize to system tray on close"
-msgstr "Zeige Tray-Icon"
+msgstr "Beim Schließen in den Tray minimieren"
 
 #: ../data/pref-dlg.glade.h:13
-#, fuzzy
 msgid "Misc"
 msgstr "Sonstiges"
 
 #: ../data/pref-dlg.glade.h:14
-#, fuzzy
 msgid "Mixer:"
 msgstr "Filter:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Musikdateien können ohne grafische Benutzerschnittstelle wiedergegeben "
-"werden, um Systemressourcen zu sparen"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Musikdateien können ohne graphische Benutzeroberfläche wiedergegeben werden, um Systemressourcen zu sparen"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
@@ -353,16 +342,16 @@ msgstr "<b>Titel: </b>"
 
 #~ msgid "All"
 #~ msgstr "Alles"
-
 #~ msgid "No Repeat"
 #~ msgstr "Keine Wiederholung"
-
 #~ msgid "Repeat All"
 #~ msgstr "Wiederhole alle"
-
 #~ msgid "Repeat Current"
 #~ msgstr "Wiederhole aktuelles Lied"
 
 #, fuzzy
 #~ msgid "Track Name"
 #~ msgstr "Liedname"
+
+
+ 	  	 
