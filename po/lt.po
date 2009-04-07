@@ -3,104 +3,107 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:40+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2009-04-06 13:01+0200\n"
+"Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.1.0\n"
 
 #: ../src/lxmusic.c:254
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr ""
+msgstr "Oficialią xmms2 piktogramą sukūrė Arnaud DIDRY"
 
 #: ../src/lxmusic.c:265
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
+"LXDE muzikos grotuvas\n"
+"Paprastas grafinis XMMS2 klientas"
 
 #: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
 msgid "LXMusic"
-msgstr ""
+msgstr "LXMusic"
 
+# May not be the best
 #: ../src/lxmusic.c:540
 msgid "Bitrate: "
-msgstr ""
+msgstr "Kokybė: "
 
 #: ../src/lxmusic.c:807
 msgid "Audio Files"
-msgstr ""
+msgstr "Audio failai"
 
 #: ../src/lxmusic.c:812
 msgid "All Files"
-msgstr ""
+msgstr "Visi failai"
 
 #: ../src/lxmusic.c:839
 msgid "Input a URL"
-msgstr ""
+msgstr "Įveskite URL"
 
 #: ../src/lxmusic.c:1194
 msgid "Artist"
-msgstr ""
+msgstr "Atlikėjas"
 
 #: ../src/lxmusic.c:1203
 msgid "Album"
-msgstr ""
+msgstr "Albumas"
 
 #: ../src/lxmusic.c:1212
 msgid "Title"
-msgstr ""
+msgstr "Pavadinimas"
 
 #: ../src/lxmusic.c:1219
 msgid "Length"
-msgstr ""
+msgstr "Trukmė"
 
 #: ../src/lxmusic.c:1378
 msgid "Default"
-msgstr ""
+msgstr "Numatyta"
 
 #: ../src/lxmusic.c:1479
 msgid "Pause"
-msgstr ""
+msgstr "Pauzė"
 
 #: ../src/lxmusic.c:1495
 msgid "Play"
-msgstr ""
+msgstr "Groti"
 
 #: ../src/lxmusic.c:1625
 msgid "Now Playing:"
-msgstr ""
+msgstr "Dabar grojama:"
 
 #: ../src/lxmusic.c:2059
 msgid "Create new playlist"
-msgstr ""
+msgstr "Sukurti naują grojaraštį"
 
 #: ../src/utils.c:171
 msgid "Error"
-msgstr ""
+msgstr "Klaida"
 
 #: ../data/lxmusic.glade.h:1
 msgid "Add Files or Folders"
-msgstr ""
+msgstr "Pridėti failus ar aplankus"
 
 #: ../data/lxmusic.glade.h:2
 msgid "Add To Playlist"
-msgstr ""
+msgstr "Pridėti prie grojaraščio"
 
 #: ../data/lxmusic.glade.h:3
 msgid "Add URL"
-msgstr ""
+msgstr "Pridėti URL"
 
 #: ../data/lxmusic.glade.h:4
 msgid "Add files to the playlist"
-msgstr ""
+msgstr "Pridėti failus prie grojaraščio"
 
 #: ../data/lxmusic.glade.h:5
 msgid ""
@@ -109,42 +112,46 @@ msgid ""
 "Artist\n"
 "Album"
 msgstr ""
+"Visi\n"
+"Kūrinio pavadinimas\n"
+"Atlikėjas\n"
+"Albumas"
 
 #: ../data/lxmusic.glade.h:9
 msgid "Create _New Playlist"
-msgstr ""
+msgstr "Sukurti _naują grojaraštį"
 
 #: ../data/lxmusic.glade.h:10
 msgid "Current Playlist"
-msgstr ""
+msgstr "Dabartinis grojaraštis"
 
 #: ../data/lxmusic.glade.h:11
 msgid "Enter keyword here"
-msgstr ""
+msgstr "Įveskite raktinį žodį"
 
 #: ../data/lxmusic.glade.h:12
 msgid "Favorites"
-msgstr ""
+msgstr "Žymelės"
 
 #: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
 msgid "File Properties"
-msgstr ""
+msgstr "Failo savybės"
 
 #: ../data/lxmusic.glade.h:14
 msgid "Filter:"
-msgstr ""
+msgstr "Filtras:"
 
 #: ../data/lxmusic.glade.h:16
 msgid "Locate currently played track"
-msgstr ""
+msgstr "Surasti dabar grojamą kūrinį"
 
 #: ../data/lxmusic.glade.h:17
 msgid "Media Library"
-msgstr ""
+msgstr "Media biblioteka"
 
 #: ../data/lxmusic.glade.h:18
 msgid "Next"
-msgstr ""
+msgstr "Kitas"
 
 #: ../data/lxmusic.glade.h:19
 msgid ""
@@ -152,181 +159,186 @@ msgid ""
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
+"Nekartoti\n"
+"Kartoti dabartinį\n"
+"Kartoti visus"
 
 #: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
-msgstr ""
+msgstr "Groti/pauzė"
 
 #: ../data/lxmusic.glade.h:23
 msgid "Previous"
-msgstr ""
+msgstr "Ankstesnis"
 
 #: ../data/lxmusic.glade.h:24
 msgid "Remove All Items"
-msgstr ""
+msgstr "Pašalinti visus"
 
 #: ../data/lxmusic.glade.h:25
 msgid "Remove From Playlist"
-msgstr ""
+msgstr "Pašalinti iš grojaraščio"
 
 #: ../data/lxmusic.glade.h:26
 msgid "Remove Selected Items"
-msgstr ""
+msgstr "Pašalinti pasirinktus"
 
 #: ../data/lxmusic.glade.h:27
 msgid "Remove items from the playlist"
-msgstr ""
+msgstr "Pašalinti iš grojaraščio"
 
 #: ../data/lxmusic.glade.h:28
 msgid "Show Playlist"
-msgstr ""
+msgstr "Rodyti grojaraštį"
 
 #: ../data/lxmusic.glade.h:29
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 #: ../data/lxmusic.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr ""
+msgstr "_Ištrinti dabartinį grojraštį"
 
 #: ../data/lxmusic.glade.h:31
 msgid "_File"
-msgstr ""
+msgstr "_Failas"
 
 #: ../data/lxmusic.glade.h:32
 msgid "_Help"
-msgstr ""
+msgstr "_Pagalba"
 
 #: ../data/lxmusic.glade.h:33
 msgid "_Locate Currently Played"
-msgstr ""
+msgstr "_Surasti grojamą"
 
 #: ../data/lxmusic.glade.h:34
 msgid "_Playlist"
-msgstr ""
+msgstr "_Grojaraštis"
 
 #: ../data/lxmusic.glade.h:35
 msgid "_Switch To Playlist"
-msgstr ""
+msgstr "_Persijungti į grojaraštį"
 
 #: ../data/lxmusic.glade.h:36
 msgid "_Tools"
-msgstr ""
+msgstr "_Įrankiai"
 
 #: ../data/lxmusic.glade.h:37
 msgid "_View"
-msgstr ""
+msgstr "_Rodymas"
 
 #: ../data/popup.glade.h:1
 msgid "_Show Main Window"
-msgstr ""
+msgstr "R_odyti pagrindinį langą"
 
 #: ../data/pref-dlg.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr ""
+msgstr "<b>Audio CD</b>"
 
 #: ../data/pref-dlg.glade.h:2
 msgid "<b>Output</b>"
-msgstr ""
+msgstr "<b>Išvestis</b>"
 
 #: ../data/pref-dlg.glade.h:3
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 #: ../data/pref-dlg.glade.h:4
 msgid "Buffer Size: "
-msgstr ""
+msgstr "Buferio dydis: "
 
 #: ../data/pref-dlg.glade.h:5
 msgid "CD-ROM Device: "
-msgstr ""
+msgstr "CD-ROM įrenginys: "
 
 #: ../data/pref-dlg.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr ""
+msgstr "Tęsti grojimą fone uždarius LXMusic"
 
 #: ../data/pref-dlg.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr ""
+msgstr "Numatytoji ID3 V1 koduotė: "
 
 #: ../data/pref-dlg.glade.h:8
 msgid "Device:"
-msgstr ""
+msgstr "Įrenginys:"
 
 #: ../data/pref-dlg.glade.h:9
 msgid "Driver:"
-msgstr ""
+msgstr "Tvarkyklė:"
 
 #: ../data/pref-dlg.glade.h:10
 msgid "General"
-msgstr ""
+msgstr "Bendri"
 
 #: ../data/pref-dlg.glade.h:11
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: ../data/pref-dlg.glade.h:12
 msgid "Minimize to system tray on close"
-msgstr ""
+msgstr "Uždarant sumažinti į sistemos dėklą"
 
 #: ../data/pref-dlg.glade.h:13
 msgid "Misc"
-msgstr ""
+msgstr "Kita"
 
 #: ../data/pref-dlg.glade.h:14
 msgid "Mixer:"
-msgstr ""
+msgstr "Mikseris:"
 
 #: ../data/pref-dlg.glade.h:15
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
+"Muzikos failai gali būti grojami be grafinės aplinkos taip taupant sistemos "
+"resursus"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
-msgstr ""
+msgstr "Priedas: "
 
 #: ../data/pref-dlg.glade.h:17
 msgid "Preference"
-msgstr ""
+msgstr "Parinktis"
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Rodyti piktogramą sistemos dėkle"
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
-msgstr ""
+msgstr "Naudoti OSS audio išvedimui"
 
 #: ../data/pref-dlg.glade.h:20
 msgid "Use Pulse Audio for audio output"
-msgstr ""
+msgstr "Naudoti Pulse audio išvedimui"
 
 #: ../data/track-info.glade.h:1
 msgid "<b>Album: </b>"
-msgstr ""
+msgstr "<b>Albumas: </b>"
 
 #: ../data/track-info.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr ""
+msgstr "<b>Atlikėjas: </b>"
 
 #: ../data/track-info.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr ""
+msgstr "<b>Komentaras: </b>"
 
 #: ../data/track-info.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr ""
+msgstr "<b>Failo tipas: </b>"
 
 #: ../data/track-info.glade.h:5
 msgid "<b>File: </b>"
-msgstr ""
+msgstr "<b>Failas: </b>"
 
 #: ../data/track-info.glade.h:6
 msgid "<b>Size: </b>"
-msgstr ""
+msgstr "<b>Dydis: </b>"
 
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "<b>Pavadinimas: </b>"
