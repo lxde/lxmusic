@@ -338,5 +338,3 @@ msgstr "<b>Velikost: </b>"
 msgid "<b>Title: </b>"
 msgstr "<b>Naslov: </b>"
 
-
- 	  	 
