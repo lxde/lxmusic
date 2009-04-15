@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-11 20:34+0100\n"
+"POT-Creation-Date: 2009-04-15 19:37+0200\n"
 "PO-Revision-Date: 2009-03-04 22:30+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -27,8 +27,7 @@ msgstr ""
 "Pemutar Musik untuk LXDE\n"
 "Klien XMMS2 GUI sederhana"
 
-#: ../src/lxmusic.c:370
-#: ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -80,7 +79,7 @@ msgstr "Putar"
 msgid "Now Playing:"
 msgstr "Sedang Diputar:"
 
-#: ../src/lxmusic.c:2059
+#: ../src/lxmusic.c:2062
 msgid "Create new playlist"
 msgstr "Buat senarai putar baru"
 
@@ -132,8 +131,7 @@ msgstr "Masukkan kata kunci di sini"
 msgid "Favorites"
 msgstr "Favorit"
 
-#: ../data/lxmusic.glade.h:13
-#: ../data/track-info.glade.h:8
+#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "Properti Berkas"
 
@@ -288,8 +286,12 @@ msgid "Mixer:"
 msgstr "Mixer:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Berkas musik dapat dimainkan tanpa antarmuka pengguna grafis untuk menghemat sumber daya sistem"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"Berkas musik dapat dimainkan tanpa antarmuka pengguna grafis untuk menghemat "
+"sumber daya sistem"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
@@ -338,4 +340,3 @@ msgstr "<b>Ukuran: </b>"
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Judul: </b>"
-

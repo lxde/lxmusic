@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 01:40+0100\n"
+"POT-Creation-Date: 2009-04-15 19:37+0200\n"
 "PO-Revision-Date: 2009-01-15 07:50+0100\n"
 "Last-Translator: Álvaro Morais <alvarommorais@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
@@ -82,7 +82,7 @@ msgstr "Reproduzir"
 msgid "Now Playing:"
 msgstr "A Reproduzir:"
 
-#: ../src/lxmusic.c:2059
+#: ../src/lxmusic.c:2062
 msgid "Create new playlist"
 msgstr "Criar um nova Lista de Reprodução"
 

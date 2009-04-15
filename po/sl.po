@@ -1,15 +1,16 @@
-﻿msgid ""
+msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-11 20:34+0100\n"
+"POT-Creation-Date: 2009-04-15 19:37+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team:  <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Poedit-Language: Slovenian\n"
 "X-Poedit-Country: SLOVENIA\n"
 
@@ -25,8 +26,7 @@ msgstr ""
 "Predvajalnik zvoka za LXDE\n"
 "Grafični klient za XMMS2"
 
-#: ../src/lxmusic.c:370
-#: ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -78,7 +78,7 @@ msgstr "Predvajaj"
 msgid "Now Playing:"
 msgstr "Predvaja se:"
 
-#: ../src/lxmusic.c:2059
+#: ../src/lxmusic.c:2062
 msgid "Create new playlist"
 msgstr "Ustvari nov seznam:"
 
@@ -130,8 +130,7 @@ msgstr "Vpiši ključno besedo"
 msgid "Favorites"
 msgstr "Priljubljene"
 
-#: ../data/lxmusic.glade.h:13
-#: ../data/track-info.glade.h:8
+#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "Lastnost datoteke"
 
@@ -287,8 +286,12 @@ msgid "Mixer:"
 msgstr "Mešalec:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Za manjšo porabo sistemskih sredstev se lahko zvočne datoteke predvaja brez uporabniškega vmesnika"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"Za manjšo porabo sistemskih sredstev se lahko zvočne datoteke predvaja brez "
+"uporabniškega vmesnika"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
@@ -337,4 +340,3 @@ msgstr "<b>Velikost: </b>"
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Naslov: </b>"
-
