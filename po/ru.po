@@ -3,18 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-15 19:37+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2009-04-23 06:33+0200\n"
+"Last-Translator: Tim Marinin <velkhar@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.1.0\n"
 
 #: ../src/lxmusic.c:254
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
 msgid "LXMusic"
-msgstr ""
+msgstr "LXMusic"
 
 #: ../src/lxmusic.c:540
 msgid "Bitrate: "
@@ -40,7 +40,7 @@ msgstr ""
 
 #: ../src/lxmusic.c:812
 msgid "All Files"
-msgstr ""
+msgstr "Все файлы"
 
 #: ../src/lxmusic.c:839
 msgid "Input a URL"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: ../src/lxmusic.c:1203
 msgid "Album"
-msgstr ""
+msgstr "Альбом"
 
 #: ../src/lxmusic.c:1212
 msgid "Title"
