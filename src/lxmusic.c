@@ -1830,11 +1830,10 @@ static void get_channel_volume_names(const char* key, xmmsv_t *value, void *user
     *volumes = g_slist_prepend(*volumes, (gpointer)key);
 }
 
-void on_volume_btn_set_volume(xmmsc_result_t* res, void* user_data)
+static int on_volume_btn_set_volume(xmmsv_t *value, void* user_data)
 {
     GSList* volumes = NULL, *l;
     uint32_t val = GPOINTER_TO_UINT(user_data);
-    xmmsv_t *value = xmmsc_result_get_value( res );
 
     g_assert( value != NULL );
     xmmsv_dict_foreach( value, get_channel_volume_names, &volumes);
@@ -1846,7 +1845,7 @@ void on_volume_btn_set_volume(xmmsc_result_t* res, void* user_data)
         xmmsc_result_unref(res2);
     }
     g_slist_free(volumes);
-    xmmsc_result_unref(res);
+    return TRUE;
 }
 
 static void on_volume_btn_changed(GtkScaleButton* btn, gdouble val, gpointer user_data)

@@ -3,6 +3,7 @@
 	* src/lxmusic.c (on_track_info_received): use
 	g_format_size_for_display (provided by glib) for formatting output
 	string (allows using translation)
+	* src/lxmusic. (on_volume_btn_set_volume): XMMS2 0.6 API fix
 
 2009-05-10  Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 
