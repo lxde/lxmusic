@@ -1,0 +1,14 @@
+2009-05-10  Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+
+	* src/utils.c:
+	* src/lxmusic.c: Fix some file name encoding problems. Move
+	xmmsv_url_to_string() to utils.c
+
+2009-05-10  Juergen Hoetzel  <juergen@archlinux.org>
+   
+	* src/lxmusic.c: Update to use XMMS2 0.6 result-value/split
+	infrastrucute
+
+	* configure.in: Requite XMMS2 0.6
+	
+
