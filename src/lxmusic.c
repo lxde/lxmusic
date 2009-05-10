@@ -476,6 +476,9 @@ void on_preference(GtkAction* act, gpointer data)
             res = xmmsc_configval_set( con, "mad.id3v1_encoding", gtk_entry_get_text(GTK_ENTRY(id3v1_encoding)) );
             xmmsc_result_unref(res);
 
+            res = xmmsc_configval_set( con, "mpg123.id3v1_encoding", gtk_entry_get_text(GTK_ENTRY(id3v1_encoding)) );
+            xmmsc_result_unref(res);
+
             show_tray_icon = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_tray_icon_btn));
             close_to_tray = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(close_to_tray_btn));
             play_after_exit = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(play_after_exit_btn));
