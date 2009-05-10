@@ -1677,22 +1677,22 @@ static int on_playback_playtime_changed( xmmsv_t* value, void* user_data )
 
 static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 {
-    const char* artist;
-    char* title;
+    const char* artist = NULL;
+    char* title = NULL;
     char* filename;
-    char* tmp;
     const char* err;
     
     xmmsv_t *duration_value;
     xmmsv_t *string_value;
-
+    GString* window_title;
+    
     cur_track_duration = 0;    
 
     if (xmmsv_get_error (value, &err)) {
 	g_warning( "Server error: %s", err );
 	return TRUE;
     }
-    
+    value = xmmsv_propdict_to_dict (value, NULL);
     xmmsv_dict_foreach( value, xmmsv_dict_debug, 0 );
     if( xmmsv_dict_get( value, "duration", &duration_value ) )
 	xmmsv_get_uint( duration_value, &cur_track_duration );
@@ -1702,43 +1702,48 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 	xmmsv_get_string( string_value, &artist );
 
     if ( xmmsv_dict_get( value, "title", &string_value ) ) 
-    {
-	xmmsv_t *url_value;
 	xmmsv_get_string( string_value, &title );
-	if ( xmmsv_dict_get( value, "url", &url_value ) ) 
+    /* url fallback */
+    else 
+    {
+	if ( xmmsv_dict_get( value, "url", &string_value ) ) 
 	{
 	    char* url;
             char* file;
-	    xmmsv_t *url_decoded_value;
-	    /* FIXME: LEAK?*/
-	    url_decoded_value  = xmmsv_decode_url( url_value);
-	    xmmsv_get_string( url_decoded_value, &url );
-            file = g_utf8_strrchr(url, -1, '/');
-            if( file )
-                title = file + 1;
+	    gchar *decoded_val;
+
+	    /* try to decode URL */
+	    decoded_val = xmmsv_url_to_string ( string_value );
+	    
+	    /* undecoded url string */	
+	    if ( decoded_val == NULL )
+		xmmsv_get_string( string_value, &file );
+	    else
+		file = decoded_val;
+	    file = g_utf8_strrchr ( file, -1, '/' ) + 1;
+	    title = file;
+	    if ( decoded_val )
+		xmmsv_unref( decoded_val );
         }
     }
 
-	if (playback_status == XMMS_PLAYBACK_STATUS_STOP)
-	{
-          tmp = g_strdup_printf( "LXMusic" );
-	}
-	else
-	{
-		if( artist )
-		  tmp = g_strdup_printf( "LXMusic - %s - %s", artist, title );
-		else if( title )
-		  tmp = g_strdup_printf( "LXMusic - %s", title );
-		else
-          tmp = g_strdup_printf( "LXMusic" );
-	}
+    /* default */
+    window_title = g_string_new( "LXMusic" );
 
+    /* playing or pause */
+    if ( playback_status == XMMS_PLAYBACK_STATUS_PLAY) 
+    {
+	if ( artist != NULL )
+	    g_string_append_printf( window_title, " - %s", artist );
+	if ( title != NULL )
+	    g_string_append_printf( window_title, " - %s", title );
+    }
 
-    gtk_window_set_title( GTK_WINDOW(main_win), tmp );
-    /* gtk_statusbar_push(status_bar, 0, tmp); */
-
+    gtk_window_set_title( GTK_WINDOW(main_win), window_title->str );
+    
     if( tray_icon )
-        gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon), tmp);
+        gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon),
+				    window_title->str);
 
     if( ! GTK_WIDGET_VISIBLE(main_win) /*|| ! GTK_WIDGET_HAS_FOCUS(main_win)*/ )
     {
@@ -1780,11 +1785,12 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
         }
 
         argv[REST_IDX] = _("Now Playing:");
-        argv[REST_IDX+1] = tmp;
+        argv[REST_IDX+1] = window_title->str;
     #undef REST_IDX
         g_spawn_async(NULL, (gchar**)argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
     }
-    g_free(tmp);
+    g_string_free( window_title, TRUE );
+    xmmsv_unref( value );
     return TRUE;
 }
 
