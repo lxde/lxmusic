@@ -565,8 +565,13 @@ static int on_track_info_received(xmmsv_t* value, void* user_data)
     if ( xmmsv_dict_get( value, "size", &int_value ) )
     {
         char buf[100];
+	char *size_str;
+
 	xmmsv_get_int( int_value, &ival );
-	file_size_to_str(buf, ival);
+	size_str = g_format_size_for_display( ival );
+	strcpy( buf, size_str );
+	g_free( size_str );
+
 	if ( xmmsv_dict_get( value, "bitrate", &int_value ) ) 
 	{
             int len;

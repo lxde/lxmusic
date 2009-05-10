@@ -36,7 +36,6 @@ int utf8_strncasecmp( const char* s1, const char* s2, int len );
 char* utf8_strcasestr( const char* s1, const char* s2 );
 
 const char* timeval_to_str( guint timeval, char* buf, guint buf_len );
-const char* file_size_to_str( char* buf, guint64 size );
 
 void show_error(GtkWindow* parent, const char* title, const char* msg);
 
