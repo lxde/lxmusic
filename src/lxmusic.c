@@ -112,6 +112,94 @@ static int win_ypos = 0;
 
 void on_play_btn_clicked(GtkButton* btn, gpointer user_data);
 
+static void xmmsv_dict_debug( const char *key, xmmsv_t *value, void *user_data ) 
+{
+    const char* str;
+    char prefix[128];
+    int level = ( int ) user_data;
+    int i;
+
+    prefix[0] = 0;
+    for ( i=0; i < level; i++ ) 
+    {
+	prefix[i] = ' ';
+	prefix[i+1] = 0;
+    }
+    if ( xmmsv_is_type( value, XMMSV_TYPE_STRING ) ) 
+    {
+	xmmsv_get_string( value, &str );
+	g_message( "%s%s-> %s", prefix, key, str );
+	return;
+    }
+
+    if ( xmmsv_is_type( value, XMMSV_TYPE_INT32 ) ) 
+    {
+	xmmsv_get_int( value, &i );
+	g_message("%s%s-> %d", prefix, key, i );
+	return;
+    }
+
+    if ( xmmsv_is_type( value, XMMSV_TYPE_DICT ) ) 
+    {
+	g_message("%s%s->", prefix, key);
+	level++;
+	xmmsv_dict_foreach( value, xmmsv_dict_debug, level );
+    } else 
+	g_message( "%s%s) -> Unknown TYPE", prefix, key );
+}
+
+/* Helper function for decoding urls 
+   Returned value must be freed
+*/
+static gchar*
+xmmsv_url_to_string (xmmsv_t *url_value) 
+{
+	const gchar *value;
+	gchar *url = NULL;
+	const unsigned char *burl;
+	unsigned int blen;
+	xmmsv_t *tmp;
+
+	/* First decode the URL encoding */
+	tmp = xmmsv_decode_url (url_value);
+	if (tmp && xmmsv_get_bin (tmp, &burl, &blen)) {
+	    url = g_malloc (blen + 1);
+	    memcpy (url, burl, blen);
+	    url[blen] = 0;
+	    xmmsv_unref (tmp);
+	}
+	else
+	    return NULL;
+	
+	/* Let's see if the result is valid utf-8. This must be done
+	 * since we don't know the charset of the binary string */
+	if (url && g_utf8_validate (url, -1, NULL)) {
+	    /* If it's valid utf-8 we don't have any problem just
+	     * printing it to the screen
+	     */
+	    return url;
+	} else if (url) {
+	    /* Not valid utf-8 :-( We make a valid guess here that
+	     * the string when it was encoded with URL it was in the
+	     * same charset as we have on the terminal now.
+	     *
+	     * THIS MIGHT BE WRONG since different clients can have
+	     * different charsets and DIFFERENT computers most likely
+	     * have it.
+	     */
+	    gchar *tmp2 = g_locale_to_utf8 (url, -1, NULL, NULL, NULL);
+	    g_free( url );
+	    g_warning ( "Charset guessed:", tmp2 );
+	    return tmp2;
+	}
+	
+	g_warning( "Decoding of URL Failed" );
+	return NULL;
+}
+
+
+
+
 static void load_config()
 {
     char* path = g_build_filename(g_get_user_config_dir(), "lxmusic", "config", NULL );
@@ -480,7 +568,7 @@ void on_preference(GtkAction* act, gpointer data)
 static int on_track_info_received(xmmsv_t* value, void* user_data)
 {
     GtkBuilder* builder = (GtkBuilder*)user_data;
-    xmmsv_t *string_value, *int_value;
+    xmmsv_t *string_value, *int_value, *dict_value;
     
     GtkWidget* w;
     const char* keys[] = {
@@ -489,27 +577,35 @@ static int on_track_info_received(xmmsv_t* value, void* user_data)
     const char** key;
     const char* val;
     int ival;
-
     /* xmmsc_result_propdict_foreach(res, dict_foreach, NULL); */
 
     /* file name */
+
+    value = xmmsv_propdict_to_dict (value, NULL);
     if ( xmmsv_dict_get( value, "url", &string_value ) )
     {
-	xmmsv_get_string( string_value, &val );
+	g_assert( xmmsv_get_string( string_value, &val ) );
         w = (GtkWidget*)gtk_builder_get_object(builder, "url");
         if( g_str_has_prefix(val, "file://") )
         {
             char* disp;
-	    xmmsv_t *decoded_url_value;
+	    gchar *tmp;
+	    gchar *decoded_val;
 
-	    decoded_url_value = xmmsv_decode_url( string_value );
-	    xmmsv_get_string( string_value, &val );
-	    /* skip file:// */
+	    decoded_val = xmmsv_url_to_string ( string_value );
+  
 	    val += 7; 
-            disp = g_filename_display_name(val);
+	    /* skip file:// */
+	    if ( decoded_val != NULL )  
+	    {
+		disp = g_filename_display_name(decoded_val + 7 ) ;
+		g_free( decoded_val );
+	    }
+	    /* fallback, if decoding failed */
+	    else 
+		disp = g_filename_display_name(val + 7 ) ;		
             gtk_entry_set_text(GTK_ENTRY(w), disp);
             g_free(disp);
-	    xmmsv_unref ( decoded_url_value );
         }
         else
             gtk_entry_set_text(GTK_ENTRY(w), val);
@@ -550,6 +646,7 @@ static int on_track_info_received(xmmsv_t* value, void* user_data)
         w = (GtkWidget*)gtk_builder_get_object(builder, "size");
         gtk_label_set_text((GtkLabel*)w, buf);
     }
+    xmmsv_unref( value );
 }
 
 void on_file_properties(GtkAction* act, gpointer data)
@@ -1017,10 +1114,12 @@ static void render_num( GtkTreeViewColumn* col, GtkCellRenderer* render,
 }
 
 
-static int update_track( xmmsv_t *val, UpdateTrack* ut )
+static int update_track( xmmsv_t *value, UpdateTrack* ut )
 {
-    const char *artist, *album, *title;
-    xmmsv_t *artist_val, *album_val, *title_val, *time_len_val;
+    const char *artist = NULL;
+    const char *album = NULL;
+    const char *title = NULL;
+    xmmsv_t *string_value, *time_len_val;
     uint32_t time_len = 0;
     char time_buf[32];
     /* g_debug("do update track: %d", ut->id); */
@@ -1040,19 +1139,22 @@ static int update_track( xmmsv_t *val, UpdateTrack* ut )
         xmmsc_result_unref( res2 );
     }
 
-    if( xmmsv_is_error ( val ) ) {
+    if( xmmsv_is_error ( value ) ) {
         return FALSE;
     }
+    
 
+    value = xmmsv_propdict_to_dict (value, NULL);
+    xmmsv_dict_foreach( value, xmmsv_dict_debug, 0 );
 
-    xmmsv_dict_get( val, "artist", &artist_val );
-    xmmsv_get_string( artist_val, &artist );
-    xmmsv_dict_get( val, "album", &album_val );
-    xmmsv_get_string( album_val, &album );    
-    xmmsv_dict_get( val, "title", &title_val );
-    xmmsv_get_string( title_val, &title );    
-    xmmsv_dict_get( val, "duration", &time_len_val );    
-    xmmsv_get_uint( time_len_val, &time_len);
+    if ( xmmsv_dict_get( value, "artist", &string_value ) )
+	xmmsv_get_string( string_value, &artist );
+    if ( xmmsv_dict_get( value, "album", &string_value ) )
+	xmmsv_get_string( string_value, &album );    
+    if ( xmmsv_dict_get( value, "title", &string_value ) )
+	xmmsv_get_string( string_value, &title );    
+    if ( xmmsv_dict_get( value, "duration", &time_len_val ) )
+	xmmsv_get_uint( time_len_val, &time_len);
 
     timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
@@ -1060,16 +1162,24 @@ static int update_track( xmmsv_t *val, UpdateTrack* ut )
     if( !title )
     {
         const char *url, *file;
-	xmmsv_t *url_val;
-	xmmsv_t *url_decoded;
+	xmmsv_t *string_value;
+	gchar *decoded_val;
+	
+	xmmsv_dict_get( value, "url", &string_value );
 
-	xmmsv_dict_get( val, "url", &url_val );
-        url_decoded = xmmsv_decode_url(url_val);
-	/* FIXME: LEAK? */
-	xmmsv_get_string( url_val, &url );
-        file = g_utf8_strrchr(url, -1, '/');
-        if( file )
-            title = file + 1;
+	/* try to decode URL */
+	decoded_val = xmmsv_url_to_string ( string_value );
+
+	/* undecoded url string */	
+	if ( decoded_val == NULL )
+	    xmmsv_get_string( string_value, &file );
+	else
+	    file = decoded_val;
+	
+	file = g_utf8_strrchr ( file, -1, '/' ) + 1;
+	title = file;
+	if ( decoded_val )
+	    xmmsv_unref( decoded_val );
     }
 
     gtk_list_store_set( list_store, &ut->it,
@@ -1078,6 +1188,8 @@ static int update_track( xmmsv_t *val, UpdateTrack* ut )
                         COL_TITLE, title,
                         COL_LEN, time_buf, -1 );
 
+    xmmsv_unref( value );
+    
     return TRUE;
 }
 
@@ -1569,10 +1681,19 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     char* title;
     char* filename;
     char* tmp;
+    const char* err;
+    
     xmmsv_t *duration_value;
     xmmsv_t *string_value;
 
     cur_track_duration = 0;    
+
+    if (xmmsv_get_error (value, &err)) {
+	g_warning( "Server error: %s", err );
+	return TRUE;
+    }
+    
+    xmmsv_dict_foreach( value, xmmsv_dict_debug, 0 );
     if( xmmsv_dict_get( value, "duration", &duration_value ) )
 	xmmsv_get_uint( duration_value, &cur_track_duration );
 
