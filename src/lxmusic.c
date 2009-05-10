@@ -1618,11 +1618,11 @@ static int on_playback_playtime_changed( xmmsv_t* value, void* user_data )
     char buf[32];
     if ( xmmsv_is_error(value)
          || ! xmmsv_get_uint(value, &time))
-        return;
+        return TRUE;
     
     time /= 1000;
     if( time == play_time )
-        return;
+        return TRUE;
     play_time = time;
 
     gtk_label_set_text( (GtkLabel*)time_label,
