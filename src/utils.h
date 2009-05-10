@@ -25,6 +25,8 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
+#include <xmmsclient/xmmsclient.h>
+
 G_BEGIN_DECLS
 
 void kf_get_bool(GKeyFile* kf, const char* grp, const char* key, gboolean* val);
@@ -37,6 +39,8 @@ const char* timeval_to_str( guint timeval, char* buf, guint buf_len );
 const char* file_size_to_str( char* buf, guint64 size );
 
 void show_error(GtkWindow* parent, const char* title, const char* msg);
+
+gchar* xmmsv_url_to_string (xmmsv_t *url_value);
 
 G_END_DECLS
 

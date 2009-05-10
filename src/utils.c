@@ -2,6 +2,7 @@
  *      utils.c
  *      
  *      Copyright 2008 PCMan <pcman.tw@gmail.com>
+ *      Copyright 2009 Jürgen Hötzel <juergenhoetzel@users.sourceforge.net>
  *      
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -171,4 +172,53 @@ void show_error(GtkWindow* parent, const char* title, const char* msg)
     gtk_window_set_title(GTK_WINDOW(dlg), title ? title:_("Error"));
     gtk_dialog_run(GTK_DIALOG(dlg));
     gtk_widget_destroy(GTK_WIDGET(dlg));
+}
+
+
+/* Helper function for decoding urls 
+   Returned value must be freed
+*/
+gchar* xmmsv_url_to_string (xmmsv_t *url_value) 
+{
+	const gchar *value;
+	gchar *url = NULL;
+	const unsigned char *burl;
+	unsigned int blen;
+	xmmsv_t *tmp;
+
+	/* First decode the URL encoding */
+	tmp = xmmsv_decode_url (url_value);
+	if (tmp && xmmsv_get_bin (tmp, &burl, &blen)) {
+	    url = g_malloc (blen + 1);
+	    memcpy (url, burl, blen);
+	    url[blen] = 0;
+	    xmmsv_unref (tmp);
+	}
+	else
+	    return NULL;
+	
+	/* Let's see if the result is valid utf-8. This must be done
+	 * since we don't know the charset of the binary string */
+	if (url && g_utf8_validate (url, -1, NULL)) {
+	    /* If it's valid utf-8 we don't have any problem just
+	     * printing it to the screen
+	     */
+	    return url;
+	} else if (url) {
+	    /* Not valid utf-8 :-( We make a valid guess here that
+	     * the string when it was encoded with URL it was in the
+	     * same charset as we have on the terminal now.
+	     *
+	     * THIS MIGHT BE WRONG since different clients can have
+	     * different charsets and DIFFERENT computers most likely
+	     * have it.
+	     */
+	    gchar *tmp2 = g_locale_to_utf8 (url, -1, NULL, NULL, NULL);
+	    g_free( url );
+	    g_warning ( "Charset guessed:", tmp2 );
+	    return tmp2;
+	}
+	
+	g_warning( "Decoding of URL Failed" );
+	return NULL;
 }
