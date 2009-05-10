@@ -112,12 +112,6 @@ static int win_ypos = 0;
 
 void on_play_btn_clicked(GtkButton* btn, gpointer user_data);
 
-/* used to debug only */
-static void dict_foreach(const void *key, xmmsc_result_value_type_t type, const void *value, void *user_data)
-{
-    g_debug("key=%s, type=%d", key, type);
-}
-
 static void load_config()
 {
     char* path = g_build_filename(g_get_user_config_dir(), "lxmusic", "config", NULL );
