@@ -2,7 +2,7 @@
  *      utils.c
  *      
  *      Copyright 2008 PCMan <pcman.tw@gmail.com>
- *      Copyright 2009 Jürgen Hötzel <juergenhoetzel@users.sourceforge.net>
+ *      Copyright 2009 Jürgen Hötzel <juergen@archlinux.org>
  *      
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by

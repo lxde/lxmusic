@@ -2,7 +2,7 @@
  *      lxmusic.c
  *      
  *      Copyright 2008 PCMan <pcman.tw@gmail.com>
- *      Copyright 2009 Jürgen Hötzel <juergenhoetzel@users.sourceforge.net>
+ *      Copyright 2009 Jürgen Hötzel <juergen@archlinux.org>
  *      
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -266,7 +266,8 @@ static void open_url(GtkAboutDialog* dlg, const char* url, gpointer user_data)
 
 void on_about(GtkWidget* mi, gpointer data)
 {
-    const char* authors[] = { "洪任諭 (Hong Jen Yee) <pcman.tw@gmail.com>", NULL };
+    const char* authors[] = { "洪任諭 (Hong Jen Yee) <pcman.tw@gmail.com>", 
+			      "Jürgen Hötzel <juergen@archlinux.org>", NULL };
     const char* artists[] = { N_("Official icon of xmms2 by Arnaud DIDRY"), NULL };
     GtkWidget* about;
 
