@@ -112,42 +112,6 @@ static int win_ypos = 0;
 
 void on_play_btn_clicked(GtkButton* btn, gpointer user_data);
 
-static void xmmsv_dict_debug( const char *key, xmmsv_t *value, void *user_data ) 
-{
-    const char* str;
-    char prefix[128];
-    int level = ( int ) user_data;
-    int i;
-
-    prefix[0] = 0;
-    for ( i=0; i < level; i++ ) 
-    {
-	prefix[i] = ' ';
-	prefix[i+1] = 0;
-    }
-    if ( xmmsv_is_type( value, XMMSV_TYPE_STRING ) ) 
-    {
-	xmmsv_get_string( value, &str );
-	g_message( "%s%s-> %s", prefix, key, str );
-	return;
-    }
-
-    if ( xmmsv_is_type( value, XMMSV_TYPE_INT32 ) ) 
-    {
-	xmmsv_get_int( value, &i );
-	g_message("%s%s-> %d", prefix, key, i );
-	return;
-    }
-
-    if ( xmmsv_is_type( value, XMMSV_TYPE_DICT ) ) 
-    {
-	g_message("%s%s->", prefix, key);
-	level++;
-	xmmsv_dict_foreach( value, xmmsv_dict_debug, level );
-    } else 
-	g_message( "%s%s) -> Unknown TYPE", prefix, key );
-}
-
 /* Helper function for decoding urls 
    Returned value must be freed
 */
@@ -1145,7 +1109,6 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     
 
     value = xmmsv_propdict_to_dict (value, NULL);
-    xmmsv_dict_foreach( value, xmmsv_dict_debug, 0 );
 
     if ( xmmsv_dict_get( value, "artist", &string_value ) )
 	xmmsv_get_string( string_value, &artist );
@@ -1693,7 +1656,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 	return TRUE;
     }
     value = xmmsv_propdict_to_dict (value, NULL);
-    xmmsv_dict_foreach( value, xmmsv_dict_debug, 0 );
+
     if( xmmsv_dict_get( value, "duration", &duration_value ) )
 	xmmsv_get_uint( duration_value, &cur_track_duration );
 
