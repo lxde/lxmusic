@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-15 19:37+0200\n"
-"PO-Revision-Date: 2009-04-10 01:06+0200\n"
+"PO-Revision-Date: 2009-05-10 16:07+0200\n"
 "Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -45,9 +45,8 @@ msgid "All Files"
 msgstr "Tous les fichiers"
 
 #: ../src/lxmusic.c:839
-#, fuzzy
 msgid "Input a URL"
-msgstr "Saisissez une URL"
+msgstr "Saisir une URL"
 
 #: ../src/lxmusic.c:1194
 msgid "Artist"
@@ -78,7 +77,6 @@ msgid "Play"
 msgstr "Lecture"
 
 #: ../src/lxmusic.c:1625
-#, fuzzy
 msgid "Now Playing:"
 msgstr "En ce moment :"
 
@@ -99,13 +97,12 @@ msgid "Add To Playlist"
 msgstr "Ajouter à la liste de lecture"
 
 #: ../data/lxmusic.glade.h:3
-#, fuzzy
 msgid "Add URL"
 msgstr "Ajouter une URL"
 
 #: ../data/lxmusic.glade.h:4
 msgid "Add files to the playlist"
-msgstr "Ajouter les fichiers à la liste de lecture"
+msgstr "Ajouter des éléments à la liste de lecture"
 
 #: ../data/lxmusic.glade.h:5
 msgid ""
@@ -128,9 +125,8 @@ msgid "Current Playlist"
 msgstr "Liste de lecture actuelle"
 
 #: ../data/lxmusic.glade.h:11
-#, fuzzy
 msgid "Enter keyword here"
-msgstr "Entrez le mot clé"
+msgstr "Saisissez un mot clé"
 
 #: ../data/lxmusic.glade.h:12
 msgid "Favorites"
@@ -141,7 +137,6 @@ msgid "File Properties"
 msgstr "Propriétés du fichier"
 
 #: ../data/lxmusic.glade.h:14
-#, fuzzy
 msgid "Filter:"
 msgstr "Filtre :"
 
@@ -163,7 +158,7 @@ msgid ""
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
-"Pas de répétition\n"
+"Sans répétition\n"
 "Répéter courant\n"
 "Répéter tout"
 
@@ -220,7 +215,6 @@ msgid "_Playlist"
 msgstr "_Liste de lecture"
 
 #: ../data/lxmusic.glade.h:35
-#, fuzzy
 msgid "_Switch To Playlist"
 msgstr "_Charger la liste"
 
@@ -277,9 +271,8 @@ msgid "General"
 msgstr "Général"
 
 #: ../data/pref-dlg.glade.h:11
-#, fuzzy
 msgid "KB"
-msgstr "koctets"
+msgstr "Ko"
 
 #: ../data/pref-dlg.glade.h:12
 msgid "Minimize to system tray on close"
