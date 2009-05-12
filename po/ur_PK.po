@@ -1,0 +1,345 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxmusic\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-15 19:37+0200\n"
+"PO-Revision-Date: 2009-05-09 13:02+0500\n"
+"Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>\n"
+"Language-Team: Urdu <makki.ma@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Urdu\n"
+"X-Poedit-Country: PAKISTAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../src/lxmusic.c:254
+msgid "Official icon of xmms2 by Arnaud DIDRY"
+msgstr "رسمی آئکن برائے xmms2 از آرناؤڈ ڈیڈری"
+
+#: ../src/lxmusic.c:265
+msgid ""
+"Music Player for LXDE\n"
+"Simple GUI XMMS2 client"
+msgstr ""
+"موسیقی پلیئر برائے ایل ایکس ڈی ای\n"
+"سادہ مواجہ XMMS2 کلائنٹ"
+
+#: ../src/lxmusic.c:370
+#: ../data/lxmusic.glade.h:15
+msgid "LXMusic"
+msgstr "ایل ایکس موسیقی"
+
+#: ../src/lxmusic.c:540
+msgid "Bitrate: "
+msgstr "بِٹ قیمت:"
+
+#: ../src/lxmusic.c:807
+msgid "Audio Files"
+msgstr "صوتی فائلیں"
+
+#: ../src/lxmusic.c:812
+msgid "All Files"
+msgstr "تمام فائلیں"
+
+#: ../src/lxmusic.c:839
+msgid "Input a URL"
+msgstr "ربط لکھیں"
+
+#: ../src/lxmusic.c:1194
+msgid "Artist"
+msgstr "فنکار"
+
+#: ../src/lxmusic.c:1203
+msgid "Album"
+msgstr "ایلبم"
+
+#: ../src/lxmusic.c:1212
+msgid "Title"
+msgstr "عنوان"
+
+#: ../src/lxmusic.c:1219
+msgid "Length"
+msgstr "طول"
+
+#: ../src/lxmusic.c:1378
+msgid "Default"
+msgstr "طے شدہ"
+
+#: ../src/lxmusic.c:1479
+msgid "Pause"
+msgstr "موقوف"
+
+#: ../src/lxmusic.c:1495
+msgid "Play"
+msgstr "چلائیں"
+
+#: ../src/lxmusic.c:1625
+msgid "Now Playing:"
+msgstr "چل رہا ہے:"
+
+#: ../src/lxmusic.c:2062
+msgid "Create new playlist"
+msgstr "نئی پلے لسٹ بنائیں"
+
+#: ../src/utils.c:171
+msgid "Error"
+msgstr "غلطی"
+
+#: ../data/lxmusic.glade.h:1
+msgid "Add Files or Folders"
+msgstr "فائلیں یا فولڈر شامل کریں"
+
+#: ../data/lxmusic.glade.h:2
+msgid "Add To Playlist"
+msgstr "پلے لسٹ میں شامل کریں"
+
+#: ../data/lxmusic.glade.h:3
+msgid "Add URL"
+msgstr "ربط شامل کریں"
+
+#: ../data/lxmusic.glade.h:4
+msgid "Add files to the playlist"
+msgstr "پلے لسٹ میں فائلیں شامل کریں"
+
+#: ../data/lxmusic.glade.h:5
+msgid ""
+"All\n"
+"Track Name\n"
+"Artist\n"
+"Album"
+msgstr ""
+"تمام\n"
+"ٹریک کا نام\n"
+"فنکار\n"
+"ایلبم"
+
+#: ../data/lxmusic.glade.h:9
+msgid "Create _New Playlist"
+msgstr "_نئی پلے لسٹ بنائیں"
+
+#: ../data/lxmusic.glade.h:10
+msgid "Current Playlist"
+msgstr "حالیہ پلے لسٹ"
+
+#: ../data/lxmusic.glade.h:11
+msgid "Enter keyword here"
+msgstr "کلیدی لفظ یہاں لکھیں"
+
+#: ../data/lxmusic.glade.h:12
+msgid "Favorites"
+msgstr "پسندیدہ"
+
+#: ../data/lxmusic.glade.h:13
+#: ../data/track-info.glade.h:8
+msgid "File Properties"
+msgstr "فائل خصوصیات"
+
+#: ../data/lxmusic.glade.h:14
+msgid "Filter:"
+msgstr "فلٹر:"
+
+#: ../data/lxmusic.glade.h:16
+msgid "Locate currently played track"
+msgstr "حالیہ چلائے گئے ٹریک تلاش کریں"
+
+#: ../data/lxmusic.glade.h:17
+msgid "Media Library"
+msgstr "میڈیا لائبریری"
+
+#: ../data/lxmusic.glade.h:18
+msgid "Next"
+msgstr "اگلا"
+
+#: ../data/lxmusic.glade.h:19
+msgid ""
+"No Repeat\n"
+"Repeat Current\n"
+"Repeat All"
+msgstr ""
+"مت دہرائیں\n"
+"حالیہ کو دہرائیں\n"
+"سب کو دہرائیں"
+
+#: ../data/lxmusic.glade.h:22
+msgid "Play/Pause"
+msgstr "چلائیں/موقوف کریں"
+
+#: ../data/lxmusic.glade.h:23
+msgid "Previous"
+msgstr "سابقہ"
+
+#: ../data/lxmusic.glade.h:24
+msgid "Remove All Items"
+msgstr "تمام عناصر حذف کریں"
+
+#: ../data/lxmusic.glade.h:25
+msgid "Remove From Playlist"
+msgstr "پلے لسٹ سے حذف کریں"
+
+#: ../data/lxmusic.glade.h:26
+msgid "Remove Selected Items"
+msgstr "منتخب کردہ عناصر حذف کریں"
+
+#: ../data/lxmusic.glade.h:27
+msgid "Remove items from the playlist"
+msgstr "پلے لسٹ سے عناصر حذف کریں"
+
+#: ../data/lxmusic.glade.h:28
+msgid "Show Playlist"
+msgstr "پلے لسٹ دکھائیں"
+
+#: ../data/lxmusic.glade.h:29
+msgid "Stop"
+msgstr "روکیں"
+
+#: ../data/lxmusic.glade.h:30
+msgid "_Delete Current Playlist"
+msgstr "حالیہ پلے لسٹ _حذف کریں"
+
+#: ../data/lxmusic.glade.h:31
+msgid "_File"
+msgstr "_فائل"
+
+#: ../data/lxmusic.glade.h:32
+msgid "_Help"
+msgstr "_ہدایات"
+
+#: ../data/lxmusic.glade.h:33
+msgid "_Locate Currently Played"
+msgstr "حالیہ چلائی گئی پلے لسٹ _تلاش کریں"
+
+#: ../data/lxmusic.glade.h:34
+msgid "_Playlist"
+msgstr "_پلے لسٹ"
+
+#: ../data/lxmusic.glade.h:35
+msgid "_Switch To Playlist"
+msgstr "پلے لسٹ پر _منتقل ہوں"
+
+#: ../data/lxmusic.glade.h:36
+msgid "_Tools"
+msgstr "_اوزار"
+
+#: ../data/lxmusic.glade.h:37
+msgid "_View"
+msgstr "_منظر"
+
+#: ../data/popup.glade.h:1
+msgid "_Show Main Window"
+msgstr "مین ونڈو _دکھائیں"
+
+#: ../data/pref-dlg.glade.h:1
+msgid "<b>Audio CD</b>"
+msgstr "<b>صوتی سی ڈی</b>"
+
+#: ../data/pref-dlg.glade.h:2
+msgid "<b>Output</b>"
+msgstr "<b>ماحاصل</b>"
+
+#: ../data/pref-dlg.glade.h:3
+msgid "Audio"
+msgstr "صوتی"
+
+#: ../data/pref-dlg.glade.h:4
+msgid "Buffer Size: "
+msgstr "بفر حجم:"
+
+#: ../data/pref-dlg.glade.h:5
+msgid "CD-ROM Device: "
+msgstr "سی ڈی روم ڈیوائس:"
+
+#: ../data/pref-dlg.glade.h:6
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "ایل ایکس موسیقی کو بند کرنے پر پس منظر میں چلاتے رہیں"
+
+#: ../data/pref-dlg.glade.h:7
+msgid "Default ID3 V1 Encoding: "
+msgstr "طے شدہ ID3 V1 انکوڈنگ:"
+
+#: ../data/pref-dlg.glade.h:8
+msgid "Device:"
+msgstr "ڈیوائس:"
+
+#: ../data/pref-dlg.glade.h:9
+msgid "Driver:"
+msgstr "ڈرائیور:"
+
+#: ../data/pref-dlg.glade.h:10
+msgid "General"
+msgstr "عام"
+
+#: ../data/pref-dlg.glade.h:11
+msgid "KB"
+msgstr "ک.ب"
+
+#: ../data/pref-dlg.glade.h:12
+msgid "Minimize to system tray on close"
+msgstr "بند کرنے پر نظام ٹرے میں لے جائیں"
+
+#: ../data/pref-dlg.glade.h:13
+msgid "Misc"
+msgstr "متفرق"
+
+#: ../data/pref-dlg.glade.h:14
+msgid "Mixer:"
+msgstr "مکسر:"
+
+#: ../data/pref-dlg.glade.h:15
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "موسیقی کی فائلیں صارف مواجہ کے بغیر بھی چلائی جاسکتی ہیں تاکہ نظام کے ذرائع بچائے جاسکیں"
+
+#: ../data/pref-dlg.glade.h:16
+msgid "Plugin: "
+msgstr "پلگ ان:"
+
+#: ../data/pref-dlg.glade.h:17
+msgid "Preference"
+msgstr "ترجیحات"
+
+#: ../data/pref-dlg.glade.h:18
+msgid "Show system tray icon"
+msgstr "نظام ٹرے آئکن دکھائیں"
+
+#: ../data/pref-dlg.glade.h:19
+msgid "Use OSS for audio output"
+msgstr "صوتی ماحاصل کے لیے OSS استعمال کریں"
+
+#: ../data/pref-dlg.glade.h:20
+msgid "Use Pulse Audio for audio output"
+msgstr "صوتی ماحاصل کے لیے پلس آڈیو استعمال کریں"
+
+#: ../data/track-info.glade.h:1
+msgid "<b>Album: </b>"
+msgstr "<b>ایلبم: </b>"
+
+#: ../data/track-info.glade.h:2
+msgid "<b>Artist: </b>"
+msgstr "<b>فنکار: </b>"
+
+#: ../data/track-info.glade.h:3
+msgid "<b>Comment: </b>"
+msgstr "<b>تبصرہ: </b>"
+
+#: ../data/track-info.glade.h:4
+msgid "<b>File Type: </b>"
+msgstr "<b>فائل نوعیت: </b>"
+
+#: ../data/track-info.glade.h:5
+msgid "<b>File: </b>"
+msgstr "<b>فائل: </b>"
+
+#: ../data/track-info.glade.h:6
+msgid "<b>Size: </b>"
+msgstr "<b>حجم: </b>"
+
+#: ../data/track-info.glade.h:7
+msgid "<b>Title: </b>"
+msgstr "<b>عنوان: </b>"
+
