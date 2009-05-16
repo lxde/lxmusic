@@ -11,7 +11,7 @@ ui_in_files= \
 	pref-dlg.glade \
 	track-info.glade \
 	popup.glade
-ui_DATA = $(ui_in_files:.glade=.ui)
+ui_DATA = $(ui_in_files:.glade=.ui.glade)
 
 EXTRA_DIST = \
 	$(desktop_DATA) \
@@ -22,7 +22,7 @@ CLEANFILES = \
 	$(ui_DATA) 
 
 # Generate GtkBuilder UI files from Glade files
-%.ui: %.glade
+%.ui.glade: %.glade
 	$(top_srcdir)/gtk-builder-convert $< $@
 #	$(top_builddir)/src/xml-purge $@
 

@@ -359,7 +359,7 @@ static void on_tray_icon_popup_menu(GtkStatusIcon* icon, guint btn, guint time, 
 {
 	/* init tray icon widgets */
 	GtkBuilder *builder = gtk_builder_new ();
-	if(gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/popup.ui", NULL))
+	if(gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/popup.ui.glade", NULL))
 	{
         	GtkWidget *tray_play_btn = (GtkWidget*)gtk_builder_get_object(builder, "play");
 		GtkWidget *tray_popup = (GtkWidget*)gtk_builder_get_object(builder, "popup");
@@ -392,7 +392,7 @@ static void create_tray_icon()
 void on_preference(GtkAction* act, gpointer data)
 {
     GtkBuilder* builder = gtk_builder_new();
-    if( gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/pref-dlg.ui", NULL ) )
+    if( gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/pref-dlg.ui.glade", NULL ) )
     {
         xmmsc_result_t* res;
         GtkWidget* show_tray_icon_btn = (GtkWidget*)gtk_builder_get_object(builder, "show_tray_icon");
@@ -606,7 +606,7 @@ void on_file_properties(GtkAction* act, gpointer data)
             GtkBuilder* builder = gtk_builder_new();
             uint32_t id;
             gtk_tree_model_get( model, &it, COL_ID, &id, -1 );
-            if( gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/track-info.ui", NULL ) )
+            if( gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/track-info.ui.glade", NULL ) )
             {
                 xmmsc_result_t* res;
                 GtkWidget* dlg = (GtkWidget*)gtk_builder_get_object(builder, "track_info_dlg");
@@ -2115,7 +2115,7 @@ static void setup_ui()
     xmmsc_result_t* res;
 
     builder = gtk_builder_new();
-    if( ! gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/lxmusic.ui", NULL) )
+    if( ! gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/lxmusic.ui.glade", NULL) )
         exit(1);
 
     main_win = (GtkWidget*)gtk_builder_get_object(builder, "main_win");
