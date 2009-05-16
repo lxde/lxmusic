@@ -2179,7 +2179,7 @@ static void setup_ui()
 
     g_object_unref(builder);
     gtk_widget_show_all(notebook);
-    gtk_window_move(main_win, win_xpos, win_ypos);
+    gtk_window_move(GTK_WINDOW(main_win), win_xpos, win_ypos);
 	gtk_widget_show (main_win);
 
     /* tray icon */
