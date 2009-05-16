@@ -1,3 +1,9 @@
+2009-05-16  Juergen Hoetzel  <juergen@archlinux.org>
+
+	* po/POTFILES.in
+	* data/Makefile.am: Use gtkbuilder files as input for inttool:
+	Fixes #2789753
+
 2009-05-14  Juergen Hoetzel  <juergen@archlinux.org>
 
 	* data/lxmusic.ui: Fix #2608558 (LXMusic progress bar reaches end

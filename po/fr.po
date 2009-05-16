@@ -106,7 +106,7 @@ msgstr "Ajouter des éléments à la liste de lecture"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "Tout"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
@@ -146,7 +146,7 @@ msgstr "Suivant"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "Sans répétition"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
@@ -174,11 +174,11 @@ msgstr "Supprimer les éléments de la liste de lecture"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr ""
+msgstr "Répéter tout"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr ""
+msgstr "Répéter courant"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
@@ -190,7 +190,7 @@ msgstr "Stop"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr ""
+msgstr "Nom de piste"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
@@ -340,22 +340,3 @@ msgstr "<b>Taille : </b>"
 msgid "<b>Title: </b>"
 msgstr "<b>Titre : </b>"
 
-#~ msgid ""
-#~ "All\n"
-#~ "Track Name\n"
-#~ "Artist\n"
-#~ "Album"
-#~ msgstr ""
-#~ "Tout\n"
-#~ "Nom de piste\n"
-#~ "Artiste\n"
-#~ "Album"
-
-#~ msgid ""
-#~ "No Repeat\n"
-#~ "Repeat Current\n"
-#~ "Repeat All"
-#~ msgstr ""
-#~ "Sans répétition\n"
-#~ "Répéter courant\n"
-#~ "Répéter tout"
