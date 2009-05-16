@@ -1719,7 +1719,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
             int x, y, w, h, b, d, x2, y2;
 
             XGetGeometry(GDK_DISPLAY(), (Drawable) wid, &root, &x, &y, &w, &h, &b, &d);
-            XTranslateCoordinates(GDK_DISPLAY(), (Drawable*)wid, root, x, y, &x2, &y2, &child);
+            XTranslateCoordinates(GDK_DISPLAY(), (Window)wid, root, x, y, &x2, &y2, &child);
 
             argv[7] = "--hint";
             g_snprintf(xhint, 32, "int:x:%u", x2 + w/2);
