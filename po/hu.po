@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:37+0200\n"
+"POT-Creation-Date: 2009-05-16 14:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <debian-l10n-hungarian@lists.d.o>\n"
@@ -13,11 +13,11 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: ../src/lxmusic.c:254
+#: ../src/lxmusic.c:271
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Arnaud DIDRY hivatalos xmms2 ikonja"
 
-#: ../src/lxmusic.c:265
+#: ../src/lxmusic.c:282
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -25,194 +25,199 @@ msgstr ""
 "LXDE zenelejátszó\n"
 "Egyszerű grafikus XMMS2 kliens"
 
-#: ../src/lxmusic.c:370 ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:387 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:540
+#: ../src/lxmusic.c:587
 msgid "Bitrate: "
 msgstr "Bitarány:"
 
-#: ../src/lxmusic.c:807
+#: ../src/lxmusic.c:862
 msgid "Audio Files"
 msgstr "Hang fájlok"
 
-#: ../src/lxmusic.c:812
+#: ../src/lxmusic.c:867
 msgid "All Files"
 msgstr "Minden fájl"
 
-#: ../src/lxmusic.c:839
+#: ../src/lxmusic.c:894
 msgid "Input a URL"
 msgstr "URL megadása"
 
-#: ../src/lxmusic.c:1194
+#: ../src/lxmusic.c:1280 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Művész"
 
-#: ../src/lxmusic.c:1203
+#: ../src/lxmusic.c:1289 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1212
+#: ../src/lxmusic.c:1298
 msgid "Title"
 msgstr "Cím"
 
-#: ../src/lxmusic.c:1219
+#: ../src/lxmusic.c:1305
 msgid "Length"
 msgstr "Hossz"
 
-#: ../src/lxmusic.c:1378
+#: ../src/lxmusic.c:1466
 msgid "Default"
 msgstr "Alap"
 
-#: ../src/lxmusic.c:1479
+#: ../src/lxmusic.c:1576
 msgid "Pause"
 msgstr "Szünet"
 
-#: ../src/lxmusic.c:1495
+#: ../src/lxmusic.c:1592
 msgid "Play"
 msgstr "Lejátszás"
 
-#: ../src/lxmusic.c:1625
+#: ../src/lxmusic.c:1737
 msgid "Now Playing:"
 msgstr "Most fut:"
 
-#: ../src/lxmusic.c:2062
+#: ../src/lxmusic.c:2192
 msgid "Create new playlist"
 msgstr "Új lista létrehozása"
 
-#: ../src/utils.c:171
+#: ../src/utils.c:107
 msgid "Error"
 msgstr "Hiba"
 
-#: ../data/lxmusic.glade.h:1
+#: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
 msgstr "Fájlok és mappák hozzáadása"
 
-#: ../data/lxmusic.glade.h:2
+#: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
 msgstr "Hozzáadás a listához"
 
-#: ../data/lxmusic.glade.h:3
+#: ../data/lxmusic.ui.glade.h:3
 msgid "Add URL"
 msgstr "URL hozzáadása"
 
-#: ../data/lxmusic.glade.h:4
+#: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
 msgstr "Fájlok hozzáadása a listához"
 
-#: ../data/lxmusic.glade.h:5
-msgid ""
-"All\n"
-"Track Name\n"
-"Artist\n"
-"Album"
-msgstr ""
+#: ../data/lxmusic.ui.glade.h:6
+msgid "All"
+msgstr "Minden"
 
-#: ../data/lxmusic.glade.h:9
+#: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
 msgstr "Új lista hozzáadása"
 
-#: ../data/lxmusic.glade.h:10
+#: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
 msgstr "Jelenlegi lista"
 
-#: ../data/lxmusic.glade.h:11
+#: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
 msgstr "Adj meg kulcsszót"
 
-#: ../data/lxmusic.glade.h:12
+#: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
 msgstr "Kedvencek"
 
-#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "Fájl tulajdonságok"
 
-#: ../data/lxmusic.glade.h:14
+#: ../data/lxmusic.ui.glade.h:13
 msgid "Filter:"
 msgstr "Szűrő:"
 
-#: ../data/lxmusic.glade.h:16
+#: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
 msgstr ""
 
-#: ../data/lxmusic.glade.h:17
+#: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
 msgstr "Média tár"
 
-#: ../data/lxmusic.glade.h:18
+#: ../data/lxmusic.ui.glade.h:17
 msgid "Next"
 msgstr "Következő"
 
-#: ../data/lxmusic.glade.h:19
-msgid ""
-"No Repeat\n"
-"Repeat Current\n"
-"Repeat All"
-msgstr ""
+#: ../data/lxmusic.ui.glade.h:18
+msgid "No Repeat"
+msgstr "Nincs ismétlés"
 
-#: ../data/lxmusic.glade.h:22
+#: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
 msgstr "Lejátszás/Szünet"
 
-#: ../data/lxmusic.glade.h:23
+#: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
 msgstr "Előző"
 
-#: ../data/lxmusic.glade.h:24
+#: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
 msgstr "Minden elem eltávolítása"
 
-#: ../data/lxmusic.glade.h:25
+#: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
 msgstr "Törlés a listából"
 
-#: ../data/lxmusic.glade.h:26
+#: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
 msgstr "Kijelölt elemek eltávolítása"
 
-#: ../data/lxmusic.glade.h:27
+#: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
 msgstr "Elemek törlése a listából"
 
-#: ../data/lxmusic.glade.h:28
+#: ../data/lxmusic.ui.glade.h:25
+msgid "Repeat All"
+msgstr "Minden ismétel"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Repeat Current"
+msgstr "Jelenlegi szám ismétlése"
+
+#: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
 msgstr "Lista mutatása"
 
-#: ../data/lxmusic.glade.h:29
+#: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
 msgstr "Állj"
 
-#: ../data/lxmusic.glade.h:30
+#: ../data/lxmusic.ui.glade.h:29
+msgid "Track Name"
+msgstr "A szám neve"
+
+#: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
 msgstr "Jelen lista törlése"
 
-#: ../data/lxmusic.glade.h:31
+#: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
 msgstr "_Fájl"
 
-#: ../data/lxmusic.glade.h:32
+#: ../data/lxmusic.ui.glade.h:32
 msgid "_Help"
 msgstr "_Súgó"
 
-#: ../data/lxmusic.glade.h:33
+#: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
 msgstr ""
 
-#: ../data/lxmusic.glade.h:34
+#: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
 msgstr "_Lista"
 
-#: ../data/lxmusic.glade.h:35
+#: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
 msgstr "_Váltás a listára"
 
-#: ../data/lxmusic.glade.h:36
+#: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
 msgstr "_Eszközök"
 
-#: ../data/lxmusic.glade.h:37
+#: ../data/lxmusic.ui.glade.h:37
 msgid "_View"
 msgstr "_Nézet"
 
@@ -331,18 +336,3 @@ msgstr "<b>Méret: </b>"
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
 msgstr ""
-
-#~ msgid "All"
-#~ msgstr "Minden"
-
-#~ msgid "No Repeat"
-#~ msgstr "Nincs ismétlés"
-
-#~ msgid "Repeat All"
-#~ msgstr "Minden ismétel"
-
-#~ msgid "Repeat Current"
-#~ msgstr "Jelenlegi szám ismétlése"
-
-#~ msgid "Track Name"
-#~ msgstr "A szám neve"

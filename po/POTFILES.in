@@ -2,7 +2,7 @@
 src/lxmusic.c
 src/utils.c
 data/lxmusic.desktop.in
-data/lxmusic.glade
+data/lxmusic.ui.glade
 data/popup.glade
 data/pref-dlg.glade
 data/track-info.glade
