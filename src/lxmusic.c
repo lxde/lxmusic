@@ -1177,15 +1177,16 @@ static void queue_update_track( uint32_t id, GtkTreeIter* it )
 
 static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
 {
-    GtkTreeModelFilter* mf;
+    GtkTreeModel* mf;
     GtkTreeIter it;
     const char* pl_name = cur_playlist;
     int pl_size = xmmsv_list_get_size( value );
     int i;
     
     list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT );
-    mf = (GtkTreeModel*)gtk_tree_model_filter_new(GTK_TREE_MODEL(list_store), NULL);
-    gtk_tree_model_filter_set_visible_func( mf, playlist_filter_func, NULL, NULL );
+    mf = gtk_tree_model_filter_new(GTK_TREE_MODEL(list_store), NULL);
+    gtk_tree_model_filter_set_visible_func( GTK_TREE_MODEL_FILTER( mf ), 
+					    playlist_filter_func, NULL, NULL );
     g_object_unref(list_store);
 
     cancel_pending_update_tracks();
@@ -1225,7 +1226,7 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     if( GTK_WIDGET_REALIZED( list_view ) )
         gdk_window_set_cursor( list_view->window, NULL );
 
-    gtk_tree_view_set_model( GTK_TREE_VIEW(list_view), GTK_TREE_MODEL(mf) );
+    gtk_tree_view_set_model( GTK_TREE_VIEW(list_view), mf );
 
     /* select the first item */
     if( gtk_tree_model_get_iter_first(GTK_TREE_MODEL(mf), &it) )
@@ -1453,7 +1454,7 @@ static int on_playlists_listed( xmmsv_t* value, void* user_data )
 	xmmsv_list_get( value, i, &string_value );
 	xmmsv_get_string( string_value, &str );
         if( str && str[0] && str[0] != '_' )
-            lists = g_slist_prepend(lists, str);
+            lists = g_slist_prepend(lists, (gpointer) str);
     }
     lists = g_slist_sort(lists, (GCompareFunc)g_utf8_collate);
     for(l = lists; l; l = l->next)
@@ -1477,7 +1478,7 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
 {
     int32_t id = 0;
     int type = 0, pos = -1;
-    char* name = NULL;
+    const char* name = NULL;
     xmmsv_t *string_value, *int_value;
     
     if( xmmsv_is_error( value ) )
@@ -1628,7 +1629,7 @@ static int on_playback_playtime_changed( xmmsv_t* value, void* user_data )
 static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 {
     const char* artist = NULL;
-    char* title = NULL;
+    const char* title = NULL;
     char* filename;
     const char* err;
     
@@ -1659,7 +1660,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 	if ( xmmsv_dict_get( value, "url", &string_value ) ) 
 	{
 	    char* url;
-            char* file;
+            const char* file;
 	    gchar *decoded_val;
 
 	    /* try to decode URL */
@@ -1673,7 +1674,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 	    file = g_utf8_strrchr ( file, -1, '/' ) + 1;
 	    title = file;
 	    if ( decoded_val )
-		xmmsv_unref( decoded_val );
+		g_free ( decoded_val );
         }
     }
 
@@ -1760,7 +1761,7 @@ static int on_playback_cur_track_changed( xmmsv_t* value, void* user_data )
 
 static int on_playlist_pos_changed( xmmsv_t* val, void* user_data )
 {
-    char* name;
+    const char* name;
     xmmsv_t *name_val;
     int32_t pos = 0;
     
