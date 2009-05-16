@@ -99,10 +99,10 @@ static GSList* all_playlists = NULL;
 static GQueue* pending_update_tracks = NULL;
 static GtkListStore* list_store = NULL;
 
-static uint32_t playback_status = 0;
+static int32_t playback_status = 0;
 static uint32_t play_time = 0;
 static uint32_t cur_track_duration = 0;
-static uint32_t cur_track_id = 0;
+static int32_t cur_track_id = 0;
 static GtkTreeIter cur_track_iter = {0};
 
 static int repeat_mode = REPEAT_NONE;
@@ -1071,7 +1071,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     const char *album = NULL;
     const char *title = NULL;
     xmmsv_t *string_value, *time_len_val;
-    uint32_t time_len = 0;
+    int32_t time_len = 0;
     char time_buf[32];
     /* g_debug("do update track: %d", ut->id); */
 
@@ -1104,7 +1104,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     if ( xmmsv_dict_get( value, "title", &string_value ) )
 	xmmsv_get_string( string_value, &title );    
     if ( xmmsv_dict_get( value, "duration", &time_len_val ) )
-	xmmsv_get_uint( time_len_val, &time_len);
+	xmmsv_get_int( time_len_val, &time_len);
 
     timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
@@ -1193,13 +1193,13 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
 
     for ( i = 0; i < pl_size; i++ ) 
     {
-        uint32_t id;
+        int32_t id;
 	xmmsv_t *current_value;
         UpdateTrack* ut = g_slice_new(UpdateTrack);
 
         gtk_list_store_append( list_store, &it );
 	xmmsv_list_get( value, i, &current_value );
-	xmmsv_get_uint( current_value, &id );
+	xmmsv_get_int( current_value, &id );
 
         gtk_list_store_set( list_store, &it,
                             COL_ID, id,
@@ -1475,7 +1475,7 @@ static int on_playlists_listed( xmmsv_t* value, void* user_data )
 
 static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
 {
-    uint32_t id = 0;
+    int32_t id = 0;
     int type = 0, pos = -1;
     char* name = NULL;
     xmmsv_t *string_value, *int_value;
@@ -1511,7 +1511,7 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
 	    if ( xmmsv_dict_get( value, "id", &int_value ) ) 
 	    {
                 GtkTreeIter it;
-		xmmsv_get_uint( int_value, &id );
+		xmmsv_get_int( int_value, &id );
                 gtk_list_store_insert_with_values( list_store, &it, pos,
                                                    COL_ID, id, -1 );
                 /* g_debug("playlist_added: %d", id); */
@@ -1562,7 +1562,7 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
 static int on_playback_status_changed( xmmsv_t *value, void *user_data )
 {
     GtkWidget* img;
-    if ( !xmmsv_get_uint(value, &playback_status) )
+    if ( !xmmsv_get_int(value, &playback_status) )
     {
         playback_status = XMMS_PLAYBACK_STATUS_STOP;
         return TRUE;
@@ -1601,10 +1601,10 @@ static int on_playback_status_changed( xmmsv_t *value, void *user_data )
 
 static int on_playback_playtime_changed( xmmsv_t* value, void* user_data )
 {
-    uint32_t time;
+    int32_t time;
     char buf[32];
     if ( xmmsv_is_error(value)
-         || ! xmmsv_get_uint(value, &time))
+         || ! xmmsv_get_int(value, &time))
         return TRUE;
     
     time /= 1000;
@@ -1645,7 +1645,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     value = xmmsv_propdict_to_dict (value, NULL);
 
     if( xmmsv_dict_get( value, "duration", &duration_value ) )
-	xmmsv_get_uint( duration_value, &cur_track_duration );
+	xmmsv_get_int( duration_value, &cur_track_duration );
 
     artist = NULL;
     if ( xmmsv_dict_get( value, "artist", &string_value ) )
@@ -1746,7 +1746,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 
 static int on_playback_cur_track_changed( xmmsv_t* value, void* user_data )
 {
-    if( xmmsv_get_uint(value, &cur_track_id) )
+    if( xmmsv_get_int(value, &cur_track_id) )
     {
         xmmsc_result_t *res2;
         char* name;
@@ -1762,7 +1762,7 @@ static int on_playlist_pos_changed( xmmsv_t* val, void* user_data )
 {
     char* name;
     xmmsv_t *name_val;
-    uint32_t pos = 0;
+    int32_t pos = 0;
     
     if( xmmsv_dict_get( val, "name", &name_val ) )
     {
@@ -1773,7 +1773,7 @@ static int on_playlist_pos_changed( xmmsv_t* val, void* user_data )
 	    
             if( xmmsv_dict_get( val, "position", &pos_val ) ) 
             {
-		xmmsv_get_uint( pos_val, &pos );
+		xmmsv_get_int( pos_val, &pos );
                 /* mark currently played song in the playlist with bold font. */
                 GtkTreePath* path = gtk_tree_path_new_from_indices( pos, -1 );
                 GtkTreeIter it;
@@ -1819,8 +1819,8 @@ void on_locate_cur_track(GtkAction* act, gpointer user_data)
 static void get_channel_volumes( const char *key, xmmsv_t *value, void *user_data)
 {
     GSList** volumes = (GSList**)user_data;
-    uint32_t volume;
-    xmmsv_get_uint( value , &volume );
+    int32_t volume;
+    xmmsv_get_int( value , &volume );
     *volumes = g_slist_prepend(*volumes, (gpointer)volume);
 }
 
@@ -1925,7 +1925,7 @@ static int on_collection_changed( xmmsv_t* dict, void* user_data )
     xmmsv_get_string( string_value, &ns );
 
     xmmsv_dict_get (dict, "type", &int_value);	
-    xmmsv_get_uint( int_value, &type );
+    xmmsv_get_int( int_value, &type );
     
     /* g_debug("name=%s, ns=%s, type=%d", name, ns, type); */
 
@@ -1953,8 +1953,8 @@ static int on_collection_changed( xmmsv_t* dict, void* user_data )
 static int on_media_lib_entry_changed(xmmsv_t* value, void* user_data)
 {
     /* g_debug("mlib entry changed"); */
-    uint32_t id = 0;
-    if( xmmsv_get_uint (value, &id) )
+    int32_t id = 0;
+    if( xmmsv_get_int (value, &id) )
     {
         GtkTreeModel* model = (GtkTreeModel*)list_store;
         GtkTreeIter it;
