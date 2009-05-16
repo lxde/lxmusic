@@ -1129,7 +1129,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
 	file = g_utf8_strrchr ( file, -1, '/' ) + 1;
 	title = file;
 	if ( decoded_val )
-	    xmmsv_unref( decoded_val );
+	    gfree ( decoded_val );
     }
 
     gtk_list_store_set( list_store, &ut->it,
