@@ -1714,27 +1714,31 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
         if( tray_icon )
         {
     #if GTK_CHECK_VERSION(2, 14, 0)
-            guint32 wid = gtk_status_icon_get_x11_window_id(GTK_STATUS_ICON(tray_icon));
             Window root, child;
-            int x, y, w, h, b, d, x2, y2;
+	    GdkScreen *screen = NULL;
+	    GdkRectangle rect;	    
+            int x, y;
 
-            XGetGeometry(GDK_DISPLAY(), (Drawable) wid, &root, &x, &y, &w, &h, &b, &d);
-            XTranslateCoordinates(GDK_DISPLAY(), (Window)wid, root, x, y, &x2, &y2, &child);
+	    gtk_status_icon_get_geometry(GTK_STATUS_ICON(tray_icon), &screen,
+					 &rect, NULL);
+	
+	    x = rect.x + rect.width / 2;
+	    y = rect.y + rect.height / 2;
 
-            argv[7] = "--hint";
-            g_snprintf(xhint, 32, "int:x:%u", x2 + w/2);
-            argv[8] = xhint;
+	    argv[7] = "--hint";
+	    g_snprintf(xhint, 32, "int:x:%u", x);
+	    argv[8] = xhint;
 
-            argv[9] = "--hint";
-            g_snprintf(yhint, 32, "int:y:%u", y2 + h/2);
-            argv[10] = yhint;
-
-    #define REST_IDX    11
-    #else
-    #define REST_IDX    7
-    #endif
-        }
-
+	    argv[9] = "--hint";
+	    g_snprintf(yhint, 32, "int:y:%u", y);
+	    argv[10] = yhint;
+		
+#define REST_IDX    11
+#else
+#define REST_IDX    7
+#endif
+	}
+	    
         argv[REST_IDX] = _("Now Playing:");
         argv[REST_IDX+1] = window_title->str;
     #undef REST_IDX
