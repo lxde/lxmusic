@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-16 14:00+0200\n"
-"PO-Revision-Date: 2009-03-05 22:43+0100\n"
+"PO-Revision-Date: 2009-05-17 14:49+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -106,7 +106,7 @@ msgstr "Додати файли до списку програвання"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "Всі"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
@@ -146,7 +146,7 @@ msgstr "Наступне"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "Без повторення"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
@@ -174,11 +174,11 @@ msgstr "Видалити позиції з списку програвання"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr ""
+msgstr "Повторювати всі"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr ""
+msgstr "Повторювати поточну"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
@@ -190,7 +190,7 @@ msgstr "Стоп"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr ""
+msgstr "Назва доріжки"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
