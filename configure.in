@@ -11,6 +11,9 @@ m4_define([gmodule_export_minimum_version], [2.0])
 m4_define([xmms2_minimum_version], [0.6])
 m4_define([xmms2_client_glib_minimum_version], [0.6])
 
+# Optional Packages
+m4_define([libnotify_minimum_version], [0.4.1])
+
 AC_ISC_POSIX
 AC_PROG_CC
 AM_PROG_CC_STDC
@@ -18,11 +21,28 @@ AC_HEADER_STDC
 
 AC_PROG_INTLTOOL(, [no-xml])
 
+dnl check for mandatory modules
 PKG_CHECK_MODULES(LXMUSIC,
         [gtk+-2.0 >= gtk_minimum_version
 	gmodule-export-2.0 >= gmodule_export_minimum_version
 	xmms2-client >= xmms2_minimum_version
 	xmms2-client-glib >= xmms2_client_glib_minimum_version])
+
+dnl check for optional modules
+LIBNOTIFY_CFLAGS=
+LIBNOTIFY_LIBS=
+PKG_CHECK_MODULES(LIBNOTIFY, libnotify >= libnotify_minimum_version, HAVE_LIBNOTIFY="yes", HAVE_LIBNOTIFY="no")
+if test "x$HAVE_LIBNOTIFY" = "xyes"; then
+	AC_DEFINE(HAVE_LIBNOTIFY, 1, [libnotify available])
+	libnotify="libnotify"
+else
+	libnotify=""
+fi
+
+AC_SUBST(LIBNOTIFY_CFLAGS)
+AC_SUBST(LIBNOTIFY_LIBS)
+
+
 
 GETTEXT_PACKAGE=lxmusic
 
