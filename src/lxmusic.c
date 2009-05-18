@@ -36,6 +36,10 @@
 #include <X11/Xlib.h>
 #include <gdk/gdkx.h>
 
+#ifdef HAVE_LIBNOTIFY
+#include "lxmusic-notify.h"
+#endif
+
 #include "utils.h"
 
 enum {
@@ -73,6 +77,10 @@ const char* known_plugins[] = {
     "ao",
 /*    "oss" */
 };
+
+#ifdef HAVE_LIBNOTIFY
+static LXMusic_Notification *lxmusic_notification = NULL;
+#endif 
 
 static xmmsc_connection_t *con = NULL;
 static GtkWidget *main_win = NULL;
@@ -220,6 +228,10 @@ void on_quit(GtkAction* act, gpointer user_data)
 
     if(tray_icon)
         g_object_unref(tray_icon);
+
+#ifdef HAVE_LIBNOTIFY
+    lxmusic_notification_free( lxmusic_notification );
+#endif HAVE_LIBNOTIFY
 
     /* FIXME: Is this apporpriate? */
     if( ! play_after_exit || playback_status == XMMS_PLAYBACK_STATUS_STOP )
@@ -1696,54 +1708,11 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
         gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon),
 				    window_title->str);
 
-    if( ! GTK_WIDGET_VISIBLE(main_win) /*|| ! GTK_WIDGET_HAS_FOCUS(main_win)*/ )
-    {
-        /* send notifications via notify-send command. */
-        const char* argv[] = {
-            "notify-send",
-            "--urgency", "normal",
-            "--expire-time", "3000",
-            "--icon", "lxmusic",
-            NULL, NULL, /* hint x */
-            NULL, NULL, /* hint y */
-            NULL, NULL, /* summary, body */
-            NULL
-        };
-        char xhint[32], yhint[32];
+#ifdef HAVE_LIBNOTIFY
+    if( ! GTK_WIDGET_VISIBLE(main_win) )
+	lxmusic_do_notify ( lxmusic_notification, _("Now Playing:"), window_title->str );
+#endif	/* HAVE_LIBNOTIFY */
 
-        if( tray_icon )
-        {
-    #if GTK_CHECK_VERSION(2, 14, 0)
-            Window root, child;
-	    GdkScreen *screen = NULL;
-	    GdkRectangle rect;	    
-            int x, y;
-
-	    gtk_status_icon_get_geometry(GTK_STATUS_ICON(tray_icon), &screen,
-					 &rect, NULL);
-	
-	    x = rect.x + rect.width / 2;
-	    y = rect.y + rect.height / 2;
-
-	    argv[7] = "--hint";
-	    g_snprintf(xhint, 32, "int:x:%u", x);
-	    argv[8] = xhint;
-
-	    argv[9] = "--hint";
-	    g_snprintf(yhint, 32, "int:y:%u", y);
-	    argv[10] = yhint;
-		
-#define REST_IDX    11
-#else
-#define REST_IDX    7
-#endif
-	}
-	    
-        argv[REST_IDX] = _("Now Playing:");
-        argv[REST_IDX+1] = window_title->str;
-    #undef REST_IDX
-        g_spawn_async(NULL, (gchar**)argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
-    }
     g_string_free( window_title, TRUE );
     xmmsv_unref( value );
     return TRUE;
@@ -2300,6 +2269,12 @@ int main (int argc, char *argv[])
     bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
+#endif
+
+#ifdef HAVE_LIBNOTIFY
+    	if (!notify_is_initted ())
+		notify_init ("LXMusic");
+	lxmusic_notification  = lxmusic_notification_new( GTK_STATUS_ICON( tray_icon ) );
 #endif
 
     if( !(con = xmmsc_init ("lxmusic")) )

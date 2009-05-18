@@ -8,8 +8,13 @@ INCLUDES = \
 
 bin_PROGRAMS = lxmusic
 
+if HAVE_LIBNOTIFY
+libnotify_sources = lxmusic-notify.c lxmusic-notify.h
+endif
+
 lxmusic_SOURCES = \
 	lxmusic.c \
+	$(libnotify_sources) \
 	utils.c utils.h
 
 lxmusic_LDADD = @LXMUSIC_LIBS@ 	@LIBNOTIFY_LIBS@  $(INTLLIBS)
