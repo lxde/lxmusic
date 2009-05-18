@@ -3,8 +3,7 @@
 INCLUDES = \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
-	@GTK_CFLAGS@ \
-	@XMMSC_CFLAGS@
+	@LXMUSIC_CFLAGS@ 
 
 bin_PROGRAMS = lxmusic
 
@@ -12,5 +11,5 @@ lxmusic_SOURCES = \
 	lxmusic.c \
 	utils.c utils.h
 
-lxmusic_LDADD = @GTK_LIBS@ @XMMSC_LIBS@ $(INTLLIBS)
+lxmusic_LDADD = @LXMUSIC_LIBS@ $(INTLLIBS)
 

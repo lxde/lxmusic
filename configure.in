@@ -5,6 +5,12 @@ AM_INIT_AUTOMAKE(lxmusic, 0.2.3)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
+# Required Packages
+m4_define([gtk_minimum_version], [2.14.0])
+m4_define([gmodule_export_minimum_version], [2.0])
+m4_define([xmms2_minimum_version], [0.6])
+m4_define([xmms2_client_glib_minimum_version], [0.6])
+
 AC_ISC_POSIX
 AC_PROG_CC
 AM_PROG_CC_STDC
@@ -12,25 +18,13 @@ AC_HEADER_STDC
 
 AC_PROG_INTLTOOL(, [no-xml])
 
-gtk_modules="gtk+-2.0 >= 2.12.0 gmodule-export-2.0"
-PKG_CHECK_MODULES(GTK, [$gtk_modules])
-AC_SUBST(GTK_CFLAGS)
-AC_SUBST(GTK_LIBS)
-
-xmmsc_modules="xmms2-client >= 0.6\
-	xmms2-client-glib"
-PKG_CHECK_MODULES(XMMSC, [$xmmsc_modules])
-AC_SUBST(XMMSC_CFLAGS)
-AC_SUBST(XMMSC_LIBS)
-
-# Gtk Builder
-#AC_PATH_PROG([GTK_BUILDER_CONVERT],[gtk-builder-convert],[false])
-#if test "$GTK_BUILDER_CONVERT" = "false"; then
-#  AC_MSG_ERROR([gtk-builder-convert not found])
-#fi
+PKG_CHECK_MODULES(LXMUSIC,
+        [gtk+-2.0 >= gtk_minimum_version
+	gmodule-export-2.0 >= gmodule_export_minimum_version
+	xmms2-client >= xmms2_minimum_version
+	xmms2-client-glib >= xmms2_client_glib_minimum_version])
 
 GETTEXT_PACKAGE=lxmusic
-#AM_GNU_GETTEXT_VERSION(0.14.1)
 
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
