@@ -1709,8 +1709,21 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 				    window_title->str);
 
 #ifdef HAVE_LIBNOTIFY
-    if( ! GTK_WIDGET_VISIBLE(main_win) )
-	lxmusic_do_notify ( lxmusic_notification, _("Now Playing:"), window_title->str );
+    if( ! GTK_WIDGET_VISIBLE(main_win) ) 
+    {
+	GString* notification_message = g_string_new("");
+
+	if ( (artist != NULL) && (title != NULL ) ) {	
+	    /* metadata available */
+	    g_string_append_printf(notification_message, "<b>%s: </b><i>%s</i>", _("Artist"), artist );
+	    g_string_append_printf(notification_message, "\n<b>%s: </b><i>%s</i>", _("Title"), title );
+	}
+	/* use filename without markup */
+	else 			
+	    g_string_append( notification_message, title );
+	lxmusic_do_notify ( lxmusic_notification, _("Now Playing:"), notification_message->str );
+	g_string_free( notification_message, TRUE );
+    }
 #endif	/* HAVE_LIBNOTIFY */
 
     g_string_free( window_title, TRUE );
@@ -2272,9 +2285,9 @@ int main (int argc, char *argv[])
 #endif
 
 #ifdef HAVE_LIBNOTIFY
-    	if (!notify_is_initted ())
-		notify_init ("LXMusic");
-	lxmusic_notification  = lxmusic_notification_new( GTK_STATUS_ICON( tray_icon ) );
+    if (!notify_is_initted ())
+	notify_init ("LXMusic");
+    lxmusic_notification  = lxmusic_notification_new( GTK_STATUS_ICON( tray_icon ) );
 #endif
 
     if( !(con = xmmsc_init ("lxmusic")) )
