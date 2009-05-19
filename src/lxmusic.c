@@ -1121,7 +1121,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
     /* use file name to replace track name if it doesn't have id3. */
-    if( !title )
+    if( !title || g_str_equal( title, "" ) )
     {
         const char *url, *file;
 	xmmsv_t *string_value;
@@ -1667,7 +1667,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     if ( xmmsv_dict_get( value, "title", &string_value ) ) 
 	xmmsv_get_string( string_value, &title );
     /* url fallback */
-    else 
+    if ( !title || g_str_equal( title, "" ) )
     {
 	if ( xmmsv_dict_get( value, "url", &string_value ) ) 
 	{
