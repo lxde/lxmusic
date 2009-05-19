@@ -1120,29 +1120,9 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
 
     timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
-    /* use file name to replace track name if it doesn't have id3. */
+
     if( !title || g_str_equal( title, "" ) )
-    {
-        const char *url, *file;
-	xmmsv_t *string_value;
-	gchar *decoded_val;
-	
-	xmmsv_dict_get( value, "url", &string_value );
-
-	/* try to decode URL */
-	decoded_val = xmmsv_url_to_string ( string_value );
-
-	/* undecoded url string */	
-	if ( decoded_val == NULL )
-	    xmmsv_get_string( string_value, &file );
-	else
-	    file = decoded_val;
-	
-	file = g_utf8_strrchr ( file, -1, '/' ) + 1;
-	title = file;
-	if ( decoded_val )
-	    g_free ( decoded_val );
-    }
+	title =  xmmsv_media_dict_guess_title ( value );
 
     gtk_list_store_set( list_store, &ut->it,
                         COL_ARTIST, artist,
@@ -1666,29 +1646,10 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 
     if ( xmmsv_dict_get( value, "title", &string_value ) ) 
 	xmmsv_get_string( string_value, &title );
-    /* url fallback */
-    if ( !title || g_str_equal( title, "" ) )
-    {
-	if ( xmmsv_dict_get( value, "url", &string_value ) ) 
-	{
-	    char* url;
-            const char* file;
-	    gchar *decoded_val;
 
-	    /* try to decode URL */
-	    decoded_val = xmmsv_url_to_string ( string_value );
-	    
-	    /* undecoded url string */	
-	    if ( decoded_val == NULL )
-		xmmsv_get_string( string_value, &file );
-	    else
-		file = decoded_val;
-	    file = g_utf8_strrchr ( file, -1, '/' ) + 1;
-	    title = file;
-	    if ( decoded_val )
-		g_free ( decoded_val );
-        }
-    }
+    /* title guessing */
+    if ( !title || g_str_equal( title, "" ) )
+	title =  xmmsv_media_dict_guess_title ( value );
 
     /* default */
     window_title = g_string_new( "LXMusic" );

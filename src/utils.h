@@ -40,6 +40,7 @@ const char* timeval_to_str( guint timeval, char* buf, guint buf_len );
 void show_error(GtkWindow* parent, const char* title, const char* msg);
 
 gchar* xmmsv_url_to_string (xmmsv_t *url_value);
+gchar* xmmsv_media_dict_guess_title (xmmsv_t *value);
 
 G_END_DECLS
 

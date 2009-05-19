@@ -157,3 +157,34 @@ gchar* xmmsv_url_to_string (xmmsv_t *url_value)
 	g_warning( "Decoding of URL Failed" );
 	return NULL;
 }
+
+/* helper function to guess title from media properties */
+gchar* xmmsv_media_dict_guess_title (xmmsv_t *value) 
+{
+    const char *url, *file, *title;
+    xmmsv_t *string_value;
+    gchar *decoded_val;
+    
+    /* online streams often provide channel */
+    if ( xmmsv_dict_get( value, "channel", &string_value ) ) 
+	xmmsv_get_string( string_value, &title );
+    else
+    {
+	/*  fallback: url */
+	xmmsv_dict_get( value, "url", &string_value );
+	/* try to decode URL */
+	decoded_val = xmmsv_url_to_string ( string_value );
+	/* undecoded url string */	
+	if ( decoded_val == NULL )
+	    xmmsv_get_string( string_value, &file );
+	else
+	    file = decoded_val;
+	
+	file = g_utf8_strrchr ( file, -1, '/' ) + 1;
+	title = file;
+	if ( decoded_val )
+	    g_free ( decoded_val );
+    }
+    return title;
+}
+
