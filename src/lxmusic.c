@@ -2284,12 +2284,6 @@ int main (int argc, char *argv[])
     textdomain (GETTEXT_PACKAGE);
 #endif
 
-#ifdef HAVE_LIBNOTIFY
-    if (!notify_is_initted ())
-	notify_init ("LXMusic");
-    lxmusic_notification  = lxmusic_notification_new( GTK_STATUS_ICON( tray_icon ) );
-#endif
-
     if( !(con = xmmsc_init ("lxmusic")) )
         return EXIT_FAILURE;
 
@@ -2312,6 +2306,12 @@ int main (int argc, char *argv[])
 
     /* build the GUI */
     setup_ui();
+
+#ifdef HAVE_LIBNOTIFY
+    if (!notify_is_initted ())
+	notify_init ("LXMusic");
+    lxmusic_notification  = lxmusic_notification_new( GTK_STATUS_ICON( tray_icon ) );
+#endif
 
     /* some dirty hacks to show the window earlier :-D */
     while( gtk_events_pending() )
