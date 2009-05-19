@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-16 14:00+0200\n"
-"PO-Revision-Date: 2009-04-06 13:01+0200\n"
+"PO-Revision-Date: 2009-05-19 14:54+0200\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +107,7 @@ msgstr "Pridėti failus prie grojaraščio"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "Visi"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
@@ -147,7 +147,7 @@ msgstr "Kitas"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "Nekartoti"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
@@ -175,11 +175,11 @@ msgstr "Pašalinti iš grojaraščio"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr ""
+msgstr "Kartoti visus"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr ""
+msgstr "Kartoti dabartinį"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
@@ -191,7 +191,7 @@ msgstr "Stop"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr ""
+msgstr "Takelio pavadinimas"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
