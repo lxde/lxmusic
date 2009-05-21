@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-16 14:00+0200\n"
-"PO-Revision-Date: 2009-05-09 13:02+0500\n"
+"PO-Revision-Date: 2009-05-22 10:55+0500\n"
 "Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,8 @@ msgstr ""
 "موسیقی پلیئر برائے ایل ایکس ڈی ای\n"
 "سادہ مواجہ XMMS2 کلائنٹ"
 
-#: ../src/lxmusic.c:387 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:387
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "ایل ایکس موسیقی"
 
@@ -51,11 +52,13 @@ msgstr "تمام فائلیں"
 msgid "Input a URL"
 msgstr "ربط لکھیں"
 
-#: ../src/lxmusic.c:1280 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1280
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "فنکار"
 
-#: ../src/lxmusic.c:1289 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1289
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "ایلبم"
 
@@ -109,7 +112,7 @@ msgstr "پلے لسٹ میں فائلیں شامل کریں"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "تمام"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
@@ -127,7 +130,8 @@ msgstr "کلیدی لفظ یہاں لکھیں"
 msgid "Favorites"
 msgstr "پسندیدہ"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "فائل خصوصیات"
 
@@ -149,7 +153,7 @@ msgstr "اگلا"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "مت دہرائیں"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
@@ -177,11 +181,11 @@ msgstr "پلے لسٹ سے عناصر حذف کریں"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr ""
+msgstr "سب دہرائیں"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr ""
+msgstr "حالیہ دہرائیں"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
@@ -193,7 +197,7 @@ msgstr "روکیں"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr ""
+msgstr "ٹریک کا نام"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
@@ -288,12 +292,8 @@ msgid "Mixer:"
 msgstr "مکسر:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"موسیقی کی فائلیں صارف مواجہ کے بغیر بھی چلائی جاسکتی ہیں تاکہ نظام کے ذرائع "
-"بچائے جاسکیں"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "موسیقی کی فائلیں صارف مواجہ کے بغیر بھی چلائی جاسکتی ہیں تاکہ نظام کے ذرائع بچائے جاسکیں"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
@@ -353,7 +353,6 @@ msgstr "<b>عنوان: </b>"
 #~ "ٹریک کا نام\n"
 #~ "فنکار\n"
 #~ "ایلبم"
-
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -362,3 +361,4 @@ msgstr "<b>عنوان: </b>"
 #~ "مت دہرائیں\n"
 #~ "حالیہ کو دہرائیں\n"
 #~ "سب کو دہرائیں"
+
