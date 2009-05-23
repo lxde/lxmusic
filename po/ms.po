@@ -1,52 +1,52 @@
-# Indonesian translations for lxmusic package.
-# Copyright (C) YEAR THE lxmusic'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the lxmusic package.
-# Andhika Padmawan <andhika.padmawan@gmail.com>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxmusic 0.2.3\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-16 14:00+0200\n"
-"PO-Revision-Date: 2009-05-23 03:57+0200\n"
-"Last-Translator: Rahman Yusri Aftian <aftian@yahoo.com>\n"
-"Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2009-05-22 20:57+0200\n"
+"Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
 #: ../src/lxmusic.c:271
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Ikon resmi xmms2 oleh Arnaud DIDRY"
+msgstr "Ikon rasmi xmms2 oleh Arnaud DIDRY"
 
 #: ../src/lxmusic.c:282
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Pemutar Musik untuk LXDE\n"
-"Klien XMMS2 GUI sederhana"
+"Pemain Muzik untuk LXDE\n"
+"GUI mudah klien XMMS2"
 
 #: ../src/lxmusic.c:387 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
-msgstr "LXMusic"
+msgstr "LXMuzik"
 
 #: ../src/lxmusic.c:587
 msgid "Bitrate: "
-msgstr "Bitrasi:"
+msgstr "Kadarbit: "
 
 #: ../src/lxmusic.c:862
 msgid "Audio Files"
-msgstr "Berkas Audio"
+msgstr "Fail-Fail Audio"
 
 #: ../src/lxmusic.c:867
 msgid "All Files"
-msgstr "Semua Berkas"
+msgstr "Semua Fail"
 
 #: ../src/lxmusic.c:894
 msgid "Input a URL"
-msgstr "Masukkan URL"
+msgstr "Input satu URL"
 
 #: ../src/lxmusic.c:1280 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
@@ -58,15 +58,15 @@ msgstr "Album"
 
 #: ../src/lxmusic.c:1298
 msgid "Title"
-msgstr "Judul"
+msgstr "Tajuk"
 
 #: ../src/lxmusic.c:1305
 msgid "Length"
-msgstr "Panjang"
+msgstr "Kepanjangan"
 
 #: ../src/lxmusic.c:1466
 msgid "Default"
-msgstr "Standar"
+msgstr "Default"
 
 #: ../src/lxmusic.c:1576
 msgid "Pause"
@@ -74,27 +74,27 @@ msgstr "Jeda"
 
 #: ../src/lxmusic.c:1592
 msgid "Play"
-msgstr "Putar"
+msgstr "Main"
 
 #: ../src/lxmusic.c:1737
 msgid "Now Playing:"
-msgstr "Sedang Diputar:"
+msgstr "Kini Dimainkan:"
 
 #: ../src/lxmusic.c:2192
 msgid "Create new playlist"
-msgstr "Buat senarai putar baru"
+msgstr "Wujudkan senaraimain baru"
 
 #: ../src/utils.c:107
 msgid "Error"
-msgstr "Galat"
+msgstr "Ralat"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
-msgstr "Tambah Berkas atau Folder"
+msgstr "Tambah Fail-Fail atau Folder-Folder"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
-msgstr "Tambah Ke Senarai Putar"
+msgstr "Tambah Kepada Senaraimain"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Add URL"
@@ -102,7 +102,7 @@ msgstr "Tambah URL"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
-msgstr "Tambah berkas ke senarai putar"
+msgstr "Tambah fail-fail kepada senaraimain"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
@@ -110,31 +110,31 @@ msgstr "Semua"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "Buat _Senarai Putar Baru"
+msgstr "Wujudkan _Senaraimain Baru"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr "Senarai Putar Saat Ini"
+msgstr "Senaraimain Kini"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
-msgstr "Masukkan kata kunci di sini"
+msgstr "Masukan katakunci disini"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
-msgstr "Favorit"
+msgstr "Kegemaran-kegemaran"
 
 #: ../data/lxmusic.ui.glade.h:12 ../data/track-info.glade.h:8
 msgid "File Properties"
-msgstr "Properti Berkas"
+msgstr "Ciri-Ciri Fail"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Filter:"
-msgstr "Filter:"
+msgstr "Tapis:"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
-msgstr "Temukan lagu yang saat ini diputar"
+msgstr "Kesankan trek yang kini dimainkan"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
@@ -142,91 +142,91 @@ msgstr "Pustaka Media"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Next"
-msgstr "Maju"
+msgstr "Lain"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr "Tidak ada Pengulangan"
+msgstr "Tiada Ulangan"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
-msgstr "Putar/Jeda"
+msgstr "Main/Jeda"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
-msgstr "Mundur"
+msgstr "Sebelum"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
-msgstr "Hapus Semua Item"
+msgstr "Pemindahan Semua Butiran"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr "Hapus Dari Senarai Putar"
+msgstr "Pemindahan Daripada Senaraimain"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
-msgstr "Hapus Item Terpilih"
+msgstr "Pemindahan Butiran Pilihan"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
-msgstr "Hapus item dari senarai putar"
+msgstr "Pemindahan butiran daripada senaraimain"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr "Pengulangan Semua"
+msgstr "Ulangi Semua"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr "Arus Pengulangan"
+msgstr "Ulangi Kini"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
-msgstr "Tampilkan Senarai Putar"
+msgstr "Tunjuk Senaraimain"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
-msgstr "Stop"
+msgstr "Henti"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr "Nama Track:"
+msgstr "Nama Trek"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr "_Hapus Senarai Putar Saat Ini"
+msgstr "_Padam Senaraimain Kini"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
-msgstr "_Berkas"
+msgstr "_Fail"
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "_Help"
-msgstr "Ba_ntuan"
+msgstr "_Bantuan"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Temukan Diputar Saat Ini"
+msgstr "_Kesankan Mainan Kini"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr "_Senarai Putar"
+msgstr "_Senaraimain"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "_Pindah ke Senarai Putar"
+msgstr "_Suis Untuk Senaraimain"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
-msgstr "_Alat"
+msgstr "_Peralatan"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "_View"
-msgstr "Ta_mpilan"
+msgstr "_Lihat"
 
 #: ../data/popup.glade.h:1
 msgid "_Show Main Window"
-msgstr "Tam_pilkan Jendela Utama"
+msgstr "_Tunjuk Tetingkap Utama"
 
 #: ../data/pref-dlg.glade.h:1
 msgid "<b>Audio CD</b>"
@@ -234,7 +234,7 @@ msgstr "<b>CD Audio</b>"
 
 #: ../data/pref-dlg.glade.h:2
 msgid "<b>Output</b>"
-msgstr "<b>Keluaran</b>"
+msgstr "<b>Output</b>"
 
 #: ../data/pref-dlg.glade.h:3
 msgid "Audio"
@@ -242,120 +242,98 @@ msgstr "Audio"
 
 #: ../data/pref-dlg.glade.h:4
 msgid "Buffer Size: "
-msgstr "Ukuran Penyangga:"
+msgstr "Saiz Nimbal: "
 
 #: ../data/pref-dlg.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "Divais CD-ROM:"
+msgstr "Peranti CD-ROM: "
 
 #: ../data/pref-dlg.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "Lanjutkan putar balik di latar belakang setelah keluar LXMusic"
+msgstr "Sambung memainkan dilatarbelakang selepas keluar dari LXMusic"
 
 #: ../data/pref-dlg.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "Penyandian ID3 V1 Standar:"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:8
 msgid "Device:"
-msgstr "Divais:"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:9
 msgid "Driver:"
-msgstr "Penggerak:"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:10
 msgid "General"
-msgstr "Umum"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:11
 msgid "KB"
-msgstr "KB"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:12
 msgid "Minimize to system tray on close"
-msgstr "Minimalkan ke baki sistem saat keluar"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:13
 msgid "Misc"
-msgstr "Lainnya"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:14
 msgid "Mixer:"
-msgstr "Mixer:"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:15
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
-"Berkas musik dapat dimainkan tanpa antarmuka pengguna grafis untuk menghemat "
-"sumber daya sistem"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
-msgstr "Plugin: "
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:17
 msgid "Preference"
-msgstr "Pengaturan"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr "Tampilkan ikon baki sistem"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
-msgstr "Gunakan OSS untuk keluaran audio"
+msgstr ""
 
 #: ../data/pref-dlg.glade.h:20
 msgid "Use Pulse Audio for audio output"
-msgstr "Gunakan Pulse Audio untuk keluaran audio"
+msgstr ""
 
 #: ../data/track-info.glade.h:1
 msgid "<b>Album: </b>"
-msgstr "<b>Album: </b>"
+msgstr ""
 
 #: ../data/track-info.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr "<b>Artis: </b>"
+msgstr ""
 
 #: ../data/track-info.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr "<b>Komentar: </b>"
+msgstr ""
 
 #: ../data/track-info.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Tipe Berkas: </b>"
+msgstr ""
 
 #: ../data/track-info.glade.h:5
 msgid "<b>File: </b>"
-msgstr "<b>Berkas: </b>"
+msgstr ""
 
 #: ../data/track-info.glade.h:6
 msgid "<b>Size: </b>"
-msgstr "<b>Ukuran: </b>"
+msgstr ""
 
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
-msgstr "<b>Judul: </b>"
-
-#~ msgid ""
-#~ "All\n"
-#~ "Track Name\n"
-#~ "Artist\n"
-#~ "Album"
-#~ msgstr ""
-#~ "Semua\n"
-#~ "Nama Lagu\n"
-#~ "Artis\n"
-#~ "Album"
-
-#~ msgid ""
-#~ "No Repeat\n"
-#~ "Repeat Current\n"
-#~ "Repeat All"
-#~ msgstr ""
-#~ "Tak Diulang\n"
-#~ "Ulangi Saat Ini\n"
-#~ "Ulangi Semua"
+msgstr ""
