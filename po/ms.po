@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-16 14:00+0200\n"
-"PO-Revision-Date: 2009-05-24 01:51+0200\n"
+"PO-Revision-Date: 2009-05-24 06:35+0200\n"
 "Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "Album"
 
 #: ../src/lxmusic.c:1298
 msgid "Title"
-msgstr "Tajuk"
+msgstr "Judul"
 
 #: ../src/lxmusic.c:1305
 msgid "Length"
@@ -262,7 +262,7 @@ msgstr "Peranti:"
 
 #: ../data/pref-dlg.glade.h:9
 msgid "Driver:"
-msgstr "Pemacu"
+msgstr "Pemacu:"
 
 #: ../data/pref-dlg.glade.h:10
 msgid "General"
@@ -282,7 +282,7 @@ msgstr "Misc"
 
 #: ../data/pref-dlg.glade.h:14
 msgid "Mixer:"
-msgstr "Pengadun"
+msgstr "Pengadun:"
 
 #: ../data/pref-dlg.glade.h:15
 msgid ""
@@ -302,15 +302,15 @@ msgstr "Kegemaran"
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr "Pamerkan ikon tray sistem"
+msgstr "Paparkan ikon tray sistem"
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
-msgstr "Guna OSS sebagai keluaran audio"
+msgstr "Guna OSS untuk output audio"
 
 #: ../data/pref-dlg.glade.h:20
 msgid "Use Pulse Audio for audio output"
-msgstr "Guna Pulse Audio sebagai keluaran audio"
+msgstr "Guna Pulse Audio untuk output audio"
 
 #: ../data/track-info.glade.h:1
 msgid "<b>Album: </b>"
@@ -326,7 +326,7 @@ msgstr "<b>Komen: </b>"
 
 #: ../data/track-info.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "Jenis Fail"
+msgstr "<b>Jenis Fail: </b>"
 
 #: ../data/track-info.glade.h:5
 msgid "<b>File: </b>"
