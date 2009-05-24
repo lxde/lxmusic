@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-16 14:00+0200\n"
-"PO-Revision-Date: 2009-05-22 20:57+0200\n"
+"PO-Revision-Date: 2009-05-24 01:51+0200\n"
 "Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "LXMuzik"
 
 #: ../src/lxmusic.c:587
 msgid "Bitrate: "
-msgstr "Kadarbit: "
+msgstr "Kadar bit: "
 
 #: ../src/lxmusic.c:862
 msgid "Audio Files"
@@ -62,7 +62,7 @@ msgstr "Tajuk"
 
 #: ../src/lxmusic.c:1305
 msgid "Length"
-msgstr "Kepanjangan"
+msgstr "Jangkaan"
 
 #: ../src/lxmusic.c:1466
 msgid "Default"
@@ -110,11 +110,11 @@ msgstr "Semua"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "Wujudkan _Senaraimain Baru"
+msgstr "Wujudkan _Senarai main Baru"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr "Senaraimain Kini"
+msgstr "Senarai main Terkini"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
@@ -122,7 +122,7 @@ msgstr "Masukan katakunci disini"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
-msgstr "Kegemaran-kegemaran"
+msgstr "Kegemaran"
 
 #: ../data/lxmusic.ui.glade.h:12 ../data/track-info.glade.h:8
 msgid "File Properties"
@@ -170,7 +170,7 @@ msgstr "Pemindahan Butiran Pilihan"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
-msgstr "Pemindahan butiran daripada senaraimain"
+msgstr "Pemindahan butiran daripada senarai main"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
@@ -254,86 +254,88 @@ msgstr "Sambung memainkan dilatarbelakang selepas keluar dari LXMusic"
 
 #: ../data/pref-dlg.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr ""
+msgstr "Mengekod ID3 V1 Default: "
 
 #: ../data/pref-dlg.glade.h:8
 msgid "Device:"
-msgstr ""
+msgstr "Peranti:"
 
 #: ../data/pref-dlg.glade.h:9
 msgid "Driver:"
-msgstr ""
+msgstr "Pemacu"
 
 #: ../data/pref-dlg.glade.h:10
 msgid "General"
-msgstr ""
+msgstr "Am"
 
 #: ../data/pref-dlg.glade.h:11
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: ../data/pref-dlg.glade.h:12
 msgid "Minimize to system tray on close"
-msgstr ""
+msgstr "Meminimumkan tray sistem pada tutup"
 
 #: ../data/pref-dlg.glade.h:13
 msgid "Misc"
-msgstr ""
+msgstr "Misc"
 
 #: ../data/pref-dlg.glade.h:14
 msgid "Mixer:"
-msgstr ""
+msgstr "Pengadun"
 
 #: ../data/pref-dlg.glade.h:15
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
+"Fail muzik boleh dimainkan tanpa grafik pengguna antaramuka untuk simpan "
+"sumber sistem"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
-msgstr ""
+msgstr "Plugin: "
 
 #: ../data/pref-dlg.glade.h:17
 msgid "Preference"
-msgstr ""
+msgstr "Kegemaran"
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Pamerkan ikon tray sistem"
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
-msgstr ""
+msgstr "Guna OSS sebagai keluaran audio"
 
 #: ../data/pref-dlg.glade.h:20
 msgid "Use Pulse Audio for audio output"
-msgstr ""
+msgstr "Guna Pulse Audio sebagai keluaran audio"
 
 #: ../data/track-info.glade.h:1
 msgid "<b>Album: </b>"
-msgstr ""
+msgstr "<b>Album: </b>"
 
 #: ../data/track-info.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr ""
+msgstr "<b>Artis: </b>"
 
 #: ../data/track-info.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr ""
+msgstr "<b>Komen: </b>"
 
 #: ../data/track-info.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr ""
+msgstr "Jenis Fail"
 
 #: ../data/track-info.glade.h:5
 msgid "<b>File: </b>"
-msgstr ""
+msgstr "<b>Fail: </b>"
 
 #: ../data/track-info.glade.h:6
 msgid "<b>Size: </b>"
-msgstr ""
+msgstr "<b>Saiz: </b>"
 
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "<b>Judul: </b>"
