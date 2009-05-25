@@ -25,7 +25,8 @@ msgstr ""
 "LXDE zenelejátszó\n"
 "Egyszerű grafikus XMMS2 kliens"
 
-#: ../src/lxmusic.c:387 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:387
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -45,11 +46,13 @@ msgstr "Minden fájl"
 msgid "Input a URL"
 msgstr "URL megadása"
 
-#: ../src/lxmusic.c:1280 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1280
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Művész"
 
-#: ../src/lxmusic.c:1289 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1289
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
@@ -121,7 +124,8 @@ msgstr "Adj meg kulcsszót"
 msgid "Favorites"
 msgstr "Kedvencek"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "Fájl tulajdonságok"
 
@@ -271,7 +275,7 @@ msgstr "KB"
 
 #: ../data/pref-dlg.glade.h:12
 msgid "Minimize to system tray on close"
-msgstr ""
+msgstr "Bezárást indítva a rendszertálcára"
 
 #: ../data/pref-dlg.glade.h:13
 msgid "Misc"
@@ -282,12 +286,8 @@ msgid "Mixer:"
 msgstr "Keverő:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"A zenei fájlok grafikus felület nélkül is lejátszhatók az erőforrásokat "
-"kímélve"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "A zenei fájlok grafikus felület nélkül is lejátszhatók az erőforrásokat kímélve"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
@@ -335,4 +335,5 @@ msgstr "<b>Méret: </b>"
 
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "<b>Cím: </b>"
+
