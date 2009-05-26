@@ -75,7 +75,7 @@ const char* known_plugins[] = {
     "pulse",
     "alsa",
     "ao",
-/*    "oss" */
+    "oss" 
 };
 
 #ifdef HAVE_LIBNOTIFY
