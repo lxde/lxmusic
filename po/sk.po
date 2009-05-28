@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-16 14:00+0200\n"
-"PO-Revision-Date: 2009-02-13 16:42+0100\n"
+"PO-Revision-Date: 2009-05-28 17:11+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,8 @@ msgstr ""
 "prehrávač hudby pre projekt LXDE\n"
 "Jednoduchý grafický klient XMMS2"
 
-#: ../src/lxmusic.c:387 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:387
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -47,11 +48,13 @@ msgstr "Všetky súbory"
 msgid "Input a URL"
 msgstr "Zadať URL"
 
-#: ../src/lxmusic.c:1280 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1280
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Autor"
 
-#: ../src/lxmusic.c:1289 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1289
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
@@ -105,7 +108,7 @@ msgstr "Pridať súbory do zoznamu stôp"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "Všetky"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
@@ -123,7 +126,8 @@ msgstr "Sem zadajte kľúčové slovo"
 msgid "Favorites"
 msgstr "Obľúbené"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "Vlastnosti súboru"
 
@@ -145,7 +149,7 @@ msgstr "Ďalšia"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "Bez opakovania"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
@@ -173,11 +177,11 @@ msgstr "Odstrániť položky zo zoznamu stôp"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr ""
+msgstr "Opakovať všetky"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr ""
+msgstr "Opakovať aktuálnu"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
@@ -189,7 +193,7 @@ msgstr "Zastaviť"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr ""
+msgstr "Názov stopy"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
@@ -284,12 +288,8 @@ msgid "Mixer:"
 msgstr "Mixer:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Hudobné súbory možno prehrávať bez grafického rozhrania, aby sa šetrili "
-"zdroje systému"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Hudobné súbory možno prehrávať bez grafického rozhrania, aby sa šetrili zdroje systému"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
@@ -349,7 +349,6 @@ msgstr "<b>Názov: </b>"
 #~ "Názov stopy\n"
 #~ "Autor\n"
 #~ "Album"
-
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -358,3 +357,4 @@ msgstr "<b>Názov: </b>"
 #~ "Neopakovať\n"
 #~ "Opakovať stopu\n"
 #~ "Opakovať zoznam stôp"
+
