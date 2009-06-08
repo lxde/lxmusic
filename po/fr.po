@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-16 14:00+0200\n"
-"PO-Revision-Date: 2009-05-10 16:07+0200\n"
-"Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
+"PO-Revision-Date: 2009-06-07 21:58+0200\n"
+"Last-Translator: Cyprien Gay <cyprien.gay@aful.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -178,7 +178,7 @@ msgstr "Répéter tout"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr "Répéter courant"
+msgstr "Répéter l'élément actuel"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
@@ -250,7 +250,7 @@ msgstr "Périphérique CD-ROM : "
 
 #: ../data/pref-dlg.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "Continuer la lecture en arrière-plan lors de la fermeture de LXMusic"
+msgstr "Continuer la lecture en arrière-plan après la fermeture de LXMusic"
 
 #: ../data/pref-dlg.glade.h:7
 msgid "Default ID3 V1 Encoding: "
@@ -339,4 +339,3 @@ msgstr "<b>Taille : </b>"
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Titre : </b>"
-
