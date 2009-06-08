@@ -48,39 +48,16 @@ void kf_get_int(GKeyFile* kf, const char* grp, const char* key, int* val)
         *val = ret;
 }
 
-int utf8_strncasecmp( const char* s1, const char* s2, int len )
+gchar* utf8_strcasestr( const char* s1, const char* s2 )
 {
-    const char *p1 = s1, *p2 = s2;
-    int i;
-    for( i = 0; i < len; ++i )
-    {
-        gunichar c1 = g_utf8_get_char(p1);
-        gunichar c2 = g_utf8_get_char(p2);
+    gchar *p1 = g_utf8_casefold ( s1, -1 );
+    gchar *p2 = g_utf8_casefold ( s2, -1 );
 
-        if( isalpha(c1) )
-            c1 = tolower(c1);
-        if( isalpha(c2) )
-            c2 = tolower(c2);
-
-        if( c1 != c2 )
-            return c1 - c2;
-
-        p1 = g_utf8_next_char(p1);
-        p2 = g_utf8_next_char(p2);
-    }
-    return 0;
-}
-
-char* utf8_strcasestr( const char* s1, const char* s2 )
-{
-    const char *p1, *p2;
-    int len = g_utf8_strlen(s2, -1);
-    for( ; *s1; s1 = g_utf8_next_char(s1) )
-    {
-        if( 0 == utf8_strncasecmp( s1, s2, len ) )
-            return s1;
-    }
-    return NULL;
+    gchar *found = g_strstr_len( p1, -1, p2 );
+    g_free( p1 );
+    g_free( p2 );
+    
+    return found;
 }
 
 const char* timeval_to_str( guint timeval, char* buf, guint buf_len )

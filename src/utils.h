@@ -32,8 +32,7 @@ G_BEGIN_DECLS
 void kf_get_bool(GKeyFile* kf, const char* grp, const char* key, gboolean* val);
 void kf_get_int(GKeyFile* kf, const char* grp, const char* key, int* val);
 
-int utf8_strncasecmp( const char* s1, const char* s2, int len );
-char* utf8_strcasestr( const char* s1, const char* s2 );
+gchar* utf8_strcasestr( const gchar* s1, const gchar* s2 );
 
 const char* timeval_to_str( guint timeval, char* buf, guint buf_len );
 
