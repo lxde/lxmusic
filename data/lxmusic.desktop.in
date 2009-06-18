@@ -1,10 +1,13 @@
 [Desktop Entry]
 Type=Application
 Name=Music Player
+Name[ja]=音楽プレーヤ
 Name[zh_TW]=音樂播放程式
 GenericName=Music Player
+GenericName[ja]=音楽プレーヤ
 GenericName[zh_TW]=音樂播放程式
 Comment=Play your music files easily
+Comment[ja]=簡単に音楽を再生できます
 Comment[zh_TW]=簡單地播放你的音樂檔案
 Categories=AudioVideo;Audio;Player;GTK;
 Icon=lxmusic
