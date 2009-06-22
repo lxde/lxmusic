@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXMusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-16 14:00+0200\n"
+"POT-Creation-Date: 2009-06-23 00:23+0200\n"
 "PO-Revision-Date: 2009-05-17 11:19+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-#: ../src/lxmusic.c:271
+#: ../src/lxmusic.c:283
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "الأيقونة الرسمية لـxmms2 رسمها Arnaud DIDRY"
 
-#: ../src/lxmusic.c:282
+#: ../src/lxmusic.c:294
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -28,199 +28,202 @@ msgstr ""
 "مشغل موسيقى لـLXDE\n"
 "عميل رسومي بسيط لـXMMS2"
 
-#: ../src/lxmusic.c:387 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:399 ../data/lxmusic.glade.h:15
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:587
+#: ../src/lxmusic.c:599
 msgid "Bitrate: "
 msgstr "معدل بِت: "
 
-#: ../src/lxmusic.c:862
+#: ../src/lxmusic.c:874
 msgid "Audio Files"
 msgstr "ملفات صوت"
 
-#: ../src/lxmusic.c:867
+#: ../src/lxmusic.c:879
 msgid "All Files"
 msgstr "كل الملفات"
 
-#: ../src/lxmusic.c:894
+#: ../src/lxmusic.c:906
 msgid "Input a URL"
 msgstr "أدخل عنوانا"
 
-#: ../src/lxmusic.c:1280 ../data/lxmusic.ui.glade.h:7
+#. metadata available
+#: ../src/lxmusic.c:1273 ../src/lxmusic.c:1679
 msgid "Artist"
 msgstr "الفنان"
 
-#: ../src/lxmusic.c:1289 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1282
 msgid "Album"
 msgstr "الألبوم"
 
-#: ../src/lxmusic.c:1298
+#: ../src/lxmusic.c:1291 ../src/lxmusic.c:1680
 msgid "Title"
 msgstr "الاسم"
 
-#: ../src/lxmusic.c:1305
+#: ../src/lxmusic.c:1298
 msgid "Length"
 msgstr "الطول"
 
-#: ../src/lxmusic.c:1466
+#: ../src/lxmusic.c:1459
 msgid "Default"
 msgstr "الافتراضية"
 
-#: ../src/lxmusic.c:1576
+#: ../src/lxmusic.c:1569
 msgid "Pause"
 msgstr "أوقف مؤقتا"
 
-#: ../src/lxmusic.c:1592
+#: ../src/lxmusic.c:1585
 msgid "Play"
 msgstr "شغّل"
 
-#: ../src/lxmusic.c:1737
+#: ../src/lxmusic.c:1685
 msgid "Now Playing:"
 msgstr "يشغّل الآن:"
 
-#: ../src/lxmusic.c:2192
+#: ../src/lxmusic.c:2140
 msgid "Create new playlist"
 msgstr "أنشئ قائمة تشغيل جديدة"
 
-#: ../src/utils.c:107
+#: ../src/utils.c:84
 msgid "Error"
 msgstr "خطأ"
 
-#: ../data/lxmusic.ui.glade.h:1
+#: ../data/lxmusic.glade.h:1
 msgid "Add Files or Folders"
 msgstr "أضف ملفات أو مجلدات"
 
-#: ../data/lxmusic.ui.glade.h:2
+#: ../data/lxmusic.glade.h:2
 msgid "Add To Playlist"
 msgstr "أضف إلى قائمة التشغيل"
 
-#: ../data/lxmusic.ui.glade.h:3
+#: ../data/lxmusic.glade.h:3
 msgid "Add URL"
 msgstr "أضف عنوانا"
 
-#: ../data/lxmusic.ui.glade.h:4
+#: ../data/lxmusic.glade.h:4
 msgid "Add files to the playlist"
 msgstr "أضف ملفات إلى قائمة التشغيل"
 
-#: ../data/lxmusic.ui.glade.h:6
-msgid "All"
-msgstr "الكل"
+#: ../data/lxmusic.glade.h:5
+msgid ""
+"All\n"
+"Track Name\n"
+"Artist\n"
+"Album"
+msgstr ""
+"الكل\n"
+"اسم المقطوعة\n"
+"الفنان\n"
+"الألبوم"
 
-#: ../data/lxmusic.ui.glade.h:8
+#: ../data/lxmusic.glade.h:9
 msgid "Create _New Playlist"
 msgstr "أنشئ قائمة تشغيل _جديدة"
 
-#: ../data/lxmusic.ui.glade.h:9
+#: ../data/lxmusic.glade.h:10
 msgid "Current Playlist"
 msgstr "قائمة التشغيل الحالية"
 
-#: ../data/lxmusic.ui.glade.h:10
+#: ../data/lxmusic.glade.h:11
 msgid "Enter keyword here"
 msgstr "أدخل كلمة مفتاحية هنا"
 
-#: ../data/lxmusic.ui.glade.h:11
+#: ../data/lxmusic.glade.h:12
 msgid "Favorites"
 msgstr "المفضلة"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.glade.h:8
+#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "خصائص الملف"
 
-#: ../data/lxmusic.ui.glade.h:13
+#: ../data/lxmusic.glade.h:14
 msgid "Filter:"
 msgstr "رشّح:"
 
-#: ../data/lxmusic.ui.glade.h:15
+#: ../data/lxmusic.glade.h:16
 msgid "Locate currently played track"
 msgstr "اقفز للمقطوعة التي يتم تشغيلها حاليا"
 
-#: ../data/lxmusic.ui.glade.h:16
+#: ../data/lxmusic.glade.h:17
 msgid "Media Library"
 msgstr "مكتبة الوسائط"
 
-#: ../data/lxmusic.ui.glade.h:17
+#: ../data/lxmusic.glade.h:18
 msgid "Next"
 msgstr "التالية"
 
-#: ../data/lxmusic.ui.glade.h:18
-msgid "No Repeat"
-msgstr "لا تكرار"
+#: ../data/lxmusic.glade.h:19
+msgid ""
+"No Repeat\n"
+"Repeat Current\n"
+"Repeat All"
+msgstr ""
+"لا تكرر\n"
+"كرر المقطوعة الحالية\n"
+"كرر الكل"
 
-#: ../data/lxmusic.ui.glade.h:19
+#: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
 msgstr "شغّل أو أوقف مؤقتا"
 
-#: ../data/lxmusic.ui.glade.h:20
+#: ../data/lxmusic.glade.h:23
 msgid "Previous"
 msgstr "السابقة"
 
-#: ../data/lxmusic.ui.glade.h:21
+#: ../data/lxmusic.glade.h:24
 msgid "Remove All Items"
 msgstr "أزل جميع العناصر"
 
-#: ../data/lxmusic.ui.glade.h:22
+#: ../data/lxmusic.glade.h:25
 msgid "Remove From Playlist"
 msgstr "أزل من قائمة التشغيل"
 
-#: ../data/lxmusic.ui.glade.h:23
+#: ../data/lxmusic.glade.h:26
 msgid "Remove Selected Items"
 msgstr "أزل العناصر المنتقاة"
 
-#: ../data/lxmusic.ui.glade.h:24
+#: ../data/lxmusic.glade.h:27
 msgid "Remove items from the playlist"
 msgstr "أزل عناصر من قائمة التشغيل"
 
-#: ../data/lxmusic.ui.glade.h:25
-msgid "Repeat All"
-msgstr "كرر الكل"
-
-#: ../data/lxmusic.ui.glade.h:26
-msgid "Repeat Current"
-msgstr "كرر المقطوعة الحالية"
-
-#: ../data/lxmusic.ui.glade.h:27
+#: ../data/lxmusic.glade.h:28
 msgid "Show Playlist"
 msgstr "أظهر قائمة التشغيل"
 
-#: ../data/lxmusic.ui.glade.h:28
+#: ../data/lxmusic.glade.h:29
 msgid "Stop"
 msgstr "أوقف"
 
-#: ../data/lxmusic.ui.glade.h:29
-msgid "Track Name"
-msgstr "اسم المقطوعة"
-
-#: ../data/lxmusic.ui.glade.h:30
+#: ../data/lxmusic.glade.h:30
 msgid "_Delete Current Playlist"
 msgstr "ا_حذف قائمة التشغيل الحالية"
 
-#: ../data/lxmusic.ui.glade.h:31
+#: ../data/lxmusic.glade.h:31
 msgid "_File"
 msgstr "_ملف"
 
-#: ../data/lxmusic.ui.glade.h:32
+#: ../data/lxmusic.glade.h:32
 msgid "_Help"
 msgstr "م_ساعدة"
 
-#: ../data/lxmusic.ui.glade.h:33
+#: ../data/lxmusic.glade.h:33
 msgid "_Locate Currently Played"
 msgstr "اقف_ز للمقطوعة التي يتم تشغيلها"
 
-#: ../data/lxmusic.ui.glade.h:34
+#: ../data/lxmusic.glade.h:34
 msgid "_Playlist"
 msgstr "_قائمة تشغيل"
 
-#: ../data/lxmusic.ui.glade.h:35
+#: ../data/lxmusic.glade.h:35
 msgid "_Switch To Playlist"
 msgstr "انت_قل لقائمة التشغيل"
 
-#: ../data/lxmusic.ui.glade.h:36
+#: ../data/lxmusic.glade.h:36
 msgid "_Tools"
 msgstr "أ_دوات"
 
-#: ../data/lxmusic.ui.glade.h:37
+#: ../data/lxmusic.glade.h:37
 msgid "_View"
 msgstr "_عرض"
 
@@ -338,22 +341,17 @@ msgstr "<b>الحجم: </b>"
 msgid "<b>Title: </b>"
 msgstr "<b>الاسم: </b>"
 
-#~ msgid ""
-#~ "All\n"
-#~ "Track Name\n"
-#~ "Artist\n"
-#~ "Album"
-#~ msgstr ""
-#~ "الكل\n"
-#~ "اسم المقطوعة\n"
-#~ "الفنان\n"
-#~ "الألبوم"
+#~ msgid "All"
+#~ msgstr "الكل"
 
-#~ msgid ""
-#~ "No Repeat\n"
-#~ "Repeat Current\n"
-#~ "Repeat All"
-#~ msgstr ""
-#~ "لا تكرر\n"
-#~ "كرر المقطوعة الحالية\n"
-#~ "كرر الكل"
+#~ msgid "No Repeat"
+#~ msgstr "لا تكرار"
+
+#~ msgid "Repeat All"
+#~ msgstr "كرر الكل"
+
+#~ msgid "Repeat Current"
+#~ msgstr "كرر المقطوعة الحالية"
+
+#~ msgid "Track Name"
+#~ msgstr "اسم المقطوعة"
