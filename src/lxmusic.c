@@ -1422,12 +1422,14 @@ static gint on_server_quit (xmmsv_t *val, void* user_data)
     xmmsc_unref (con);
     g_warning( "Server Quit" );
     con = NULL;
+    on_xmms_quit( NULL, NULL );
     return TRUE;
 }
 
 static void on_server_disconnect (void *user_data)
 {
     g_warning( "Server gone" );
+    on_xmms_quit( NULL, NULL );
 }
 
 static int on_playlist_created( xmmsv_t* value, void* user_data )
