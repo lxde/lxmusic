@@ -233,8 +233,7 @@ void on_quit(GtkAction* act, gpointer user_data)
     lxmusic_notification_free( lxmusic_notification );
 #endif HAVE_LIBNOTIFY
 
-    /* FIXME: Is this apporpriate? */
-    if( ! play_after_exit || playback_status == XMMS_PLAYBACK_STATUS_STOP )
+    if( ! play_after_exit )
     {
         /* quit the server */
         xmmsc_result_t* res = xmmsc_quit(con);
