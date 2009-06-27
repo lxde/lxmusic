@@ -1417,6 +1417,14 @@ static void remove_playlist_from_menu(const char* pl_name)
     }
 }
 
+static gint on_server_quit (xmmsv_t *val, void* user_data) 
+{
+	xmmsc_unref (con);
+	g_warning( "Server Quit" );
+	con = NULL;
+	return TRUE;
+}
+
 static int on_playlist_created( xmmsv_t* value, void* user_data )
 {
     char* name = (char*)user_data;
@@ -1975,6 +1983,9 @@ static void setup_xmms_callbacks()
     xmmsc_result_unref(res);
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_status,
                        on_playback_status_changed, NULL );
+
+    /* server quit */
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_quit, on_server_quit, NULL );
 
     /* play time */
     /* this is a signal rather than broadcast, so restart is needed in the callback func. */
