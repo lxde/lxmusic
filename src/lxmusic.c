@@ -1419,10 +1419,15 @@ static void remove_playlist_from_menu(const char* pl_name)
 
 static gint on_server_quit (xmmsv_t *val, void* user_data) 
 {
-	xmmsc_unref (con);
-	g_warning( "Server Quit" );
-	con = NULL;
-	return TRUE;
+    xmmsc_unref (con);
+    g_warning( "Server Quit" );
+    con = NULL;
+    return TRUE;
+}
+
+static void on_server_disconnect (void *user_data)
+{
+    g_warning( "Server gone" );
 }
 
 static int on_playlist_created( xmmsv_t* value, void* user_data )
@@ -1976,6 +1981,8 @@ static void on_configval_changed(xmmsv_t* value, void* user_data)
 static void setup_xmms_callbacks()
 {
     xmmsc_result_t* res;
+
+    xmmsc_disconnect_callback_set (con, on_server_disconnect, NULL);
     /* play status */
     res = xmmsc_playback_status(con);
     on_playback_status_changed( xmmsc_result_get_value( res ), NULL );
