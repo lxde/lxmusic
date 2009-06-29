@@ -1987,7 +1987,6 @@ static void setup_xmms_callbacks()
     xmmsc_disconnect_callback_set (con, on_server_disconnect, NULL);
     /* play status */
     res = xmmsc_playback_status(con);
-    on_playback_status_changed( xmmsc_result_get_value( res ), NULL );
     xmmsc_result_notifier_set(res, on_playback_status_changed, NULL);
     xmmsc_result_unref(res);
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_status,
