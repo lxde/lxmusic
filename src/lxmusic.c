@@ -1708,7 +1708,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 
 static int on_playback_cur_track_changed( xmmsv_t* value, void* user_data )
 {
-    if( xmmsv_get_int(value, &cur_track_id) )
+    if( xmmsv_get_int(value, &cur_track_id) && cur_track_id != 0)
     {
         xmmsc_result_t *res2;
         char* name;
