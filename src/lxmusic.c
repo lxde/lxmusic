@@ -517,7 +517,7 @@ void on_preference(GtkAction* act, gpointer data)
 static int on_track_info_received(xmmsv_t* value, void* user_data)
 {
     GtkBuilder* builder = (GtkBuilder*)user_data;
-    xmmsv_t *string_value, *int_value, *dict_value;
+    xmmsv_t *string_value, *int_value;
     
     GtkWidget* w;
     const char* keys[] = {
@@ -538,7 +538,6 @@ static int on_track_info_received(xmmsv_t* value, void* user_data)
         if( g_str_has_prefix(val, "file://") )
         {
             char* disp;
-	    gchar *tmp;
 	    gchar *decoded_val;
 
 	    decoded_val = xmmsv_url_to_string ( string_value );
@@ -813,8 +812,6 @@ static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, gpoin
 
 static gboolean on_filter_timeout(GtkEntry* entry)
 {
-    GtkWidget* view = playlist_view;
-    GtkTreeModelFilter* filter = (GtkTreeModelFilter*)gtk_tree_view_get_model(GTK_TREE_VIEW(view));
     g_free(filter_keyword);
     filter_keyword = g_strdup(gtk_entry_get_text(entry));
  //   gtk_tree_model_filter_refilter(filter);
@@ -944,7 +941,6 @@ void on_remove_all(GtkAction* act, gpointer user_data)
 
 void on_remove_selected(GtkAction* act, gpointer user_data)
 {
-    xmmsc_result_t* res;
     if( cur_playlist )
     {
         GtkTreeSelection* tree_sel;
@@ -1170,7 +1166,6 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
 {
     GtkTreeModel* mf;
     GtkTreeIter it;
-    const char* pl_name = cur_playlist;
     int pl_size = xmmsv_list_get_size( value );
     int i;
     
@@ -1243,7 +1238,6 @@ static int on_playlist_get_active(xmmsv_t* value, void* user_data)
 static void update_play_list( GtkWidget* list_view )
 {
     xmmsc_result_t *res;
-    const char* pl_name;
 
     if( GTK_WIDGET_REALIZED( list_view ) ) {
         GdkCursor* cur;
@@ -1325,8 +1319,6 @@ static int on_playlist_loaded(xmmsv_t* value, gpointer user_data)
     char* name;
     if( !xmmsv_is_error(value) && xmmsv_get_string(value, (const char**)&name) )
     {
-        xmmsc_result_t* res2;
-
         /* FIXME: is this possible? */
         if( cur_playlist && 0 == strcmp((char*)name, cur_playlist) )
             return;
@@ -1636,7 +1628,6 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 {
     const char* artist = NULL;
     const char* title = NULL;
-    char* filename;
     const char* err;
     
     xmmsv_t *duration_value;
@@ -1711,7 +1702,6 @@ static int on_playback_cur_track_changed( xmmsv_t* value, void* user_data )
     if( xmmsv_get_int(value, &cur_track_id) && cur_track_id != 0)
     {
         xmmsc_result_t *res2;
-        char* name;
         res2 = xmmsc_medialib_get_info(con, cur_track_id);
         xmmsc_result_notifier_set(res2, on_playback_track_loaded, NULL);
         xmmsc_result_unref(res2);
