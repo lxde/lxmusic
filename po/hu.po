@@ -25,7 +25,8 @@ msgstr ""
 "LXDE zenelejátszó\n"
 "Egyszerű grafikus XMMS2 kliens"
 
-#: ../src/lxmusic.c:399 ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:399
+#: ../data/lxmusic.glade.h:15
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -46,7 +47,8 @@ msgid "Input a URL"
 msgstr "URL megadása"
 
 #. metadata available
-#: ../src/lxmusic.c:1273 ../src/lxmusic.c:1679
+#: ../src/lxmusic.c:1273
+#: ../src/lxmusic.c:1679
 msgid "Artist"
 msgstr "Művész"
 
@@ -54,7 +56,8 @@ msgstr "Művész"
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1291 ../src/lxmusic.c:1680
+#: ../src/lxmusic.c:1291
+#: ../src/lxmusic.c:1680
 msgid "Title"
 msgstr "Cím"
 
@@ -109,6 +112,10 @@ msgid ""
 "Artist\n"
 "Album"
 msgstr ""
+"Mind\n"
+"Szám Címe\n"
+"Előadó\n"
+"Album"
 
 #: ../data/lxmusic.glade.h:9
 msgid "Create _New Playlist"
@@ -126,7 +133,8 @@ msgstr "Adj meg kulcsszót"
 msgid "Favorites"
 msgstr "Kedvencek"
 
-#: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
+#: ../data/lxmusic.glade.h:13
+#: ../data/track-info.glade.h:8
 msgid "File Properties"
 msgstr "Fájl tulajdonságok"
 
@@ -152,6 +160,9 @@ msgid ""
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
+"Nincs ismétlés\n"
+"Jelenleg játszott ismétlése\n"
+"Mind ismétlése"
 
 #: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
@@ -278,12 +289,8 @@ msgid "Mixer:"
 msgstr "Keverő:"
 
 #: ../data/pref-dlg.glade.h:15
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"A zenei fájlok grafikus felület nélkül is lejátszhatók az erőforrásokat "
-"kímélve"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "A zenei fájlok grafikus felület nélkül is lejátszhatók az erőforrásokat kímélve"
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
@@ -311,7 +318,7 @@ msgstr "<b>Album: </b>"
 
 #: ../data/track-info.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr "<b>Művész: </b>"
+msgstr "<b>Előadó: </b>"
 
 #: ../data/track-info.glade.h:3
 msgid "<b>Comment: </b>"
@@ -335,15 +342,12 @@ msgstr "<b>Cím: </b>"
 
 #~ msgid "All"
 #~ msgstr "Minden"
-
 #~ msgid "No Repeat"
 #~ msgstr "Nincs ismétlés"
-
 #~ msgid "Repeat All"
 #~ msgstr "Minden ismétel"
-
 #~ msgid "Repeat Current"
 #~ msgstr "Jelenlegi szám ismétlése"
-
 #~ msgid "Track Name"
 #~ msgstr "A szám neve"
+
