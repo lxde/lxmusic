@@ -769,10 +769,7 @@ static void refilter_and_keep_sel_visible()
 void on_filter_field_changed(GtkComboBox* cb, gpointer user_data)
 {
     filter_field = gtk_combo_box_get_active(cb);
-/*
-    GtkTreeModelFilter* mf = (GtkTreeModelFilter*)gtk_tree_view_get_model(playlist_view);
-    gtk_tree_model_filter_refilter(mf);
-*/
+    gtk_tree_view_set_search_column ( GTK_TREE_VIEW ( playlist_view ), filter_field );
     refilter_and_keep_sel_visible();
 }
 

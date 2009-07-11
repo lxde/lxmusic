@@ -595,9 +595,9 @@ Repeat All</property>
                     <property name="visible">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="items" translatable="yes">All
-Track Name
 Artist
-Album</property>
+Album
+Track Name</property>
                     <signal name="changed" handler="on_filter_field_changed"/>
                   </widget>
                   <packing>
