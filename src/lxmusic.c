@@ -231,7 +231,7 @@ void on_quit(GtkAction* act, gpointer user_data)
 
 #ifdef HAVE_LIBNOTIFY
     lxmusic_notification_free( lxmusic_notification );
-#endif HAVE_LIBNOTIFY
+#endif 
 
     if( ! play_after_exit )
     {

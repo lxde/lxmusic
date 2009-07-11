@@ -136,7 +136,7 @@ gchar* xmmsv_url_to_string (xmmsv_t *url_value)
 }
 
 /* helper function to guess title from media properties */
-gchar* xmmsv_media_dict_guess_title (xmmsv_t *value) 
+const gchar* xmmsv_media_dict_guess_title (xmmsv_t *value) 
 {
     const char *url, *file, *title;
     xmmsv_t *string_value;
