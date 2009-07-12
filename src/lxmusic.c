@@ -60,9 +60,9 @@ enum {
 
 enum {
     FILTER_ALL,
-    FILTER_TITLE,
     FILTER_ARTIST,
-    FILTER_ALBUM
+    FILTER_ALBUM,
+    FILTER_TITLE,
 };
 
 typedef struct _UpdateTrack{
@@ -769,17 +769,17 @@ static void refilter_and_keep_sel_visible()
 void on_filter_field_changed(GtkComboBox* cb, gpointer user_data)
 {
     filter_field = gtk_combo_box_get_active(cb);
-    gtk_tree_view_set_search_column ( GTK_TREE_VIEW ( playlist_view ), filter_field );
     refilter_and_keep_sel_visible();
 }
 
-static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, gpointer user_data)
+static gboolean playlist_compare_func( GtkTreeModel* model, GtkTreeIter* it,
+				       const gchar *needle ) 
 {
-    char *artist=NULL, *album=NULL, *title=NULL;
     gboolean ret = FALSE;
+    char *artist=NULL, *album=NULL, *title=NULL;
 
-    if( ! filter_keyword || '\0' == *filter_keyword )
-        return TRUE;
+    if( ! needle || '\0' == *needle )
+        return TRUE;    
 
     if( filter_field == FILTER_ALL || filter_field == FILTER_ARTIST )
         gtk_tree_model_get(model, it,
@@ -793,11 +793,12 @@ static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, gpoin
         gtk_tree_model_get(model, it,
                            COL_TITLE, &title, -1);
 
-    if( artist && utf8_strcasestr( artist, filter_keyword ) )
+
+    if( artist && utf8_strcasestr( artist, needle ) )
         ret = TRUE;
-    else if( album && utf8_strcasestr( album, filter_keyword ) )
+    else if( album && utf8_strcasestr( album, needle ) )
         ret = TRUE;
-    else if( title && utf8_strcasestr( title, filter_keyword ) )
+    else if( title && utf8_strcasestr( title, needle ) )
         ret = TRUE;
 
     g_free(artist);
@@ -805,6 +806,25 @@ static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, gpoin
     g_free(title);
 
     return ret;
+}
+
+static gboolean playlist_filter_func(GtkTreeModel* model, GtkTreeIter* it, gpointer user_data)
+{
+    return playlist_compare_func (model, it, filter_keyword );
+    
+}
+
+static gboolean playlist_search_func( GtkTreeModel* model, gint column,
+				      const gchar *key, GtkTreeIter *it,
+				      gpointer user_data)  
+{
+    /* from GTK+ docs: 
+       
+       Note the return value is reversed from what you would normally
+       expect, though it has some similarity to strcmp() returning 0 for
+       equal strings.
+    */
+    return ! playlist_compare_func( model, it, key );
 }
 
 static gboolean on_filter_timeout(GtkEntry* entry)
@@ -1170,6 +1190,9 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     mf = gtk_tree_model_filter_new(GTK_TREE_MODEL(list_store), NULL);
     gtk_tree_model_filter_set_visible_func( GTK_TREE_MODEL_FILTER( mf ), 
 					    playlist_filter_func, NULL, NULL );
+    gtk_tree_view_set_search_equal_func( GTK_TREE_VIEW(playlist_view), 
+						       playlist_search_func,
+						       NULL, NULL );
     g_object_unref(list_store);
 
     cancel_pending_update_tracks();
@@ -1289,7 +1312,6 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
                                                    "text", COL_LEN, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
 
-    gtk_tree_view_set_search_column( (GtkTreeView*)list_view, COL_TITLE );
     tree_sel = gtk_tree_view_get_selection( (GtkTreeView*)list_view );
     gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_MULTIPLE );
 
