@@ -125,7 +125,6 @@ static gboolean close_to_tray = TRUE;
 static gboolean play_after_exit = FALSE;
 
 static int filter_field = FILTER_ALL;
-static uint32_t volume = 60;
 
 /* window size */
 static int win_width = 480;
@@ -607,7 +606,7 @@ void on_file_properties(GtkAction* act, gpointer data)
     GtkTreeIter it;
     GtkTreeModel* model;
     GList* rows;
-    if( rows = gtk_tree_selection_get_selected_rows(sel, &model) )
+    if( ( rows = gtk_tree_selection_get_selected_rows(sel, &model) ) != NULL )
     {
         GtkTreePath* tp = (GtkTreePath*)rows->data;
         if( gtk_tree_model_get_iter(model, &it, tp) )
@@ -670,7 +669,7 @@ void on_playlist_view_drag_data_received(GtkWidget          *widget,
     char** uris;
     g_signal_stop_emission_by_name(widget, "drag-data-received");
 
-    if( uris = gtk_selection_data_get_uris(data) )
+    if( (uris = gtk_selection_data_get_uris(data)) != NULL )
     {
         char** uri;
         for( uri = uris; *uri; ++uri )
@@ -1780,7 +1779,7 @@ void on_locate_cur_track(GtkAction* act, gpointer user_data)
             GtkTreeSelection* sel = gtk_tree_view_get_selection(playlist_view);
             gtk_tree_selection_select_iter(sel, &it);
             */
-            if( path = gtk_tree_model_get_path(GTK_TREE_MODEL(mf), &it) )
+            if( (path = gtk_tree_model_get_path(GTK_TREE_MODEL(mf), &it)) != NULL )
             {
                 gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(playlist_view), path, NULL, FALSE, 0.0, 0.0);
                 gtk_tree_path_free(path);
