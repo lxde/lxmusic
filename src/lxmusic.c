@@ -600,6 +600,7 @@ static int on_track_info_received(xmmsv_t* value, void* user_data)
         gtk_label_set_text((GtkLabel*)w, buf);
     }
     xmmsv_unref( value );
+    return TRUE;
 }
 
 void on_file_properties(GtkAction* act, gpointer data)
@@ -1340,7 +1341,7 @@ static int on_playlist_loaded(xmmsv_t* value, gpointer user_data)
     {
         /* FIXME: is this possible? */
         if( cur_playlist && 0 == strcmp((char*)name, cur_playlist) )
-            return;
+            return TRUE;
 
         g_free(cur_playlist);
         cur_playlist = g_strdup(name);
@@ -1489,6 +1490,7 @@ static int on_playlists_listed( xmmsv_t* value, void* user_data )
 
     if( cur_playlist )
         update_play_list( playlist_view );
+    return TRUE;
 }
 
 static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
@@ -1932,7 +1934,7 @@ static int on_media_lib_entry_changed(xmmsv_t* value, void* user_data)
         GtkTreeModel* model = (GtkTreeModel*)list_store;
         GtkTreeIter it;
         if( !model )
-            return;
+            return TRUE;
         /* FIXME: This is damn inefficient, but I didn't have a
          * better way now.
          * Maybe it can be improved using custom tree model. :-( */
