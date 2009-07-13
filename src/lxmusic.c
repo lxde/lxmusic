@@ -960,7 +960,7 @@ void on_remove_selected(GtkAction* act, gpointer user_data)
     if( cur_playlist )
     {
         GtkTreeSelection* tree_sel;
-        tree_sel = gtk_tree_view_get_selection( (GtkTreeView*)playlist_view );
+        tree_sel = gtk_tree_view_get_selection( GTK_TREE_VIEW( playlist_view ) );
         GList *sels = gtk_tree_selection_get_selected_rows( tree_sel, NULL );
         GList *sel;
         if( ! sels )
@@ -1278,7 +1278,7 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
     render = gtk_cell_renderer_text_new();
     col = gtk_tree_view_column_new_with_attributes( "#", render, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_column_set_cell_data_func( col, render, render_num, NULL, NULL );
-    gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
+    gtk_tree_view_append_column( GTK_TREE_VIEW( list_view ), col );
 
     render = gtk_cell_renderer_text_new();
     g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
@@ -1287,7 +1287,7 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
     gtk_tree_view_column_set_fixed_width( col, 80 );
     gtk_tree_view_column_set_sizing( col, GTK_TREE_VIEW_COLUMN_FIXED );
     gtk_tree_view_column_set_resizable( col, TRUE );
-    gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
+    gtk_tree_view_append_column( GTK_TREE_VIEW( list_view ), col );
 
     render = gtk_cell_renderer_text_new();
     g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
@@ -1296,7 +1296,7 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
     gtk_tree_view_column_set_fixed_width( col, 100 );
     gtk_tree_view_column_set_sizing( col, GTK_TREE_VIEW_COLUMN_FIXED );
     gtk_tree_view_column_set_resizable( col, TRUE );
-    gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
+    gtk_tree_view_append_column( GTK_TREE_VIEW( list_view ), col );
 
     render = gtk_cell_renderer_text_new();
     g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
@@ -1304,14 +1304,14 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
                                                    "text", COL_TITLE, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_column_set_expand( col, TRUE );
     gtk_tree_view_column_set_resizable( col, TRUE );
-    gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
+    gtk_tree_view_append_column( GTK_TREE_VIEW( list_view ), col );
 
     render = gtk_cell_renderer_text_new();
     col = gtk_tree_view_column_new_with_attributes( _("Length"), render,
                                                    "text", COL_LEN, "weight", COL_WEIGHT, NULL );
-    gtk_tree_view_append_column( (GtkTreeView*)list_view, col );
+    gtk_tree_view_append_column( GTK_TREE_VIEW( list_view ), col );
 
-    tree_sel = gtk_tree_view_get_selection( (GtkTreeView*)list_view );
+    tree_sel = gtk_tree_view_get_selection( GTK_TREE_VIEW( list_view ) );
     gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_MULTIPLE );
 
     return list_view;
