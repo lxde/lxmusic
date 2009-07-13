@@ -40,11 +40,8 @@ void kf_get_bool(GKeyFile* kf, const char* grp, const char* key, gboolean* val)
 
 void kf_get_int(GKeyFile* kf, const char* grp, const char* key, int* val)
 {
-    GError* err = NULL;
-    gboolean ret = g_key_file_get_boolean(kf, grp, key, &err);
-    if( err )
-        g_error_free(err);
-    else
+    gint ret;
+    if (( ret = g_key_file_get_integer(kf, grp, key, NULL ) ) != 0 )
         *val = ret;
 }
 
