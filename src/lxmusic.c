@@ -162,7 +162,6 @@ static void load_config()
         kf_get_bool(kf, grp, "show_playlist", &show_playlist);
         kf_get_bool(kf, grp, "close_to_tray", &close_to_tray);
         kf_get_bool(kf, grp, "play_after_exit", &play_after_exit);
-        kf_get_int(kf, grp, "volume", &volume);
         kf_get_int(kf, grp, "filter", &filter_field);
     }
     g_free(path);
@@ -192,7 +191,6 @@ static void save_config()
         fprintf( f, "play_after_exit=%d\n", play_after_exit );
         fprintf( f, "show_playlist=%d\n", show_playlist );
         fprintf( f, "filter=%d\n", filter_field );
-        fprintf( f, "volume=%d\n", (int)volume );
         fclose(f);
     }
 }
