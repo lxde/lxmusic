@@ -1,151 +1,158 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of lxmusic to Norwegian Nynorsk
+# Copyright © 2009 Karl Ove Hufthammer <karl@huftis.org>
+# This file is distributed under the same license as the lxmusic package.
+# Karl Ove Hufthammer <karl@huftis.org>, 2009.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-23 00:23+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2009-07-27 19:41+0200\n"
+"PO-Revision-Date: 2009-07-27 21:17+0200\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 0.3\n"
 
-#: ../src/lxmusic.c:283
+#: ../src/lxmusic.c:279
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr ""
+msgstr "Offisielt ikon til xmms2 av Arnaud DIDRY"
 
-#: ../src/lxmusic.c:294
+#: ../src/lxmusic.c:290
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
+"Musikkspelar for LXDE\n"
+"Enkel grafisk XMMS2-klient"
 
-#: ../src/lxmusic.c:399 ../data/lxmusic.glade.h:15
+#: ../src/lxmusic.c:395 ../data/lxmusic.glade.h:15
 msgid "LXMusic"
-msgstr ""
+msgstr "LXMusic"
 
-#: ../src/lxmusic.c:599
+#: ../src/lxmusic.c:594
 msgid "Bitrate: "
-msgstr ""
+msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:874
+#: ../src/lxmusic.c:885
 msgid "Audio Files"
-msgstr ""
+msgstr "Lydfiler"
 
-#: ../src/lxmusic.c:879
+#: ../src/lxmusic.c:890
 msgid "All Files"
-msgstr ""
+msgstr "Alle filer"
 
-#: ../src/lxmusic.c:906
+#: ../src/lxmusic.c:917
 msgid "Input a URL"
-msgstr ""
+msgstr "Skriv inn adresse"
 
 #. metadata available
-#: ../src/lxmusic.c:1273 ../src/lxmusic.c:1679
+#: ../src/lxmusic.c:1284 ../src/lxmusic.c:1702
 msgid "Artist"
-msgstr ""
+msgstr "Artist"
 
-#: ../src/lxmusic.c:1282
+#: ../src/lxmusic.c:1293
 msgid "Album"
-msgstr ""
+msgstr "Album"
 
-#: ../src/lxmusic.c:1291 ../src/lxmusic.c:1680
+#: ../src/lxmusic.c:1302 ../src/lxmusic.c:1703
 msgid "Title"
-msgstr ""
+msgstr "Tittel"
 
-#: ../src/lxmusic.c:1298
+#: ../src/lxmusic.c:1309
 msgid "Length"
-msgstr ""
+msgstr "Lengd"
 
-#: ../src/lxmusic.c:1459
+#: ../src/lxmusic.c:1482
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
-#: ../src/lxmusic.c:1569
+#: ../src/lxmusic.c:1593
 msgid "Pause"
-msgstr ""
+msgstr "Pause"
 
-#: ../src/lxmusic.c:1585
+#: ../src/lxmusic.c:1609
 msgid "Play"
-msgstr ""
+msgstr "Spel"
 
-#: ../src/lxmusic.c:1685
+#: ../src/lxmusic.c:1708
 msgid "Now Playing:"
-msgstr ""
+msgstr "Spelar no:"
 
-#: ../src/lxmusic.c:2140
+#: ../src/lxmusic.c:2168
 msgid "Create new playlist"
-msgstr ""
+msgstr "Lag ny speleliste"
 
-#: ../src/utils.c:84
+#: ../src/utils.c:81
 msgid "Error"
-msgstr ""
+msgstr "Feil"
 
 #: ../data/lxmusic.glade.h:1
 msgid "Add Files or Folders"
-msgstr ""
+msgstr "Legg til filer/mapper"
 
 #: ../data/lxmusic.glade.h:2
 msgid "Add To Playlist"
-msgstr ""
+msgstr "Legg til i speleliste"
 
 #: ../data/lxmusic.glade.h:3
 msgid "Add URL"
-msgstr ""
+msgstr "Legg til adresse"
 
 #: ../data/lxmusic.glade.h:4
 msgid "Add files to the playlist"
-msgstr ""
+msgstr "Legg filer til spelelista"
 
 #: ../data/lxmusic.glade.h:5
 msgid ""
 "All\n"
-"Track Name\n"
 "Artist\n"
-"Album"
+"Album\n"
+"Track Name"
 msgstr ""
+"Alle\n"
+"Artist\n"
+"Album\n"
+"Spornamn"
 
 #: ../data/lxmusic.glade.h:9
 msgid "Create _New Playlist"
-msgstr ""
+msgstr "Lag _ny speleliste"
 
 #: ../data/lxmusic.glade.h:10
 msgid "Current Playlist"
-msgstr ""
+msgstr "Gjeldande speleliste"
 
 #: ../data/lxmusic.glade.h:11
 msgid "Enter keyword here"
-msgstr ""
+msgstr "Skriv inn nøkkelord"
 
 #: ../data/lxmusic.glade.h:12
 msgid "Favorites"
-msgstr ""
+msgstr "Favorittar"
 
 #: ../data/lxmusic.glade.h:13 ../data/track-info.glade.h:8
 msgid "File Properties"
-msgstr ""
+msgstr "Fileigenskapar"
 
 #: ../data/lxmusic.glade.h:14
 msgid "Filter:"
-msgstr ""
+msgstr "Filter:"
 
 #: ../data/lxmusic.glade.h:16
 msgid "Locate currently played track"
-msgstr ""
+msgstr "Finn sporet som spelar"
 
 #: ../data/lxmusic.glade.h:17
 msgid "Media Library"
-msgstr ""
+msgstr "Mediebibliotek"
 
 #: ../data/lxmusic.glade.h:18
 msgid "Next"
-msgstr ""
+msgstr "Neste"
 
 #: ../data/lxmusic.glade.h:19
 msgid ""
@@ -153,181 +160,186 @@ msgid ""
 "Repeat Current\n"
 "Repeat All"
 msgstr ""
+"Ikkje gjenta\n"
+"Gjenta denne\n"
+"Gjenta alle"
 
 #: ../data/lxmusic.glade.h:22
 msgid "Play/Pause"
-msgstr ""
+msgstr "Spel/pause"
 
 #: ../data/lxmusic.glade.h:23
 msgid "Previous"
-msgstr ""
+msgstr "Førre"
 
 #: ../data/lxmusic.glade.h:24
 msgid "Remove All Items"
-msgstr ""
+msgstr "Fjern alle elementa"
 
 #: ../data/lxmusic.glade.h:25
 msgid "Remove From Playlist"
-msgstr ""
+msgstr "Fjern frå speleliste"
 
 #: ../data/lxmusic.glade.h:26
 msgid "Remove Selected Items"
-msgstr ""
+msgstr "Fjern dei valde elementa"
 
 #: ../data/lxmusic.glade.h:27
 msgid "Remove items from the playlist"
-msgstr ""
+msgstr "Fjern elementa frå spelelista"
 
 #: ../data/lxmusic.glade.h:28
 msgid "Show Playlist"
-msgstr ""
+msgstr "Vis speleliste"
 
 #: ../data/lxmusic.glade.h:29
 msgid "Stop"
-msgstr ""
+msgstr "Stopp"
 
 #: ../data/lxmusic.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr ""
+msgstr "_Slett gjeldande speleliste"
 
 #: ../data/lxmusic.glade.h:31
 msgid "_File"
-msgstr ""
+msgstr "_Fil"
 
 #: ../data/lxmusic.glade.h:32
 msgid "_Help"
-msgstr ""
+msgstr "_Hjelp"
 
 #: ../data/lxmusic.glade.h:33
 msgid "_Locate Currently Played"
-msgstr ""
+msgstr "_Vis sporet som spelar"
 
 #: ../data/lxmusic.glade.h:34
 msgid "_Playlist"
-msgstr ""
+msgstr "_Speleliste"
 
 #: ../data/lxmusic.glade.h:35
 msgid "_Switch To Playlist"
-msgstr ""
+msgstr "_Byt til speleliste"
 
 #: ../data/lxmusic.glade.h:36
 msgid "_Tools"
-msgstr ""
+msgstr "V_erktøy"
 
 #: ../data/lxmusic.glade.h:37
 msgid "_View"
-msgstr ""
+msgstr "_Vis"
 
 #: ../data/popup.glade.h:1
 msgid "_Show Main Window"
-msgstr ""
+msgstr "_Vis hovudvindauget"
 
 #: ../data/pref-dlg.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr ""
+msgstr "<b>Lyd-CD</b>"
 
 #: ../data/pref-dlg.glade.h:2
 msgid "<b>Output</b>"
-msgstr ""
+msgstr "<b>Utdata</b>"
 
 #: ../data/pref-dlg.glade.h:3
 msgid "Audio"
-msgstr ""
+msgstr "Lyd"
 
 #: ../data/pref-dlg.glade.h:4
 msgid "Buffer Size: "
-msgstr ""
+msgstr "Bufferstorleik: "
 
 #: ../data/pref-dlg.glade.h:5
 msgid "CD-ROM Device: "
-msgstr ""
+msgstr "CD-ROM-eining: "
 
 #: ../data/pref-dlg.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr ""
+msgstr "Hald fram avspeling i bakgrunnen etter lukking av LXMusic"
 
 #: ../data/pref-dlg.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr ""
+msgstr "Standard ID3 V1-teiknkoding: "
 
 #: ../data/pref-dlg.glade.h:8
 msgid "Device:"
-msgstr ""
+msgstr "Eining:"
 
 #: ../data/pref-dlg.glade.h:9
 msgid "Driver:"
-msgstr ""
+msgstr "Drivar:"
 
 #: ../data/pref-dlg.glade.h:10
 msgid "General"
-msgstr ""
+msgstr "Generelt"
 
 #: ../data/pref-dlg.glade.h:11
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: ../data/pref-dlg.glade.h:12
 msgid "Minimize to system tray on close"
-msgstr ""
+msgstr "Minimer til systemtrauet ved lukking"
 
 #: ../data/pref-dlg.glade.h:13
 msgid "Misc"
-msgstr ""
+msgstr "Ymse"
 
 #: ../data/pref-dlg.glade.h:14
 msgid "Mixer:"
-msgstr ""
+msgstr "Miksar:"
 
 #: ../data/pref-dlg.glade.h:15
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
+"Musikkfiler kan spelast av utan grafisk grensesnitt, for å spara "
+"systemressursane."
 
 #: ../data/pref-dlg.glade.h:16
 msgid "Plugin: "
-msgstr ""
+msgstr "Programtillegg: "
 
 #: ../data/pref-dlg.glade.h:17
 msgid "Preference"
-msgstr ""
+msgstr "Innstilling"
 
 #: ../data/pref-dlg.glade.h:18
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Vis ikon i systemtrauet"
 
 #: ../data/pref-dlg.glade.h:19
 msgid "Use OSS for audio output"
-msgstr ""
+msgstr "Bruk OSS til lydavspeling"
 
 #: ../data/pref-dlg.glade.h:20
 msgid "Use Pulse Audio for audio output"
-msgstr ""
+msgstr "Bruk PulseAudio til lydavspeling"
 
 #: ../data/track-info.glade.h:1
 msgid "<b>Album: </b>"
-msgstr ""
+msgstr "<b>Album: </b>"
 
 #: ../data/track-info.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr ""
+msgstr "<b>Artist: </b>"
 
 #: ../data/track-info.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr ""
+msgstr "<b>Merknad: </b>"
 
 #: ../data/track-info.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr ""
+msgstr "<b>Filtype: </b>"
 
 #: ../data/track-info.glade.h:5
 msgid "<b>File: </b>"
-msgstr ""
+msgstr "<b>Fil: </b>"
 
 #: ../data/track-info.glade.h:6
 msgid "<b>Size: </b>"
-msgstr ""
+msgstr "<b>Storleik: </b>"
 
 #: ../data/track-info.glade.h:7
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "<b>Tittel: </b>"
