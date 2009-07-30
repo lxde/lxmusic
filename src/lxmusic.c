@@ -43,8 +43,6 @@
 
 #include "lxmusic-plugin-config.h"
 #include "utils.h"
-#include "xmmsv-utils.h"
-
 
 enum {
     COL_ID = 0,

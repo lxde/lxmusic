@@ -1,5 +1,4 @@
 #include "lxmusic-plugin-config.h"
-#include "xmmsv-utils.h"
 
 /* known by xmms2 server */
 static GList *plugins = NULL;
