@@ -26,6 +26,7 @@
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+#include <glib/gstdio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -40,7 +41,10 @@
 #include "lxmusic-notify.h"
 #endif
 
+#include "lxmusic-plugin-config.h"
 #include "utils.h"
+#include "xmmsv-utils.h"
+
 
 enum {
     COL_ID = 0,
@@ -69,14 +73,6 @@ typedef struct _UpdateTrack{
     uint32_t id;
     GtkTreeIter it;
 }UpdateTrack;
-
-
-const char* known_plugins[] = {
-    "pulse",
-    "alsa",
-    "ao",
-    "oss" 
-};
 
 #ifdef HAVE_LIBNOTIFY
 static LXMusic_Notification *lxmusic_notification = NULL;
@@ -109,7 +105,7 @@ static GtkListStore* list_store = NULL;
 
 static int32_t playback_status = 0;
 static uint32_t play_time = 0;
-static uint32_t cur_track_duration = 0;
+static int32_t cur_track_duration = 0;
 static int32_t cur_track_id = 0;
 static GtkTreeIter cur_track_iter = {0};
 
@@ -135,11 +131,6 @@ static int win_xpos = 0;
 static int win_ypos = 0;
 
 void on_play_btn_clicked(GtkButton* btn, gpointer user_data);
-
-
-
-
-
 
 static void load_config()
 {
@@ -295,12 +286,46 @@ void on_about(GtkWidget* mi, gpointer data)
     gtk_widget_destroy( about );
 }
 
-void on_pref_output_plugin_changed(GtkNotebook* nb, GtkComboBox* output)
+void on_pref_output_plugin_changed(GtkTable* table, GtkComboBox* output)
 {
-    int i = gtk_combo_box_get_active(output);
-    if( i >= 0 )
-        gtk_notebook_set_current_page(nb, i);
+    int active = gtk_combo_box_get_active(output);
+    Plugin *plugin;
+    int row, n_configs;
+
+    if (active == - 1) 
+	return;
+    
+    plugin = plugin_nth( active );
+    n_configs = g_list_length( plugin->config );
+
+    /* destroy previous configuration widgets */
+    gtk_container_foreach( GTK_CONTAINER( table ), gtk_widget_destroy, NULL );
+
+    if ( n_configs == 0 )
+	return;
+
+    gtk_table_resize( table, n_configs, 2 );
+    for ( row = 0; row < n_configs; row++ ) 
+    {
+	xmmsc_result_t *res;
+	PluginConfig *config = plugin_config_nth ( plugin , row );
+	GtkWidget *label = gtk_label_new(config->display_name );
+	config->entry = gtk_entry_new();
+
+	gtk_misc_set_alignment( GTK_MISC(label), 0, 0.5 );
+	gtk_table_attach( table, label, 0, 1, row, row + 1, 0, 0, 0, 0 );
+	gtk_table_attach_defaults( table, config->entry, 1, 2, row, row + 1 );
+
+	/* update all posible configuration values */
+	res = xmmsc_configval_get(con, config->name);
+	xmmsc_result_notifier_set(res, plugin_config_widget, config );
+	xmmsc_result_unref(res);
+
+    }
+    
+    gtk_widget_show_all( GTK_WIDGET( table ) );
 }
+
 
 static int on_pref_dlg_init_widget(xmmsv_t* value, void* user_data)
 {
@@ -323,19 +348,31 @@ static int on_pref_dlg_init_widget(xmmsv_t* value, void* user_data)
 
 int on_pref_dlg_init_output_plugin(xmmsv_t* value, void* user_data)
 {
-    GtkWidget* w = (GtkWidget*)user_data;
-    char* val;
-    if( xmmsv_get_string(value, (const char**)&val) )
-    {
-        int i;
-        for( i=0; i < G_N_ELEMENTS(known_plugins); ++i )
-        {
-            if( strcmp(val, known_plugins[i]) == 0 )
-            {
-                gtk_combo_box_set_active(GTK_COMBO_BOX(w), i);
-                break;
-            }
-        }
+    GtkComboBox *output_plugin_cb = GTK_COMBO_BOX( user_data );
+    char* selected_plugin_name;
+    int i;
+    
+    /* setup output plugin combobox */
+    GtkCellRenderer *cell;
+    GtkListStore *store;
+    
+    store = gtk_list_store_new (1, G_TYPE_STRING);
+    gtk_combo_box_set_model(output_plugin_cb, GTK_TREE_MODEL (store) );
+    g_object_unref (store);
+    
+    cell = gtk_cell_renderer_text_new ();
+    gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (output_plugin_cb), cell, TRUE);
+    gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (output_plugin_cb), cell, "text", 0, NULL);
+
+    for ( i = 0; i < g_list_length( plugin_list() ); i++ ) 
+	gtk_combo_box_append_text( output_plugin_cb, plugin_nth( i )->display_name );
+
+    if( xmmsv_get_string(value, (const char**)&selected_plugin_name) )
+	for ( i = 0; i < g_list_length( plugin_list()  ); i++ ) 
+	{
+	    Plugin *plugin = plugin_nth( i );
+	    if ( g_strcmp0( plugin->name, selected_plugin_name ) == 0 )
+		gtk_combo_box_set_active( output_plugin_cb, i );
     }
     return FALSE;
 }
@@ -400,6 +437,7 @@ static void create_tray_icon()
 void on_preference(GtkAction* act, gpointer data)
 {
     GtkBuilder* builder = gtk_builder_new();
+    
     if( gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/pref-dlg.ui.glade", NULL ) )
     {
         xmmsc_result_t* res;
@@ -408,10 +446,6 @@ void on_preference(GtkAction* act, gpointer data)
         GtkWidget* play_after_exit_btn = (GtkWidget*)gtk_builder_get_object(builder, "play_after_exit");
         GtkWidget* output_plugin_cb = (GtkWidget*)gtk_builder_get_object(builder, "output_plugin_cb");
         GtkWidget* output_bufsize = (GtkWidget*)gtk_builder_get_object(builder, "output_bufsize");
-        GtkWidget* alsa_device = (GtkWidget*)gtk_builder_get_object(builder, "alsa_device");
-        GtkWidget* alsa_mixer = (GtkWidget*)gtk_builder_get_object(builder, "alsa_mixer");
-        GtkWidget* ao_device = (GtkWidget*)gtk_builder_get_object(builder, "ao_device");
-        GtkWidget* ao_driver = (GtkWidget*)gtk_builder_get_object(builder, "ao_driver");
         GtkWidget* cdrom = (GtkWidget*)gtk_builder_get_object(builder, "cdrom");
         GtkWidget* id3v1_encoding = (GtkWidget*)gtk_builder_get_object(builder, "id3v1_encoding");
         GtkWidget* dlg = (GtkWidget*)gtk_builder_get_object(builder, "pref_dlg");
@@ -430,22 +464,6 @@ void on_preference(GtkAction* act, gpointer data)
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(output_bufsize), g_object_unref );
         xmmsc_result_unref(res);
 
-        res = xmmsc_configval_get(con, "alsa.device");
-        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(alsa_device), g_object_unref );
-        xmmsc_result_unref(res);
-
-        res = xmmsc_configval_get(con, "alsa.mixer");
-        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(alsa_mixer), g_object_unref );
-        xmmsc_result_unref(res);
-
-        res = xmmsc_configval_get(con, "ao.device");
-        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(ao_device), g_object_unref );
-        xmmsc_result_unref(res);
-
-        res = xmmsc_configval_get(con, "ao.driver");
-        xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(ao_driver), g_object_unref );
-        xmmsc_result_unref(res);
-
         res = xmmsc_configval_get(con, "cdda.device");
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(cdrom), g_object_unref );
         xmmsc_result_unref(res);
@@ -458,26 +476,29 @@ void on_preference(GtkAction* act, gpointer data)
         {
             int i;
             char str[32];
+	    Plugin *plugin;
 
             i = gtk_combo_box_get_active(GTK_COMBO_BOX(output_plugin_cb));
-            res = xmmsc_configval_set( con, "output.plugin", known_plugins[i] );
+	    plugin = plugin_nth( i );
+	    
+            res = xmmsc_configval_set( con, "output.plugin", plugin->name );
             xmmsc_result_unref(res);
-
+	    
             g_snprintf(str, 32, "%u",(uint32_t)gtk_spin_button_get_value(GTK_SPIN_BUTTON(output_bufsize)));
             res = xmmsc_configval_set( con, "output.buffersize", str );
             xmmsc_result_unref(res);
-
-            res = xmmsc_configval_set( con, "alsa.device", gtk_entry_get_text(GTK_ENTRY(alsa_device)) );
-            xmmsc_result_unref(res);
-
-            res = xmmsc_configval_set( con, "alsa.mixer", gtk_entry_get_text(GTK_ENTRY(alsa_mixer)) );
-            xmmsc_result_unref(res);
-
-            res = xmmsc_configval_set( con, "ao.device", gtk_entry_get_text(GTK_ENTRY(ao_device)) );
-            xmmsc_result_unref(res);
-
-            res = xmmsc_configval_set( con, "ao.driver", gtk_entry_get_text(GTK_ENTRY(ao_driver)) );
-            xmmsc_result_unref(res);
+	    
+	    /* update plugin configuration */
+	    for ( i = 0; i < g_list_length( plugin->config ); i++ ) 
+	    {
+		PluginConfig *config = plugin_config_nth( plugin, i );
+		if ( config->value != NULL && g_strcmp0( config->value, gtk_entry_get_text( GTK_ENTRY(config->entry) ) ) != 0 )
+		{
+		    const gchar *newval = gtk_entry_get_text( GTK_ENTRY(config->entry ) );
+		    res = xmmsc_configval_set( con, config->name, newval );
+		    xmmsc_result_unref(res);		
+		}
+	    }
 
             res = xmmsc_configval_set( con, "cdda.device", gtk_entry_get_text(GTK_ENTRY(cdrom)) );
             xmmsc_result_unref(res);
@@ -1186,15 +1207,11 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     
     list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT );
     mf = gtk_tree_model_filter_new(GTK_TREE_MODEL(list_store), NULL);
-    gtk_tree_model_filter_set_visible_func( GTK_TREE_MODEL_FILTER( mf ), 
-					    playlist_filter_func, NULL, NULL );
-    gtk_tree_view_set_search_equal_func( GTK_TREE_VIEW(playlist_view), 
-						       playlist_search_func,
-						       NULL, NULL );
+    gtk_tree_model_filter_set_visible_func( GTK_TREE_MODEL_FILTER( mf ), playlist_filter_func, NULL, NULL );
+    gtk_tree_view_set_search_equal_func( GTK_TREE_VIEW(playlist_view), playlist_search_func, NULL, NULL );
     g_object_unref(list_store);
 
     cancel_pending_update_tracks();
-
 
     for ( i = 0; i < pl_size; i++ ) 
     {
@@ -1206,9 +1223,7 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
 	xmmsv_list_get( value, i, &current_value );
 	xmmsv_get_int( current_value, &id );
 
-        gtk_list_store_set( list_store, &it,
-                            COL_ID, id,
-                            COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
+        gtk_list_store_set( list_store, &it, COL_ID, id, COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
 
         ut->id = id;
         ut->it = it;
@@ -1281,8 +1296,7 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
 
     render = gtk_cell_renderer_text_new();
     g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
-    col = gtk_tree_view_column_new_with_attributes( _("Artist"), render,
-                                                   "text", COL_ARTIST, "weight", COL_WEIGHT, NULL );
+    col = gtk_tree_view_column_new_with_attributes( _("Artist"), render, "text", COL_ARTIST, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_column_set_fixed_width( col, 80 );
     gtk_tree_view_column_set_sizing( col, GTK_TREE_VIEW_COLUMN_FIXED );
     gtk_tree_view_column_set_resizable( col, TRUE );
@@ -1290,8 +1304,7 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
 
     render = gtk_cell_renderer_text_new();
     g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
-    col = gtk_tree_view_column_new_with_attributes( _("Album"), render,
-                                                   "text", COL_ALBUM, "weight", COL_WEIGHT, NULL );
+    col = gtk_tree_view_column_new_with_attributes( _("Album"), render, "text", COL_ALBUM, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_column_set_fixed_width( col, 100 );
     gtk_tree_view_column_set_sizing( col, GTK_TREE_VIEW_COLUMN_FIXED );
     gtk_tree_view_column_set_resizable( col, TRUE );
@@ -1299,15 +1312,13 @@ static GtkWidget* init_playlist(GtkWidget* list_view)
 
     render = gtk_cell_renderer_text_new();
     g_object_set( render, "ellipsize", PANGO_ELLIPSIZE_END, NULL );
-    col = gtk_tree_view_column_new_with_attributes( _("Title"), render,
-                                                   "text", COL_TITLE, "weight", COL_WEIGHT, NULL );
+    col = gtk_tree_view_column_new_with_attributes( _("Title"), render, "text", COL_TITLE, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_column_set_expand( col, TRUE );
     gtk_tree_view_column_set_resizable( col, TRUE );
     gtk_tree_view_append_column( GTK_TREE_VIEW( list_view ), col );
 
     render = gtk_cell_renderer_text_new();
-    col = gtk_tree_view_column_new_with_attributes( _("Length"), render,
-                                                   "text", COL_LEN, "weight", COL_WEIGHT, NULL );
+    col = gtk_tree_view_column_new_with_attributes( _("Length"), render, "text", COL_LEN, "weight", COL_WEIGHT, NULL );
     gtk_tree_view_append_column( GTK_TREE_VIEW( list_view ), col );
 
     tree_sel = gtk_tree_view_get_selection( GTK_TREE_VIEW( list_view ) );
@@ -1529,8 +1540,7 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
 	    {
                 GtkTreeIter it;
 		xmmsv_get_int( int_value, &id );
-                gtk_list_store_insert_with_values( list_store, &it, pos,
-                                                   COL_ID, id, -1 );
+                gtk_list_store_insert_with_values( list_store, &it, pos, COL_ID, id, -1 );
                 /* g_debug("playlist_added: %d", id); */
                 queue_update_track( id, &it );
             }
@@ -1592,8 +1602,7 @@ static int on_playback_status_changed( xmmsv_t *value, void *user_data )
             xmmsc_result_t* res2;
             gtk_widget_set_tooltip_text( play_btn, _("Pause") );
             img = gtk_bin_get_child( (GtkBin*)play_btn );
-            gtk_image_set_from_stock( (GtkImage*)img, GTK_STOCK_MEDIA_PAUSE,
-                                      GTK_ICON_SIZE_BUTTON );
+            gtk_image_set_from_stock( (GtkImage*)img, GTK_STOCK_MEDIA_PAUSE, GTK_ICON_SIZE_BUTTON );
             /* FIXME: this can cause some problems sometimes... */
             res2 = xmmsc_playlist_current_pos(con, cur_playlist);
             /* mark currently played track */
@@ -1629,8 +1638,7 @@ static int on_playback_playtime_changed( xmmsv_t* value, void* user_data )
         return TRUE;
     play_time = time;
 
-    gtk_label_set_text( (GtkLabel*)time_label,
-                        timeval_to_str( time, buf, G_N_ELEMENTS(buf) ) );
+    gtk_label_set_text( (GtkLabel*)time_label, timeval_to_str( time, buf, G_N_ELEMENTS(buf) ) );
 
     if( cur_track_duration > 0 )
     {
@@ -1689,8 +1697,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     gtk_window_set_title( GTK_WINDOW(main_win), window_title->str );
     
     if( tray_icon )
-        gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon),
-				    window_title->str);
+        gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon), window_title->str);
 
 #ifdef HAVE_LIBNOTIFY
     if( ! GTK_WIDGET_VISIBLE(main_win) ) 
@@ -1999,57 +2006,47 @@ static void setup_xmms_callbacks()
     res = xmmsc_playback_status(con);
     xmmsc_result_notifier_set(res, on_playback_status_changed, NULL);
     xmmsc_result_unref(res);
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_status,
-                       on_playback_status_changed, NULL );
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_status, on_playback_status_changed, NULL );
 
     /* server quit */
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_quit, on_server_quit, NULL );
 
     /* play time */
     /* this is a signal rather than broadcast, so restart is needed in the callback func. */
-    XMMS_CALLBACK_SET( con, xmmsc_signal_playback_playtime,
-                       on_playback_playtime_changed, NULL);
+    XMMS_CALLBACK_SET( con, xmmsc_signal_playback_playtime, on_playback_playtime_changed, NULL);
 
     /* playlist changed */
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_changed,
-                       on_playlist_content_changed, NULL );
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_changed, on_playlist_content_changed, NULL );
 
     /* playlist loaded */
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_loaded,
-                       on_playlist_loaded, NULL );
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_loaded, on_playlist_loaded, NULL );
 
     /* current track info */
     res = xmmsc_playback_current_id( con );
     xmmsc_result_notifier_set( res, on_playback_cur_track_changed, NULL );
     xmmsc_result_unref(res);
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_current_id,
-                       on_playback_cur_track_changed, NULL );
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_current_id, on_playback_cur_track_changed, NULL );
 
     /* current pos in playlist */
 //    res = xmmsc_playlist_current_pos( con, "_active" );
 //    xmmsc_result_notifier_set( res, on_playlist_pos_changed, NULL );
 //    xmmsc_result_unref(res);
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_current_pos,
-                       on_playlist_pos_changed, NULL);
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playlist_current_pos, on_playlist_pos_changed, NULL);
 
     /* volume */
     res = xmmsc_playback_volume_get(con);
     xmmsc_result_notifier_set(res, on_playback_volume_changed, NULL );
     xmmsc_result_unref(res);
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_volume_changed,
-                       on_playback_volume_changed, NULL );
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_volume_changed, on_playback_volume_changed, NULL );
 
     /* media lib */
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_medialib_entry_changed,
-                       on_media_lib_entry_changed, NULL );
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_medialib_entry_changed, on_media_lib_entry_changed, NULL );
 
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_collection_changed,
-                       on_collection_changed, NULL );
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_collection_changed, on_collection_changed, NULL );
 
 
     /* config values */
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_configval_changed,
-                       on_configval_changed, NULL );
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_configval_changed, on_configval_changed, NULL );
 }
 
 static int on_cfg_repeat_all_received(xmmsv_t* value, void* user_data)
@@ -2289,6 +2286,9 @@ int main (int argc, char *argv[])
     }
 
     gtk_init(&argc, &argv);
+
+    plugin_config_setup(con);
+       
     xmmsc_mainloop_gmain_init(con);
 
     load_config();

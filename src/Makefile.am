@@ -14,6 +14,7 @@ endif
 
 lxmusic_SOURCES = \
 	lxmusic.c \
+	lxmusic-plugin-config.c \
 	$(libnotify_sources) \
 	utils.c utils.h
 
