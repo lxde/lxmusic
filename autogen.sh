@@ -23,7 +23,7 @@ ${ACLOCAL:-aclocal$AM_VERSION} ${ACLOCAL_ARG}
 ${AUTOHEADER:-autoheader$AC_VERSION} --force
 AUTOMAKE=$AUTOMAKE libtoolize -c --automake --force
 AUTOMAKE=$AUTOMAKE intltoolize -c --automake --force
-$AUTOMAKE --add-missing --copy --include-deps
+$AUTOMAKE --add-missing --copy --include-deps --foreign
 ${AUTOCONF:-autoconf$AC_VERSION}
 
 rm -rf autom4te.cache
