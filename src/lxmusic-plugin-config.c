@@ -44,7 +44,7 @@ void plugin_config_setup (xmmsc_connection_t *con)
 	    plugins = g_list_append(plugins, plugin);
 	}
     } else {
-	g_error (_("Server error: %s\n"), err);
+	g_error ( "Server error: %s", err);
     }
     xmmsc_result_unref (res);
 
