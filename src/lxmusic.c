@@ -72,6 +72,7 @@ typedef struct _UpdateTrack{
     GtkTreeIter it;
 }UpdateTrack;
 
+static void send_notifcation( const gchar *artist, const gchar* title );
 #ifdef HAVE_LIBNOTIFY
 static LXMusic_Notification *lxmusic_notification = NULL;
 #endif 
@@ -1111,6 +1112,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     const char *artist = NULL;
     const char *album = NULL;
     const char *title = NULL;
+    gboolean current_track_updated;
     xmmsv_t *string_value, *time_len_val;
     int32_t time_len = 0;
     char time_buf[32];
@@ -1158,6 +1160,11 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
                         COL_ALBUM, album,
                         COL_TITLE, title,
                         COL_LEN, time_buf, -1 );
+
+    /* also send desktop notification if current track was updated  */
+    current_track_updated = ut->it.user_data == cur_track_iter.user_data;
+    if ( current_track_updated )
+	send_notifcation( artist, title );
 
     xmmsv_unref( value );
     
@@ -1697,11 +1704,21 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     if( tray_icon )
         gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon), window_title->str);
 
+    send_notifcation( artist, title );
+
+    g_string_free( window_title, TRUE );
+    xmmsv_unref( value );
+    return TRUE;
+}
+
+
+static void send_notifcation( const gchar *artist, const gchar* title ) 
+{
 #ifdef HAVE_LIBNOTIFY
     if( ! GTK_WIDGET_VISIBLE(main_win) ) 
     {
 	GString* notification_message = g_string_new("");
-
+	
 	if ( (artist != NULL) && (title != NULL ) ) {	
 	    /* metadata available */
 	    g_string_append_printf(notification_message, "<b>%s: </b><i>%s</i>", _("Artist"), artist );
@@ -1714,11 +1731,10 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 	g_string_free( notification_message, TRUE );
     }
 #endif	/* HAVE_LIBNOTIFY */
-
-    g_string_free( window_title, TRUE );
-    xmmsv_unref( value );
-    return TRUE;
 }
+
+
+
 
 static int on_playback_cur_track_changed( xmmsv_t* value, void* user_data )
 {
