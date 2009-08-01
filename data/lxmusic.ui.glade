@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+<!--*- mode: xml -*-->
+<interface>
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="upper">110</property>
+    <property name="lower">0</property>
+    <property name="page_increment">10</property>
+    <property name="step_increment">1</property>
+    <property name="page_size">10</property>
+    <property name="value">10</property>
+  </object>
+  <object class="GtkListStore" id="model1">
+    <columns>
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">No Repeat</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Repeat Current</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Repeat All</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="model2">
+    <columns>
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">All</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Artist</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Album</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Track Name</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkUIManager" id="uimanager1">
+    <child>
+      <object class="GtkActionGroup" id="actiongroup1">
+        <child>
+          <object class="GtkAction" id="file_mi">
+            <property name="name">file_mi</property>
+            <property name="label" translatable="yes">_File</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="file_properties">
+            <property name="stock_id">gtk-properties</property>
+            <property name="name">file_properties</property>
+            <property name="label" translatable="yes">File Properties</property>
+            <signal handler="on_file_properties" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="pref_mi">
+            <property name="stock_id">gtk-preferences</property>
+            <property name="name">pref_mi</property>
+            <signal handler="on_preference" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="quit_mi">
+            <property name="stock_id">gtk-quit</property>
+            <property name="name">quit_mi</property>
+            <signal handler="on_quit" name="activate" object="main_win"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="playlist_mi">
+            <property name="name">playlist_mi</property>
+            <property name="label" translatable="yes">_Playlist</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="switch_to_pl">
+            <property name="name">switch_to_pl</property>
+            <property name="label" translatable="yes">_Switch To Playlist</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="locate_cur_mi">
+            <property name="stock_id">gtk-jump-to</property>
+            <property name="name">locate_cur_mi</property>
+            <property name="label" translatable="yes">_Locate Currently Played</property>
+            <signal handler="on_locate_cur_track" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="add_to_pl">
+            <property name="name">add_to_pl</property>
+            <property name="label" translatable="yes">Add To Playlist</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="add_files">
+            <property name="name">add_files</property>
+            <property name="label" translatable="yes">Add Files or Folders</property>
+            <signal handler="on_add_files" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="add_url">
+            <property name="name">add_url</property>
+            <property name="label" translatable="yes">Add URL</property>
+            <signal handler="on_add_url" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="remove_from_pl">
+            <property name="name">remove_from_pl</property>
+            <property name="label" translatable="yes">Remove From Playlist</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="remove_selected">
+            <property name="name">remove_selected</property>
+            <property name="label" translatable="yes">Remove Selected Items</property>
+            <signal handler="on_remove_selected" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="remove_all">
+            <property name="name">remove_all</property>
+            <property name="label" translatable="yes">Remove All Items</property>
+            <signal handler="on_remove_all" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="new_pl_mi">
+            <property name="stock_id">gtk-new</property>
+            <property name="name">new_pl_mi</property>
+            <property name="label" translatable="yes">Create _New Playlist</property>
+            <signal handler="on_new_playlist" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="remove_pl_mi">
+            <property name="stock_id">gtk-delete</property>
+            <property name="name">remove_pl_mi</property>
+            <property name="label" translatable="yes">_Delete Current Playlist</property>
+            <signal handler="on_del_playlist" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="cut_mi">
+            <property name="stock_id">gtk-cut</property>
+            <property name="name">cut_mi</property>
+            <signal handler="on_playlist_cut" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="paste_mi">
+            <property name="stock_id">gtk-paste</property>
+            <property name="name">paste_mi</property>
+            <signal handler="on_playlist_paste" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="view_mi">
+            <property name="name">view_mi</property>
+            <property name="label" translatable="yes">_View</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleAction" id="show_pl">
+            <property name="active">True</property>
+            <property name="name">show_pl</property>
+            <property name="label" translatable="yes">Show Playlist</property>
+            <signal handler="on_show_playlist" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="tools_mi">
+            <property name="name">tools_mi</property>
+            <property name="label" translatable="yes">_Tools</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="help_mi">
+            <property name="name">help_mi</property>
+            <property name="label" translatable="yes">_Help</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="about_mi">
+            <property name="stock_id">gtk-about</property>
+            <property name="name">about_mi</property>
+            <signal handler="on_about" name="activate"/>
+          </object>
+        </child>
+      </object>
+    </child>
+    <ui>
+      <menubar name="menubar">
+        <menu action="file_mi">
+          <menuitem action="file_properties"/>
+          <menuitem action="pref_mi"/>
+          <separator/>
+          <menuitem action="quit_mi"/>
+        </menu>
+        <menu action="playlist_mi">
+          <menuitem action="switch_to_pl"/>
+          <menuitem action="locate_cur_mi"/>
+          <separator/>
+          <menu action="add_to_pl">
+            <menuitem action="add_files"/>
+            <menuitem action="add_url"/>
+          </menu>
+          <menu action="remove_from_pl">
+            <menuitem action="remove_selected"/>
+            <menuitem action="remove_all"/>
+          </menu>
+          <separator/>
+          <menuitem action="new_pl_mi"/>
+          <menuitem action="remove_pl_mi"/>
+          <separator/>
+          <menuitem action="cut_mi"/>
+          <menuitem action="paste_mi"/>
+        </menu>
+        <menu action="view_mi">
+          <menuitem action="show_pl"/>
+        </menu>
+        <menuitem action="tools_mi"/>
+        <menu action="help_mi">
+          <menuitem action="about_mi"/>
+        </menu>
+      </menubar>
+    </ui>
+  </object>
+  <object class="GtkWindow" id="main_win">
+    <property name="title" translatable="yes">LXMusic</property>
+    <property name="default_width">512</property>
+    <property name="default_height">480</property>
+    <property name="icon_name">lxmusic</property>
+    <signal handler="on_main_win_destroy" name="destroy"/>
+    <signal handler="on_main_win_delete_event" name="delete_event"/>
+    <child>
+      <object class="GtkVBox" id="vbox">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkMenuBar" constructor="uimanager1" id="menubar">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="top_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkVSeparator" id="vseparator1">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="prev_btn">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip-text" translatable="yes">Previous</property>
+                <property name="relief">GTK_RELIEF_NONE</property>
+                <property name="focus_on_click">False</property>
+                <signal handler="on_prev_btn_clicked" name="clicked"/>
+                <child>
+                  <object class="GtkImage" id="image1">
+                    <property name="visible">True</property>
+                    <property name="stock">gtk-media-previous</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="play_btn">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip-text" translatable="yes">Play/Pause</property>
+                <property name="relief">GTK_RELIEF_NONE</property>
+                <property name="focus_on_click">False</property>
+                <signal handler="on_play_btn_clicked" name="clicked"/>
+                <child>
+                  <object class="GtkImage" id="image2">
+                    <property name="visible">True</property>
+                    <property name="stock">gtk-media-play</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="stop_btn">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip-text" translatable="yes">Stop</property>
+                <property name="relief">GTK_RELIEF_NONE</property>
+                <property name="focus_on_click">False</property>
+                <signal handler="on_stop_btn_clicked" name="clicked"/>
+                <child>
+                  <object class="GtkImage" id="image3">
+                    <property name="visible">True</property>
+                    <property name="stock">gtk-media-stop</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="next_btn">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip-text" translatable="yes">Next</property>
+                <property name="relief">GTK_RELIEF_NONE</property>
+                <property name="focus_on_click">False</property>
+                <signal handler="on_next_btn_clicked" name="clicked"/>
+                <child>
+                  <object class="GtkImage" id="image4">
+                    <property name="visible">True</property>
+                    <property name="stock">gtk-media-next</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="time_label">
+                <property name="visible">True</property>
+                <property name="xpad">4</property>
+                <property name="ypad">4</property>
+                <property name="label">--:--</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="padding">4</property>
+                <property name="position">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHScale" id="progress_bar">
+                <property name="width_request">80</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="update_policy">GTK_UPDATE_DELAYED</property>
+                <property name="adjustment">adjustment1</property>
+                <property name="draw_value">False</property>
+                <signal handler="on_progress_bar_changed" name="value_changed"/>
+              </object>
+              <packing>
+                <property name="position">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBox" id="repeat_mode">
+                <property name="visible">True</property>
+                <property name="focus_on_click">False</property>
+                <signal handler="on_repeat_mode_changed" name="changed"/>
+                <property name="model">model1</property>
+                <child>
+                  <object class="GtkCellRendererText" id="renderer1"/>
+                  <attributes>
+                    <attribute name="text">0</attribute>
+                  </attributes>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">7</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVBox" id="inner_vbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkNotebook" id="notebook">
+                <property name="visible">True</property>
+                <property name="has_focus">True</property>
+                <property name="show_tabs">False</property>
+                <property name="scrollable">True</property>
+                <child>
+                  <object class="GtkScrolledWindow" id="scrolledwindow1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+                    <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+                    <property name="shadow_type">GTK_SHADOW_IN</property>
+                    <child>
+                      <object class="GtkTreeView" id="playlist_view">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="has_focus">True</property>
+                        <property name="is_focus">True</property>
+                        <property name="reorderable">True</property>
+                        <signal handler="on_playlist_view_row_activated" name="row_activated"/>
+                        <signal handler="on_playlist_view_drag_data_received" name="drag_data_received"/>
+                        <signal handler="on_playlist_view_drag_drop" name="drag_drop"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="label3">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Current Playlist</property>
+                  </object>
+                  <packing>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="label4">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Favorites</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="label7">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Media Library</property>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkHBox" id="bottom_hbox">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkButton" id="add_btn">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip-text" translatable="yes">Add files to the playlist</property>
+                    <property name="relief">GTK_RELIEF_NONE</property>
+                    <property name="focus_on_click">False</property>
+                    <signal handler="on_add_btn_clicked" name="clicked"/>
+                    <child>
+                      <object class="GtkImage" id="image5">
+                        <property name="visible">True</property>
+                        <property name="stock">gtk-add</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="remove_btn">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip-text" translatable="yes">Remove items from the playlist</property>
+                    <property name="relief">GTK_RELIEF_NONE</property>
+                    <property name="focus_on_click">False</property>
+                    <signal handler="on_remove_btn_clicked" name="clicked"/>
+                    <child>
+                      <object class="GtkImage" id="image6">
+                        <property name="visible">True</property>
+                        <property name="stock">gtk-remove</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="locate_cur_btn">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip-text" translatable="yes">Locate currently played track</property>
+                    <property name="relief">GTK_RELIEF_NONE</property>
+                    <property name="focus_on_click">False</property>
+                    <signal handler="on_locate_cur_track" name="clicked"/>
+                    <child>
+                      <object class="GtkImage" id="image7">
+                        <property name="visible">True</property>
+                        <property name="stock">gtk-jump-to</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkVSeparator" id="vseparator2">
+                    <property name="visible">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label2">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Filter:</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="padding">3</property>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="filter_entry">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip-text" translatable="yes">Enter keyword here</property>
+                    <signal handler="on_filter_entry_changed" name="changed"/>
+                  </object>
+                  <packing>
+                    <property name="position">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="filter_field">
+                    <property name="visible">True</property>
+                    <property name="focus_on_click">False</property>
+                    <signal handler="on_filter_field_changed" name="changed"/>
+                    <property name="model">model2</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="renderer2"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">6</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkStatusbar" id="status_bar">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

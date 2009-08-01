@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--*- mode: xml -*-->
+<interface>
+  <object class="GtkUIManager" id="uimanager1">
+    <child>
+      <object class="GtkActionGroup" id="actiongroup1">
+        <child>
+          <object class="GtkAction" id="show_main_win">
+            <property name="stock_id">gtk-open</property>
+            <property name="name">show_main_win</property>
+            <property name="label" translatable="yes">_Show Main Window</property>
+            <signal handler="on_show_main_win" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="play">
+            <property name="stock_id">gtk-media-play</property>
+            <property name="name">play</property>
+            <signal handler="on_play_btn_clicked" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="stop">
+            <property name="stock_id">gtk-media-stop</property>
+            <property name="name">stop</property>
+            <signal handler="on_stop_btn_clicked" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="prev">
+            <property name="stock_id">gtk-media-previous</property>
+            <property name="name">prev</property>
+            <signal handler="on_prev_btn_clicked" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="next">
+            <property name="stock_id">gtk-media-next</property>
+            <property name="name">next</property>
+            <signal handler="on_next_btn_clicked" name="activate"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkAction" id="quit">
+            <property name="stock_id">gtk-quit</property>
+            <property name="name">quit</property>
+            <signal handler="on_quit" name="activate"/>
+          </object>
+        </child>
+      </object>
+    </child>
+    <ui>
+      <popup name="popup">
+        <menuitem action="show_main_win"/>
+        <separator/>
+        <menuitem action="play"/>
+        <menuitem action="stop"/>
+        <menuitem action="prev"/>
+        <menuitem action="next"/>
+        <separator/>
+        <menuitem action="quit"/>
+      </popup>
+    </ui>
+  </object>
+  <object class="GtkMenu" constructor="uimanager1" id="popup">
+    <property name="visible">True</property>
+    <signal handler="gtk_widget_destroy" name="selection_done"/>
+  </object>
+</interface>
