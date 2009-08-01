@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-16 14:00+0200\n"
+"POT-Creation-Date: 2009-08-01 11:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,73 +16,74 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:271
+#: ../src/lxmusic.c:268
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr ""
 
-#: ../src/lxmusic.c:282
+#: ../src/lxmusic.c:279
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
 
-#: ../src/lxmusic.c:387 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:430 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr ""
 
-#: ../src/lxmusic.c:587
+#: ../src/lxmusic.c:613
 msgid "Bitrate: "
 msgstr ""
 
-#: ../src/lxmusic.c:862
+#: ../src/lxmusic.c:904
 msgid "Audio Files"
 msgstr ""
 
-#: ../src/lxmusic.c:867
+#: ../src/lxmusic.c:909
 msgid "All Files"
 msgstr ""
 
-#: ../src/lxmusic.c:894
+#: ../src/lxmusic.c:936
 msgid "Input a URL"
 msgstr ""
 
-#: ../src/lxmusic.c:1280 ../data/lxmusic.ui.glade.h:7
+#. metadata available
+#: ../src/lxmusic.c:1297 ../src/lxmusic.c:1707 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr ""
 
-#: ../src/lxmusic.c:1289 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1305 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr ""
 
-#: ../src/lxmusic.c:1298
+#: ../src/lxmusic.c:1313 ../src/lxmusic.c:1708
 msgid "Title"
 msgstr ""
 
-#: ../src/lxmusic.c:1305
+#: ../src/lxmusic.c:1319
 msgid "Length"
 msgstr ""
 
-#: ../src/lxmusic.c:1466
+#: ../src/lxmusic.c:1491
 msgid "Default"
 msgstr ""
 
-#: ../src/lxmusic.c:1576
+#: ../src/lxmusic.c:1601
 msgid "Pause"
 msgstr ""
 
-#: ../src/lxmusic.c:1592
+#: ../src/lxmusic.c:1616
 msgid "Play"
 msgstr ""
 
-#: ../src/lxmusic.c:1737
+#: ../src/lxmusic.c:1713
 msgid "Now Playing:"
 msgstr ""
 
-#: ../src/lxmusic.c:2192
+#: ../src/lxmusic.c:2163
 msgid "Create new playlist"
 msgstr ""
 
-#: ../src/utils.c:107
+#: ../src/utils.c:81
 msgid "Error"
 msgstr ""
 
@@ -122,7 +123,7 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr ""
 
@@ -222,116 +223,96 @@ msgstr ""
 msgid "_View"
 msgstr ""
 
-#: ../data/popup.glade.h:1
+#: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:1
+#: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:2
+#: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:3
+#: ../data/pref-dlg.ui.glade.h:3
 msgid "Audio"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:4
+#: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:5
+#: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:6
+#: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:7
+#: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:8
-msgid "Device:"
-msgstr ""
-
-#: ../data/pref-dlg.glade.h:9
-msgid "Driver:"
-msgstr ""
-
-#: ../data/pref-dlg.glade.h:10
+#: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:11
+#: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:12
+#: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:13
+#: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:14
-msgid "Mixer:"
-msgstr ""
-
-#: ../data/pref-dlg.glade.h:15
+#: ../data/pref-dlg.ui.glade.h:12
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:16
+#: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:17
+#: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:18
+#: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
 msgstr ""
 
-#: ../data/pref-dlg.glade.h:19
-msgid "Use OSS for audio output"
-msgstr ""
-
-#: ../data/pref-dlg.glade.h:20
-msgid "Use Pulse Audio for audio output"
-msgstr ""
-
-#: ../data/track-info.glade.h:1
+#: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
 msgstr ""
 
-#: ../data/track-info.glade.h:2
+#: ../data/track-info.ui.glade.h:2
 msgid "<b>Artist: </b>"
 msgstr ""
 
-#: ../data/track-info.glade.h:3
+#: ../data/track-info.ui.glade.h:3
 msgid "<b>Comment: </b>"
 msgstr ""
 
-#: ../data/track-info.glade.h:4
+#: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
 msgstr ""
 
-#: ../data/track-info.glade.h:5
+#: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
 msgstr ""
 
-#: ../data/track-info.glade.h:6
+#: ../data/track-info.ui.glade.h:6
 msgid "<b>Size: </b>"
 msgstr ""
 
-#: ../data/track-info.glade.h:7
+#: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr ""
