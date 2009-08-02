@@ -36,6 +36,7 @@
 /* for status icon */
 #include <X11/Xlib.h>
 #include <gdk/gdkx.h>
+#include <gdk/gdkkeysyms.h>
 
 #ifdef HAVE_LIBNOTIFY
 #include "lxmusic-notify.h"
@@ -747,6 +748,19 @@ gboolean on_playlist_view_drag_drop(GtkWidget      *widget,
     gtk_drag_finish(drag_ctx, TRUE, FALSE, time);
     return TRUE;
 }
+
+gboolean  on_playlist_view_key_press_event (GtkWidget *widget,
+					 GdkEventKey *event )
+{
+    if (event->keyval == GDK_Delete) { 
+	/* dummy values: needs cleanup  */
+	on_remove_selected (NULL, NULL); 
+	return TRUE;
+    }
+    return FALSE;
+}
+
+
 
 static void refilter_and_keep_sel_visible()
 {
