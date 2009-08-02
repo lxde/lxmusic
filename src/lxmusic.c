@@ -749,19 +749,6 @@ gboolean on_playlist_view_drag_drop(GtkWidget      *widget,
     return TRUE;
 }
 
-gboolean  on_playlist_view_key_press_event (GtkWidget *widget,
-					 GdkEventKey *event )
-{
-    if (event->keyval == GDK_Delete) { 
-	/* dummy values: needs cleanup  */
-	on_remove_selected (NULL, NULL); 
-	return TRUE;
-    }
-    return FALSE;
-}
-
-
-
 static void refilter_and_keep_sel_visible()
 {
     GtkTreeSelection* sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(playlist_view));
@@ -1026,6 +1013,25 @@ void on_remove_selected(GtkAction* act, gpointer user_data)
 void on_remove_btn_clicked(GtkButton* btn, gpointer user_data)
 {
     gtk_menu_popup(GTK_MENU(rm_from_pl_menu), NULL, NULL, NULL, NULL, 1, GDK_CURRENT_TIME );
+}
+
+gboolean  on_playlist_view_key_press_event (GtkWidget *widget,
+					 GdkEventKey *event )
+{
+    switch ( event->keyval) 
+    {
+    case GDK_Delete:
+	/* dummy values: needs cleanup  */
+	on_remove_selected (NULL, NULL); 
+	break;
+    case GDK_Insert:
+	/* dummy values: needs cleanup  */
+	on_add_files( NULL, NULL );
+	break;
+    default:
+	return FALSE;	    
+    }
+    return TRUE;
 }
 
 void on_repeat_mode_changed(GtkComboBox* cb, gpointer user_data)
