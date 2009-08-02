@@ -1161,13 +1161,26 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
                         COL_TITLE, title,
                         COL_LEN, time_buf, -1 );
 
-    /* also send desktop notification if current track was updated  */
     current_track_updated = ut->it.user_data == cur_track_iter.user_data;
-    if ( current_track_updated )
+    if ( current_track_updated ) 
+    {
+	/* send desktop notification if current track was updated */  
 	send_notifcation( artist, title );
+	if( tray_icon ) 
+	{
+	    /* also update tray icon */
+	    GString* tray_tooltip = g_string_new(_("LXMusic"));
+	    if ( artist != NULL )
+		g_string_append_printf( tray_tooltip, " - %s", artist );
+	    if ( title != NULL )
+		g_string_append_printf( tray_tooltip, " - %s", title );
+	    gtk_status_icon_set_tooltip( GTK_STATUS_ICON(tray_icon), tray_tooltip->str );
+	    g_string_free( tray_tooltip, TRUE );
+	}
+	
+    }
 
     xmmsv_unref( value );
-    
     return TRUE;
 }
 
