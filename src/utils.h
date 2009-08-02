@@ -40,6 +40,7 @@ void show_error(GtkWindow* parent, const char* title, const char* msg);
 
 gchar* xmmsv_url_to_string (xmmsv_t *url_value);
 const gchar* xmmsv_media_dict_guess_title (xmmsv_t *value);
+GString* create_window_title( const gchar* artist, const gchar* title, gboolean is_playing );
 
 G_END_DECLS
 

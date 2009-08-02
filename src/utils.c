@@ -162,3 +162,18 @@ const gchar* xmmsv_media_dict_guess_title (xmmsv_t *value)
     return title;
 }
 
+GString* create_window_title( const gchar* artist, const gchar* title, gboolean is_playing ) 
+{
+    /* default */
+    GString *window_title = g_string_new(_("LXMusic" ));
+
+    /* playing or pause */
+    if (is_playing)
+    {
+	if ( artist != NULL )
+	    g_string_append_printf( window_title, " - %s", artist );
+	if ( title != NULL )
+	    g_string_append_printf( window_title, " - %s", title );
+    }
+    return window_title;
+}

@@ -1168,12 +1168,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
 	send_notifcation( artist, title );
 	if( tray_icon ) 
 	{
-	    /* also update tray icon */
-	    GString* tray_tooltip = g_string_new(_("LXMusic"));
-	    if ( artist != NULL )
-		g_string_append_printf( tray_tooltip, " - %s", artist );
-	    if ( title != NULL )
-		g_string_append_printf( tray_tooltip, " - %s", title );
+	    GString* tray_tooltip = create_window_title(artist, title, playback_status == XMMS_PLAYBACK_STATUS_PLAY);
 	    gtk_status_icon_set_tooltip( GTK_STATUS_ICON(tray_icon), tray_tooltip->str );
 	    g_string_free( tray_tooltip, TRUE );
 	}
@@ -1700,17 +1695,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     if ( !title || g_str_equal( title, "" ) )
 	title =  xmmsv_media_dict_guess_title ( value );
 
-    /* default */
-    window_title = g_string_new( "LXMusic" );
-
-    /* playing or pause */
-    if ( playback_status == XMMS_PLAYBACK_STATUS_PLAY) 
-    {
-	if ( artist != NULL )
-	    g_string_append_printf( window_title, " - %s", artist );
-	if ( title != NULL )
-	    g_string_append_printf( window_title, " - %s", title );
-    }
+    window_title = create_window_title(artist, title, playback_status == XMMS_PLAYBACK_STATUS_PLAY);
 
     gtk_window_set_title( GTK_WINDOW(main_win), window_title->str );
     
