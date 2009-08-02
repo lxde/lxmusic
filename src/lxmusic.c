@@ -225,8 +225,7 @@ void on_quit(GtkAction* act, gpointer user_data)
     {
         /* quit the server */
         xmmsc_result_t* res = xmmsc_quit(con);
-        xmmsc_result_notifier_set(res, on_xmms_quit, NULL);
-        xmmsc_result_unref(res);
+        xmmsc_result_notifier_set_and_unref(res, on_xmms_quit, NULL);
     }
     else
     {
@@ -318,9 +317,7 @@ void on_pref_output_plugin_changed(GtkTable* table, GtkComboBox* output)
 
 	/* update all posible configuration values */
 	res = xmmsc_configval_get(con, config->name);
-	xmmsc_result_notifier_set(res, plugin_config_widget, config );
-	xmmsc_result_unref(res);
-
+	xmmsc_result_notifier_set_and_unref(res, plugin_config_widget, config );
     }
     
     gtk_widget_show_all( GTK_WIDGET( table ) );
@@ -1085,8 +1082,7 @@ static int on_playback_started( xmmsv_t* value, void* user_data )
     xmmsc_result_unref(res);
     /* FIXME: this can cause some problems sometimes... */
     res = xmmsc_playlist_current_pos(con, cur_playlist);
-    xmmsc_result_notifier_set(res, on_playlist_pos_changed, NULL);
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref(res, on_playlist_pos_changed, NULL);
 #endif
     return TRUE;
 }
@@ -1097,8 +1093,7 @@ void on_play_btn_clicked(GtkButton* btn, gpointer user_data)
     if( playback_status == XMMS_PLAYBACK_STATUS_PLAY )
     {
         res = xmmsc_playback_pause(con);
-        xmmsc_result_notifier_set(res, on_playback_started, NULL);
-        xmmsc_result_unref(res);
+        xmmsc_result_notifier_set_and_unref(res, on_playback_started, NULL);
     }
     else
     {
@@ -1312,8 +1307,7 @@ static void update_play_list( GtkWidget* list_view )
         gdk_cursor_unref( cur );
     }
     res = xmmsc_playlist_list_entries( con, cur_playlist );
-    xmmsc_result_notifier_set( res, (xmmsc_result_notifier_t)on_playlist_content_received, list_view );
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref( res, (xmmsc_result_notifier_t)on_playlist_content_received, list_view );
 }
 
 static GtkWidget* init_playlist(GtkWidget* list_view)
@@ -1639,8 +1633,7 @@ static int on_playback_status_changed( xmmsv_t *value, void *user_data )
             /* FIXME: this can cause some problems sometimes... */
             res2 = xmmsc_playlist_current_pos(con, cur_playlist);
             /* mark currently played track */
-            xmmsc_result_notifier_set(res2, on_playlist_pos_changed, NULL);
-            xmmsc_result_unref(res2);
+            xmmsc_result_notifier_set_and_unref(res2, on_playlist_pos_changed, NULL);
             break;
         }
         case XMMS_PLAYBACK_STATUS_STOP:
@@ -1760,8 +1753,7 @@ static int on_playback_cur_track_changed( xmmsv_t* value, void* user_data )
     {
         xmmsc_result_t *res2;
         res2 = xmmsc_medialib_get_info(con, cur_track_id);
-        xmmsc_result_notifier_set(res2, on_playback_track_loaded, NULL);
-        xmmsc_result_unref(res2);
+        xmmsc_result_notifier_set_and_unref(res2, on_playback_track_loaded, NULL);
     }
     
     return TRUE;
@@ -1863,8 +1855,7 @@ static void on_volume_btn_changed(GtkScaleButton* btn, gdouble val, gpointer use
 {
     xmmsc_result_t* res;
     res = xmmsc_playback_volume_get(con);
-    xmmsc_result_notifier_set(res, on_volume_btn_set_volume, GUINT_TO_POINTER((uint32_t)val));
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref(res, on_volume_btn_set_volume, GUINT_TO_POINTER((uint32_t)val));
 }
 
 static void on_volume_btn_scrolled(GtkWidget *widget, GdkEventScroll *event, gpointer user_data)
@@ -1889,8 +1880,7 @@ static void on_volume_btn_scrolled(GtkWidget *widget, GdkEventScroll *event, gpo
 		default:
 			return;
 	}
-    xmmsc_result_notifier_set(res, on_volume_btn_set_volume, GUINT_TO_POINTER((uint32_t)volume));
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref(res, on_volume_btn_set_volume, GUINT_TO_POINTER((uint32_t)volume));
 }
 
 static int on_playback_volume_changed( xmmsv_t* value, void* user_data )
@@ -2036,8 +2026,7 @@ static void setup_xmms_callbacks()
     xmmsc_disconnect_callback_set (con, on_server_disconnect, NULL);
     /* play status */
     res = xmmsc_playback_status(con);
-    xmmsc_result_notifier_set(res, on_playback_status_changed, NULL);
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref(res, on_playback_status_changed, NULL);
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_status, on_playback_status_changed, NULL );
 
     /* server quit */
@@ -2055,8 +2044,7 @@ static void setup_xmms_callbacks()
 
     /* current track info */
     res = xmmsc_playback_current_id( con );
-    xmmsc_result_notifier_set( res, on_playback_cur_track_changed, NULL );
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref( res, on_playback_cur_track_changed, NULL );
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_current_id, on_playback_cur_track_changed, NULL );
 
     /* current pos in playlist */
@@ -2067,8 +2055,7 @@ static void setup_xmms_callbacks()
 
     /* volume */
     res = xmmsc_playback_volume_get(con);
-    xmmsc_result_notifier_set(res, on_playback_volume_changed, NULL );
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref(res, on_playback_volume_changed, NULL );
     XMMS_CALLBACK_SET( con, xmmsc_broadcast_playback_volume_changed, on_playback_volume_changed, NULL );
 
     /* media lib */
@@ -2150,11 +2137,9 @@ static void setup_ui()
     gtk_combo_box_set_active(GTK_COMBO_BOX(cb), REPEAT_NONE);
 //    gtk_combo_box_set_active(cb, repeat_mode);
     res = xmmsc_configval_get( con, "playlist.repeat_all" );
-    xmmsc_result_notifier_set( res, on_cfg_repeat_all_received, cb );
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref( res, on_cfg_repeat_all_received, cb );
     res = xmmsc_configval_get( con, "playlist.repeat_one" );
-    xmmsc_result_notifier_set( res, on_cfg_repeat_one_received, cb );
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref( res, on_cfg_repeat_one_received, cb );
 
     cb = (GtkWidget*)gtk_builder_get_object(builder, "filter_field");
     gtk_combo_box_set_active(GTK_COMBO_BOX(cb), filter_field);
@@ -2343,13 +2328,11 @@ int main (int argc, char *argv[])
 
     /* display currently active playlist */
     res = xmmsc_playlist_current_active(con);
-    xmmsc_result_notifier_set(res, on_playlist_get_active, NULL);
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref(res, on_playlist_get_active, NULL);
 
     /* load all existing playlists and add them to the menu */
     res = xmmsc_playlist_list( con );
-    xmmsc_result_notifier_set(res, on_playlists_listed, NULL);
-    xmmsc_result_unref(res);
+    xmmsc_result_notifier_set_and_unref(res, on_playlists_listed, NULL);
 
     /* register callbacks */
     setup_xmms_callbacks();

@@ -177,3 +177,14 @@ GString* create_window_title( const gchar* artist, const gchar* title, gboolean 
     }
     return window_title;
 }
+
+/* helper function: most likely we wan't to unref directly after
+ * setting a notifier in async operation */
+
+void xmmsc_result_notifier_set_and_unref (xmmsc_result_t *res, xmmsc_result_notifier_t func, void *user_data)
+{
+	xmmsc_result_notifier_set_full (res, func, user_data, NULL);
+	xmmsc_result_unref(res);
+}
+
+	
