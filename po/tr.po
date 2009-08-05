@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-05 21:52+0200\n"
+"POT-Creation-Date: 2009-08-05 22:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,7 +123,7 @@ msgstr ""
 msgid "Name:"
 msgstr ""
 
-#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr ""
 
@@ -136,10 +136,6 @@ msgstr ""
 msgid "AirTunes"
 msgstr ""
 
-#: ../src/lxmusic-plugin-config.c:38
-msgid "Server"
-msgstr ""
-
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
@@ -150,7 +146,7 @@ msgid "Disk Writer"
 msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:44
-msgid "Destination Directory"
+msgid "Destination Directory:"
 msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:1

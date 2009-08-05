@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-05 21:52+0200\n"
+"POT-Creation-Date: 2009-08-05 22:01+0200\n"
 "PO-Revision-Date: 2009-06-29 01:28+0200\n"
 "Last-Translator: Giorgos Koutsikos <oege89@hotmail.com>\n"
 "Language-Team: Greek\n"
@@ -127,7 +127,7 @@ msgstr "Ήχος"
 msgid "Name:"
 msgstr ""
 
-#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 #, fuzzy
 msgid "Server:"
 msgstr "Οδηγός:"
@@ -141,11 +141,6 @@ msgstr ""
 msgid "AirTunes"
 msgstr ""
 
-#: ../src/lxmusic-plugin-config.c:38
-#, fuzzy
-msgid "Server"
-msgstr "Οδηγός:"
-
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
@@ -156,7 +151,7 @@ msgid "Disk Writer"
 msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:44
-msgid "Destination Directory"
+msgid "Destination Directory:"
 msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:1
@@ -390,6 +385,10 @@ msgstr "<b>Μέγεθος: </b>"
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Τίτλος: </b>"
+
+#, fuzzy
+#~ msgid "Server"
+#~ msgstr "Οδηγός:"
 
 #~ msgid ""
 #~ "All\n"

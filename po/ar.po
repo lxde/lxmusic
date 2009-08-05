@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXMusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-05 21:52+0200\n"
+"POT-Creation-Date: 2009-08-05 22:01+0200\n"
 "PO-Revision-Date: 2009-05-17 11:19+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
@@ -126,7 +126,7 @@ msgstr "الصوت"
 msgid "Name:"
 msgstr ""
 
-#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 #, fuzzy
 msgid "Server:"
 msgstr "التعريف:"
@@ -140,11 +140,6 @@ msgstr ""
 msgid "AirTunes"
 msgstr ""
 
-#: ../src/lxmusic-plugin-config.c:38
-#, fuzzy
-msgid "Server"
-msgstr "التعريف:"
-
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
@@ -155,7 +150,7 @@ msgid "Disk Writer"
 msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:44
-msgid "Destination Directory"
+msgid "Destination Directory:"
 msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:1
@@ -387,6 +382,10 @@ msgstr "<b>الحجم: </b>"
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>الاسم: </b>"
+
+#, fuzzy
+#~ msgid "Server"
+#~ msgstr "التعريف:"
 
 #~ msgid ""
 #~ "All\n"
