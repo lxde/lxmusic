@@ -290,11 +290,18 @@ void on_pref_output_plugin_changed(GtkTable* table, GtkComboBox* output)
     int active = gtk_combo_box_get_active(output);
     Plugin *plugin;
     int row, n_configs;
+    /* plugin name translated -> only display translated plugin config
+     * names  */
+    gboolean display_only_known_config = false;
 
     if (active == - 1) 
 	return;
     
     plugin = plugin_nth( active );
+    
+    if ( plugin_config_gettext( plugin->name ) != NULL )
+	display_only_known_config = true;
+    
     n_configs = g_list_length( plugin->config );
 
     /* destroy previous configuration widgets */
@@ -303,14 +310,23 @@ void on_pref_output_plugin_changed(GtkTable* table, GtkComboBox* output)
     if ( n_configs == 0 )
 	return;
 
-    gtk_table_resize( table, n_configs, 2 );
+    gtk_table_resize( table, 1, 2 );
     for ( row = 0; row < n_configs; row++ ) 
     {
 	xmmsc_result_t *res;
 	PluginConfig *config = plugin_config_nth ( plugin , row );
-	GtkWidget *label = gtk_label_new(config->display_name );
-	config->entry = gtk_entry_new();
+	const gchar *label_text = plugin_config_gettext( config->name );
+	GtkWidget *label;
+	
+	if (label_text == NULL && display_only_known_config) 
+	    continue;
+	
+	if (label_text == NULL)
+	    label_text = config->name;
 
+	label = gtk_label_new( label_text );
+
+	config->entry = gtk_entry_new();
 	gtk_misc_set_alignment( GTK_MISC(label), 0, 0.5 );
 	gtk_table_attach( table, label, 0, 1, row, row + 1, 0, 0, 0, 0 );
 	gtk_table_attach_defaults( table, config->entry, 1, 2, row, row + 1 );
@@ -362,7 +378,15 @@ int on_pref_dlg_init_output_plugin(xmmsv_t* value, void* user_data)
     gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (output_plugin_cb), cell, "text", 0, NULL);
 
     for ( i = 0; i < g_list_length( plugin_list() ); i++ ) 
-	gtk_combo_box_append_text( output_plugin_cb, plugin_nth( i )->display_name );
+    {
+	const gchar *xmms2_name =  plugin_nth( i )->name;
+	const gchar *label = plugin_config_gettext( xmms2_name );
+	/* fallback to xmms2 plugin names if no translation available*/
+	if ( label == NULL )
+	    label = xmms2_name;
+	gtk_combo_box_append_text( output_plugin_cb, label );
+    }
+    
 
     if( xmmsv_get_string(value, (const char**)&selected_plugin_name) )
 	for ( i = 0; i < g_list_length( plugin_list()  ); i++ ) 
