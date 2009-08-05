@@ -5,8 +5,8 @@
 #include <xmmsclient/xmmsclient.h>
 #include <glib/gi18n.h>
 
-/* blacklists not usefull for end users */
-#define PLUGIN_BLACKLIST "null"
+/* blacklists "not useful" for end users */
+#define PLUGIN_BLACKLIST "null ices"
 
 typedef struct _LXMusicPlugin 
 {
