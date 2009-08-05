@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-05 22:01+0200\n"
-"PO-Revision-Date: 2009-07-19 13:51+0100\n"
-"Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
+"PO-Revision-Date: 2009-08-05 22:38+0100\n"
+"Last-Translator: Jürgen Hötzel <juergen@archlinux.org>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -33,7 +33,9 @@ msgstr ""
 "Einfache GUI für XMMS2"
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:453
+#: ../src/utils.c:168
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -54,15 +56,19 @@ msgid "Input a URL"
 msgstr "URL einfügen"
 
 #. metadata available
-#: ../src/lxmusic.c:1350 ../src/lxmusic.c:1759 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1350
+#: ../src/lxmusic.c:1759
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Interpret"
 
-#: ../src/lxmusic.c:1358 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1358
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1366 ../src/lxmusic.c:1760
+#: ../src/lxmusic.c:1366
+#: ../src/lxmusic.c:1760
 msgid "Title"
 msgstr "Titel"
 
@@ -101,12 +107,14 @@ msgstr "Fehler"
 msgid "Advanced Linux Sound Architecture"
 msgstr ""
 
-#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Gerät:"
 
-#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Filter:"
 
@@ -122,40 +130,39 @@ msgstr ""
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
-#, fuzzy
 msgid "PulseAudio"
-msgstr "Audio"
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Name"
 
-#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
-#, fuzzy
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr "Treiber:"
+msgstr "Server:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "Senke:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "Disk Writer"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Zielverzeichnis:"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -193,7 +200,8 @@ msgstr "Suchbegriff hier eingeben"
 msgid "Favorites"
 msgstr "Favoriten"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Datei-Eigenschaften"
 
@@ -258,7 +266,6 @@ msgid "Stop"
 msgstr "Stop"
 
 #: ../data/lxmusic.ui.glade.h:29
-#, fuzzy
 msgid "Track Name"
 msgstr "Liedname"
 
@@ -343,12 +350,8 @@ msgid "Misc"
 msgstr "Sonstiges"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Musikdateien können ohne graphische Benutzeroberfläche wiedergegeben werden, "
-"um Systemressourcen zu sparen"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Musikdateien können ohne graphische Benutzeroberfläche wiedergegeben werden, um Systemressourcen zu sparen"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -393,7 +396,6 @@ msgstr "<b>Titel: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Treiber:"
-
 #~ msgid ""
 #~ "All\n"
 #~ "Artist\n"
@@ -404,7 +406,6 @@ msgstr "<b>Titel: </b>"
 #~ "Künstler\n"
 #~ "Album\n"
 #~ "Titelname"
-
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -413,13 +414,10 @@ msgstr "<b>Titel: </b>"
 #~ "Keine Wiederholung\n"
 #~ "Aktuellen Titel wiederholen\n"
 #~ "Alle wiederholen"
-
 #~ msgid "Use OSS for audio output"
 #~ msgstr "OSS zur Ausgabe verwenden"
-
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "Pulse Audio zur Audioausgabe verwenden"
-
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -430,3 +428,4 @@ msgstr "<b>Titel: </b>"
 #~ "Titel\n"
 #~ "Interpret\n"
 #~ "Album"
+
