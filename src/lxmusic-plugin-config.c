@@ -39,6 +39,10 @@ static void plugin_config_init_translation()
 
     /* jack */
     g_hash_table_insert( translation, ( gpointer ) "jack",   _( "JACK Audio Connection Kit" ) );
+
+    g_hash_table_insert( translation, ( gpointer ) "diskwrite", _( "Disk Writer" ) );
+    g_hash_table_insert( translation, ( gpointer ) "diskwrite.destination_directory", _( "Destination Directory" ) );    
+	
 }
 
 const gchar* plugin_config_gettext(const gchar *lookup) 
