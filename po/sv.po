@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-01 11:59+0200\n"
+"POT-Creation-Date: 2009-08-05 21:52+0200\n"
 "PO-Revision-Date: 2009-05-19 13:46+0200\n"
 "Last-Translator: Martin Bagge <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: Swedish\n"
 
-#: ../src/lxmusic.c:268
+#: ../src/lxmusic.c:269
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Officiell ikon för xmms2 av Arnaud DIDRY"
 
-#: ../src/lxmusic.c:279
+#: ../src/lxmusic.c:280
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -29,66 +29,135 @@ msgstr ""
 "Musikspelare för LXDE\n"
 "Enkel klient till XMMS2"
 
-#: ../src/lxmusic.c:430 ../data/lxmusic.ui.glade.h:14
+#. default
+#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:613
+#: ../src/lxmusic.c:636
 msgid "Bitrate: "
 msgstr "Bitfrekvens:"
 
-#: ../src/lxmusic.c:904
+#: ../src/lxmusic.c:927
 msgid "Audio Files"
 msgstr "Ljudfiler"
 
-#: ../src/lxmusic.c:909
+#: ../src/lxmusic.c:932
 msgid "All Files"
 msgstr "Alla filer"
 
-#: ../src/lxmusic.c:936
+#: ../src/lxmusic.c:959
 msgid "Input a URL"
 msgstr "Ange URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1297 ../src/lxmusic.c:1707 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1350 ../src/lxmusic.c:1759 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Artist"
 
-#: ../src/lxmusic.c:1305 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1358 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1313 ../src/lxmusic.c:1708
+#: ../src/lxmusic.c:1366 ../src/lxmusic.c:1760
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/lxmusic.c:1319
+#: ../src/lxmusic.c:1372
 msgid "Length"
 msgstr "Speltid"
 
-#: ../src/lxmusic.c:1491
+#: ../src/lxmusic.c:1544
 msgid "Default"
 msgstr "Standard"
 
-#: ../src/lxmusic.c:1601
+#: ../src/lxmusic.c:1654
 msgid "Pause"
 msgstr "Paus"
 
-#: ../src/lxmusic.c:1616
+#: ../src/lxmusic.c:1668
 msgid "Play"
 msgstr "Spela"
 
-#: ../src/lxmusic.c:1713
+#: ../src/lxmusic.c:1765
 msgid "Now Playing:"
 msgstr "Nu spelas:"
 
-#: ../src/lxmusic.c:2163
+#: ../src/lxmusic.c:2206
 msgid "Create new playlist"
 msgstr "Skapa ny spellista"
 
 #: ../src/utils.c:81
 msgid "Error"
 msgstr "Fel"
+
+#. alsa use:
+#. * # xmms2 config_list|egrep "^alsa"
+#. * to get list of possible config variables
+#: ../src/lxmusic-plugin-config.c:17
+msgid "Advanced Linux Sound Architecture"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:28
+msgid "Device:"
+msgstr "Enhet:"
+
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+msgid "Mixer:"
+msgstr "Mixer:"
+
+#. oss
+#: ../src/lxmusic-plugin-config.c:22
+msgid "Open Sound System"
+msgstr ""
+
+#. ao
+#: ../src/lxmusic-plugin-config.c:27
+msgid "Cross-platform audio output library"
+msgstr ""
+
+#. pulse
+#: ../src/lxmusic-plugin-config.c:31
+#, fuzzy
+msgid "PulseAudio"
+msgstr "Ljud"
+
+#: ../src/lxmusic-plugin-config.c:32
+msgid "Name:"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:33
+#, fuzzy
+msgid "Server:"
+msgstr "Drivrutin:"
+
+#: ../src/lxmusic-plugin-config.c:34
+msgid "Sink:"
+msgstr ""
+
+#. airtunes
+#: ../src/lxmusic-plugin-config.c:37
+msgid "AirTunes"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:38
+#, fuzzy
+msgid "Server"
+msgstr "Drivrutin:"
+
+#. jack
+#: ../src/lxmusic-plugin-config.c:41
+msgid "JACK Audio Connection Kit"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:43
+msgid "Disk Writer"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:44
+msgid "Destination Directory"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -342,15 +411,6 @@ msgstr "<b>Titel: </b>"
 #~ "Ingen upprepning\n"
 #~ "Repetera aktuell\n"
 #~ "Repetera alla"
-
-#~ msgid "Device:"
-#~ msgstr "Enhet:"
-
-#~ msgid "Driver:"
-#~ msgstr "Drivrutin:"
-
-#~ msgid "Mixer:"
-#~ msgstr "Mixer:"
 
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Använd OSS för ljudutmatning"

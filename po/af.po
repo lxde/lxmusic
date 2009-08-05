@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-01 11:59+0200\n"
+"POT-Creation-Date: 2009-08-05 21:52+0200\n"
 "PO-Revision-Date: 2009-05-18 22:07+0200\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-#: ../src/lxmusic.c:268
+#: ../src/lxmusic.c:269
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr ""
 
-#: ../src/lxmusic.c:279
+#: ../src/lxmusic.c:280
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -28,66 +28,135 @@ msgstr ""
 "Musiekspeler vir LXDE\n"
 "Eenvoudige grafiese XMMS2-kliënt"
 
-#: ../src/lxmusic.c:430 ../data/lxmusic.ui.glade.h:14
+#. default
+#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusiek"
 
-#: ../src/lxmusic.c:613
+#: ../src/lxmusic.c:636
 msgid "Bitrate: "
 msgstr "Bistempo: "
 
-#: ../src/lxmusic.c:904
+#: ../src/lxmusic.c:927
 msgid "Audio Files"
 msgstr "Oudiolêers"
 
-#: ../src/lxmusic.c:909
+#: ../src/lxmusic.c:932
 msgid "All Files"
 msgstr "Alle lêers"
 
-#: ../src/lxmusic.c:936
+#: ../src/lxmusic.c:959
 msgid "Input a URL"
 msgstr "Tik 'n URL in"
 
 #. metadata available
-#: ../src/lxmusic.c:1297 ../src/lxmusic.c:1707 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1350 ../src/lxmusic.c:1759 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Kunstenaar"
 
-#: ../src/lxmusic.c:1305 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1358 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1313 ../src/lxmusic.c:1708
+#: ../src/lxmusic.c:1366 ../src/lxmusic.c:1760
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/lxmusic.c:1319
+#: ../src/lxmusic.c:1372
 msgid "Length"
 msgstr "Lengte"
 
-#: ../src/lxmusic.c:1491
+#: ../src/lxmusic.c:1544
 msgid "Default"
 msgstr "Verstek"
 
-#: ../src/lxmusic.c:1601
+#: ../src/lxmusic.c:1654
 msgid "Pause"
 msgstr "Laat wag"
 
-#: ../src/lxmusic.c:1616
+#: ../src/lxmusic.c:1668
 msgid "Play"
 msgstr "Speel"
 
-#: ../src/lxmusic.c:1713
+#: ../src/lxmusic.c:1765
 msgid "Now Playing:"
 msgstr "Speel tans:"
 
-#: ../src/lxmusic.c:2163
+#: ../src/lxmusic.c:2206
 msgid "Create new playlist"
 msgstr "Skep nuwe speellys"
 
 #: ../src/utils.c:81
 msgid "Error"
 msgstr "Fout"
+
+#. alsa use:
+#. * # xmms2 config_list|egrep "^alsa"
+#. * to get list of possible config variables
+#: ../src/lxmusic-plugin-config.c:17
+msgid "Advanced Linux Sound Architecture"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:28
+msgid "Device:"
+msgstr "Toestel:"
+
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+msgid "Mixer:"
+msgstr "Mengbank:"
+
+#. oss
+#: ../src/lxmusic-plugin-config.c:22
+msgid "Open Sound System"
+msgstr ""
+
+#. ao
+#: ../src/lxmusic-plugin-config.c:27
+msgid "Cross-platform audio output library"
+msgstr ""
+
+#. pulse
+#: ../src/lxmusic-plugin-config.c:31
+#, fuzzy
+msgid "PulseAudio"
+msgstr "Oudio"
+
+#: ../src/lxmusic-plugin-config.c:32
+msgid "Name:"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:33
+#, fuzzy
+msgid "Server:"
+msgstr "Aandrywer:"
+
+#: ../src/lxmusic-plugin-config.c:34
+msgid "Sink:"
+msgstr ""
+
+#. airtunes
+#: ../src/lxmusic-plugin-config.c:37
+msgid "AirTunes"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:38
+#, fuzzy
+msgid "Server"
+msgstr "Aandrywer:"
+
+#. jack
+#: ../src/lxmusic-plugin-config.c:41
+msgid "JACK Audio Connection Kit"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:43
+msgid "Disk Writer"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:44
+msgid "Destination Directory"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -320,15 +389,6 @@ msgstr "<b>Grootte: </b>"
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Titel: </b>"
-
-#~ msgid "Device:"
-#~ msgstr "Toestel:"
-
-#~ msgid "Driver:"
-#~ msgstr "Aandrywer:"
-
-#~ msgid "Mixer:"
-#~ msgstr "Mengbank:"
 
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Gebruik OSS vir oudioafvoer"

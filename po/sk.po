@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-01 11:59+0200\n"
+"POT-Creation-Date: 2009-08-05 21:52+0200\n"
 "PO-Revision-Date: 2009-05-28 17:11+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -15,11 +15,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:268
+#: ../src/lxmusic.c:269
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Officiálna ikona xmms2 (autor: Arnaud DIDRY)"
 
-#: ../src/lxmusic.c:279
+#: ../src/lxmusic.c:280
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -27,66 +27,135 @@ msgstr ""
 "prehrávač hudby pre projekt LXDE\n"
 "Jednoduchý grafický klient XMMS2"
 
-#: ../src/lxmusic.c:430 ../data/lxmusic.ui.glade.h:14
+#. default
+#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:613
+#: ../src/lxmusic.c:636
 msgid "Bitrate: "
 msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:904
+#: ../src/lxmusic.c:927
 msgid "Audio Files"
 msgstr "Zvukové súbory"
 
-#: ../src/lxmusic.c:909
+#: ../src/lxmusic.c:932
 msgid "All Files"
 msgstr "Všetky súbory"
 
-#: ../src/lxmusic.c:936
+#: ../src/lxmusic.c:959
 msgid "Input a URL"
 msgstr "Zadať URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1297 ../src/lxmusic.c:1707 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1350 ../src/lxmusic.c:1759 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Autor"
 
-#: ../src/lxmusic.c:1305 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1358 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1313 ../src/lxmusic.c:1708
+#: ../src/lxmusic.c:1366 ../src/lxmusic.c:1760
 msgid "Title"
 msgstr "Názov"
 
-#: ../src/lxmusic.c:1319
+#: ../src/lxmusic.c:1372
 msgid "Length"
 msgstr "Dĺžka"
 
-#: ../src/lxmusic.c:1491
+#: ../src/lxmusic.c:1544
 msgid "Default"
 msgstr "Predvolené"
 
-#: ../src/lxmusic.c:1601
+#: ../src/lxmusic.c:1654
 msgid "Pause"
 msgstr "Pozastaviť"
 
-#: ../src/lxmusic.c:1616
+#: ../src/lxmusic.c:1668
 msgid "Play"
 msgstr "Prehrať"
 
-#: ../src/lxmusic.c:1713
+#: ../src/lxmusic.c:1765
 msgid "Now Playing:"
 msgstr "Teraz hrá:"
 
-#: ../src/lxmusic.c:2163
+#: ../src/lxmusic.c:2206
 msgid "Create new playlist"
 msgstr "Vytvoriť nový zoznam stôp"
 
 #: ../src/utils.c:81
 msgid "Error"
 msgstr "Chyba"
+
+#. alsa use:
+#. * # xmms2 config_list|egrep "^alsa"
+#. * to get list of possible config variables
+#: ../src/lxmusic-plugin-config.c:17
+msgid "Advanced Linux Sound Architecture"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:28
+msgid "Device:"
+msgstr "Zaraidenie:"
+
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+msgid "Mixer:"
+msgstr "Mixer:"
+
+#. oss
+#: ../src/lxmusic-plugin-config.c:22
+msgid "Open Sound System"
+msgstr ""
+
+#. ao
+#: ../src/lxmusic-plugin-config.c:27
+msgid "Cross-platform audio output library"
+msgstr ""
+
+#. pulse
+#: ../src/lxmusic-plugin-config.c:31
+#, fuzzy
+msgid "PulseAudio"
+msgstr "Zvuk"
+
+#: ../src/lxmusic-plugin-config.c:32
+msgid "Name:"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:33
+#, fuzzy
+msgid "Server:"
+msgstr "Ovládač:"
+
+#: ../src/lxmusic-plugin-config.c:34
+msgid "Sink:"
+msgstr ""
+
+#. airtunes
+#: ../src/lxmusic-plugin-config.c:37
+msgid "AirTunes"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:38
+#, fuzzy
+msgid "Server"
+msgstr "Ovládač:"
+
+#. jack
+#: ../src/lxmusic-plugin-config.c:41
+msgid "JACK Audio Connection Kit"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:43
+msgid "Disk Writer"
+msgstr ""
+
+#: ../src/lxmusic-plugin-config.c:44
+msgid "Destination Directory"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -339,15 +408,6 @@ msgstr "<b>Názov: </b>"
 #~ "Neopakovať\n"
 #~ "Opakovať stopu\n"
 #~ "Opakovať zoznam stôp"
-
-#~ msgid "Device:"
-#~ msgstr "Zaraidenie:"
-
-#~ msgid "Driver:"
-#~ msgstr "Ovládač:"
-
-#~ msgid "Mixer:"
-#~ msgstr "Mixer:"
 
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Na výstup zvuku používať OSS"
