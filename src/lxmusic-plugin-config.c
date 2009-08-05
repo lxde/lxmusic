@@ -35,13 +35,13 @@ static void plugin_config_init_translation()
 
     /* airtunes */
     g_hash_table_insert( translation, ( gpointer ) "airplay",   _( "AirTunes" ));
-    g_hash_table_insert( translation, ( gpointer ) "airplay.airport_address", _("Server" ));
+    g_hash_table_insert( translation, ( gpointer ) "airplay.airport_address", _("Server:" ));
 
     /* jack */
     g_hash_table_insert( translation, ( gpointer ) "jack",   _( "JACK Audio Connection Kit" ) );
 
     g_hash_table_insert( translation, ( gpointer ) "diskwrite", _( "Disk Writer" ) );
-    g_hash_table_insert( translation, ( gpointer ) "diskwrite.destination_directory", _( "Destination Directory" ) );    
+    g_hash_table_insert( translation, ( gpointer ) "diskwrite.destination_directory", _( "Destination Directory:" ) );    
 	
 }
 
