@@ -93,7 +93,7 @@ void plugin_config_setup (xmmsc_connection_t *con)
 	    xmmsv_dict_entry_get_string (elem, "shortname", &name);
 
 	    /* not blacklisted */
-	    if ( g_strrstr( name, PLUGIN_BLACKLIST ) != NULL ) 
+	    if ( g_strrstr( PLUGIN_BLACKLIST, name ) != NULL ) 
 		continue;
 
 	    plugin = g_slice_new( Plugin );
