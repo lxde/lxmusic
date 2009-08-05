@@ -123,6 +123,7 @@
                             <child>
                               <object class="GtkTable" id="output_plugin_table">
                                 <property name="visible">True</property>
+                                <property name="column_spacing">10</property>
                               </object>
                               <packing>
                                 <property name="position">1</property>
