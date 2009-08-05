@@ -1,6 +1,7 @@
 [encoding: UTF-8]
 src/lxmusic.c
 src/utils.c
+src/lxmusic-plugin-config.c
 data/lxmusic.desktop.in
 data/lxmusic.ui.glade
 data/popup.ui.glade
