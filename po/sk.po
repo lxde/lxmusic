@@ -1,14 +1,14 @@
 # Slovak translation of lxmusic
 # Copyright (C) 2006 lxde team
 # This file is distributed under the same license as the lxmusic package.
-# Ivan MasÃ¡r <helix84@centrum.sk>, 2007, 2009.
+# Ivan Masár <helix84@centrum.sk>, 2007, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-05 22:01+0200\n"
-"PO-Revision-Date: 2009-05-28 17:11+0100\n"
+"PO-Revision-Date: 2009-08-06 13:46+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,9 @@ msgstr ""
 "Jednoduchý grafický klient XMMS2"
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:453
+#: ../src/utils.c:168
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -49,15 +51,19 @@ msgid "Input a URL"
 msgstr "Zadať URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1350 ../src/lxmusic.c:1759 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1350
+#: ../src/lxmusic.c:1759
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Autor"
 
-#: ../src/lxmusic.c:1358 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1358
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1366 ../src/lxmusic.c:1760
+#: ../src/lxmusic.c:1366
+#: ../src/lxmusic.c:1760
 msgid "Title"
 msgstr "Názov"
 
@@ -94,63 +100,64 @@ msgstr "Chyba"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "Advanced Linux Sound Architecture"
 
-#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Zaraidenie:"
 
-#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Mixer:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "Open Sound System"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "Multiplatformová knižnica na výstup zvuku"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
-#, fuzzy
 msgid "PulseAudio"
-msgstr "Zvuk"
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Názov:"
 
-#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
-#, fuzzy
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr "Ovládač:"
+msgstr "Server:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "Ústie:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "Zápis na disk"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Cieľový adresár:"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -188,7 +195,8 @@ msgstr "Sem zadajte kľúčové slovo"
 msgid "Favorites"
 msgstr "Obľúbené"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Vlastnosti súboru"
 
@@ -337,12 +345,8 @@ msgid "Misc"
 msgstr "Rôzne"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Hudobné súbory možno prehrávať bez grafického rozhrania, aby sa šetrili "
-"zdroje systému"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Hudobné súbory možno prehrávať bez grafického rozhrania, aby sa šetrili zdroje systému"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -387,7 +391,6 @@ msgstr "<b>Názov: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Ovládač:"
-
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -398,7 +401,6 @@ msgstr "<b>Názov: </b>"
 #~ "Názov stopy\n"
 #~ "Autor\n"
 #~ "Album"
-
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -407,9 +409,8 @@ msgstr "<b>Názov: </b>"
 #~ "Neopakovať\n"
 #~ "Opakovať stopu\n"
 #~ "Opakovať zoznam stôp"
-
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Na výstup zvuku používať OSS"
-
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "Na výstup zvuku používať Pulse Audio"
+
