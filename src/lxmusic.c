@@ -2317,7 +2317,7 @@ int main (int argc, char *argv[])
     /* try to connect to xmms2d, and launch the daemon if needed. */
     if( !xmmsc_connect(con, getenv("XMMS_PATH")) )
     {
-        if( ! g_spawn_command_line_sync( "xmms2-launcher", NULL, NULL, NULL, NULL )
+        if( ! g_spawn_command_line_sync( "xmms2-launcher --yes-run-as-root", NULL, NULL, NULL, NULL )
             || !xmmsc_connect(con, getenv ("XMMS_PATH")) )
         {
             fprintf(stderr, "Connection failed: %s\n",
