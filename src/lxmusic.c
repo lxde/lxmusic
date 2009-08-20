@@ -709,7 +709,18 @@ void on_playlist_view_drag_data_received(GtkWidget          *widget,
                                          uint32_t               time)
 {
     char** uris;
-    g_signal_stop_emission_by_name(widget, "drag-data-received");
+    GtkTreePath            *dest_path;
+    GtkTreeViewDropPosition pos;
+    int insert_pos = gtk_tree_model_iter_n_children( gtk_tree_view_get_model ( playlist_view ), NULL );
+
+    g_signal_stop_emission_by_name(playlist_view, "drag_data_received");
+    
+    if ( gtk_tree_view_get_dest_row_at_pos( playlist_view, x, y, &dest_path, &pos ) ) 
+    {
+	insert_pos = gtk_tree_path_get_indices( dest_path )[0] ;
+	if ( pos != GTK_TREE_VIEW_DROP_BEFORE )
+	    insert_pos++;
+    }
 
     if( (uris = gtk_selection_data_get_uris(data)) != NULL )
     {
@@ -728,17 +739,17 @@ void on_playlist_view_drag_data_received(GtkWidget          *widget,
                      */
                     char* url = g_strconcat( "file://", fn, NULL);
                     if(g_file_test(fn, G_FILE_TEST_IS_DIR))
-                        res = xmmsc_playlist_radd(con, cur_playlist, url);
+                        res = xmmsc_playlist_rinsert(con, cur_playlist, insert_pos, url);
                     else
-                        res = xmmsc_playlist_add_url(con, cur_playlist, url);
+                        res = xmmsc_playlist_insert_url(con, cur_playlist, insert_pos, url);
                     g_free(fn);
                     g_free(url);
                 }
                 else
-                    res = xmmsc_playlist_radd_encoded(con, cur_playlist, *uri);
+                    res = xmmsc_playlist_rinsert_encoded(con, cur_playlist, insert_pos, *uri);
             }
             else
-                res = xmmsc_playlist_radd_encoded(con, cur_playlist, *uri);
+                res = xmmsc_playlist_rinsert_encoded(con, cur_playlist, insert_pos, *uri);
 
             xmmsc_result_unref(res);
         }
