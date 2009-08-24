@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-05 22:01+0200\n"
+"POT-Creation-Date: 2009-08-24 19:13+0200\n"
 "PO-Revision-Date: 2009-04-17 19:41+0200\n"
 "Last-Translator: Alessandro Pellizzari <alex@amiran.it>\n"
 "Language-Team: \n"
@@ -39,52 +39,52 @@ msgstr "LXMusic"
 msgid "Bitrate: "
 msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:927
+#: ../src/lxmusic.c:938
 msgid "Audio Files"
 msgstr "File audio"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:943
 msgid "All Files"
 msgstr "Tutti i file"
 
-#: ../src/lxmusic.c:959
+#: ../src/lxmusic.c:970
 msgid "Input a URL"
 msgstr "Inserire URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1350 ../src/lxmusic.c:1759 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Artista"
 
-#: ../src/lxmusic.c:1358 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1366 ../src/lxmusic.c:1760
+#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
 msgid "Title"
 msgstr "Titolo"
 
-#: ../src/lxmusic.c:1372
+#: ../src/lxmusic.c:1383
 msgid "Length"
 msgstr "Durata"
 
-#: ../src/lxmusic.c:1544
+#: ../src/lxmusic.c:1555
 msgid "Default"
 msgstr "Standard"
 
-#: ../src/lxmusic.c:1654
+#: ../src/lxmusic.c:1665
 msgid "Pause"
 msgstr "Pausa"
 
-#: ../src/lxmusic.c:1668
+#: ../src/lxmusic.c:1679
 msgid "Play"
 msgstr "Riproduci"
 
-#: ../src/lxmusic.c:1765
+#: ../src/lxmusic.c:1776
 msgid "Now Playing:"
 msgstr "In riproduzione:"
 
-#: ../src/lxmusic.c:2206
+#: ../src/lxmusic.c:2217
 msgid "Create new playlist"
 msgstr "Creare una nuova lista di riproduzione"
 

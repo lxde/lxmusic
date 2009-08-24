@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXMusic 0.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-05 22:01+0200\n"
-"PO-Revision-Date: 2009-06-28 18:30+0100\n"
-"Last-Translator: Matej Gačnik <paxmanpwnz@gmail.com>\n"
+"POT-Creation-Date: 2009-08-24 19:13+0200\n"
+"PO-Revision-Date: 2009-08-06 16:46+0200\n"
+"Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: Slovenian <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,52 +36,52 @@ msgstr "LXMusic"
 msgid "Bitrate: "
 msgstr "Bitna hitrost:"
 
-#: ../src/lxmusic.c:927
+#: ../src/lxmusic.c:938
 msgid "Audio Files"
 msgstr "Zvočne datoteke"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:943
 msgid "All Files"
 msgstr "Vse datoteke"
 
-#: ../src/lxmusic.c:959
+#: ../src/lxmusic.c:970
 msgid "Input a URL"
 msgstr "Vnesi URL naslov"
 
 #. metadata available
-#: ../src/lxmusic.c:1350 ../src/lxmusic.c:1759 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Avtor"
 
-#: ../src/lxmusic.c:1358 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1366 ../src/lxmusic.c:1760
+#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
 msgid "Title"
 msgstr "Naslov"
 
-#: ../src/lxmusic.c:1372
+#: ../src/lxmusic.c:1383
 msgid "Length"
 msgstr "Dolžina"
 
-#: ../src/lxmusic.c:1544
+#: ../src/lxmusic.c:1555
 msgid "Default"
 msgstr "Privzeto"
 
-#: ../src/lxmusic.c:1654
+#: ../src/lxmusic.c:1665
 msgid "Pause"
 msgstr "Pavza"
 
-#: ../src/lxmusic.c:1668
+#: ../src/lxmusic.c:1679
 msgid "Play"
 msgstr "Predvajaj"
 
-#: ../src/lxmusic.c:1765
+#: ../src/lxmusic.c:1776
 msgid "Now Playing:"
 msgstr "Predvaja se:"
 
-#: ../src/lxmusic.c:2206
+#: ../src/lxmusic.c:2217
 msgid "Create new playlist"
 msgstr "_Ustvari nov seznam:"
 
@@ -93,8 +93,9 @@ msgstr "Napaka"
 #. * # xmms2 config_list|egrep "^alsa"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
+#, fuzzy
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "ALSA"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
@@ -107,50 +108,55 @@ msgstr "Mešalec:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
+#, fuzzy
 msgid "Open Sound System"
-msgstr ""
+msgstr "OSS"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
+#, fuzzy
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "Med-platformna izhodna zvočna knjižnica"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
 #, fuzzy
 msgid "PulseAudio"
-msgstr "Zvok"
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Ime:"
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 #, fuzzy
 msgid "Server:"
-msgstr "Gonilnik:"
+msgstr "Strežnik:"
 
 #: ../src/lxmusic-plugin-config.c:34
+#, fuzzy
 msgid "Sink:"
-msgstr ""
+msgstr "Ponor:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
+#, fuzzy
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
+#, fuzzy
 msgid "Disk Writer"
-msgstr ""
+msgstr "Pisanje na disk"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Ciljna mapa:"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"

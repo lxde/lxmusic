@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-06 09:10+0200\n"
+"POT-Creation-Date: 2009-08-24 19:13+0200\n"
 "PO-Revision-Date: 2009-08-18 07:14+0500\n"
 "Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
@@ -32,9 +32,7 @@ msgstr ""
 "سادہ مواجہ XMMS2 کلائنٹ"
 
 #. default
-#: ../src/lxmusic.c:453
-#: ../src/utils.c:168
-#: ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "ایل ایکس موسیقی"
 
@@ -42,56 +40,52 @@ msgstr "ایل ایکس موسیقی"
 msgid "Bitrate: "
 msgstr "بِٹ قیمت:"
 
-#: ../src/lxmusic.c:927
+#: ../src/lxmusic.c:938
 msgid "Audio Files"
 msgstr "صوتی فائلیں"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:943
 msgid "All Files"
 msgstr "تمام فائلیں"
 
-#: ../src/lxmusic.c:959
+#: ../src/lxmusic.c:970
 msgid "Input a URL"
 msgstr "ربط لکھیں"
 
 #. metadata available
-#: ../src/lxmusic.c:1350
-#: ../src/lxmusic.c:1759
-#: ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "فنکار"
 
-#: ../src/lxmusic.c:1358
-#: ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "ایلبم"
 
-#: ../src/lxmusic.c:1366
-#: ../src/lxmusic.c:1760
+#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
 msgid "Title"
 msgstr "عنوان"
 
-#: ../src/lxmusic.c:1372
+#: ../src/lxmusic.c:1383
 msgid "Length"
 msgstr "طول"
 
-#: ../src/lxmusic.c:1544
+#: ../src/lxmusic.c:1555
 msgid "Default"
 msgstr "طے شدہ"
 
-#: ../src/lxmusic.c:1654
+#: ../src/lxmusic.c:1665
 msgid "Pause"
 msgstr "موقوف"
 
-#: ../src/lxmusic.c:1668
+#: ../src/lxmusic.c:1679
 msgid "Play"
 msgstr "چلائیں"
 
-#: ../src/lxmusic.c:1765
+#: ../src/lxmusic.c:1776
 msgid "Now Playing:"
 msgstr "چل رہا ہے:"
 
-#: ../src/lxmusic.c:2206
+#: ../src/lxmusic.c:2217
 msgid "Create new playlist"
 msgstr "نئی پلے لسٹ بنائیں"
 
@@ -106,14 +100,12 @@ msgstr "غلطی"
 msgid "Advanced Linux Sound Architecture"
 msgstr "اعلی لینکس صوتی آرکٹیکچر"
 
-#: ../src/lxmusic-plugin-config.c:18
-#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "ڈیوائس:"
 
-#: ../src/lxmusic-plugin-config.c:19
-#: ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "مکسر:"
 
@@ -136,8 +128,7 @@ msgstr "پلس آڈیو:"
 msgid "Name:"
 msgstr "نام:"
 
-#: ../src/lxmusic-plugin-config.c:33
-#: ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "سرور:"
 
@@ -199,8 +190,7 @@ msgstr "کلیدی لفظ یہاں لکھیں"
 msgid "Favorites"
 msgstr "پسندیدہ"
 
-#: ../data/lxmusic.ui.glade.h:12
-#: ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "فائل خصوصیات"
 
@@ -349,8 +339,12 @@ msgid "Misc"
 msgstr "متفرق"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "موسیقی کی فائلیں صارف مواجہ کے بغیر بھی چلائی جاسکتی ہیں تاکہ نظام کے ذرائع بچائے جاسکیں"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"موسیقی کی فائلیں صارف مواجہ کے بغیر بھی چلائی جاسکتی ہیں تاکہ نظام کے ذرائع "
+"بچائے جاسکیں"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -395,6 +389,7 @@ msgstr "<b>عنوان: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "ڈرائیور:"
+
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -405,6 +400,7 @@ msgstr "<b>عنوان: </b>"
 #~ "ٹریک کا نام\n"
 #~ "فنکار\n"
 #~ "ایلبم"
+
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -413,8 +409,9 @@ msgstr "<b>عنوان: </b>"
 #~ "مت دہرائیں\n"
 #~ "حالیہ کو دہرائیں\n"
 #~ "سب کو دہرائیں"
+
 #~ msgid "Use OSS for audio output"
 #~ msgstr "صوتی ماحاصل کے لیے OSS استعمال کریں"
+
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "صوتی ماحاصل کے لیے پلس آڈیو استعمال کریں"
-
