@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-08-22 16:17+0200\n"
-"Last-Translator: Marcus Schulderinsky <marcus.schulderinsky@googlemail.com>\n"
+"PO-Revision-Date: 2009-08-25 14:25+0200\n"
+"Last-Translator: André Ue <anue.mokita@hotmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -94,21 +94,23 @@ msgstr "Neue Wiedergabeliste erstellen"
 msgid "Error"
 msgstr "Fehler"
 
+# Advanced Linux Sound Architecture/ ALSA ist der Name, kann man schlecht übersetzen.
 #. alsa use:
 #. * # xmms2 config_list|egrep "^alsa"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "Advanced Linux Sound Architecture (Soundtreiber)"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Gerät:"
 
+# "Filter:" war vorgeschlagen. Aufgrund fehlenden Kontexts eher "Mischer" oder "Mischpult"
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr "Filter:"
+msgstr "Mischer:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
