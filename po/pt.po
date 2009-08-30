@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-05-19 12:24-0000\n"
+"POT-Creation-Date: 2009-08-05 22:01+0200\n"
+"PO-Revision-Date: 2009-08-12 11:25-0000\n"
 "Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +27,13 @@ msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Leitor de Música para o LXDE\n"
-"Cliente Simples GUI XMMS2"
+"Leitor de Música para LXDE\n"
+"Interface Minimalista para XMMS2"
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:453
+#: ../src/utils.c:168
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -39,52 +41,56 @@ msgstr "LXMusic"
 msgid "Bitrate: "
 msgstr "Taxa de Bits:"
 
-#: ../src/lxmusic.c:938
+#: ../src/lxmusic.c:927
 msgid "Audio Files"
 msgstr "Ficheiros Áudio"
 
-#: ../src/lxmusic.c:943
+#: ../src/lxmusic.c:932
 msgid "All Files"
 msgstr "Todos os Ficheiros"
 
-#: ../src/lxmusic.c:970
+#: ../src/lxmusic.c:959
 msgid "Input a URL"
 msgstr "Introduza uma URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1350
+#: ../src/lxmusic.c:1759
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Artista"
 
-#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1358
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Álbum"
 
-#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
+#: ../src/lxmusic.c:1366
+#: ../src/lxmusic.c:1760
 msgid "Title"
 msgstr "Título"
 
-#: ../src/lxmusic.c:1383
+#: ../src/lxmusic.c:1372
 msgid "Length"
 msgstr "Duração"
 
-#: ../src/lxmusic.c:1555
+#: ../src/lxmusic.c:1544
 msgid "Default"
 msgstr "Omissão"
 
-#: ../src/lxmusic.c:1665
+#: ../src/lxmusic.c:1654
 msgid "Pause"
 msgstr "Pausar"
 
-#: ../src/lxmusic.c:1679
+#: ../src/lxmusic.c:1668
 msgid "Play"
 msgstr "Reproduzir"
 
-#: ../src/lxmusic.c:1776
+#: ../src/lxmusic.c:1765
 msgid "Now Playing:"
 msgstr "Reproduzindo:"
 
-#: ../src/lxmusic.c:2217
+#: ../src/lxmusic.c:2206
 msgid "Create new playlist"
 msgstr "Criar nova lista de reprodução"
 
@@ -97,63 +103,64 @@ msgstr "Erro"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "Arquitectura Avançada de Som em Linux (ALSA)"
 
-#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Dispositivo:"
 
-#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Equalizador:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "Sistema Aberto de Som (OSS)"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "Biblioteca de saída áudio multi-plataforma"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
-#, fuzzy
 msgid "PulseAudio"
-msgstr "Áudio"
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Nome:"
 
-#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
-#, fuzzy
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr "Controlador:"
+msgstr "Servidor:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "Depósito:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "Kit de Conexão JACK Áudio"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "Gravador de Disco"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Directório de Destino:"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -191,7 +198,8 @@ msgstr "Introduza palavra-chave aqui"
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Propriedades do Ficheiro"
 
@@ -340,12 +348,8 @@ msgid "Misc"
 msgstr "Misc"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Os ficheiros de música podem ser reproduzidos sem interface gráfica para "
-"poupar recursos do sistema"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Os ficheiros de música podem ser reproduzidos sem interface gráfica para poupar recursos do sistema"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -390,7 +394,6 @@ msgstr "<b>Título: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Controlador:"
-
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -401,7 +404,6 @@ msgstr "<b>Título: </b>"
 #~ "Nome\n"
 #~ "Artista\n"
 #~ "Álbum"
-
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -410,9 +412,8 @@ msgstr "<b>Título: </b>"
 #~ "Não Repetir\n"
 #~ "Repetir Actual\n"
 #~ "Repir Todas"
-
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Usar OSS para a saída de áudio"
-
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "Usar Pulse Audio para a saída de áudio"
+
