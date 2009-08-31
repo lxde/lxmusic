@@ -30,7 +30,9 @@ msgstr ""
 "Enkel klient till XMMS2"
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:453
+#: ../src/utils.c:168
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -51,15 +53,19 @@ msgid "Input a URL"
 msgstr "Ange URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1361
+#: ../src/lxmusic.c:1770
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Artist"
 
-#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1369
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
+#: ../src/lxmusic.c:1377
+#: ../src/lxmusic.c:1771
 msgid "Title"
 msgstr "Titel"
 
@@ -98,12 +104,14 @@ msgstr "Fel"
 msgid "Advanced Linux Sound Architecture"
 msgstr "Advanced Linux Sound Architecture"
 
-#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Enhet:"
 
-#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Mixer:"
 
@@ -126,7 +134,8 @@ msgstr "PulseAudio"
 msgid "Name:"
 msgstr "Namn:"
 
-#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Server:"
 
@@ -189,7 +198,8 @@ msgstr "Ange nyckelord här"
 msgid "Favorites"
 msgstr "Favoriter"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Filegenskaper"
 
@@ -339,12 +349,8 @@ msgid "Misc"
 msgstr "Diverse"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Musikfiler kan spelas utan det grafiska gränssnittet för att spara "
-"systemresurser"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Musikfiler kan spelas utan det grafiska gränssnittet för att spara systemresurser"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -389,7 +395,6 @@ msgstr "<b>Titel: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Drivrutin:"
-
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -400,7 +405,6 @@ msgstr "<b>Titel: </b>"
 #~ "Låtnamn\n"
 #~ "Artist\n"
 #~ "Album"
-
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -409,9 +413,8 @@ msgstr "<b>Titel: </b>"
 #~ "Ingen upprepning\n"
 #~ "Repetera aktuell\n"
 #~ "Repetera alla"
-
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Använd OSS för ljudutmatning"
-
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "Använd Pulse Audio för ljudutmatning"
+

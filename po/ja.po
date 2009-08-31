@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxmusic 0.3.0\n"
+"Project-Id-Version: lxmusic 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-07-17 20:54+0900\n"
+"POT-Creation-Date: 2009-08-27 13:54+0900\n"
+"PO-Revision-Date: 2009-08-27 14:04+0900\n"
 "Last-Translator: Hironao <hironao@users.sourceforge.net>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -96,7 +96,7 @@ msgstr "エラー"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "Advanced Linux Sound Architecture"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
@@ -110,49 +110,47 @@ msgstr "ミキサー:"
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "Open Sound System"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "libaoオーディオ出力ライブラリ"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
-#, fuzzy
 msgid "PulseAudio"
-msgstr "音声"
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "名前:"
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
-#, fuzzy
 msgid "Server:"
-msgstr "ドライバ:"
+msgstr "サーバ:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "Sink:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "ディスクライター"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "保存先ディレクトリ:"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -172,7 +170,7 @@ msgstr "ファイルをプレイリストへ追加する"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "すべて"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
@@ -212,7 +210,7 @@ msgstr "次へ"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "リピートしない"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
@@ -240,11 +238,11 @@ msgstr "プレイリストからアイテムを削除"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr ""
+msgstr "全体をリピート"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr ""
+msgstr "このトラックをリピート"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
@@ -256,7 +254,7 @@ msgstr "停止"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr ""
+msgstr "トラック名"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
@@ -383,44 +381,3 @@ msgstr "<b>サイズ: </b>"
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>タイトル: </b>"
-
-#, fuzzy
-#~ msgid "Server"
-#~ msgstr "ドライバ:"
-
-#~ msgid ""
-#~ "All\n"
-#~ "Artist\n"
-#~ "Album\n"
-#~ "Track Name"
-#~ msgstr ""
-#~ "すべて\n"
-#~ "アーティスト\n"
-#~ "アルバム\n"
-#~ "トラック名"
-
-#~ msgid ""
-#~ "No Repeat\n"
-#~ "Repeat Current\n"
-#~ "Repeat All"
-#~ msgstr ""
-#~ "リピートしない\n"
-#~ "現在のトラックをリピート\n"
-#~ "全体をリピート"
-
-#~ msgid "Use OSS for audio output"
-#~ msgstr "音声出力に OSS を使う"
-
-#~ msgid "Use Pulse Audio for audio output"
-#~ msgstr "音声出力に Pulse Audio を使う"
-
-#~ msgid ""
-#~ "All\n"
-#~ "Track Name\n"
-#~ "Artist\n"
-#~ "Album"
-#~ msgstr ""
-#~ "すべて\n"
-#~ "トラック名\n"
-#~ "アーティスト\n"
-#~ "アルバム"
