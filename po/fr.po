@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-06-29 00:01+0200\n"
+"PO-Revision-Date: 2009-09-07 22:19+0200\n"
 "Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid ""
 "Simple GUI XMMS2 client"
 msgstr ""
 "Lecteur audio pour LXDE\n"
-"Une interface simple pour XMMS2"
+"Une interface graphique simple pour XMMS2"
 
 #. default
 #: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
@@ -95,7 +95,7 @@ msgstr "Erreur"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "Advanced Linux Sound Architecture"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
@@ -109,49 +109,47 @@ msgstr "Mixer :"
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "Open Sound System"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "Bibliothèque de sortie audio multi-plateforme (libao)"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
-#, fuzzy
 msgid "PulseAudio"
-msgstr "Audio"
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Nom :"
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
-#, fuzzy
 msgid "Server:"
-msgstr "Pilote :"
+msgstr "Serveur :"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "Sortie :"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "Graveur de disque"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Répertoire de destination :"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
