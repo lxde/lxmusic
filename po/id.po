@@ -1,14 +1,14 @@
 # Indonesian translations for lxmusic package.
 # Copyright (C) YEAR THE lxmusic'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxmusic package.
-# Andhika Padmawan <andhika.padmawan@gmail.com>, 2009.
+# Andhika Padmawan <andhika.padmawan@gmail.com>,Rahman Yusri Aftian <aftian@yahoo.com>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-05-23 03:57+0200\n"
+"PO-Revision-Date: 2009-09-11 02:13+0200\n"
 "Last-Translator: Rahman Yusri Aftian <aftian@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -109,27 +109,25 @@ msgstr "Mixer:"
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "Buka System Suara"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "Antar-platform keluaran audio library"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
-#, fuzzy
 msgid "PulseAudio"
-msgstr "Audio"
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Nama:"
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
-#, fuzzy
 msgid "Server:"
-msgstr "Penggerak:"
+msgstr "Server:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
@@ -138,20 +136,20 @@ msgstr ""
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "Kotak Penyambung JACK Audio"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "Penulis Disk"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Directory Tujuan:"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
