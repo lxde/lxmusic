@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-09-23 09:44+0200\n"
+"PO-Revision-Date: 2009-09-24 10:58+0200\n"
 "Last-Translator: Yaron Shahrbani <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -131,7 +131,7 @@ msgstr "שרת:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "קולט:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
@@ -145,7 +145,7 @@ msgstr "ערכת חיבור השמע JACK"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr "כותב לכונן"
+msgstr "כתיבה לכונן"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
