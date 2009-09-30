@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-09-24 10:58+0200\n"
+"PO-Revision-Date: 2009-09-29 19:59+0200\n"
 "Last-Translator: Yaron Shahrbani <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgstr "נגן המוזיקה LXMusic"
 
 #: ../src/lxmusic.c:636
 msgid "Bitrate: "
-msgstr "קצב סיביות:"
+msgstr "קצב סיביות: "
 
 #: ../src/lxmusic.c:938
 msgid "Audio Files"
@@ -305,11 +305,11 @@ msgstr "שמע"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr "גודל החוצץ:"
+msgstr "גודל החוצץ: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "התקן תקליטורים:"
+msgstr "התקן תקליטורים: "
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
@@ -317,7 +317,7 @@ msgstr "המוזיקה תמשיך להתנגן ברקע לאחר היציאה מ
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "קידוד ברירת המחדל של ה־ID3 V1:"
+msgstr "קידוד ברירת המחדל של ה־ID3 V1: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
@@ -343,7 +343,7 @@ msgstr "ניתן לנגן קובצי מוזיקה ללא מנשק משתמש ג�
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr "תוסף:"
+msgstr "תוסף: "
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
