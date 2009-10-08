@@ -3,18 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2009-10-08 11:59+0200\n"
+"Last-Translator: Rossen Karpuzov <gustav cointech net>\n"
+"Language-Team: Mandriva User Group - Bulgaria <mandriva-bg@googlegroups.co>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
 
 #: ../src/lxmusic.c:269
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -27,87 +28,95 @@ msgid ""
 msgstr ""
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:453
+#: ../src/utils.c:168
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr ""
 
 #: ../src/lxmusic.c:636
 msgid "Bitrate: "
-msgstr ""
+msgstr "Скорост:"
 
 #: ../src/lxmusic.c:938
 msgid "Audio Files"
-msgstr ""
+msgstr "Аудио файлове"
 
 #: ../src/lxmusic.c:943
 msgid "All Files"
-msgstr ""
+msgstr "Всички файлове"
 
 #: ../src/lxmusic.c:970
 msgid "Input a URL"
-msgstr ""
+msgstr "Въведете URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1361
+#: ../src/lxmusic.c:1770
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
-msgstr ""
+msgstr "Изпълнител"
 
-#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1369
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
-msgstr ""
+msgstr "Албум"
 
-#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
+#: ../src/lxmusic.c:1377
+#: ../src/lxmusic.c:1771
 msgid "Title"
-msgstr ""
+msgstr "Заглавие"
 
 #: ../src/lxmusic.c:1383
 msgid "Length"
-msgstr ""
+msgstr "Времетраене"
 
 #: ../src/lxmusic.c:1555
 msgid "Default"
-msgstr ""
+msgstr "По подразбиране"
 
 #: ../src/lxmusic.c:1665
 msgid "Pause"
-msgstr ""
+msgstr "Пауза"
 
 #: ../src/lxmusic.c:1679
 msgid "Play"
-msgstr ""
+msgstr "Изпълнение"
 
 #: ../src/lxmusic.c:1776
 msgid "Now Playing:"
-msgstr ""
+msgstr "Сега се възпроизвежда:"
 
 #: ../src/lxmusic.c:2217
 msgid "Create new playlist"
-msgstr ""
+msgstr "Създаване на нов списък с песни"
 
 #: ../src/utils.c:81
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #. alsa use:
 #. * # xmms2 config_list|egrep "^alsa"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "ALSA — съвременна архитектура за звук на Линукс"
 
-#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
-msgstr ""
+msgstr "Устройство:"
 
-#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr ""
+msgstr "Миксер:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "Отворена система за звук „OSS“"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
@@ -117,15 +126,16 @@ msgstr ""
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
 msgid "PulseAudio"
-msgstr ""
+msgstr "ПулсАудио"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Име:"
 
-#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr ""
+msgstr "Сървър:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
@@ -142,56 +152,61 @@ msgid "JACK Audio Connection Kit"
 msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:43
+#, fuzzy
 msgid "Disk Writer"
-msgstr ""
+msgstr "Конфигуриране на Disk Writer"
 
 #: ../src/lxmusic-plugin-config.c:44
+#, fuzzy
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Домашна директория на потребител"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
-msgstr ""
+msgstr "Добавяне файлове и папки"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
-msgstr ""
+msgstr "Добавяне към списъка за изпълнение"
 
 #: ../data/lxmusic.ui.glade.h:3
+#, fuzzy
 msgid "Add URL"
-msgstr ""
+msgstr "/Добавяне/URL"
 
 #: ../data/lxmusic.ui.glade.h:4
+#, fuzzy
 msgid "Add files to the playlist"
-msgstr ""
+msgstr "Добавяне на видеото към списъка за изпълнение"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "Всичко"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr ""
+msgstr "_Създаване на нов списък с песни"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr ""
+msgstr "Текущ списък с песни"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
-msgstr ""
+msgstr "Тук въведете термин за търсене тук"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
-msgstr ""
+msgstr "Любими"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
 msgid "File Properties"
-msgstr ""
+msgstr "Информация за файла"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Filter:"
-msgstr ""
+msgstr "Филтър:"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
@@ -199,71 +214,75 @@ msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
-msgstr ""
+msgstr "Медия Библиотека"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Next"
-msgstr ""
+msgstr "Следващ"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "Без повторение"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
-msgstr ""
+msgstr "Изпълнение/Пауза"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
-msgstr ""
+msgstr "Предишен"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
-msgstr ""
+msgstr "Изтриване на всички елементи"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr ""
+msgstr "Премахване от списъка"
 
 #: ../data/lxmusic.ui.glade.h:23
+#, fuzzy
 msgid "Remove Selected Items"
-msgstr ""
+msgstr "Премахване на маркирания цвят"
 
 #: ../data/lxmusic.ui.glade.h:24
+#, fuzzy
 msgid "Remove items from the playlist"
-msgstr ""
+msgstr "Премахване на файл от списъка за изпълнение"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr ""
+msgstr "Повторение на всички"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr ""
+msgstr "Повторение на текущ"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
-msgstr ""
+msgstr "Показване на плейлист"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
-msgstr ""
+msgstr "Стоп"
 
 #: ../data/lxmusic.ui.glade.h:29
+#, fuzzy
 msgid "Track Name"
-msgstr ""
+msgstr "Заглавие"
 
 #: ../data/lxmusic.ui.glade.h:30
+#, fuzzy
 msgid "_Delete Current Playlist"
-msgstr ""
+msgstr "| status . . . . . . . . . текущ статус на плейлиста"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
-msgstr ""
+msgstr "_Файл"
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "_Help"
-msgstr ""
+msgstr "_Помощ"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
@@ -271,43 +290,46 @@ msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr ""
+msgstr "_Списък с песни"
 
 #: ../data/lxmusic.ui.glade.h:35
+#, fuzzy
 msgid "_Switch To Playlist"
-msgstr ""
+msgstr "&Добавяне към списъка"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
-msgstr ""
+msgstr "_Инструменти"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "_View"
-msgstr ""
+msgstr "_Изглед"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr ""
+msgstr "Показване на главния прозорец."
 
 #: ../data/pref-dlg.ui.glade.h:1
+#, fuzzy
 msgid "<b>Audio CD</b>"
-msgstr ""
+msgstr "Звуково CD"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
-msgstr ""
+msgstr "<b>Изход</b>"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Audio"
-msgstr ""
+msgstr "Аудио"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr ""
+msgstr "Размер на буфера:"
 
 #: ../data/pref-dlg.ui.glade.h:5
+#, fuzzy
 msgid "CD-ROM Device: "
-msgstr ""
+msgstr "Компактдиск &устройство"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
@@ -319,11 +341,11 @@ msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
-msgstr ""
+msgstr "Основни"
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
-msgstr ""
+msgstr "КБ"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
@@ -331,50 +353,56 @@ msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
-msgstr ""
+msgstr "Разни"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
+msgid "Music files can be played without graphical user interface to save system resources"
 msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr ""
+msgstr "Приставка:"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
-msgstr ""
+msgstr "Настройки"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Показване на иконата в системния панел"
 
 #: ../data/track-info.ui.glade.h:1
+#, fuzzy
 msgid "<b>Album: </b>"
-msgstr ""
+msgstr "Албум"
 
 #: ../data/track-info.ui.glade.h:2
+#, fuzzy
 msgid "<b>Artist: </b>"
-msgstr ""
+msgstr "Изпълнител"
 
 #: ../data/track-info.ui.glade.h:3
+#, fuzzy
 msgid "<b>Comment: </b>"
-msgstr ""
+msgstr "Коментар"
 
 #: ../data/track-info.ui.glade.h:4
+#, fuzzy
 msgid "<b>File Type: </b>"
-msgstr ""
+msgstr "Тип файл"
 
 #: ../data/track-info.ui.glade.h:5
+#, fuzzy
 msgid "<b>File: </b>"
-msgstr ""
+msgstr "/_Файл"
 
 #: ../data/track-info.ui.glade.h:6
+#, fuzzy
 msgid "<b>Size: </b>"
-msgstr ""
+msgstr "Размер:"
 
 #: ../data/track-info.ui.glade.h:7
+#, fuzzy
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "Заглавие"
+
