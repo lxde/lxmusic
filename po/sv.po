@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-08-25 10:27+0200\n"
+"PO-Revision-Date: 2009-10-15 23:06+0200\n"
 "Last-Translator: Martin Bagge <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -322,7 +322,7 @@ msgstr "Buffertstorlek:"
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "CR-ROM-enhet:"
+msgstr "CD-ROM-enhet:"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
@@ -342,7 +342,7 @@ msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
-msgstr "Minimera till systemdocka istället för att stänga av "
+msgstr "Minimera till systemdocka istället för att stänga av"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
@@ -395,26 +395,16 @@ msgstr "<b>Titel: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Drivrutin:"
+
 #~ msgid ""
-#~ "All\n"
-#~ "Track Name\n"
-#~ "Artist\n"
-#~ "Album"
 #~ msgstr ""
 #~ "Alla\n"
 #~ "Låtnamn\n"
 #~ "Artist\n"
 #~ "Album"
+
 #~ msgid ""
-#~ "No Repeat\n"
-#~ "Repeat Current\n"
-#~ "Repeat All"
 #~ msgstr ""
 #~ "Ingen upprepning\n"
 #~ "Repetera aktuell\n"
 #~ "Repetera alla"
-#~ msgid "Use OSS for audio output"
-#~ msgstr "Använd OSS för ljudutmatning"
-#~ msgid "Use Pulse Audio for audio output"
-#~ msgstr "Använd Pulse Audio för ljudutmatning"
-
