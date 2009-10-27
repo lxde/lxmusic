@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-09-30 14:40+0200\n"
+"PO-Revision-Date: 2009-10-26 17:19+0100\n"
 "Last-Translator: Indalecio Freiría Santos <ifreiria@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,8 +25,8 @@ msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Reprodutor de Música para LXDE\n"
-"Cliente Gráfico Sinxelo de XMMS2"
+"Reprodutor de música para LXDE\n"
+"Cliente gráfico sinxelo de XMMS2"
 
 #. default
 #: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
@@ -43,7 +43,7 @@ msgstr "Ficheiros de audio"
 
 #: ../src/lxmusic.c:943
 msgid "All Files"
-msgstr "Todos os Ficheiros"
+msgstr "Todos os ficheiros"
 
 #: ../src/lxmusic.c:970
 msgid "Input a URL"
@@ -109,7 +109,7 @@ msgstr "Mesturador:"
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr "Sistema Aberto de Son"
+msgstr "Sistema aberto de son"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
@@ -141,19 +141,19 @@ msgstr "AirTunes"
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr "Servidor de Son JACK"
+msgstr "Servidor de son JACK"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr "Escritura en Disco"
+msgstr "Escritura en disco"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr "Directorio de Destino:"
+msgstr "Directorio de destino:"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
-msgstr "Engadir Ficheiros ou Cartafoles"
+msgstr "Engadir ficheiros ou cartafoles"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
@@ -173,11 +173,11 @@ msgstr "Todos"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "Crear unha _Nova Lista de Reprodución"
+msgstr "Crear unha lista _nova de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr "Lista de Reprodución Actual"
+msgstr "Lista de reprodución actual"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
@@ -189,7 +189,7 @@ msgstr "Favoritos"
 
 #: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
-msgstr "Propiedades do Ficheiro"
+msgstr "Propiedades do ficheiro"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Filter:"
@@ -201,7 +201,7 @@ msgstr "Localizar a pista reproducida actualmente"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
-msgstr "Biblioteca de Medios"
+msgstr "Biblioteca de medios"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Next"
@@ -209,7 +209,7 @@ msgstr "Seguinte"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr "Non Repetir"
+msgstr "Non repetir"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
@@ -221,15 +221,15 @@ msgstr "Anterior"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
-msgstr "Quitar Todos os Elementos"
+msgstr "Quitar todos os elementos"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr "Quitar da Lista de Reprodución"
+msgstr "Quitar da lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
-msgstr "Quitar os Elementos Seleccionados"
+msgstr "Quitar os elementos seleccionados"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
@@ -237,15 +237,15 @@ msgstr "Quitar os elementos da lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr "Repetir Todo"
+msgstr "Repetir todo"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr "Repetir Actual"
+msgstr "Repetir actual"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
-msgstr "Mostrar a Lista de Reprodución"
+msgstr "Mostrar a lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
@@ -253,11 +253,11 @@ msgstr "Deter"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr "Nome da Pista"
+msgstr "Nome da pista"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr "Borrar a Lista _de Reprodución Actual"
+msgstr "Borrar a lista _de reprodución actual"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
@@ -269,15 +269,15 @@ msgstr "_Axuda"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Localizar o Ficheiro Reproducido"
+msgstr "_Localizar o ficheiro reproducido"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr "Lista de Re_produción"
+msgstr "Lista de re_produción"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "Cambiar a Li_sta de Reprodución"
+msgstr "Cambiar a li_sta de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
@@ -293,7 +293,7 @@ msgstr "Mo_strar a xanela principal"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr "<b>CD de Audio</b>"
+msgstr "<b>CD de audio</b>"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
@@ -305,7 +305,7 @@ msgstr "Audio"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr "Tamaño do Buffer: "
+msgstr "Tamaño do buffer: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
@@ -369,7 +369,7 @@ msgstr "<b>Comentario: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Tipo de Ficheiro: </b>"
+msgstr "<b>Tipo de ficheiro: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
