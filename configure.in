@@ -58,7 +58,6 @@ AM_GLIB_GNU_GETTEXT
 AC_OUTPUT([
 Makefile
 data/Makefile
-data/lxmusic.desktop
 src/Makefile
 po/Makefile.in
 ])

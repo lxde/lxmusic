@@ -415,3 +415,11 @@ msgstr "<b>標題：</b>"
 
 #~ msgid "Settings"
 #~ msgstr "設定"
+
+#: data/lxmusic.desktop.in:4
+msgid "Music Player"
+msgstr "音樂播放程式"
+
+#: data/lxmusic.desktop.in:6
+msgid "Play your music files easily"
+msgstr "簡單地播放你的音樂檔案"

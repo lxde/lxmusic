@@ -381,3 +381,11 @@ msgstr "<b>サイズ: </b>"
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>タイトル: </b>"
+
+#: data/lxmusic.desktop.in:4
+msgid "Music Player"
+msgstr "音楽プレーヤ"
+
+#: data/lxmusic.desktop.in:6
+msgid "Play your music files easily"
+msgstr "簡単に音楽を再生できます"

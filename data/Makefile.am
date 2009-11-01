@@ -1,4 +1,6 @@
-desktop_DATA=lxmusic.desktop
+desktop_in_files=lxmusic.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 desktopdir=$(datadir)/applications
 
 icon_DATA=lxmusic.png
