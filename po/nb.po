@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-11-22 20:30+0100\n"
+"PO-Revision-Date: 2009-11-26 12:23+0100\n"
 "Last-Translator: Olav Andreas Lindekleiv <olalinde@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -339,44 +339,44 @@ msgstr ""
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
-msgstr ""
+msgstr "Musikkfiler kan spilles av uten grafisk grensesnitt"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr ""
+msgstr "Innstikk: _"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
-msgstr ""
+msgstr "Brukervalg"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Vis ikon på systemlinjen"
 
 #: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
-msgstr ""
+msgstr "<b>Album: </b>"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr ""
+msgstr "<b>Artist: </b>"
 
 #: ../data/track-info.ui.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr ""
+msgstr "<b>Kommentar: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr ""
+msgstr "<b>Filtype: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
-msgstr ""
+msgstr "<b>Fil: </b>"
 
 #: ../data/track-info.ui.glade.h:6
 msgid "<b>Size: </b>"
-msgstr ""
+msgstr "<b>Størrelse: </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "<b>Tittel: </b>"
