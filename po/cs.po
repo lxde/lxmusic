@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-02-02 01:43+0100\n"
+"PO-Revision-Date: 2009-12-09 18:09+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,9 @@ msgstr ""
 "Jednoduchý grafický klient aplikace XMMS2"
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:453
+#: ../src/utils.c:168
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -50,15 +52,19 @@ msgid "Input a URL"
 msgstr "Vložte adresu URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1361
+#: ../src/lxmusic.c:1770
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Umělec"
 
-#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1369
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
+#: ../src/lxmusic.c:1377
+#: ../src/lxmusic.c:1771
 msgid "Title"
 msgstr "Název"
 
@@ -95,63 +101,64 @@ msgstr "Chyba"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "Advanced Linux Sound Architecture"
 
-#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Zařízení:"
 
-#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Směšovač:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "Open Sound System"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "Víceplatformová knihovna pro zvukový výstup"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
-#, fuzzy
 msgid "PulseAudio"
-msgstr "Zvuk"
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Název:"
 
-#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
-#, fuzzy
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr "Ovladač:"
+msgstr "Server:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "Výstup:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "Zápis na disk"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Cílový adresář:"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -189,7 +196,8 @@ msgstr "Zde zadejte klíčové slovo"
 msgid "Favorites"
 msgstr "Oblíbené"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Vlastnosti souboru"
 
@@ -338,12 +346,8 @@ msgid "Misc"
 msgstr "Ostatní"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Soubory hudby lze přehrát bez použití grafického uživatelského prostředí z "
-"důvodu úspory systémových zdrojů"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Soubory hudby lze přehrát bez použití grafického uživatelského prostředí z důvodu úspory systémových zdrojů"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -388,7 +392,6 @@ msgstr "<b>Název: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Ovladač:"
-
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -399,7 +402,6 @@ msgstr "<b>Název: </b>"
 #~ "Název stopy\n"
 #~ "Umělec\n"
 #~ "Album"
-
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -408,9 +410,8 @@ msgstr "<b>Název: </b>"
 #~ "Bez opakování\n"
 #~ "Opakovat tuto stopu\n"
 #~ "Opakovat vše"
-
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Použít systém OSS pro zvukový výstup"
-
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "Použít systém Pulse Audio pro zvukový výstup"
+
