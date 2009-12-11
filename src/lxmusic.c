@@ -1613,14 +1613,20 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
                 GtkTreeIter it;
 		xmmsv_get_int( int_value, &pos );
                 path = gtk_tree_path_new_from_indices( pos, -1 );
-                if( gtk_tree_model_get_iter( (GtkTreeModel*)list_store, &it, path ) )
+                if( gtk_tree_model_get_iter( (GtkTreeModel*)list_store, &it, path ) ) 
+		{
                     gtk_list_store_remove( list_store, &it );
+		    /* invalidate currently played track */
+		    if ( it.stamp == cur_track_iter.stamp ) 
+			cur_track_iter.stamp = 0;
+		}
                 gtk_tree_path_free( path );
 	    }
             break;
         case XMMS_PLAYLIST_CHANGED_CLEAR:
         {
             gtk_list_store_clear( list_store );
+	    cur_track_iter.stamp = 0;
             break;
         }
         case XMMS_PLAYLIST_CHANGED_MOVE:
