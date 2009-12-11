@@ -1813,9 +1813,9 @@ static int on_playlist_pos_changed( xmmsv_t* val, void* user_data )
         {
 	    xmmsv_t *pos_val;
 	    
-            if( xmmsv_dict_get( val, "position", &pos_val ) ) 
+            if( xmmsv_dict_get( val, "position", &pos_val ) && xmmsv_get_int( pos_val, &pos ) && (pos >= 0 ) ) 
             {
-		xmmsv_get_int( pos_val, &pos );
+		;
                 /* mark currently played song in the playlist with bold font. */
                 GtkTreePath* path = gtk_tree_path_new_from_indices( pos, -1 );
                 GtkTreeIter it;
