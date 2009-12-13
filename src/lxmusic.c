@@ -107,7 +107,6 @@ static int32_t playback_status = 0;
 static uint32_t play_time = 0;
 static int32_t cur_track_duration = 0;
 static int32_t cur_track_id = 0;
-static GtkTreeIter cur_track_iter = {0};
 
 static int repeat_mode = REPEAT_NONE;
 
@@ -130,7 +129,10 @@ static int win_height = 320;
 static int win_xpos = 0;
 static int win_ypos = 0;
 
-void on_play_btn_clicked(GtkButton* btn, gpointer user_data);
+void 			on_locate_cur_track	(GtkAction* act, gpointer user_data);
+void 			on_play_btn_clicked	(GtkButton* btn, gpointer user_data);
+
+static GtkTreeIter	get_current_track_iter	();
 
 static void load_config()
 {
@@ -1211,7 +1213,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
                         COL_TITLE, title,
                         COL_LEN, time_buf, -1 );
 
-    current_track_updated = ut->it.user_data == cur_track_iter.user_data;
+    current_track_updated = ut->id == cur_track_id;
     if ( current_track_updated ) 
     {
 	/* send desktop notification if current track was updated */  
@@ -1416,8 +1418,8 @@ static int on_playlist_loaded(xmmsv_t* value, gpointer user_data)
         g_free(cur_playlist);
         cur_playlist = g_strdup(name);
 
-        cur_track_iter.stamp = 0; /* invalidate the GtkTreeIter of currenyly played track. */
-        cur_track_id = -1;
+	/* invalidate currenyly played track id. */
+        cur_track_id = 0;
 
         /* update the menu */
         if( cur_playlist )
@@ -1617,8 +1619,10 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
 		{
                     gtk_list_store_remove( list_store, &it );
 		    /* invalidate currently played track */
-		    if ( it.stamp == cur_track_iter.stamp ) 
-			cur_track_iter.stamp = 0;
+		    xmmsv_dict_get( value, "id", &int_value );
+		    xmmsv_get_int( int_value, &id );
+		    if ( id == cur_track_id ) 
+			cur_track_id = 0;
 		}
                 gtk_tree_path_free( path );
 	    }
@@ -1626,7 +1630,7 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
         case XMMS_PLAYLIST_CHANGED_CLEAR:
         {
             gtk_list_store_clear( list_store );
-	    cur_track_iter.stamp = 0;
+	    cur_track_id = 0;
             break;
         }
         case XMMS_PLAYLIST_CHANGED_MOVE:
@@ -1811,21 +1815,24 @@ static int on_playlist_pos_changed( xmmsv_t* val, void* user_data )
 	xmmsv_get_string( name_val, &name );
         if( name && cur_playlist && !strcmp(cur_playlist, name) )
         {
-	    xmmsv_t *pos_val;
-	    
+	    xmmsv_t *pos_val, *int_value;
+
             if( xmmsv_dict_get( val, "position", &pos_val ) && xmmsv_get_int( pos_val, &pos ) && (pos >= 0 ) ) 
             {
-		;
                 /* mark currently played song in the playlist with bold font. */
                 GtkTreePath* path = gtk_tree_path_new_from_indices( pos, -1 );
                 GtkTreeIter it;
                 if( gtk_tree_model_get_iter( GTK_TREE_MODEL(list_store), &it, path ) )
                 {
+		    GtkTreeIter cur_track_iter = get_current_track_iter();
+		    /* prev. current track */
                     if( cur_track_iter.stamp )
                         gtk_list_store_set(list_store, &cur_track_iter, COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1);
-		    
                     gtk_list_store_set(list_store, &it, COL_WEIGHT, PANGO_WEIGHT_BOLD, -1);
-                    cur_track_iter = it;
+
+		    /* update id of currently played track */
+		    xmmsv_dict_get( val, "id", &int_value );
+		    xmmsv_get_int( int_value, &cur_track_id );
                 }
 		/* scroll to currently played song */
 		gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(playlist_view), path, NULL, FALSE, 0.0, 0.0 );
@@ -1836,9 +1843,9 @@ static int on_playlist_pos_changed( xmmsv_t* val, void* user_data )
     return TRUE;
 }
 
-
 void on_locate_cur_track(GtkAction* act, gpointer user_data)
 {
+    GtkTreeIter cur_track_iter = get_current_track_iter();
     if( cur_track_iter.stamp )
     {
         GtkTreeModelFilter* mf;
@@ -1858,6 +1865,24 @@ void on_locate_cur_track(GtkAction* act, gpointer user_data)
             }
         }
     }
+}
+
+static GtkTreeIter get_current_track_iter() 
+{
+    GtkTreeIter it, found_it = {0};
+    int count=0;
+    if (gtk_tree_model_get_iter_first (GTK_TREE_MODEL(list_store), &it )) 
+    {
+	do {
+	    count++;
+	    gint weight;
+	    gtk_tree_model_get (GTK_TREE_MODEL(list_store), 
+				&it, COL_WEIGHT, &weight, -1);
+	    if (weight == PANGO_WEIGHT_BOLD) 
+		found_it = it;
+	} while (!found_it.stamp && gtk_tree_model_iter_next( GTK_TREE_MODEL(list_store), &it ));
+    }
+    return found_it;
 }
 
 static void get_channel_volumes( const char *key, xmmsv_t *value, void *user_data)
