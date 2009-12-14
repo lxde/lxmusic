@@ -391,20 +391,3 @@ msgstr "<b>Storlek: </b>"
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Titel: </b>"
-
-#, fuzzy
-#~ msgid "Server"
-#~ msgstr "Drivrutin:"
-
-#~ msgid ""
-#~ msgstr ""
-#~ "Alla\n"
-#~ "Låtnamn\n"
-#~ "Artist\n"
-#~ "Album"
-
-#~ msgid ""
-#~ msgstr ""
-#~ "Ingen upprepning\n"
-#~ "Repetera aktuell\n"
-#~ "Repetera alla"
