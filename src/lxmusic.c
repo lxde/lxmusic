@@ -133,6 +133,7 @@ void 			on_locate_cur_track	(GtkAction* act, gpointer user_data);
 void 			on_play_btn_clicked	(GtkButton* btn, gpointer user_data);
 
 static GtkTreeIter	get_current_track_iter	();
+static gint 		get_track_properties 	(xmmsv_t *value, char **artist, char **album, char **title, int32_t *duration);
 
 static void load_config()
 {
@@ -1229,6 +1230,46 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
 
     xmmsv_unref( value );
     return TRUE;
+}
+
+static gint get_track_properties (xmmsv_t *value, char **artist, char **album, char **title, int32_t *duration) 
+{
+    /* traverse the dict of dict */
+    xmmsv_dict_iter_t *parent_it;
+    xmmsv_get_dict_iter (value, &parent_it);
+    while (xmmsv_dict_iter_valid (parent_it ) ) 
+    {
+	const char *key;
+	const char **val_str = NULL;
+	int32_t *val_int = NULL;
+	xmmsv_t *child_value;
+	xmmsv_dict_iter_t *child_it;
+	
+	/* get child dict */
+	xmmsv_dict_iter_pair (parent_it, &key, &child_value);
+
+	/* check type of property */
+	if (strcmp( key, "artist" ) == 0)
+	    val_str = artist;
+	else if (strcmp( key, "album" ) == 0)
+	    val_str = album;	    
+	else if (strcmp( key, "title" ) == 0) 
+	    val_str = title;	    
+	else if (strcmp( key, "duration" ) == 0)
+	    val_int = duration;
+	
+	if (xmmsv_get_dict_iter (child_value, &child_it) && 
+	    xmmsv_dict_iter_valid (child_it) && (val_int || val_str) && 
+	    xmmsv_dict_iter_pair (child_it, NULL, &child_value)) {
+
+	    if (val_int != NULL) 
+		xmmsv_get_int( child_value, val_int);
+	    else 
+		xmmsv_get_string( child_value, val_str );    
+	}
+	xmmsv_dict_iter_next (parent_it);
+    }
+    return 0;
 }
 
 static void queue_update_track( uint32_t id, GtkTreeIter* it )
