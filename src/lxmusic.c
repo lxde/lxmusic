@@ -78,7 +78,12 @@ typedef struct _TrackProperties{
     const char *album;
     const char *title;
     const char *url;
+    const char *mime;
+    const char *comment;
     int32_t duration;
+    int32_t isvbr;
+    int32_t bitrate;
+    int32_t size;
 }TrackProperties;
 
 static void send_notifcation( const gchar *artist, const gchar* title );
@@ -567,87 +572,64 @@ void on_preference(GtkAction* act, gpointer data)
 static int on_track_info_received(xmmsv_t* value, void* user_data)
 {
     GtkBuilder* builder = (GtkBuilder*)user_data;
-    xmmsv_t *string_value, *int_value;
-    
+    TrackProperties tp;
     GtkWidget* w;
-    const char* keys[] = {
-        "title", "album", "artist", "comment", "mime", NULL
-    };
-    const char** key;
-    const char* val;
-    int ival;
-    /* xmmsc_result_propdict_foreach(res, dict_foreach, NULL); */
 
-    /* file name */
-
-    value = xmmsv_propdict_to_dict (value, NULL);
-    if ( xmmsv_dict_get( value, "url", &string_value ) )
+    get_track_properties( value, &tp );
+    if (tp.url && (!g_str_equal(tp.url, "" )))
     {
-	g_assert( xmmsv_get_string( string_value, &val ) );
         w = (GtkWidget*)gtk_builder_get_object(builder, "url");
-        if( g_str_has_prefix(val, "file://") )
+        if( g_str_has_prefix(tp.url, "file://") )
         {
             char* disp;
-	    gchar *decoded_val;
-
-	    decoded_val = xmmsv_url_to_string ( string_value );
-  
-	    val += 7; 
+	    gchar *decoded_val = g_uri_unescape_string( tp.url, NULL );
 	    /* skip file:// */
-	    if ( decoded_val != NULL )  
-	    {
-		disp = g_filename_display_name(decoded_val + 7 ) ;
-		g_free( decoded_val );
-	    }
-	    /* fallback, if decoding failed */
-	    else 
-		disp = g_filename_display_name(val + 7 ) ;		
+	    disp = g_filename_display_name( decoded_val + 7 ) ;
+	    g_free( decoded_val );
             gtk_entry_set_text(GTK_ENTRY(w), disp);
             g_free(disp);
         }
         else
-            gtk_entry_set_text(GTK_ENTRY(w), val);
+            gtk_entry_set_text(GTK_ENTRY(w), tp.url);
     }
-
-    for(key = keys; *key; ++key)
+    if (tp.title || tp.album || tp.artist || tp.comment || tp.mime) 
     {
-	if ( xmmsv_dict_get( value, *key, &string_value ) ) 
+	const char **key;
+	const char *key_values[] = {
+	    "title", tp.title, 
+	    "album", tp.album,
+	    "artist", tp.artist,
+	    "comment", tp.comment,
+	    "mime", tp.mime, 
+	    NULL
+	};
+
+	for ( key=key_values; *key; key += 2 ) 
 	{
-	    xmmsv_get_string( string_value, &val );
-            w = (GtkWidget*)gtk_builder_get_object(builder, *key);
-            if( GTK_IS_ENTRY(w) )
-                gtk_entry_set_text((GtkEntry*)w, val);
-            else if( GTK_IS_LABEL(w) )
-                gtk_label_set_text((GtkLabel*)w, val);
-        }
+	    const char *val = *(key + 1);
+	    w = (GtkWidget*)gtk_builder_get_object(builder, *key);
+	    if( GTK_IS_ENTRY(w) )
+		gtk_entry_set_text((GtkEntry*)w, val);
+	    else if( GTK_IS_LABEL(w) )
+		gtk_label_set_text((GtkLabel*)w, val);
+	}
     }
-
+    
     /* size & bitrate */
-    if ( xmmsv_dict_get( value, "size", &int_value ) )
-    {
-        char buf[100];
+    if (tp.size){
+	char buf[100];
 	char *size_str;
-
-	xmmsv_get_int( int_value, &ival );
-	size_str = g_format_size_for_display( ival );
+	size_str = g_format_size_for_display( tp.size );
 	strcpy( buf, size_str );
 	g_free( size_str );
 
-	if ( xmmsv_dict_get( value, "bitrate", &int_value ) ) 
+	if (tp.bitrate) 
 	{
-            int len;
-	    int vbr = 0;
-	    xmmsv_get_int( int_value, &ival );
-	    
-	    len = strlen(buf);
-
-	    if ( xmmsv_dict_get( value, "isvbr", &int_value ) ) 
-		xmmsv_get_int( int_value, &vbr );
-
-	    g_snprintf(buf + len, 100 - len, " (%s%d Kbps%s)", _("Bitrate: "), ival/1000, vbr ? ", vbr" : "" );
+	    int len = strlen(buf);
+	    g_snprintf(buf + len, 100 - len, " (%s%d Kbps%s)", _("Bitrate: "), tp.bitrate/1000, tp.isvbr ? ", vbr" : "" );
 	}
-        w = (GtkWidget*)gtk_builder_get_object(builder, "size");
-        gtk_label_set_text((GtkLabel*)w, buf);
+	w = (GtkWidget*)gtk_builder_get_object(builder, "size");
+	gtk_label_set_text((GtkLabel*)w, buf);
     }
     xmmsv_unref( value );
     return TRUE;
@@ -1232,8 +1214,7 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
     const char* channel = NULL;
 
     /* default values: empty */
-    properties->artist = properties->album = properties->title = properties->url = NULL;
-    properties->duration = 0;
+    bzero( properties, sizeof(TrackProperties) );
     
     xmmsv_get_dict_iter (value, &parent_it);
     while (xmmsv_dict_iter_valid (parent_it ) ) 
@@ -1252,6 +1233,10 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
 	    val_str = &(properties->artist);
 	else if (strcmp( key, "album" ) == 0)
 	    val_str = &(properties->album);
+	else if (strcmp( key, "mime" ) == 0)
+	    val_str = &(properties->mime);
+	else if (strcmp( key, "comment" ) == 0)
+	    val_str = &(properties->comment);
 	else if (strcmp( key, "channel" ) == 0)
 	    val_str = &channel;	    	    
 	else if (strcmp( key, "url" ) == 0)
@@ -1260,6 +1245,12 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
 	    val_str = &(properties->title);	    
 	else if (strcmp( key, "duration" ) == 0)
 	    val_int = &(properties->duration);
+	else if (strcmp( key, "isvbr" ) == 0)
+	    val_int = &(properties->isvbr);
+	else if (strcmp( key, "bitrate" ) == 0)
+	    val_int = &(properties->bitrate);
+	else if (strcmp( key, "size" ) == 0)
+	    val_int = &(properties->size);
 	
 	if (xmmsv_get_dict_iter (child_value, &child_it) && 
 	    xmmsv_dict_iter_valid (child_it) && (val_int || val_str) && 
