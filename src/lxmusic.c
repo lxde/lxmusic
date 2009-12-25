@@ -1313,6 +1313,10 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     GtkTreeIter it;
     int pl_size = xmmsv_list_get_size( value );
     int i;
+
+    /* free prev. model filter */
+    if (mf = gtk_tree_view_get_model(GTK_TREE_VIEW(playlist_view))) 
+	g_object_unref(mf);
     
     list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT );
     mf = gtk_tree_model_filter_new(GTK_TREE_MODEL(list_store), NULL);
