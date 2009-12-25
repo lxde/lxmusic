@@ -1170,13 +1170,10 @@ static void render_num( GtkTreeViewColumn* col, GtkCellRenderer* render,
 
 static int update_track( xmmsv_t *value, UpdateTrack* ut )
 {
-    const char *artist = NULL;
-    const char *album = NULL;
-    const char *title = NULL;
+    TrackProperties track_properties;
     gboolean current_track_updated;
-    xmmsv_t *string_value, *time_len_val;
-    int32_t time_len = 0;
     char time_buf[32];
+    gchar *guessed_title = NULL;
     /* g_debug("do update track: %d", ut->id); */
 
     /* OK, now it's time to send the next request.
@@ -1198,44 +1195,30 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
         return FALSE;
     }
     
-
-    value = xmmsv_propdict_to_dict (value, NULL);
-
-    if ( xmmsv_dict_get( value, "artist", &string_value ) )
-	xmmsv_get_string( string_value, &artist );
-    if ( xmmsv_dict_get( value, "album", &string_value ) )
-	xmmsv_get_string( string_value, &album );    
-    if ( xmmsv_dict_get( value, "title", &string_value ) )
-	xmmsv_get_string( string_value, &title );    
-    if ( xmmsv_dict_get( value, "duration", &time_len_val ) )
-	xmmsv_get_int( time_len_val, &time_len);
-
-    timeval_to_str( time_len/1000, time_buf, G_N_ELEMENTS(time_buf) );
-
-
-    if( !title || g_str_equal( title, "" ) )
-	title =  xmmsv_media_dict_guess_title ( value );
+    if (!get_track_properties( value, &track_properties)) 
+	track_properties.title = guessed_title = guess_title_from_url( track_properties.url );
+    timeval_to_str( track_properties.duration/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
     gtk_list_store_set( list_store, &ut->it,
-                        COL_ARTIST, artist,
-                        COL_ALBUM, album,
-                        COL_TITLE, title,
+                        COL_ARTIST, track_properties.artist,
+                        COL_ALBUM, track_properties.album,
+                        COL_TITLE, track_properties.title,
                         COL_LEN, time_buf, -1 );
 
     current_track_updated = ut->id == cur_track_id;
     if ( current_track_updated ) 
     {
 	/* send desktop notification if current track was updated */  
-	send_notifcation( artist, title );
+	send_notifcation( track_properties.artist, track_properties.title );
 	if( tray_icon ) 
 	{
-	    GString* tray_tooltip = create_window_title(artist, title, playback_status == XMMS_PLAYBACK_STATUS_PLAY);
+	    GString* tray_tooltip = create_window_title(track_properties.artist, track_properties.title, playback_status == XMMS_PLAYBACK_STATUS_PLAY);
 	    gtk_status_icon_set_tooltip( GTK_STATUS_ICON(tray_icon), tray_tooltip->str );
 	    g_string_free( tray_tooltip, TRUE );
 	}
 	
     }
-
+    g_free( guessed_title );
     xmmsv_unref( value );
     return TRUE;
 }
@@ -1790,12 +1773,9 @@ static int on_playback_playtime_changed( xmmsv_t* value, void* user_data )
 
 static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 {
-    const char* artist = NULL;
-    const char* title = NULL;
+    TrackProperties track_properties;
     const char* err;
-    
-    xmmsv_t *duration_value;
-    xmmsv_t *string_value;
+    const char *guessed_title;
     GString* window_title;
     
     cur_track_duration = 0;    
@@ -1804,30 +1784,18 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 	g_warning( "Server error: %s", err );
 	return TRUE;
     }
-    value = xmmsv_propdict_to_dict (value, NULL);
 
-    if( xmmsv_dict_get( value, "duration", &duration_value ) )
-	xmmsv_get_int( duration_value, &cur_track_duration );
-
-    artist = NULL;
-    if ( xmmsv_dict_get( value, "artist", &string_value ) )
-	xmmsv_get_string( string_value, &artist );
-
-    if ( xmmsv_dict_get( value, "title", &string_value ) ) 
-	xmmsv_get_string( string_value, &title );
-
-    /* title guessing */
-    if ( !title || g_str_equal( title, "" ) )
-	title =  xmmsv_media_dict_guess_title ( value );
-
-    window_title = create_window_title(artist, title, playback_status == XMMS_PLAYBACK_STATUS_PLAY);
+    if (!get_track_properties( value, &track_properties)) 
+	track_properties.title = guessed_title = guess_title_from_url( track_properties.url );
+    
+    window_title = create_window_title(track_properties.artist, track_properties.title, playback_status == XMMS_PLAYBACK_STATUS_PLAY);
 
     gtk_window_set_title( GTK_WINDOW(main_win), window_title->str );
     
     if( tray_icon )
         gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon), window_title->str);
 
-    send_notifcation( artist, title );
+    send_notifcation( track_properties.artist, track_properties.title );
 
     g_string_free( window_title, TRUE );
     xmmsv_unref( value );
