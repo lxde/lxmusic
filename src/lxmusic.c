@@ -1778,8 +1778,6 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     const char *guessed_title;
     GString* window_title;
     
-    cur_track_duration = 0;    
-
     if (xmmsv_get_error (value, &err)) {
 	g_warning( "Server error: %s", err );
 	return TRUE;
@@ -1787,7 +1785,8 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 
     if (!get_track_properties( value, &track_properties)) 
 	track_properties.title = guessed_title = guess_title_from_url( track_properties.url );
-    
+    cur_track_duration = track_properties.duration;    
+
     window_title = create_window_title(track_properties.artist, track_properties.title, playback_status == XMMS_PLAYBACK_STATUS_PLAY);
 
     gtk_window_set_title( GTK_WINDOW(main_win), window_title->str );
