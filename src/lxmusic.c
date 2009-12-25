@@ -1,4 +1,3 @@
-
 /*
  *      lxmusic.c
  *      
@@ -141,7 +140,7 @@ void 			on_locate_cur_track	(GtkAction* act, gpointer user_data);
 void 			on_play_btn_clicked	(GtkButton* btn, gpointer user_data);
 
 static GtkTreeIter	get_current_track_iter	();
-static gint 		get_track_properties 	(xmmsv_t *value, TrackProperties *properties);
+static gboolean		get_track_properties 	(xmmsv_t *value, TrackProperties *properties);
 
 static void load_config()
 {
@@ -1240,7 +1239,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     return TRUE;
 }
 
-static gint get_track_properties (xmmsv_t *value, TrackProperties *properties)  
+static gboolean get_track_properties (xmmsv_t *value, TrackProperties *properties)  
 {
     /* traverse the dict of dict */
     xmmsv_dict_iter_t *parent_it;
@@ -1288,9 +1287,12 @@ static gint get_track_properties (xmmsv_t *value, TrackProperties *properties)
 	xmmsv_dict_iter_next (parent_it);
     }
 
-    if ((properties->title == NULL) || g_str_equal( properties->title, "" ))
-	properties->title = channel;
-    return 0;
+    if ((properties->title == NULL) || g_str_equal( properties->title, "" )) 
+	if (channel == NULL)
+	    return FALSE;
+	else
+	    properties->title = channel;
+    return TRUE;
 }
 
 static void queue_update_track( uint32_t id, GtkTreeIter* it )
