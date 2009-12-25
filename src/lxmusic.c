@@ -77,6 +77,7 @@ typedef struct _TrackProperties{
     const char *artist;
     const char *album;
     const char *title;
+    const char *url;
     int32_t duration;
 }TrackProperties;
 
@@ -1248,7 +1249,7 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
     const char* channel = NULL;
 
     /* default values: empty */
-    properties->artist = properties->album = properties->title = NULL;
+    properties->artist = properties->album = properties->title = properties->url = NULL;
     properties->duration = 0;
     
     xmmsv_get_dict_iter (value, &parent_it);
@@ -1270,6 +1271,8 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
 	    val_str = &(properties->album);
 	else if (strcmp( key, "channel" ) == 0)
 	    val_str = &channel;	    	    
+	else if (strcmp( key, "url" ) == 0)
+	    val_str = &(properties->url);	    
 	else if (strcmp( key, "title" ) == 0) 
 	    val_str = &(properties->title);	    
 	else if (strcmp( key, "duration" ) == 0)
