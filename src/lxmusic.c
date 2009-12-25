@@ -722,11 +722,11 @@ void on_playlist_view_drag_data_received(GtkWidget          *widget,
     char** uris;
     GtkTreePath            *dest_path;
     GtkTreeViewDropPosition pos;
-    int insert_pos = gtk_tree_model_iter_n_children( gtk_tree_view_get_model ( playlist_view ), NULL );
+    int insert_pos = gtk_tree_model_iter_n_children( gtk_tree_view_get_model ( GTK_TREE_VIEW(playlist_view ) ), NULL );
 
     g_signal_stop_emission_by_name(playlist_view, "drag_data_received");
     
-    if ( gtk_tree_view_get_dest_row_at_pos( playlist_view, x, y, &dest_path, &pos ) ) 
+    if ( gtk_tree_view_get_dest_row_at_pos( GTK_TREE_VIEW(playlist_view), x, y, &dest_path, &pos ) ) 
     {
 	insert_pos = gtk_tree_path_get_indices( dest_path )[0] ;
 	if ( pos != GTK_TREE_VIEW_DROP_BEFORE )
