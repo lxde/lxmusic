@@ -133,7 +133,7 @@ gchar* xmmsv_url_to_string (xmmsv_t *url_value)
 }
 
 /* guess title from url value returned string must be freed  */
-const gchar* guess_title_from_url (const char *url) 
+gchar* guess_title_from_url (const char *url) 
 {
     char *decoded_val = g_uri_unescape_string (url, NULL ) ;
     const gchar *title = g_strdup( g_utf8_strrchr ( decoded_val, -1, '/' ) + 1 );
