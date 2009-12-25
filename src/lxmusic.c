@@ -1245,6 +1245,9 @@ static gint get_track_properties (xmmsv_t *value, TrackProperties *properties)
     /* traverse the dict of dict */
     xmmsv_dict_iter_t *parent_it;
 
+    /* fallback for title: online streams often provide channel */
+    const char* channel = NULL;
+
     /* default values: empty */
     properties->artist = properties->album = properties->title = NULL;
     properties->duration = 0;
@@ -1265,7 +1268,9 @@ static gint get_track_properties (xmmsv_t *value, TrackProperties *properties)
 	if (strcmp( key, "artist" ) == 0)
 	    val_str = &(properties->artist);
 	else if (strcmp( key, "album" ) == 0)
-	    val_str = &(properties->album);	    
+	    val_str = &(properties->album);
+	else if (strcmp( key, "channel" ) == 0)
+	    val_str = &channel;	    	    
 	else if (strcmp( key, "title" ) == 0) 
 	    val_str = &(properties->title);	    
 	else if (strcmp( key, "duration" ) == 0)
@@ -1282,6 +1287,9 @@ static gint get_track_properties (xmmsv_t *value, TrackProperties *properties)
 	}
 	xmmsv_dict_iter_next (parent_it);
     }
+
+    if ((properties->title == NULL) || g_str_equal( properties->title, "" ))
+	properties->title = channel;
     return 0;
 }
 
