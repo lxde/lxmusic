@@ -38,8 +38,6 @@ const char* timeval_to_str( guint timeval, char* buf, guint buf_len );
 
 void show_error(GtkWindow* parent, const char* title, const char* msg);
 
-gchar* xmmsv_url_to_string (xmmsv_t *url_value);
-
 gchar* guess_title_from_url (const char *url);
 
 GString* create_window_title( const gchar* artist, const gchar* title, gboolean 
