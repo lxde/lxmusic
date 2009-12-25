@@ -1,3 +1,4 @@
+
 /*
  *      lxmusic.c
  *      
@@ -73,6 +74,13 @@ typedef struct _UpdateTrack{
     GtkTreeIter it;
 }UpdateTrack;
 
+typedef struct _TrackProperties{
+    const char *artist;
+    const char *album;
+    const char *title;
+    int32_t duration;
+}TrackProperties;
+
 static void send_notifcation( const gchar *artist, const gchar* title );
 #ifdef HAVE_LIBNOTIFY
 static LXMusic_Notification *lxmusic_notification = NULL;
@@ -133,7 +141,7 @@ void 			on_locate_cur_track	(GtkAction* act, gpointer user_data);
 void 			on_play_btn_clicked	(GtkButton* btn, gpointer user_data);
 
 static GtkTreeIter	get_current_track_iter	();
-static gint 		get_track_properties 	(xmmsv_t *value, char **artist, char **album, char **title, int32_t *duration);
+static gint 		get_track_properties 	(xmmsv_t *value, TrackProperties *properties);
 
 static void load_config()
 {
@@ -1232,10 +1240,15 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     return TRUE;
 }
 
-static gint get_track_properties (xmmsv_t *value, char **artist, char **album, char **title, int32_t *duration) 
+static gint get_track_properties (xmmsv_t *value, TrackProperties *properties)  
 {
     /* traverse the dict of dict */
     xmmsv_dict_iter_t *parent_it;
+
+    /* default values: empty */
+    properties->artist = properties->album = properties->title = NULL;
+    properties->duration = 0;
+    
     xmmsv_get_dict_iter (value, &parent_it);
     while (xmmsv_dict_iter_valid (parent_it ) ) 
     {
@@ -1250,13 +1263,13 @@ static gint get_track_properties (xmmsv_t *value, char **artist, char **album, c
 
 	/* check type of property */
 	if (strcmp( key, "artist" ) == 0)
-	    val_str = artist;
+	    val_str = &(properties->artist);
 	else if (strcmp( key, "album" ) == 0)
-	    val_str = album;	    
+	    val_str = &(properties->album);	    
 	else if (strcmp( key, "title" ) == 0) 
-	    val_str = title;	    
+	    val_str = &(properties->title);	    
 	else if (strcmp( key, "duration" ) == 0)
-	    val_int = duration;
+	    val_int = &(properties->duration);
 	
 	if (xmmsv_get_dict_iter (child_value, &child_it) && 
 	    xmmsv_dict_iter_valid (child_it) && (val_int || val_str) && 
