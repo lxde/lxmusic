@@ -595,6 +595,7 @@ static int on_track_info_received(xmmsv_t* value, void* user_data)
     if (tp.title || tp.album || tp.artist || tp.comment || tp.mime) 
     {
 	const char **key;
+	const char *val;
 	const char *key_values[] = {
 	    "title", tp.title, 
 	    "album", tp.album,
@@ -606,7 +607,9 @@ static int on_track_info_received(xmmsv_t* value, void* user_data)
 
 	for ( key=key_values; *key; key += 2 ) 
 	{
-	    const char *val = *(key + 1);
+	    /* check if string_property is non-empty */
+	    if (!(val = *(key + 1)))
+		continue;
 	    w = (GtkWidget*)gtk_builder_get_object(builder, *key);
 	    if( GTK_IS_ENTRY(w) )
 		gtk_entry_set_text((GtkEntry*)w, val);
