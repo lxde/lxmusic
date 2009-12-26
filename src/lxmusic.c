@@ -1332,11 +1332,9 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
 	xmmsv_t *current_value;
         UpdateTrack* ut = g_slice_new(UpdateTrack);
 
-        gtk_list_store_append( list_store, &it );
 	xmmsv_list_get( value, i, &current_value );
 	xmmsv_get_int( current_value, &id );
-
-        gtk_list_store_set( list_store, &it, COL_ID, id, COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
+        gtk_list_store_insert_with_values ( list_store, &it, i, COL_ID, id, COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
 
         ut->id = id;
         ut->it = it;
