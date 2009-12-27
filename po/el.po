@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-12-27 21:25+0100\n"
+"PO-Revision-Date: 2009-12-27 22:37+0100\n"
 "Last-Translator: George Vasilakos <forfolias@linuxteam.cs.teilar.gr>\n"
 "Language-Team: Greek\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,6 @@ msgstr "Διαπλατφορμική βιβλιοθήκη εξόδου ήχου"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
-#, fuzzy
 msgid "PulseAudio"
 msgstr "PulseAudio"
 
@@ -133,19 +132,16 @@ msgid "Server:"
 msgstr "Εξυπηρετητής:"
 
 #: ../src/lxmusic-plugin-config.c:34
-#, fuzzy
 msgid "Sink:"
 msgstr "Sink:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
-#, fuzzy
 msgid "AirTunes"
 msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
-#, fuzzy
 msgid "JACK Audio Connection Kit"
 msgstr "JACK Audio Connection Kit"
 
@@ -175,7 +171,7 @@ msgstr "Προσθήκη αρχείων στη λίστα αναπαραγωγή
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "Όλα"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
@@ -215,7 +211,7 @@ msgstr "Επόμενο"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "Χωρίς επανάληψη"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
