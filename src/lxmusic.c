@@ -86,7 +86,8 @@ typedef struct _TrackProperties{
     int32_t size;
 }TrackProperties;
 
-static void send_notifcation( const gchar *artist, const gchar* title );
+static void 	send_notifcation			( const gchar *artist, const gchar* title );
+
 #ifdef HAVE_LIBNOTIFY
 static LXMusic_Notification *lxmusic_notification = NULL;
 #endif 
@@ -113,7 +114,9 @@ static GtkWidget *rm_from_pl_menu = NULL;
 static char* cur_playlist = NULL;
 static GSList* all_playlists = NULL;
 
-static GQueue* pending_update_tracks = NULL;
+/* to be updated by update_track */
+static GHashTable *update_tracks;
+
 static GtkListStore* list_store = NULL;
 
 static int32_t playback_status = 0;
@@ -208,12 +211,7 @@ static void free_update_track( UpdateTrack* ut )
 
 static void cancel_pending_update_tracks()
 {
-    /* g_debug("try to cancel"); */
-    if( ! g_queue_is_empty(pending_update_tracks) )
-    {
-        g_queue_foreach(pending_update_tracks, (GFunc)free_update_track, NULL);
-        g_queue_clear(pending_update_tracks);
-    }
+    g_hash_table_remove_all( update_tracks );
 }
 
 static int on_xmms_quit(xmmsv_t *value, void *user_data)
@@ -1159,26 +1157,19 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     gboolean current_track_updated;
     char time_buf[32];
     gchar *guessed_title = NULL;
-    /* g_debug("do update track: %d", ut->id); */
-
-    /* OK, now it's time to send the next request.
-     * This is inefficient, but it's used to overcome
-     * some design flaws of xmms2d.
-     * Some optimization can be done here by send about
-     * 10 requets or so at the same time. */
-    if( ! g_queue_is_empty(pending_update_tracks) )
-    {
-        xmmsc_result_t* res2;
-        UpdateTrack* ut = (UpdateTrack*)g_queue_pop_head(pending_update_tracks);
-
-        res2 = xmmsc_medialib_get_info( con, ut->id );
-        xmmsc_result_notifier_set_full( res2, (xmmsc_result_notifier_t)update_track, ut, (xmmsc_user_data_free_func_t)free_update_track );
-        xmmsc_result_unref( res2 );
-    }
-
+    GSequenceIter *insert_it, *search_it;
+    gboolean ut_is_valid = false;
     if( xmmsv_is_error ( value ) ) {
         return FALSE;
     }
+
+    /* check if this update is valid: Maybe it was meanwhile canceled
+     * (for example by switching a long loading playlist */
+    if (!g_hash_table_lookup( update_tracks, ut )) 
+	return TRUE;
+    
+    /* valid update */
+    g_hash_table_remove( update_tracks, ut );
     
     if (!get_track_properties( value, &track_properties)) 
 	track_properties.title = guessed_title = guess_title_from_url( track_properties.url );
@@ -1203,6 +1194,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
 	}
 	
     }
+    free_update_track( ut );
     g_free( guessed_title );
     xmmsv_unref( value );
     return TRUE;
@@ -1278,33 +1270,14 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
 static void queue_update_track( uint32_t id, GtkTreeIter* it )
 {
     UpdateTrack* ut;
-    /* if it's already in the queue */
-    if( ! g_queue_is_empty( pending_update_tracks ) )
-    {
-        GList* l;
-        for( l = pending_update_tracks->head; l; l = l->next )
-        {
-            ut = (UpdateTrack*)l->data;
-            if( id == ut->id )
-                return;
-        }
-    }
-
+    xmmsc_result_t *res;
     ut = g_slice_new(UpdateTrack);
     ut->id = id;
     ut->it = *it;
-
-    if( g_queue_is_empty( pending_update_tracks ) )
-    {
-        xmmsc_result_t *res;
-        res = xmmsc_medialib_get_info( con, id );
-        xmmsc_result_notifier_set_full( res, (xmmsc_result_notifier_t)update_track, ut, (xmmsc_user_data_free_func_t)free_update_track );
-        xmmsc_result_unref( res );
-    }
-    else
-    {
-        g_queue_push_tail(pending_update_tracks, ut);
-    }
+    g_hash_table_insert( update_tracks, ut, ut );
+    res = xmmsc_medialib_get_info( con, id );
+    xmmsc_result_notifier_set_full( res, (xmmsc_result_notifier_t)update_track, ut, NULL );
+    xmmsc_result_unref( res );
 }
 
 static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
@@ -1324,32 +1297,26 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     gtk_tree_view_set_search_equal_func( GTK_TREE_VIEW(playlist_view), playlist_search_func, NULL, NULL );
     g_object_unref(list_store);
 
+    /* invalidate pending track updates */
     cancel_pending_update_tracks();
-
+    
     for ( i = 0; i < pl_size; i++ ) 
     {
         int32_t id;
 	xmmsv_t *current_value;
+	xmmsc_result_t *res;
         UpdateTrack* ut = g_slice_new(UpdateTrack);
 
 	xmmsv_list_get( value, i, &current_value );
 	xmmsv_get_int( current_value, &id );
         gtk_list_store_insert_with_values ( list_store, &it, i, COL_ID, id, COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
-
+	
         ut->id = id;
         ut->it = it;
-        /* add this request to pending list */
-        g_queue_push_tail( pending_update_tracks, ut );
-    }
-
-    if( !g_queue_is_empty(pending_update_tracks) )
-    {
-        UpdateTrack* ut = (UpdateTrack*)g_queue_pop_head(pending_update_tracks);
-	xmmsc_result_t *res;
-        /* only send the first request, and subsequent requests will
-         * be sent after the previous one is returned. */
+	/* just insert dummy values so we can distinguish from NULL */
+	g_hash_table_insert( update_tracks, ut, ut );
         res = xmmsc_medialib_get_info( con, ut->id );
-        xmmsc_result_notifier_set_full( res, (xmmsc_result_notifier_t)update_track, ut, (xmmsc_user_data_free_func_t)free_update_track );
+        xmmsc_result_notifier_set_full( res, (xmmsc_result_notifier_t)update_track, ut, NULL );
         xmmsc_result_unref( res );
     }
 
@@ -1367,6 +1334,12 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
 
     return TRUE;
 }
+
+static gint compare_update_tracks_by_pointer (gconstpointer a, gconstpointer b, gpointer user_data) 
+{
+    return a - b;
+}
+
 
 static int on_playlist_get_active(xmmsv_t* value, void* user_data)
 {
@@ -2401,6 +2374,8 @@ int main (int argc, char *argv[])
     gtk_init(&argc, &argv);
 
     plugin_config_setup(con);
+
+    update_tracks =  g_hash_table_new( g_direct_hash, NULL );
        
     xmmsc_mainloop_gmain_init(con);
 
@@ -2420,8 +2395,6 @@ int main (int argc, char *argv[])
         gtk_main_iteration();
     gdk_display_sync(gtk_widget_get_display(main_win));
 
-    pending_update_tracks = g_queue_new();
-
     /* display currently active playlist */
     res = xmmsc_playlist_current_active(con);
     xmmsc_result_notifier_set_and_unref(res, on_playlist_get_active, NULL);
@@ -2435,7 +2408,8 @@ int main (int argc, char *argv[])
 
     gtk_main ();
 
-    g_queue_free(pending_update_tracks);
+    cancel_pending_update_tracks();
+    g_hash_table_unref ( update_tracks );
     save_config();
 
     return 0;
