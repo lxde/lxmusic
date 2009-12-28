@@ -204,11 +204,6 @@ static void save_config()
     }
 }
 
-static void free_update_track( UpdateTrack* ut )
-{
-    g_slice_free(UpdateTrack, ut);
-}
-
 static void cancel_pending_update_tracks()
 {
     g_hash_table_remove_all( update_tracks );
@@ -1192,7 +1187,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
 	}
 	
     }
-    free_update_track( ut );
+    g_slice_free(UpdateTrack, ut);
     g_free( guessed_title );
     return FALSE;
 }
