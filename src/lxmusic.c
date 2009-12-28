@@ -1157,8 +1157,6 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     gboolean current_track_updated;
     char time_buf[32];
     gchar *guessed_title = NULL;
-    GSequenceIter *insert_it, *search_it;
-    gboolean ut_is_valid = false;
     if( xmmsv_is_error ( value ) ) {
         return FALSE;
     }
@@ -1333,12 +1331,6 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
 
     return TRUE;
 }
-
-static gint compare_update_tracks_by_pointer (gconstpointer a, gconstpointer b, gpointer user_data) 
-{
-    return a - b;
-}
-
 
 static int on_playlist_get_active(xmmsv_t* value, void* user_data)
 {
