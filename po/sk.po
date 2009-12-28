@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-08-06 13:46+0100\n"
+"POT-Creation-Date: 2009-12-14 23:56+0100\n"
+"PO-Revision-Date: 2009-12-28 18:48+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:269
+#: ../src/lxmusic.c:271
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Officiálna ikona xmms2 (autor: Arnaud DIDRY)"
+msgstr "Oficiálna ikona xmms2 (autor: Arnaud DIDRY)"
 
-#: ../src/lxmusic.c:280
+#: ../src/lxmusic.c:282
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -28,60 +28,66 @@ msgstr ""
 "Jednoduchý grafický klient XMMS2"
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:455
+#: ../src/utils.c:168
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:636
+#: ../src/lxmusic.c:638
 msgid "Bitrate: "
 msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:938
+#: ../src/lxmusic.c:940
 msgid "Audio Files"
 msgstr "Zvukové súbory"
 
-#: ../src/lxmusic.c:943
+#: ../src/lxmusic.c:945
 msgid "All Files"
 msgstr "Všetky súbory"
 
-#: ../src/lxmusic.c:970
+#: ../src/lxmusic.c:972
 msgid "Input a URL"
 msgstr "Zadať URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1363
+#: ../src/lxmusic.c:1780
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Autor"
 
-#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1371
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
+#: ../src/lxmusic.c:1379
+#: ../src/lxmusic.c:1781
 msgid "Title"
 msgstr "Názov"
 
-#: ../src/lxmusic.c:1383
+#: ../src/lxmusic.c:1385
 msgid "Length"
 msgstr "Dĺžka"
 
-#: ../src/lxmusic.c:1555
+#: ../src/lxmusic.c:1557
 msgid "Default"
 msgstr "Predvolené"
 
-#: ../src/lxmusic.c:1665
+#: ../src/lxmusic.c:1675
 msgid "Pause"
 msgstr "Pozastaviť"
 
-#: ../src/lxmusic.c:1679
+#: ../src/lxmusic.c:1689
 msgid "Play"
 msgstr "Prehrať"
 
-#: ../src/lxmusic.c:1776
+#: ../src/lxmusic.c:1786
 msgid "Now Playing:"
 msgstr "Teraz hrá:"
 
-#: ../src/lxmusic.c:2217
+#: ../src/lxmusic.c:2248
 msgid "Create new playlist"
 msgstr "Vytvoriť nový zoznam stôp"
 
@@ -96,14 +102,16 @@ msgstr "Chyba"
 msgid "Advanced Linux Sound Architecture"
 msgstr "Advanced Linux Sound Architecture"
 
-#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
-msgstr "Zaraidenie:"
+msgstr "Zariadenie:"
 
-#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr "Mixer:"
+msgstr "Zmiešavač:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
@@ -124,7 +132,8 @@ msgstr "PulseAudio"
 msgid "Name:"
 msgstr "Názov:"
 
-#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Server:"
 
@@ -149,6 +158,14 @@ msgstr "Zápis na disk"
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
 msgstr "Cieľový adresár:"
+
+#: ../data/lxmusic.desktop.in.h:1
+msgid "Music Player"
+msgstr "Prehrávač hudby"
+
+#: ../data/lxmusic.desktop.in.h:2
+msgid "Play your music files easily"
+msgstr "Jednoduché prehrávanie hudobných súborov"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -186,7 +203,8 @@ msgstr "Sem zadajte kľúčové slovo"
 msgid "Favorites"
 msgstr "Obľúbené"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Vlastnosti súboru"
 
@@ -335,12 +353,8 @@ msgid "Misc"
 msgstr "Rôzne"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Hudobné súbory možno prehrávať bez grafického rozhrania, aby sa šetrili "
-"zdroje systému"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Hudobné súbory možno prehrávať bez grafického rozhrania, aby sa šetrili zdroje systému"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -385,7 +399,6 @@ msgstr "<b>Názov: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Ovládač:"
-
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -396,7 +409,6 @@ msgstr "<b>Názov: </b>"
 #~ "Názov stopy\n"
 #~ "Autor\n"
 #~ "Album"
-
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -405,9 +417,8 @@ msgstr "<b>Názov: </b>"
 #~ "Neopakovať\n"
 #~ "Opakovať stopu\n"
 #~ "Opakovať zoznam stôp"
-
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Na výstup zvuku používať OSS"
-
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "Na výstup zvuku používať Pulse Audio"
+
