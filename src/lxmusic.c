@@ -1196,8 +1196,7 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
     }
     free_update_track( ut );
     g_free( guessed_title );
-    xmmsv_unref( value );
-    return TRUE;
+    return FALSE;
 }
 
 static gboolean get_track_properties (xmmsv_t *value, TrackProperties *properties)  
