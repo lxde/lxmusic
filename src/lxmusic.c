@@ -319,7 +319,7 @@ void on_pref_output_plugin_changed(GtkTable* table, GtkComboBox* output)
     n_configs = g_list_length( plugin->config );
 
     /* destroy previous configuration widgets */
-    gtk_container_foreach( GTK_CONTAINER( table ), gtk_widget_destroy, NULL );
+    gtk_container_foreach( GTK_CONTAINER( table ), (GtkCallback) gtk_widget_destroy, NULL );
 
     if ( n_configs == 0 )
 	return;
@@ -978,11 +978,11 @@ void on_add_url( GtkMenuItem* item, gpointer user_data )
     }
     gtk_widget_destroy( dlg );
 }
+/* FIXME: This might be implemented in the future */
+/* static void on_add_from_mlib( GtkMenuItem* item, gpointer user_data ) */
+/* { */
 
-static void on_add_from_mlib( GtkMenuItem* item, gpointer user_data )
-{
-    /* FIXME: This might be implemented in the future */
-}
+/* } */
 
 void on_add_btn_clicked(GtkButton* btn, gpointer user_data)
 {
@@ -1257,10 +1257,12 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
     }
 
     if ((properties->title == NULL) || g_str_equal( properties->title, "" )) 
+    {
 	if (channel == NULL)
 	    return FALSE;
 	else
 	    properties->title = channel;
+    }
     return TRUE;
 }
 
@@ -1285,7 +1287,7 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     int i;
 
     /* free prev. model filter */
-    if (mf = gtk_tree_view_get_model(GTK_TREE_VIEW(playlist_view))) 
+    if ((mf = gtk_tree_view_get_model(GTK_TREE_VIEW(playlist_view))))
 	g_object_unref(mf);
     
     list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT );
@@ -2074,9 +2076,10 @@ static void config_changed_foreach(const char *key, xmmsv_t *value, void* user_d
     }
 }
 
-static void on_configval_changed(xmmsv_t* value, void* user_data)
+static int on_configval_changed(xmmsv_t* value, void* user_data)
 {
     xmmsv_dict_foreach( value, config_changed_foreach, NULL );
+    return TRUE;
 }
 
 static void setup_xmms_callbacks()
