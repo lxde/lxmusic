@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-12-02 01:48+0100\n"
+"POT-Creation-Date: 2009-12-29 17:55+0100\n"
+"PO-Revision-Date: 2009-12-29 23:13+0100\n"
 "Last-Translator: Christoph Wickert <christoph.wickert@googlemail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,11 @@ msgstr ""
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: ../src/lxmusic.c:269
+#: ../src/lxmusic.c:278
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Offizielles Icon von XMMS2 (Arnaud DIDRY)"
 
-#: ../src/lxmusic.c:280
+#: ../src/lxmusic.c:289
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -33,60 +33,60 @@ msgstr ""
 "Einfache GUI für XMMS2"
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:636
+#: ../src/lxmusic.c:625
 msgid "Bitrate: "
 msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:938
+#: ../src/lxmusic.c:927
 msgid "Audio Files"
 msgstr "Audio-Dateien"
 
-#: ../src/lxmusic.c:943
+#: ../src/lxmusic.c:932
 msgid "All Files"
 msgstr "Alle Dateien"
 
-#: ../src/lxmusic.c:970
+#: ../src/lxmusic.c:959
 msgid "Input a URL"
 msgstr "URL einfügen"
 
 #. metadata available
-#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Interpret"
 
-#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
+#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/lxmusic.c:1383
+#: ../src/lxmusic.c:1392
 msgid "Length"
 msgstr "Länge"
 
-#: ../src/lxmusic.c:1555
+#: ../src/lxmusic.c:1564
 msgid "Default"
 msgstr "Standard"
 
-#: ../src/lxmusic.c:1665
+#: ../src/lxmusic.c:1682
 msgid "Pause"
 msgstr "Pause"
 
-#: ../src/lxmusic.c:1679
+#: ../src/lxmusic.c:1696
 msgid "Play"
 msgstr "Abspielen"
 
-#: ../src/lxmusic.c:1776
+#: ../src/lxmusic.c:1777
 msgid "Now Playing:"
 msgstr "Aktuelle Wiedergabe:"
 
-#: ../src/lxmusic.c:2217
+#: ../src/lxmusic.c:2242
 msgid "Create new playlist"
 msgstr "Neue Wiedergabeliste erstellen"
 
@@ -156,6 +156,14 @@ msgstr "Disk Writer"
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
 msgstr "Zielverzeichnis:"
+
+#: ../data/lxmusic.desktop.in.h:1
+msgid "Music Player"
+msgstr "Medien-Abspieler"
+
+#: ../data/lxmusic.desktop.in.h:2
+msgid "Play your music files easily"
+msgstr "Musikdateien einfach wiedergeben"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"

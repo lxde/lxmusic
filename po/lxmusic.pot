@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-14 23:56+0100\n"
+"POT-Creation-Date: 2009-12-29 17:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,71 +16,71 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:271
+#: ../src/lxmusic.c:278
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr ""
 
-#: ../src/lxmusic.c:282
+#: ../src/lxmusic.c:289
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
 
 #. default
-#: ../src/lxmusic.c:455 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr ""
 
-#: ../src/lxmusic.c:638
+#: ../src/lxmusic.c:625
 msgid "Bitrate: "
 msgstr ""
 
-#: ../src/lxmusic.c:940
+#: ../src/lxmusic.c:927
 msgid "Audio Files"
 msgstr ""
 
-#: ../src/lxmusic.c:945
+#: ../src/lxmusic.c:932
 msgid "All Files"
 msgstr ""
 
-#: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:959
 msgid "Input a URL"
 msgstr ""
 
 #. metadata available
-#: ../src/lxmusic.c:1363 ../src/lxmusic.c:1780 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr ""
 
-#: ../src/lxmusic.c:1371 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr ""
 
-#: ../src/lxmusic.c:1379 ../src/lxmusic.c:1781
+#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
 msgid "Title"
 msgstr ""
 
-#: ../src/lxmusic.c:1385
+#: ../src/lxmusic.c:1392
 msgid "Length"
 msgstr ""
 
-#: ../src/lxmusic.c:1557
+#: ../src/lxmusic.c:1564
 msgid "Default"
 msgstr ""
 
-#: ../src/lxmusic.c:1675
+#: ../src/lxmusic.c:1682
 msgid "Pause"
 msgstr ""
 
-#: ../src/lxmusic.c:1689
+#: ../src/lxmusic.c:1696
 msgid "Play"
 msgstr ""
 
-#: ../src/lxmusic.c:1786
+#: ../src/lxmusic.c:1777
 msgid "Now Playing:"
 msgstr ""
 
-#: ../src/lxmusic.c:2248
+#: ../src/lxmusic.c:2242
 msgid "Create new playlist"
 msgstr ""
 

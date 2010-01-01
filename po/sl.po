@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXMusic 0.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-24 19:13+0200\n"
-"PO-Revision-Date: 2009-12-08 13:08+0100\n"
+"POT-Creation-Date: 2009-12-29 17:55+0100\n"
+"PO-Revision-Date: 2009-12-31 21:50+0100\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: Slovenian <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,11 +15,11 @@ msgstr ""
 "X-Poedit-Language: Slovenian\n"
 "X-Poedit-Country: SLOVENIA\n"
 
-#: ../src/lxmusic.c:269
+#: ../src/lxmusic.c:278
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Uradne ikone xmms2 od Arnaud DIDRY"
 
-#: ../src/lxmusic.c:280
+#: ../src/lxmusic.c:289
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -28,60 +28,60 @@ msgstr ""
 "Grafični odjemalec za XMMS2"
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:636
+#: ../src/lxmusic.c:625
 msgid "Bitrate: "
 msgstr "Bitna hitrost:"
 
-#: ../src/lxmusic.c:938
+#: ../src/lxmusic.c:927
 msgid "Audio Files"
 msgstr "Zvočne datoteke"
 
-#: ../src/lxmusic.c:943
+#: ../src/lxmusic.c:932
 msgid "All Files"
 msgstr "Vse datoteke"
 
-#: ../src/lxmusic.c:970
+#: ../src/lxmusic.c:959
 msgid "Input a URL"
 msgstr "Vnesi URL naslov"
 
 #. metadata available
-#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Avtor"
 
-#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
+#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
 msgid "Title"
 msgstr "Naslov"
 
-#: ../src/lxmusic.c:1383
+#: ../src/lxmusic.c:1392
 msgid "Length"
 msgstr "Dolžina"
 
-#: ../src/lxmusic.c:1555
+#: ../src/lxmusic.c:1564
 msgid "Default"
 msgstr "Privzeto"
 
-#: ../src/lxmusic.c:1665
+#: ../src/lxmusic.c:1682
 msgid "Pause"
 msgstr "Pavza"
 
-#: ../src/lxmusic.c:1679
+#: ../src/lxmusic.c:1696
 msgid "Play"
 msgstr "Predvajaj"
 
-#: ../src/lxmusic.c:1776
+#: ../src/lxmusic.c:1777
 msgid "Now Playing:"
 msgstr "Predvaja se:"
 
-#: ../src/lxmusic.c:2217
+#: ../src/lxmusic.c:2242
 msgid "Create new playlist"
 msgstr "_Ustvari nov seznam:"
 
@@ -149,6 +149,14 @@ msgstr "Pisanje na disk"
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
 msgstr "Ciljna mapa:"
+
+#: ../data/lxmusic.desktop.in.h:1
+msgid "Music Player"
+msgstr "Predvajalnik glasbe"
+
+#: ../data/lxmusic.desktop.in.h:2
+msgid "Play your music files easily"
+msgstr "Enostavno predvajanje vaših glasbenih datotek"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"

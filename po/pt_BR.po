@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 15:19-0500\n"
+"POT-Creation-Date: 2009-12-29 17:55+0100\n"
 "PO-Revision-Date: 2009-12-03 01:42-0300\n"
 "Last-Translator: Henrique P. Machado <zehrique@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../src/lxmusic.c:269
+#: ../src/lxmusic.c:278
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Ícone oficial do xmms2 por Arnaud DIDRY"
 
-#: ../src/lxmusic.c:280
+#: ../src/lxmusic.c:289
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -30,60 +30,60 @@ msgstr ""
 "Um cliente gráfico simples do XMMS2"
 
 #. default
-#: ../src/lxmusic.c:453 ../src/utils.c:168 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:636
+#: ../src/lxmusic.c:625
 msgid "Bitrate: "
 msgstr "Taxa de bits: "
 
-#: ../src/lxmusic.c:938
+#: ../src/lxmusic.c:927
 msgid "Audio Files"
 msgstr "Arquivos de áudio"
 
-#: ../src/lxmusic.c:943
+#: ../src/lxmusic.c:932
 msgid "All Files"
 msgstr "Todos os arquivos"
 
-#: ../src/lxmusic.c:970
+#: ../src/lxmusic.c:959
 msgid "Input a URL"
 msgstr "Digitar um URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1361 ../src/lxmusic.c:1770 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Artista"
 
-#: ../src/lxmusic.c:1369 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Álbum"
 
-#: ../src/lxmusic.c:1377 ../src/lxmusic.c:1771
+#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
 msgid "Title"
 msgstr "Título"
 
-#: ../src/lxmusic.c:1383
+#: ../src/lxmusic.c:1392
 msgid "Length"
 msgstr "Duração"
 
-#: ../src/lxmusic.c:1555
+#: ../src/lxmusic.c:1564
 msgid "Default"
 msgstr "Padrão"
 
-#: ../src/lxmusic.c:1665
+#: ../src/lxmusic.c:1682
 msgid "Pause"
 msgstr "Pausar"
 
-#: ../src/lxmusic.c:1679
+#: ../src/lxmusic.c:1696
 msgid "Play"
 msgstr "Reproduzir"
 
-#: ../src/lxmusic.c:1776
+#: ../src/lxmusic.c:1777
 msgid "Now Playing:"
 msgstr "Reproduzindo:"
 
-#: ../src/lxmusic.c:2217
+#: ../src/lxmusic.c:2242
 msgid "Create new playlist"
 msgstr "Criar uma nova lista de reprodução"
 
