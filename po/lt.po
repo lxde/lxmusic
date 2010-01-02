@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-29 17:55+0100\n"
-"PO-Revision-Date: 2009-09-21 09:04+0200\n"
+"PO-Revision-Date: 2010-01-01 23:47+0100\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -154,11 +154,11 @@ msgstr "Paskirties aplankas:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr ""
+msgstr "Muzikos grotuvas"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "Lengvai klausykitės savo muzikos"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
