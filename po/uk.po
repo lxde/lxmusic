@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-29 17:55+0100\n"
-"PO-Revision-Date: 2009-08-06 10:31+0200\n"
+"PO-Revision-Date: 2010-01-04 21:38+0100\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -153,11 +153,11 @@ msgstr "Тека призначення:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr ""
+msgstr "Програвач музики"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "Програє музичні файли"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
