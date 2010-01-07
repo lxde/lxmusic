@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: LXMusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-06 16:08+0100\n"
-"PO-Revision-Date: 2009-08-19 18:29+0200\n"
+"PO-Revision-Date: 2010-01-06 19:42+0100\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
 "MIME-Version: 1.0\n"
@@ -153,11 +153,11 @@ msgstr "الدليل الهدف:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr ""
+msgstr "مشغل الموسيقى"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "يشغل ملفات الموسيقى بسهولة"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
