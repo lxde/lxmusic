@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-06 16:08+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Zsolt Peter Basak <shiki@biomernok.hu>\n"
+"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <debian-l10n-hungarian@lists.d.o>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,9 @@ msgstr ""
 "Egyszerű grafikus XMMS2 kliens"
 
 #. default
-#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:462
+#: ../src/utils.c:98
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -47,15 +49,19 @@ msgid "Input a URL"
 msgstr "URL megadása"
 
 #. metadata available
-#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1370
+#: ../src/lxmusic.c:1771
+#: ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Művész"
 
-#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1378
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
+#: ../src/lxmusic.c:1386
+#: ../src/lxmusic.c:1772
 msgid "Title"
 msgstr "Cím"
 
@@ -94,12 +100,14 @@ msgstr "Hiba"
 msgid "Advanced Linux Sound Architecture"
 msgstr "Fejlett Linux Hangrendszer (ALSA)"
 
-#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Eszköz:"
 
-#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Keverő:"
 
@@ -122,12 +130,12 @@ msgstr "PulseAudio"
 msgid "Name:"
 msgstr "Név:"
 
-#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Kiszolgáló:"
 
 #: ../src/lxmusic-plugin-config.c:34
-#, fuzzy
 msgid "Sink:"
 msgstr "Kimenet:"
 
@@ -151,11 +159,11 @@ msgstr "Cél könyvtár:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr ""
+msgstr "Zenelejátszó"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "Játszd le zenefájljaid kényelmesen"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -193,7 +201,8 @@ msgstr "Adj meg kulcsszót"
 msgid "Favorites"
 msgstr "Kedvencek"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Fájl tulajdonságok"
 
@@ -342,12 +351,8 @@ msgid "Misc"
 msgstr "Egyéb"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"A zenei fájlok grafikus felület nélkül is lejátszhatók az erőforrásokat "
-"kímélve"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "A zenei fájlok grafikus felület nélkül is lejátszhatók az erőforrásokat kímélve"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -392,7 +397,6 @@ msgstr "<b>Cím: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Meghajtó:"
-
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -403,7 +407,6 @@ msgstr "<b>Cím: </b>"
 #~ "Szám Címe\n"
 #~ "Előadó\n"
 #~ "Album"
-
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -412,9 +415,8 @@ msgstr "<b>Cím: </b>"
 #~ "Nincs ismétlés\n"
 #~ "Jelenleg játszott ismétlése\n"
 #~ "Mind ismétlése"
-
 #~ msgid "Use OSS for audio output"
 #~ msgstr "OSS használata a kimenethez"
-
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "Pulse Audio használata a kimenethez"
+
