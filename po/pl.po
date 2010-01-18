@@ -12,15 +12,16 @@ msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-06 16:08+0100\n"
-"PO-Revision-Date: 2009-12-24 19:52+0100\n"
-"Last-Translator: Grzegorz Gibas <amigib@gmail.com>\n"
+"PO-Revision-Date: 2010-01-13 23:38+0200\n"
+"Last-Translator: Artur <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 1.1.0\n"
+"X-Generator: Pootle 2.0.0\n"
 
 #: ../src/lxmusic.c:278
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -106,11 +107,11 @@ msgstr "ALSA"
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
-msgstr "Urządzenie: "
+msgstr "Urządzenie:"
 
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr "Mixer:"
+msgstr "Mikser:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
@@ -137,7 +138,7 @@ msgstr "Serwer:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr "Mikser"
+msgstr "Urządzenie odbiorcze (sink device):"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
@@ -187,11 +188,11 @@ msgstr "Wszystkie"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "Utwórz _Nową  listę"
+msgstr "Utwórz _nową  listę"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr "Bieżąca Lista Odtwarzania"
+msgstr "Bieżąca lista odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
@@ -203,7 +204,7 @@ msgstr "Ulubione"
 
 #: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
-msgstr "Właściwości Pliku"
+msgstr "Właściwości pliku"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Filter:"
@@ -227,7 +228,7 @@ msgstr "Nie Powtarzaj"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
-msgstr "Odtwarzaj/Pauza"
+msgstr "Odtwarzaj/Pauzuj"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
@@ -235,15 +236,15 @@ msgstr "Poprzedni"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
-msgstr "Usuń Wszystkie"
+msgstr "Usuń wszystkie"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr "Usuń z Listy Odtwarzania"
+msgstr "Usuń z listy odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
-msgstr "Usuń Zaznaczone"
+msgstr "Usuń zaznaczone"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
@@ -251,7 +252,7 @@ msgstr "Usuń pozycje z listy odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr "Powtórz Wszystkie"
+msgstr "Powtórz wszystkie"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
@@ -259,7 +260,7 @@ msgstr "Powtórz bieżący"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
-msgstr "Pokaż Listę Odtwarzania"
+msgstr "Pokaż listę odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
@@ -267,11 +268,11 @@ msgstr "Zatrzymaj"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr "Nazwa Utworu"
+msgstr "Nazwa utworu"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr "_Usuń Bieżącą Listę"
+msgstr "_Usuń bieżącą listę"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
@@ -283,15 +284,15 @@ msgstr "_Pomoc"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Zlokalizuj Odtwarzany Plik"
+msgstr "_Zlokalizuj odtwarzany plik"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr "_Lista Odtwarzania"
+msgstr "_Lista odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "_Przełącz Na Listę Odtwarzania"
+msgstr "_Przełącz na listę odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
@@ -303,7 +304,7 @@ msgstr "_Widok"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr "Pokaż _Okno Główne"
+msgstr "Pokaż _okno główne"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
@@ -319,7 +320,7 @@ msgstr "Dźwięk"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr "Rozmiar Bufora:"
+msgstr "Rozmiar Bufora: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
@@ -354,12 +355,12 @@ msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
-"Pliki muzyczne mogą być odtwarzane bez graficznego interfejsu, żeby "
-"zaoszczędzić systemowych zasobów"
+"Pliki muzyczne mogą być odtwarzane bez interfejsu graficznego, celem "
+"zmniejszenie użycia zasobów systemowych"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr "Wtyczka:"
+msgstr "Wtyczka: "
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
@@ -375,7 +376,7 @@ msgstr "<b>Album: </b>"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr "<b>Artysta: </b>"
+msgstr "<b>Wykonawca: </b>"
 
 #: ../data/track-info.ui.glade.h:3
 msgid "<b>Comment: </b>"
@@ -383,7 +384,7 @@ msgstr "<b>Komentarz: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Typ Pliku: </b>"
+msgstr "<b>Typ pliku: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
