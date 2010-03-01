@@ -8,8 +8,8 @@ AM_MAINTAINER_MODE
 # Required Packages
 m4_define([gtk_minimum_version], [2.14.0])
 m4_define([gmodule_export_minimum_version], [2.0])
-m4_define([xmms2_minimum_version], [0.6])
-m4_define([xmms2_client_glib_minimum_version], [0.6])
+m4_define([xmms2_minimum_version], [0.7])
+m4_define([xmms2_client_glib_minimum_version], [0.7])
 
 # Optional Packages
 m4_define([libnotify_minimum_version], [0.4.1])
