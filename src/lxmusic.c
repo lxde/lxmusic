@@ -1754,7 +1754,6 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     send_notifcation( track_properties.artist, track_properties.title );
 
     g_string_free( window_title, TRUE );
-    xmmsv_unref( value );
     return TRUE;
 }
 
