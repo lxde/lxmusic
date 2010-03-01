@@ -1080,7 +1080,7 @@ void on_progress_bar_changed(GtkScale* bar, gpointer user_data)
     xmmsc_result_t* res;
     gdouble p = gtk_range_get_value(GTK_RANGE(bar));
     uint32_t new_play_time = p * cur_track_duration / 100;
-    res = xmmsc_playback_seek_ms( con, new_play_time );
+    res = xmmsc_playback_seek_ms( con, new_play_time, XMMS_PLAYBACK_SEEK_SET );
     xmmsc_result_unref(res);
 }
 
