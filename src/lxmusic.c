@@ -341,7 +341,7 @@ void on_pref_output_plugin_changed(GtkTable* table, GtkComboBox* output)
 	gtk_table_attach_defaults( table, config->entry, 1, 2, row, row + 1 );
 
 	/* update all posible configuration values */
-	res = xmmsc_configval_get(con, config->name);
+	res = xmmsc_config_get_value(con, config->name);
 	xmmsc_result_notifier_set_and_unref(res, plugin_config_widget, config );
     }
     
@@ -486,19 +486,19 @@ void on_preference(GtkAction* act, gpointer data)
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(close_to_tray_btn), close_to_tray);
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(play_after_exit_btn), play_after_exit);
 
-        res = xmmsc_configval_get(con, "output.plugin");
+        res = xmmsc_config_get_value(con, "output.plugin");
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_output_plugin, g_object_ref(output_plugin_cb), g_object_unref );
         xmmsc_result_unref(res);
 
-        res = xmmsc_configval_get(con, "output.buffersize");
+        res = xmmsc_config_get_value(con, "output.buffersize");
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(output_bufsize), g_object_unref );
         xmmsc_result_unref(res);
 
-        res = xmmsc_configval_get(con, "cdda.device");
+        res = xmmsc_config_get_value(con, "cdda.device");
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(cdrom), g_object_unref );
         xmmsc_result_unref(res);
 
-        res = xmmsc_configval_get(con, "mad.id3v1_encoding");
+        res = xmmsc_config_get_value(con, "mad.id3v1_encoding");
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(id3v1_encoding), g_object_unref );
         xmmsc_result_unref(res);
 
@@ -511,11 +511,11 @@ void on_preference(GtkAction* act, gpointer data)
             i = gtk_combo_box_get_active(GTK_COMBO_BOX(output_plugin_cb));
 	    plugin = plugin_nth( i );
 	    
-            res = xmmsc_configval_set( con, "output.plugin", plugin->name );
+            res = xmmsc_config_set_value( con, "output.plugin", plugin->name );
             xmmsc_result_unref(res);
 	    
             g_snprintf(str, 32, "%u",(uint32_t)gtk_spin_button_get_value(GTK_SPIN_BUTTON(output_bufsize)));
-            res = xmmsc_configval_set( con, "output.buffersize", str );
+            res = xmmsc_config_set_value( con, "output.buffersize", str );
             xmmsc_result_unref(res);
 	    
 	    /* update plugin configuration */
@@ -525,18 +525,18 @@ void on_preference(GtkAction* act, gpointer data)
 		if ( config->value != NULL && g_strcmp0( config->value, gtk_entry_get_text( GTK_ENTRY(config->entry) ) ) != 0 )
 		{
 		    const gchar *newval = gtk_entry_get_text( GTK_ENTRY(config->entry ) );
-		    res = xmmsc_configval_set( con, config->name, newval );
+		    res = xmmsc_config_set_value( con, config->name, newval );
 		    xmmsc_result_unref(res);		
 		}
 	    }
 
-            res = xmmsc_configval_set( con, "cdda.device", gtk_entry_get_text(GTK_ENTRY(cdrom)) );
+            res = xmmsc_config_set_value( con, "cdda.device", gtk_entry_get_text(GTK_ENTRY(cdrom)) );
             xmmsc_result_unref(res);
 
-            res = xmmsc_configval_set( con, "mad.id3v1_encoding", gtk_entry_get_text(GTK_ENTRY(id3v1_encoding)) );
+            res = xmmsc_config_set_value( con, "mad.id3v1_encoding", gtk_entry_get_text(GTK_ENTRY(id3v1_encoding)) );
             xmmsc_result_unref(res);
 
-            res = xmmsc_configval_set( con, "mpg123.id3v1_encoding", gtk_entry_get_text(GTK_ENTRY(id3v1_encoding)) );
+            res = xmmsc_config_set_value( con, "mpg123.id3v1_encoding", gtk_entry_get_text(GTK_ENTRY(id3v1_encoding)) );
             xmmsc_result_unref(res);
 
             show_tray_icon = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_tray_icon_btn));
@@ -1069,9 +1069,9 @@ void on_repeat_mode_changed(GtkComboBox* cb, gpointer user_data)
         repeat_all = "1";
         break;
     }
-    res = xmmsc_configval_set(con, "playlist.repeat_all", repeat_all);
+    res = xmmsc_config_set_value(con, "playlist.repeat_all", repeat_all);
     xmmsc_result_unref(res);
-    res = xmmsc_configval_set(con, "playlist.repeat_one", repeat_one);
+    res = xmmsc_config_set_value(con, "playlist.repeat_one", repeat_one);
     xmmsc_result_unref(res);
 }
 
@@ -2125,7 +2125,7 @@ static void setup_xmms_callbacks()
 
 
     /* config values */
-    XMMS_CALLBACK_SET( con, xmmsc_broadcast_configval_changed, on_configval_changed, NULL );
+    XMMS_CALLBACK_SET( con, xmmsc_broadcast_config_value_changed, on_configval_changed, NULL );
 }
 
 static int on_cfg_repeat_all_received(xmmsv_t* value, void* user_data)
@@ -2196,9 +2196,9 @@ static void setup_ui()
     cb = (GtkWidget*)gtk_builder_get_object(builder, "repeat_mode");
     gtk_combo_box_set_active(GTK_COMBO_BOX(cb), REPEAT_NONE);
 //    gtk_combo_box_set_active(cb, repeat_mode);
-    res = xmmsc_configval_get( con, "playlist.repeat_all" );
+    res = xmmsc_config_get_value( con, "playlist.repeat_all" );
     xmmsc_result_notifier_set_and_unref( res, on_cfg_repeat_all_received, cb );
-    res = xmmsc_configval_get( con, "playlist.repeat_one" );
+    res = xmmsc_config_get_value( con, "playlist.repeat_one" );
     xmmsc_result_notifier_set_and_unref( res, on_cfg_repeat_one_received, cb );
 
     cb = (GtkWidget*)gtk_builder_get_object(builder, "filter_field");
