@@ -3,394 +3,386 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-06 16:08+0100\n"
-"PO-Revision-Date: 2010-02-24 19:52+0200\n"
-"Last-Translator: Kılıç <kilickoken@gmail.com>\n"
+"POT-Creation-Date: 2009-12-29 17:55+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: tr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
 
 #: ../src/lxmusic.c:278
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Arnaud DIDRY tarafından resmi xmms2 simgesi"
+msgstr ""
 
 #: ../src/lxmusic.c:289
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"LXDE için Müzik Çalar\n"
-"Yalın ÇKA XMMS2 istemcisi"
 
 #. default
 #: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
-msgstr "LXMusic"
+msgstr ""
 
 #: ../src/lxmusic.c:625
 msgid "Bitrate: "
-msgstr "Bitoranı:"
+msgstr ""
 
 #: ../src/lxmusic.c:927
 msgid "Audio Files"
-msgstr "Ses Dosyaları"
+msgstr ""
 
 #: ../src/lxmusic.c:932
 msgid "All Files"
-msgstr "Tüm Dosyalar"
+msgstr ""
 
 #: ../src/lxmusic.c:959
 msgid "Input a URL"
-msgstr "Bir URL girin"
+msgstr ""
 
 #. metadata available
 #: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
-msgstr "Sanatçı"
+msgstr ""
 
 #: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
-msgstr "Uzunçalar"
+msgstr ""
 
 #: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
 msgid "Title"
-msgstr "Başlık"
+msgstr ""
 
 #: ../src/lxmusic.c:1392
 msgid "Length"
-msgstr "Süre"
+msgstr ""
 
 #: ../src/lxmusic.c:1564
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr ""
 
 #: ../src/lxmusic.c:1682
 msgid "Pause"
-msgstr "Beklet"
+msgstr ""
 
 #: ../src/lxmusic.c:1696
 msgid "Play"
-msgstr "Yürüt"
+msgstr ""
 
 #: ../src/lxmusic.c:1777
 msgid "Now Playing:"
-msgstr "Şimdi Çalınan:"
+msgstr ""
 
 #: ../src/lxmusic.c:2242
 msgid "Create new playlist"
-msgstr "Yeni parça listesi oluştur"
+msgstr ""
 
 #: ../src/utils.c:81
 msgid "Error"
-msgstr "Kusur"
+msgstr ""
 
 #. alsa use:
 #. * # xmms2 config_list|egrep "^alsa"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr "Gelişmiş Linux Ses Yapısı"
+msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
-msgstr "Aygıt:"
+msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr "Karıştırıcı:"
+msgstr ""
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr "Açık Ses Sistemi"
+msgstr ""
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr "İşletim sistemi geçişli ses çıktısı betikevi"
+msgstr ""
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
 msgid "PulseAudio"
-msgstr "PulseAudio"
+msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr "Ad:"
+msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr "Sunucu:"
+msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr "Alıcı:"
+msgstr ""
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr "AirTunes"
+msgstr ""
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr "JACK Ses Bağlantı Kiti"
+msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr "Disk Yazıcı"
+msgstr ""
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr "Karşı Dizin:"
+msgstr ""
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr "Müzik Çalar"
+msgstr ""
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr "Müzik dosyalarınızı kolayca çalın"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
-msgstr "Dosya ve Dizin Ekle"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
-msgstr "Parça Listesine Ekle"
+msgstr ""
 
-# BKB: Birörnek Kaynak Bulucu
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Add URL"
-msgstr "BKB (URL) Ekle"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
-msgstr "Dosyaları parça listesine ekle"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr "Tüm"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "Ye_ni Parça Listesi Oluştur"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr "Yürürlükteki Parça Listesi"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
-msgstr "Açkı sözcüğü buraya girin"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
-msgstr "Sık kullanılanlar"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
-msgstr "Dosya Özellikleri"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Filter:"
-msgstr "Süzgeç"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
-msgstr "Çalınmakta olan izin konumunu bul"
+msgstr ""
 
-# Betikevi: kütüphane
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
-msgstr "Ortam Betikevi"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Next"
-msgstr "Sonraki"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr "Yineleme Yok"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
-msgstr "Yürüt/Beklet"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
-msgstr "Önceki"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
-msgstr "Bütün Ögeleri Kaldır"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr "Parça Listesinden Kaldır"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
-msgstr "Seçilen Ögeleri Kaldır"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
-msgstr "Ögeleri parça listesinden kaldır"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr "Tümünü Yinele"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr "Yürürlüktekini Yinele"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
-msgstr "Parça Listesini Göster"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
-msgstr "Dur"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr "İz Adı"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr "Yürürlükteki Parça Listesini _Sil"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
-msgstr "_Dosya"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "_Help"
-msgstr "_Yardım"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "Çalınmakta Olanın _Konumunu Bul"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr "_Parça Listesi"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "Parça Listesine _Geç"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
-msgstr "_Araçlar"
+msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "_View"
-msgstr "_Görünüm"
+msgstr ""
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr "Ana Pencereyi _Göster"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr "<b>Ses CDsi</b>"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
-msgstr "<b>Çıktı</b>"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Audio"
-msgstr "Ses"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr "Arabellek Boyutu:"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "CD-ROM Aygıtı:"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "LXMusic'den çıktıktan sonra artalanda çalmayı sürdür"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "Öntanımlı ID3 V1 Kodlama:"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
-msgstr "Genel"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
-msgstr "KB"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
-msgstr "Kapatınca sistem tepsisine küçült"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
-msgstr "Çeşitli"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
-"Müzik dosyaları sistem kaynaklarından kazanmak için çizgesel kullanıcı "
-"arayüzü olmadan da çalınabilirler"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr "Takıntı: "
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
-msgstr "Yeğlenen"
+msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr "Sistem tepsisi simgesini göster"
+msgstr ""
 
 #: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
-msgstr "<b>Uzunçalar: </b>"
+msgstr ""
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr "<b>Sanatçı: </b>"
+msgstr ""
 
 #: ../data/track-info.ui.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr "<b>Yorum: </b>"
+msgstr ""
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Dosya Türü: </b>"
+msgstr ""
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
-msgstr "<b>Dosya: </b>"
+msgstr ""
 
 #: ../data/track-info.ui.glade.h:6
 msgid "<b>Size: </b>"
-msgstr "<b>Boyut: </b>"
+msgstr ""
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
-msgstr "<b>Başlık: </b>"
+msgstr ""

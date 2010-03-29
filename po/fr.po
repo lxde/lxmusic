@@ -8,13 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-06 16:08+0100\n"
-"PO-Revision-Date: 2009-12-29 20:44+0100\n"
-"Last-Translator: Pablo Martin-Gomez <pablo.martin-gomez@laposte.net>\n"
+"PO-Revision-Date: 2010-03-19 10:23+0200\n"
+"Last-Translator: Cilyan <gaknar@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: ../src/lxmusic.c:278
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -156,7 +158,6 @@ msgid "Music Player"
 msgstr "Lecteur de musique"
 
 #: ../data/lxmusic.desktop.in.h:2
-#, fuzzy
 msgid "Play your music files easily"
 msgstr "Lit vos fichiers de musique intuitivement"
 
