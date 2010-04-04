@@ -45,8 +45,8 @@
 #include "lxmusic-plugin-config.h"
 #include "utils.h"
 
-/* Berkeley db, for caching */
-#include <db.h>
+/* gdbm, for caching */
+#include <gdbm.h>
 
 enum {
     COL_ID = 0,
@@ -1286,7 +1286,8 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     GtkTreeIter it;
     int pl_size = xmmsv_list_get_size( value );
     int i;
-    DB* db;
+    GDBM_FILE db;
+    char* file;
 
     /* free prev. model filter */
     if ((mf = gtk_tree_view_get_model(GTK_TREE_VIEW(playlist_view))))
@@ -1302,17 +1303,9 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     cancel_pending_update_tracks();
 
     /* load from cache db */
-    if( db_create(&db, NULL, 0) == 0 )
-    {
-        char* file = g_build_filename(g_get_user_cache_dir(),
-                                         "lxmusic.cache", NULL);
-        if(db->open(db, NULL, file, NULL, DB_RECNO, DB_RDONLY, 0664) != 0)
-        {
-            db->close(db, 0);
-            db = NULL;
-        }
-        g_free(file);
-    }
+    file = g_build_filename(g_get_user_cache_dir(), "lxmusic.cache", NULL);
+    db = gdbm_open(file, 0, GDBM_READER, 0666, 0);
+    g_free(file);
 
     for ( i = 0; i < pl_size; i++ )
     {
@@ -1327,18 +1320,16 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
 
         if(db) /* update the item from cache db */
         {
-            DBT key, val;
+            datum key, val;
             int32_t _id = GINT_TO_LE(id);
-            memset(&key, 0, sizeof(key));
-            memset(&val, 0, sizeof(val));
-            key.data = &_id;
-            key.size = sizeof(_id);
-            val.flags = DB_DBT_MALLOC;
-            if(db->get(db, NULL, &key, &val, 0) == 0)
+            key.dptr = &_id;
+            key.dsize = sizeof(_id);
+            val = gdbm_fetch (db, key);
+            if(val.dsize > 0)
             {
-                int* plen = (int*)val.data;
+                int* plen = (int*)val.dptr;
                 const char *album, *artist, *title, *track_len;
-                album = val.data + sizeof(int) * 4;
+                album = (char*)val.dptr + sizeof(int) * 4;
                 artist = album + GINT_FROM_LE(plen[0]);
                 title = artist + GINT_FROM_LE(plen[1]);
                 track_len = title + GINT_FROM_LE(plen[2]);
@@ -1350,7 +1341,7 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
                                                          COL_TITLE, title,
                                                          COL_LEN, track_len,
                                                          COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
-                free(val.data);
+                free(val.dptr);
                 found = TRUE;
             }
         }
@@ -1373,7 +1364,7 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     }
 
     if(db)
-        db->close(db, 0);
+        gdbm_close(db);
 
     if( GTK_WIDGET_REALIZED( list_view ) )
         gdk_window_set_cursor( list_view->window, NULL );
@@ -2473,15 +2464,13 @@ void cache_current_playlist_items()
     GtkTreeIter it;
     if(list_store && gtk_tree_model_get_iter_first(list_store, &it))
     {
-        DB* db;
-        if( db_create(&db, NULL, 0) == 0 &&
-            g_mkdir_with_parents(g_get_user_cache_dir(), 0700) == 0 )
+        if( g_mkdir_with_parents(g_get_user_cache_dir(), 0700) == 0 )
         {
             char* file = g_build_filename(g_get_user_cache_dir(),
                                              "lxmusic.cache", NULL);
-            int ret = db->open(db, NULL, file, NULL, DB_RECNO, DB_CREATE, 0664);
+            GDBM_FILE db = gdbm_open (file, 0, GDBM_WRCREAT, 0666, 0);
             g_free(file);
-            if( ret == 0)
+            if(db)
             {
                 GByteArray* buf = g_byte_array_sized_new(256);
                 do {
@@ -2497,14 +2486,12 @@ void cache_current_playlist_items()
                     id = (int32_t)_id;
                     if(album || artist || title || track_len)
                     {
-                        DBT key, val;
+                        datum key, val;
                         int len[4];
-                        memset(&key, 0, sizeof(key));
-                        memset(&val, 0, sizeof(val));
 
                         id = GINT_TO_LE(id);
-                        key.data = &id;
-                        key.size = sizeof(id);
+                        key.dptr = &id;
+                        key.dsize = sizeof(id);
 
                         g_byte_array_set_size(buf, 0);
                         len[0] = GINT_TO_LE(album ? strlen(album) + 1 : 1);
@@ -2518,10 +2505,10 @@ void cache_current_playlist_items()
                         g_byte_array_append(buf, title ? title : "", len[2]);
                         g_byte_array_append(buf, track_len ? track_len : "", len[3]);
 
-                        val.data = buf->data;
-                        val.size = buf->len;
+                        val.dptr = buf->data;
+                        val.dsize = buf->len;
 
-                        db->put(db, NULL, &key, &val, 0);
+                        gdbm_store(db, key, val, GDBM_REPLACE);
                     }
                     g_free(album);
                     g_free(artist);
@@ -2529,8 +2516,8 @@ void cache_current_playlist_items()
                     g_free(track_len);
                 }while(gtk_tree_model_iter_next(list_store, &it));
                 g_byte_array_free(buf, TRUE);
+                gdbm_close(db);
             }
-            db->close(db, 0);
         }
     }
 }

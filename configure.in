@@ -28,8 +28,8 @@ PKG_CHECK_MODULES(LXMUSIC,
 	xmms2-client >= xmms2_minimum_version
 	xmms2-client-glib >= xmms2_client_glib_minimum_version])
 
-dnl check for berkely db 4.8
-AC_CHECK_LIB([db], [db_create])
+dnl check for gdbm
+AC_CHECK_LIB([gdbm], [gdbm_open])
 
 dnl check for optional modules
 LIBNOTIFY_CFLAGS=
