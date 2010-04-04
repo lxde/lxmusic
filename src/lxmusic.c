@@ -1328,19 +1328,20 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
         if(db) /* update the item from cache db */
         {
             DBT key, val;
+            int32_t _id = GINT_TO_LE(id);
             memset(&key, 0, sizeof(key));
             memset(&val, 0, sizeof(val));
-            key.data = &id;
-            key.size = sizeof(id);
+            key.data = &_id;
+            key.size = sizeof(_id);
             val.flags = DB_DBT_MALLOC;
             if(db->get(db, NULL, &key, &val, 0) == 0)
             {
                 int* plen = (int*)val.data;
                 const char *album, *artist, *title, *track_len;
                 album = val.data + sizeof(int) * 4;
-                artist = album + plen[0];
-                title = artist + plen[1];
-                track_len = title + plen[2];
+                artist = album + GINT_FROM_LE(plen[0]);
+                title = artist + GINT_FROM_LE(plen[1]);
+                track_len = title + GINT_FROM_LE(plen[2]);
 
                 gtk_list_store_insert_with_values ( list_store, &it, -1,
                                                          COL_ID, id,
@@ -2467,24 +2468,6 @@ int main (int argc, char *argv[])
     return 0;
 }
 
-inline static void append_str_to_buf(GByteArray* buf, const char* str)
-{
-    int len;
-    if(str && *str)
-    {
-        len = strlen(str) + 1;
-        /* FIXME: will we have BOM problem? */
-        g_byte_array_append(buf, &len, sizeof(len));
-        g_byte_array_append(buf, str, len);
-    }
-    else
-    {
-        len = 1;
-        g_byte_array_append(buf, &len, sizeof(len));
-        g_byte_array_append(buf, "", 1);
-    }
-}
-
 void cache_current_playlist_items()
 {
     GtkTreeIter it;
@@ -2519,14 +2502,15 @@ void cache_current_playlist_items()
                         memset(&key, 0, sizeof(key));
                         memset(&val, 0, sizeof(val));
 
+                        id = GINT_TO_LE(id);
                         key.data = &id;
                         key.size = sizeof(id);
 
                         g_byte_array_set_size(buf, 0);
-                        len[0] = album ? strlen(album) + 1 : 1;
-                        len[1] = artist ? strlen(artist) + 1 : 1;
-                        len[2] = title ? strlen(title) + 1 : 1;
-                        len[3] = track_len ? strlen(track_len) + 1 : 1;
+                        len[0] = GINT_TO_LE(album ? strlen(album) + 1 : 1);
+                        len[1] = GINT_TO_LE(artist ? strlen(artist) + 1 : 1);
+                        len[2] = GINT_TO_LE(title ? strlen(title) + 1 : 1);
+                        len[3] = GINT_TO_LE(track_len ? strlen(track_len) + 1 : 1);
                         g_byte_array_append(buf, len, sizeof(int) * 4);
 
                         g_byte_array_append(buf, album ? album : "", len[0]);
