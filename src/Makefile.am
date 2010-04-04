@@ -4,7 +4,7 @@ INCLUDES = \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	@LIBNOTIFY_LIBS@ \
-	@LXMUSIC_CFLAGS@ 
+	@LXMUSIC_CFLAGS@
 
 bin_PROGRAMS = lxmusic
 

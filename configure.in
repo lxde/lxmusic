@@ -28,6 +28,9 @@ PKG_CHECK_MODULES(LXMUSIC,
 	xmms2-client >= xmms2_minimum_version
 	xmms2-client-glib >= xmms2_client_glib_minimum_version])
 
+dnl check for berkely db 4.8
+AC_CHECK_LIB([db], [db_create])
+
 dnl check for optional modules
 LIBNOTIFY_CFLAGS=
 LIBNOTIFY_LIBS=
@@ -43,8 +46,6 @@ AC_SUBST(LIBNOTIFY_CFLAGS)
 AC_SUBST(LIBNOTIFY_LIBS)
 
 AM_CONDITIONAL(HAVE_LIBNOTIFY, test "x$HAVE_LIBNOTIFY" = "xyes")
-
-
 
 GETTEXT_PACKAGE=lxmusic
 
