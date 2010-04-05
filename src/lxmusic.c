@@ -1327,8 +1327,8 @@ static int on_sql_row_received(GArray* track_infos, int argc, char **argv, char 
         memset(&new_track, 0, sizeof(new_track));
         new_track.id = id;
         g_array_append_val(track_infos, new_track);
-        track = &g_array_index(track_infos, SqlTrack, track_infos->len);
-//        g_debug("new track: %d", id);
+        track = &g_array_index(track_infos, SqlTrack, track_infos->len - 1);
+        track->id = id;
     }
 
     if(key)
@@ -1411,12 +1411,15 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
                                   track_infos->len, sizeof(SqlTrack), find_func);
                 if(track)
                 {
-                    // g_debug("found: %d, %s", track->id, track->title);
+                    char time_buf[32];
+                    timeval_to_str( track->duration/1000, time_buf, G_N_ELEMENTS(time_buf) );
+
                     gtk_list_store_insert_with_values ( list_store, &it,
                                                              i, COL_ID, id,
                                                              COL_ARTIST, track->artist,
                                                              COL_ALBUM, track->album,
                                                              COL_TITLE, track->title,
+                                                             COL_LEN, time_buf,
                                                              COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
                 }
             }
