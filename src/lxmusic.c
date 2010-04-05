@@ -47,6 +47,9 @@
 
 /* gdbm, for caching */
 #include <gdbm.h>
+#include <time.h>
+
+#define CACHE_VERSION   1
 
 enum {
     COL_ID = 0,
@@ -54,6 +57,7 @@ enum {
     COL_ALBUM,
     COL_TITLE,
     COL_LEN,
+    COL_MTIME,
     COL_WEIGHT, /* font weight, used to show bold font for current track. */
     N_COLS
 };
@@ -74,6 +78,7 @@ enum {
 typedef struct _UpdateTrack{
     uint32_t id;
     GtkTreeIter it;
+    int32_t mtime; /* FIXME: this should be time_t, but xmms2 uses int32, which is incorrect */
 }UpdateTrack;
 
 typedef struct _TrackProperties{
@@ -83,6 +88,7 @@ typedef struct _TrackProperties{
     const char *url;
     const char *mime;
     const char *comment;
+    int32_t mtime; /* FIXME: this should be time_t, but xmms2 uses int32, which is incorrect */
     int32_t duration;
     int32_t isvbr;
     int32_t bitrate;
@@ -148,11 +154,13 @@ static int win_height = 320;
 static int win_xpos = 0;
 static int win_ypos = 0;
 
-void                         on_locate_cur_track        (GtkAction* act, gpointer user_data);
-void                         on_play_btn_clicked        (GtkButton* btn, gpointer user_data);
+static gboolean need_cache = FALSE;
 
-static GtkTreeIter        get_current_track_iter        ();
-static gboolean                get_track_properties         (xmmsv_t *value, TrackProperties *properties);
+void on_locate_cur_track(GtkAction* act, gpointer user_data);
+void on_play_btn_clicked(GtkButton* btn, gpointer user_data);
+
+static GtkTreeIter get_current_track_iter();
+static gboolean get_track_properties(xmmsv_t *value, TrackProperties *properties);
 
 static void cache_current_playlist_items();
 
@@ -1174,12 +1182,16 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
         track_properties.title = guessed_title = guess_title_from_url( track_properties.url );
     timeval_to_str( track_properties.duration/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
-    gtk_list_store_set( list_store, &ut->it,
-                        COL_ARTIST, track_properties.artist,
-                        COL_ALBUM, track_properties.album,
-                        COL_TITLE, track_properties.title,
-                        COL_LEN, time_buf, -1 );
-
+    if(track_properties.mtime > ut->mtime)
+    {
+        need_cache = TRUE; /* the list items got changed, need to update the cache file. */
+        gtk_list_store_set( list_store, &ut->it,
+                            COL_ARTIST, track_properties.artist,
+                            COL_ALBUM, track_properties.album,
+                            COL_TITLE, track_properties.title,
+                            COL_LEN, time_buf,
+                            COL_MTIME, track_properties.mtime, -1 );
+    }
     current_track_updated = ut->id == cur_track_id;
     if ( current_track_updated )
     {
@@ -1191,10 +1203,14 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
             gtk_status_icon_set_tooltip( GTK_STATUS_ICON(tray_icon), tray_tooltip->str );
             g_string_free( tray_tooltip, TRUE );
         }
-
     }
     g_slice_free(UpdateTrack, ut);
     g_free( guessed_title );
+
+    /* prevent blocking of UI caused by large amount of consecutive update_track calls. */
+    while(gtk_events_pending())
+        gtk_main_iteration();
+
     return FALSE;
 }
 
@@ -1207,7 +1223,7 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
     const char* channel = NULL;
 
     /* default values: empty */
-    bzero( properties, sizeof(TrackProperties) );
+    memset( properties, 0, sizeof(TrackProperties) );
 
     xmmsv_get_dict_iter (value, &parent_it);
     while (xmmsv_dict_iter_valid (parent_it ) )
@@ -1244,6 +1260,8 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
             val_int = &(properties->bitrate);
         else if (strcmp( key, "size" ) == 0)
             val_int = &(properties->size);
+        else if (strcmp( key, "lmod" ) == 0)
+             val_int = &(properties->mtime);
 
         if (xmmsv_get_dict_iter (child_value, &child_it) &&
             xmmsv_dict_iter_valid (child_it) && (val_int || val_str) &&
@@ -1271,9 +1289,13 @@ static void queue_update_track( uint32_t id, GtkTreeIter* it )
 {
     UpdateTrack* ut;
     xmmsc_result_t *res;
+    gint mtime;
     ut = g_slice_new(UpdateTrack);
     ut->id = id;
     ut->it = *it;
+    gtk_tree_model_get(GTK_TREE_MODEL(list_store), COL_MTIME, &mtime, -1);
+    ut->mtime = mtime;
+
     g_hash_table_insert( update_tracks, ut, ut );
     res = xmmsc_medialib_get_info( con, id );
     xmmsc_result_notifier_set_full( res, (xmmsc_result_notifier_t)update_track, ut, NULL );
@@ -1287,13 +1309,16 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     int pl_size = xmmsv_list_get_size( value );
     int i;
     GDBM_FILE db;
+    datum key, val;
     char* file;
+    gint id;
 
     /* free prev. model filter */
     if ((mf = gtk_tree_view_get_model(GTK_TREE_VIEW(playlist_view))))
         g_object_unref(mf);
 
-    list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT );
+    /* FIXME: mtime is saved in G_TYPE_INT, which is inappropriate, but xmms2 uses int32. :-( */
+    list_store = gtk_list_store_new(N_COLS, G_TYPE_INT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT );
     mf = gtk_tree_model_filter_new(GTK_TREE_MODEL(list_store), NULL);
     gtk_tree_model_filter_set_visible_func( GTK_TREE_MODEL_FILTER( mf ), playlist_filter_func, NULL, NULL );
     gtk_tree_view_set_search_equal_func( GTK_TREE_VIEW(playlist_view), playlist_search_func, NULL, NULL );
@@ -1305,41 +1330,67 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     /* load from cache db */
     file = g_build_filename(g_get_user_cache_dir(), "lxmusic.cache", NULL);
     db = gdbm_open(file, 0, GDBM_READER, 0666, 0);
+    /* check if the cache has the same version number with us */
+    if(db)
+    {
+        int version;
+        id = 0;
+        key.dptr = &id;
+        key.dsize = sizeof(id);
+        val = gdbm_fetch (db, key);
+        if(val.dsize > 0)
+        {
+            version = *(gint*)val.dptr;
+            free(val.dptr);
+        }
+        else
+            version = 0;
+        /* g_debug("cache version: %d", version); */
+        if(version != CACHE_VERSION)
+        {
+            gdbm_close(db);
+            db = NULL;
+            unlink(file); /* delete the invalid cache file */
+        }
+    }
     g_free(file);
 
     for ( i = 0; i < pl_size; i++ )
     {
-        int32_t id;
         xmmsv_t *current_value;
         xmmsc_result_t *res;
         gboolean found = FALSE;
+        int32_t _id;
         UpdateTrack* ut = g_slice_new(UpdateTrack);
 
         xmmsv_list_get( value, i, &current_value );
-        xmmsv_get_int( current_value, &id );
+        xmmsv_get_int( current_value, &_id );
 
         if(db) /* update the item from cache db */
         {
-            datum key, val;
-            int32_t _id = GINT_TO_LE(id);
-            key.dptr = &_id;
-            key.dsize = sizeof(_id);
+            id = GINT_TO_LE(_id);
+            key.dptr = &id;
+            key.dsize = sizeof(id);
             val = gdbm_fetch (db, key);
             if(val.dsize > 0)
             {
-                int* plen = (int*)val.dptr;
+                int* pmtime = (int*)val.dptr;
+                int* plen = pmtime + 1;
                 const char *album, *artist, *title, *track_len;
-                album = (char*)val.dptr + sizeof(int) * 4;
+                album = ((char*)plen) + sizeof(int) * 4;
                 artist = album + GINT_FROM_LE(plen[0]);
                 title = artist + GINT_FROM_LE(plen[1]);
                 track_len = title + GINT_FROM_LE(plen[2]);
 
+                ut->mtime = GINT_FROM_LE(*pmtime);
+
                 gtk_list_store_insert_with_values ( list_store, &it, -1,
-                                                         COL_ID, id,
+                                                         COL_ID, _id,
                                                          COL_ALBUM, album,
                                                          COL_ARTIST, artist,
                                                          COL_TITLE, title,
                                                          COL_LEN, track_len,
+                                                         COL_MTIME, ut->mtime,
                                                          COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
                 free(val.dptr);
                 found = TRUE;
@@ -1350,12 +1401,14 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
         {
             /* insert an empty item with id only */
             gtk_list_store_insert_with_values ( list_store, &it, -1,
-                                                     COL_ID, id,
+                                                     COL_ID, _id,
                                                      COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
+            ut->mtime = 0;
         }
 
-        ut->id = id;
+        ut->id = _id;
         ut->it = it;
+
         /* just insert dummy values so we can distinguish from NULL */
         g_hash_table_insert( update_tracks, ut, ut );
         res = xmmsc_medialib_get_info( con, ut->id );
@@ -2462,7 +2515,7 @@ int main (int argc, char *argv[])
 void cache_current_playlist_items()
 {
     GtkTreeIter it;
-    if(list_store && gtk_tree_model_get_iter_first(list_store, &it))
+    if(need_cache && list_store && gtk_tree_model_get_iter_first(list_store, &it))
     {
         if( g_mkdir_with_parents(g_get_user_cache_dir(), 0700) == 0 )
         {
@@ -2472,34 +2525,47 @@ void cache_current_playlist_items()
             g_free(file);
             if(db)
             {
+                datum key, val;
                 GByteArray* buf = g_byte_array_sized_new(256);
+                gint id = 0;
+                guint32 version = GUINT32_TO_LE(CACHE_VERSION);
+                key.dptr = &id;
+                key.dsize = sizeof(id);
+                /* special key: when key == 0, value is version number of cache. */
+                val.dptr = &version;
+                val.dsize = sizeof(version);
+                /* write version number */
+                gdbm_store(db, key, val, GDBM_REPLACE);
+
                 do {
-                    gint _id;
-                    int32_t id;
                     char *title, *album, *artist, *track_len;
+                    gint mtime;
                     gtk_tree_model_get(list_store, &it,
-                                         COL_ID, &_id,
+                                         COL_ID, &id,
                                          COL_ALBUM, &album,
                                          COL_ARTIST, &artist,
                                          COL_TITLE, &title,
+                                         COL_MTIME, &mtime,
                                          COL_LEN, &track_len, -1);
-                    id = (int32_t)_id;
-                    if(album || artist || title || track_len)
+                    if(mtime > 0 && (album || artist || title || track_len))
                     {
-                        datum key, val;
-                        int len[4];
-
+                        guint len[4];
                         id = GINT_TO_LE(id);
+                        mtime = GINT_TO_LE(mtime);
+
                         key.dptr = &id;
                         key.dsize = sizeof(id);
 
                         g_byte_array_set_size(buf, 0);
-                        len[0] = GINT_TO_LE(album ? strlen(album) + 1 : 1);
-                        len[1] = GINT_TO_LE(artist ? strlen(artist) + 1 : 1);
-                        len[2] = GINT_TO_LE(title ? strlen(title) + 1 : 1);
-                        len[3] = GINT_TO_LE(track_len ? strlen(track_len) + 1 : 1);
-                        g_byte_array_append(buf, len, sizeof(int) * 4);
+                        g_byte_array_append(buf, &mtime, sizeof(mtime)); /* store mtime */
+                        /* store lengths of all 4 stirngs */
+                        len[0] = GUINT_TO_LE(album ? strlen(album) + 1 : 1);
+                        len[1] = GUINT_TO_LE(artist ? strlen(artist) + 1 : 1);
+                        len[2] = GUINT_TO_LE(title ? strlen(title) + 1 : 1);
+                        len[3] = GUINT_TO_LE(track_len ? strlen(track_len) + 1 : 1);
+                        g_byte_array_append(buf, len, sizeof(guint) * 4);
 
+                        /* store the strings */
                         g_byte_array_append(buf, album ? album : "", len[0]);
                         g_byte_array_append(buf, artist ? artist : "", len[1]);
                         g_byte_array_append(buf, title ? title : "", len[2]);
@@ -2520,5 +2586,6 @@ void cache_current_playlist_items()
             }
         }
     }
+    need_cache = FALSE;
 }
 
