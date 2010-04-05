@@ -26,7 +26,8 @@ PKG_CHECK_MODULES(LXMUSIC,
         [gtk+-2.0 >= gtk_minimum_version
 	gmodule-export-2.0 >= gmodule_export_minimum_version
 	xmms2-client >= xmms2_minimum_version
-	xmms2-client-glib >= xmms2_client_glib_minimum_version])
+	xmms2-client-glib >= xmms2_client_glib_minimum_version
+    sqlite3])
 
 dnl check for optional modules
 LIBNOTIFY_CFLAGS=
