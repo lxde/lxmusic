@@ -1338,9 +1338,26 @@ static int on_sql_row_received(GArray* track_infos, int argc, char **argv, char 
         else if(strcmp(key, "album") == 0)
             track->album = g_strdup(value);
         else if(strcmp(key, "title") == 0)
+        {
+            g_free(track->title);
             track->title = g_strdup(value);
+        }
         else if(strcmp(key, "duration") == 0)
             track->duration = atoi(value);
+        else if(strcmp(key, "url") == 0)
+        {
+            if(!track->title && value)
+            {
+                char* path = g_filename_from_uri(value, NULL, NULL);
+                if(path)
+                {
+                    track->title = g_path_get_basename(path);
+                    g_free(path);
+                }
+                else
+                    track->title = g_strdup(value);
+            }
+        }
     }
     return 0;
 }
@@ -1383,7 +1400,7 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
             int* id_list = g_new(int, pl_size);
             /* form the SQL query */
             g_string_assign(sql, "SELECT id,key,value FROM 'Media' "
-                                    "WHERE key IN ('artist','title','album','duration') "
+                                    "WHERE key IN ('artist','title','album','duration','url') "
                                     "AND id IN (");
             for ( i = 0; i < pl_size; i++ )
             {
