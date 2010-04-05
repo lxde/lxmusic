@@ -1289,12 +1289,10 @@ static void queue_update_track( uint32_t id, GtkTreeIter* it )
 {
     UpdateTrack* ut;
     xmmsc_result_t *res;
-    gint mtime;
     ut = g_slice_new(UpdateTrack);
     ut->id = id;
     ut->it = *it;
-    gtk_tree_model_get(GTK_TREE_MODEL(list_store), COL_MTIME, &mtime, -1);
-    ut->mtime = mtime;
+    gtk_tree_model_get(GTK_TREE_MODEL(list_store), it, COL_MTIME, &ut->mtime, -1);
 
     g_hash_table_insert( update_tracks, ut, ut );
     res = xmmsc_medialib_get_info( con, id );
