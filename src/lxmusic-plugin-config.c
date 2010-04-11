@@ -74,7 +74,7 @@ void plugin_config_setup (xmmsc_connection_t *con)
     plugin_config_init_translation();
 
     /* get list of available plugins */
-    res = xmmsc_plugin_list (con, XMMS_PLUGIN_TYPE_OUTPUT);
+    res = xmmsc_main_list_plugins (con, XMMS_PLUGIN_TYPE_OUTPUT);
     /* we havn't entered async xmmsc_mainloop, so it's ok todo sync ops */
     xmmsc_result_wait (res);
     val = xmmsc_result_get_value (res);
@@ -107,7 +107,7 @@ void plugin_config_setup (xmmsc_connection_t *con)
     xmmsc_result_unref (res);
 
     /* get configuration options */
-    res = xmmsc_configval_list (con );
+    res = xmmsc_config_list_values (con );
     xmmsc_result_wait (res);
     val = xmmsc_result_get_value (res);
     xmmsv_dict_foreach( val, plugin_config_setup_parameter, NULL);

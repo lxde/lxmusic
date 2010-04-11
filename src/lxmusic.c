@@ -68,11 +68,6 @@ enum {
     FILTER_TITLE,
 };
 
-typedef struct _UpdateTrack{
-    uint32_t id;
-    GtkTreeIter it;
-}UpdateTrack;
-
 typedef struct _TrackProperties{
     const char *artist;
     const char *album;
@@ -87,6 +82,9 @@ typedef struct _TrackProperties{
 }TrackProperties;
 
 static void 	send_notifcation			( const gchar *artist, const gchar* title );
+static int 	update_track				( xmmsv_t *value, GtkTreeIter* it );
+static int 	on_coll_info_received			( xmmsv_t* value, void* user_data );
+
 
 #ifdef HAVE_LIBNOTIFY
 static LXMusic_Notification *lxmusic_notification = NULL;
@@ -113,9 +111,6 @@ static GtkWidget *rm_from_pl_menu = NULL;
 
 static char* cur_playlist = NULL;
 static GSList* all_playlists = NULL;
-
-/* to be updated by update_track */
-static GHashTable *update_tracks;
 
 static GtkListStore* list_store = NULL;
 
@@ -204,11 +199,6 @@ static void save_config()
     }
 }
 
-static void cancel_pending_update_tracks()
-{
-    g_hash_table_remove_all( update_tracks );
-}
-
 static int on_xmms_quit(xmmsv_t *value, void *user_data)
 {
     gtk_widget_destroy(main_win);
@@ -218,8 +208,6 @@ static int on_xmms_quit(xmmsv_t *value, void *user_data)
 
 void on_quit(GtkAction* act, gpointer user_data)
 {
-    cancel_pending_update_tracks();
-
     if( show_playlist )
         gtk_window_get_size(GTK_WINDOW(main_win), &win_width, &win_height);
 
@@ -561,6 +549,69 @@ void on_preference(GtkAction* act, gpointer data)
     }
     g_object_unref(builder);
 }
+static int on_playlist_coll_received(xmmsv_t* value, void* user_data)  
+{
+    /* list of attributes we wan't to query */
+    const gchar *properties[] = { "artist", "album", "title", "duration",  "id", "url",  NULL };
+    static xmmsv_t * p_list = NULL;
+    xmmsc_result_t* res;
+    xmmsv_coll_t* col;
+    int i;
+
+    /* Should be created just once */
+    if (p_list == NULL) {
+	p_list = xmmsv_new_list();
+	for ( i = 0; properties[i]; i++ )
+	{
+	    xmmsv_t *p_string = xmmsv_new_string (properties[i]);
+	    xmmsv_list_append ( p_list, p_string );
+	    xmmsv_unref( p_string );
+	}
+    }
+    xmmsv_get_coll( value, &col );
+    res = xmmsc_coll_query_infos( con, col, NULL, 0, 0, p_list, NULL );
+    xmmsc_result_notifier_set_and_unref(res, on_coll_info_received, NULL );
+    return TRUE;
+}
+
+static int on_coll_info_received(xmmsv_t* value, void* user_data) 
+{
+    xmmsv_list_iter_t *l_iter;
+    int32_t id;
+    const gchar *str;
+    GtkTreeModel* model =  GTK_TREE_MODEL(list_store);
+    GtkTreeIter it;
+    int i = 0;
+
+    /* setup a hashmap ID -> xmmsv_list pos so we can access track info fast for each tree model row  */
+    GHashTable* id_to_coll_info = g_hash_table_new( g_direct_hash, NULL );
+    for ( i = 0; i < xmmsv_list_get_size( value ); i++ )
+    {
+	xmmsv_t *track_info;
+	xmmsv_t *id_val;
+	int32_t id;
+	xmmsv_list_get (value, i,  &track_info);
+	xmmsv_dict_get ( track_info, "id", &id_val );
+	xmmsv_get_int ( id_val, &id );
+	g_hash_table_insert( id_to_coll_info, GINT_TO_POINTER( id ), track_info );
+    }
+
+    gtk_tree_model_get_iter_first( model, &it );
+    i = 0;
+    while (gtk_list_store_iter_is_valid( list_store , &it )) 
+    {
+	xmmsv_t *track_info;
+	TrackProperties track_properties;
+	gtk_tree_model_get( model, &it, COL_ID, &id, -1 );
+	/* find corressponding track info */
+	track_info = (xmmsv_t*) g_hash_table_lookup( id_to_coll_info, GINT_TO_POINTER( id ));
+	update_track( track_info, &it ); 
+	gtk_tree_model_iter_next( model, &it );
+	i++;
+    }
+    g_hash_table_unref( id_to_coll_info );
+}
+
 
 static int on_track_info_received(xmmsv_t* value, void* user_data)
 {
@@ -1145,37 +1196,31 @@ static void render_num( GtkTreeViewColumn* col, GtkCellRenderer* render,
     g_object_set( render, "text", buf, NULL );
 }
 
-
-static int update_track( xmmsv_t *value, UpdateTrack* ut )
+static int update_track( xmmsv_t *value, GtkTreeIter* it )
 {
     TrackProperties track_properties;
     gboolean current_track_updated;
     char time_buf[32];
+    int32_t id;
     gchar *guessed_title = NULL;
     if( xmmsv_is_error ( value ) ) {
         return FALSE;
     }
 
-    /* check if this update is valid: Maybe it was meanwhile canceled
-     * (for example by switching a long loading playlist */
-    if (!g_hash_table_lookup( update_tracks, ut )) 
-	return TRUE;
-    
-    /* valid update */
-    g_hash_table_remove( update_tracks, ut );
-    
     if (!get_track_properties( value, &track_properties)) 
 	track_properties.title = guessed_title = guess_title_from_url( track_properties.url );
     timeval_to_str( track_properties.duration/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
-    gtk_list_store_set( list_store, &ut->it,
+    gtk_list_store_set( list_store, it,
                         COL_ARTIST, track_properties.artist,
                         COL_ALBUM, track_properties.album,
                         COL_TITLE, track_properties.title,
                         COL_LEN, time_buf, -1 );
 
-    current_track_updated = ut->id == cur_track_id;
-    if ( current_track_updated ) 
+    
+    gtk_tree_model_get( GTK_TREE_MODEL(list_store), it, COL_ID, &id, -1 );
+     current_track_updated = id == cur_track_id;
+     if ( current_track_updated ) 
     {
 	/* send desktop notification if current track was updated */  
 	send_notifcation( track_properties.artist, track_properties.title );
@@ -1187,7 +1232,6 @@ static int update_track( xmmsv_t *value, UpdateTrack* ut )
 	}
 	
     }
-    g_slice_free(UpdateTrack, ut);
     g_free( guessed_title );
     return FALSE;
 }
@@ -1239,16 +1283,28 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
 	else if (strcmp( key, "size" ) == 0)
 	    val_int = &(properties->size);
 	
-	if (xmmsv_get_dict_iter (child_value, &child_it) && 
-	    xmmsv_dict_iter_valid (child_it) && (val_int || val_str) && 
-	    xmmsv_dict_iter_pair (child_it, NULL, &child_value)) {
-
-	    if (val_int != NULL) 
+	/* check if we got a dict_of_dict */
+	if (xmmsv_is_type (child_value, XMMSV_TYPE_DICT) )
+	{
+	    if (xmmsv_get_dict_iter (child_value, &child_it) && 
+		xmmsv_dict_iter_valid (child_it) && (val_int || val_str) && 
+		xmmsv_dict_iter_pair (child_it, NULL, &child_value)) {
+		
+		if (val_int != NULL) 
+		    xmmsv_get_int( child_value, val_int);
+		else 
+		    xmmsv_get_string( child_value, val_str );    
+	    }
+	}
+	/* primitive values */
+	else 
+	{
+	    if (val_int)
 		xmmsv_get_int( child_value, val_int);
-	    else 
+	    else
 		xmmsv_get_string( child_value, val_str );    
 	}
-	xmmsv_dict_iter_next (parent_it);
+	xmmsv_dict_iter_next (parent_it);	
     }
 
     if ((properties->title == NULL) || g_str_equal( properties->title, "" )) 
@@ -1263,23 +1319,20 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
 
 static void queue_update_track( uint32_t id, GtkTreeIter* it )
 {
-    UpdateTrack* ut;
-    xmmsc_result_t *res;
-    ut = g_slice_new(UpdateTrack);
-    ut->id = id;
-    ut->it = *it;
-    g_hash_table_insert( update_tracks, ut, ut );
-    res = xmmsc_medialib_get_info( con, id );
-    xmmsc_result_notifier_set_full( res, (xmmsc_result_notifier_t)update_track, ut, NULL );
+    xmmsc_result_t *res = xmmsc_medialib_get_info( con, id );
+    xmmsc_result_notifier_set_full ( res, (xmmsc_result_notifier_t)update_track, it, (
+					 xmmsc_user_data_free_func_t) gtk_tree_iter_free );
     xmmsc_result_unref( res );
 }
 
-static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
+static int on_playlist_entries_received( xmmsv_t* value, GtkWidget* list_view )
 {
     GtkTreeModel* mf;
     GtkTreeIter it;
-    int pl_size = xmmsv_list_get_size( value );
+    xmmsv_coll_t *coll;
+    xmmsc_result_t *res;
     int i;
+    int pl_size = xmmsv_list_get_size( value);;
 
     /* free prev. model filter */
     if ((mf = gtk_tree_view_get_model(GTK_TREE_VIEW(playlist_view))))
@@ -1291,29 +1344,18 @@ static int on_playlist_content_received( xmmsv_t* value, GtkWidget* list_view )
     gtk_tree_view_set_search_equal_func( GTK_TREE_VIEW(playlist_view), playlist_search_func, NULL, NULL );
     g_object_unref(list_store);
 
-    /* invalidate pending track updates */
-    cancel_pending_update_tracks();
-    
     for ( i = 0; i < pl_size; i++ ) 
     {
         int32_t id;
 	xmmsv_t *current_value;
-	xmmsc_result_t *res;
-        UpdateTrack* ut = g_slice_new(UpdateTrack);
-
 	xmmsv_list_get( value, i, &current_value );
 	xmmsv_get_int( current_value, &id );
         gtk_list_store_insert_with_values ( list_store, &it, i, COL_ID, id, COL_WEIGHT, PANGO_WEIGHT_NORMAL, -1 );
-	
-        ut->id = id;
-        ut->it = it;
-	/* just insert dummy values so we can distinguish from NULL */
-	g_hash_table_insert( update_tracks, ut, ut );
-        res = xmmsc_medialib_get_info( con, ut->id );
-        xmmsc_result_notifier_set_full( res, (xmmsc_result_notifier_t)update_track, ut, NULL );
-        xmmsc_result_unref( res );
     }
-
+    /* retrieve collection info  */
+    res = xmmsc_coll_get( con, cur_playlist, "Playlists" );
+    xmmsc_result_notifier_set_and_unref(res, on_playlist_coll_received, NULL );
+								
     if( GTK_WIDGET_REALIZED( list_view ) )
         gdk_window_set_cursor( list_view->window, NULL );
 
@@ -1350,8 +1392,9 @@ static void update_play_list( GtkWidget* list_view )
         gdk_window_set_cursor( list_view->window, cur );
         gdk_cursor_unref( cur );
     }
+    /* get current playlist as id_list */
     res = xmmsc_playlist_list_entries( con, cur_playlist );
-    xmmsc_result_notifier_set_and_unref( res, (xmmsc_result_notifier_t)on_playlist_content_received, list_view );
+    xmmsc_result_notifier_set_and_unref( res, (xmmsc_result_notifier_t)on_playlist_entries_received, list_view );
 }
 
 static GtkWidget* init_playlist(GtkWidget* list_view)
@@ -1404,8 +1447,6 @@ static void on_switch_to_playlist(GtkWidget* mi, char* pl_name)
     if( gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(mi)) )
     {
         /* if there are pending requests to current playlist, cancel them */
-        cancel_pending_update_tracks();
-
         res = xmmsc_playlist_load(con, pl_name);
         xmmsc_result_unref(res);
     }
@@ -1445,9 +1486,6 @@ static int on_playlist_loaded(xmmsv_t* value, gpointer user_data)
                 }
             }
         }
-
-        /* if there are pending requests, cancel them */
-        cancel_pending_update_tracks();
 
         update_play_list( playlist_view );
     }
@@ -1613,7 +1651,7 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
 		xmmsv_get_int( int_value, &id );
                 gtk_list_store_insert_with_values( list_store, &it, pos, COL_ID, id, -1 );
                 /* g_debug("playlist_added: %d", id); */
-                queue_update_track( id, &it );
+                queue_update_track( id, gtk_tree_iter_copy( &it ));
             }
             break;
         case XMMS_PLAYLIST_CHANGED_REMOVE:
@@ -2030,7 +2068,7 @@ static int on_media_lib_entry_changed(xmmsv_t* value, void* user_data)
                 if( _id == id )
                 {
                     /* g_debug("found! update: %d", id); */
-                    queue_update_track( id, &it );
+                    queue_update_track( id, gtk_tree_iter_copy( &it ) );
                     break;
                 }
             }while(gtk_tree_model_iter_next(model, &it));
@@ -2364,11 +2402,7 @@ int main (int argc, char *argv[])
     gtk_init(&argc, &argv);
 
     plugin_config_setup(con);
-
-    update_tracks =  g_hash_table_new( g_direct_hash, NULL );
-       
     xmmsc_mainloop_gmain_init(con);
-
     load_config();
 
     /* build the GUI */
@@ -2398,8 +2432,6 @@ int main (int argc, char *argv[])
 
     gtk_main ();
 
-    cancel_pending_update_tracks();
-    g_hash_table_unref ( update_tracks );
     save_config();
 
     return 0;
