@@ -576,9 +576,7 @@ static int on_playlist_coll_received(xmmsv_t* value, void* user_data)
 
 static int on_coll_info_received(xmmsv_t* value, void* user_data) 
 {
-    xmmsv_list_iter_t *l_iter;
     int32_t id;
-    const gchar *str;
     GtkTreeModel* model =  GTK_TREE_MODEL(list_store);
     GtkTreeIter it;
     int i = 0;
@@ -601,7 +599,6 @@ static int on_coll_info_received(xmmsv_t* value, void* user_data)
     while (gtk_list_store_iter_is_valid( list_store , &it )) 
     {
 	xmmsv_t *track_info;
-	TrackProperties track_properties;
 	gtk_tree_model_get( model, &it, COL_ID, &id, -1 );
 	/* find corressponding track info */
 	track_info = (xmmsv_t*) g_hash_table_lookup( id_to_coll_info, GINT_TO_POINTER( id ));
@@ -610,6 +607,8 @@ static int on_coll_info_received(xmmsv_t* value, void* user_data)
 	i++;
     }
     g_hash_table_unref( id_to_coll_info );
+
+    return 0;
 }
 
 
@@ -1329,8 +1328,8 @@ static int on_playlist_entries_received( xmmsv_t* value, GtkWidget* list_view )
 {
     GtkTreeModel* mf;
     GtkTreeIter it;
-    xmmsv_coll_t *coll;
     xmmsc_result_t *res;
+
     int i;
     int pl_size = xmmsv_list_get_size( value);;
 
