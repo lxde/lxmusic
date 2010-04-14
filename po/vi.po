@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: LXMusic 0.4.2\n"
@@ -28,9 +28,7 @@ msgstr ""
 "Ứng dụng khách XMMS2 với giao diện đồ họa đơn giản"
 
 #. default
-#: ../src/lxmusic.c:462
-#: ../src/utils.c:98
-#: ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -51,19 +49,15 @@ msgid "Input a URL"
 msgstr "Nhập một địa chỉ URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1370
-#: ../src/lxmusic.c:1771
-#: ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Nghệ sĩ"
 
-#: ../src/lxmusic.c:1378
-#: ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1386
-#: ../src/lxmusic.c:1772
+#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
 msgid "Title"
 msgstr "Tiêu đề"
 
@@ -102,14 +96,12 @@ msgstr "Lỗi"
 msgid "Advanced Linux Sound Architecture"
 msgstr "Kiến trúc Âm thanh Linux Nâng cao"
 
-#: ../src/lxmusic-plugin-config.c:18
-#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Thiết bị:"
 
-#: ../src/lxmusic-plugin-config.c:19
-#: ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Bộ hòa âm:"
 
@@ -132,14 +124,14 @@ msgstr "PulseAudio"
 msgid "Name:"
 msgstr "Tên:"
 
-#: ../src/lxmusic-plugin-config.c:33
-#: ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Máy chủ:"
 
 #: ../src/lxmusic-plugin-config.c:34
+#, fuzzy
 msgid "Sink:"
-msgstr ""
+msgstr "Sink"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
@@ -203,8 +195,7 @@ msgstr "Nhập từ khóa tại đây"
 msgid "Favorites"
 msgstr "Yêu thích"
 
-#: ../data/lxmusic.ui.glade.h:12
-#: ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Thuộc tính Tập tin"
 
@@ -395,4 +386,3 @@ msgstr "<b>Kích thước: </b>"
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Tiêu đề: </b>"
-
