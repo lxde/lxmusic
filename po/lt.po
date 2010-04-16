@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-06 16:08+0100\n"
+"POT-Creation-Date: 2010-04-16 04:11+0000\n"
 "PO-Revision-Date: 2010-01-01 23:47+0100\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-#: ../src/lxmusic.c:278
+#: ../src/lxmusic.c:266
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Oficialią xmms2 piktogramą sukūrė Arnaud DIDRY"
 
-#: ../src/lxmusic.c:289
+#: ../src/lxmusic.c:277
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -29,61 +29,61 @@ msgstr ""
 "Paprastas grafinis XMMS2 klientas"
 
 #. default
-#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:450 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
 # May not be the best
-#: ../src/lxmusic.c:625
+#: ../src/lxmusic.c:675
 msgid "Bitrate: "
 msgstr "Kokybė: "
 
-#: ../src/lxmusic.c:927
+#: ../src/lxmusic.c:977
 msgid "Audio Files"
 msgstr "Audio failai"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:982
 msgid "All Files"
 msgstr "Visi failai"
 
-#: ../src/lxmusic.c:959
+#: ../src/lxmusic.c:1009
 msgid "Input a URL"
 msgstr "Įveskite URL"
 
 #. metadata available
-#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1412 ../src/lxmusic.c:1807 ../data/lxmusic.ui.glade.h:7
 msgid "Artist"
 msgstr "Atlikėjas"
 
-#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1420 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Albumas"
 
-#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
+#: ../src/lxmusic.c:1428 ../src/lxmusic.c:1808
 msgid "Title"
 msgstr "Pavadinimas"
 
-#: ../src/lxmusic.c:1392
+#: ../src/lxmusic.c:1434
 msgid "Length"
 msgstr "Trukmė"
 
-#: ../src/lxmusic.c:1564
+#: ../src/lxmusic.c:1601
 msgid "Default"
 msgstr "Numatyta"
 
-#: ../src/lxmusic.c:1682
+#: ../src/lxmusic.c:1719
 msgid "Pause"
 msgstr "Pauzė"
 
-#: ../src/lxmusic.c:1696
+#: ../src/lxmusic.c:1733
 msgid "Play"
 msgstr "Groti"
 
-#: ../src/lxmusic.c:1777
+#: ../src/lxmusic.c:1813
 msgid "Now Playing:"
 msgstr "Dabar grojama:"
 
-#: ../src/lxmusic.c:2242
+#: ../src/lxmusic.c:2278
 msgid "Create new playlist"
 msgstr "Sukurti naują grojaraštį"
 
@@ -294,7 +294,7 @@ msgstr "_Įrankiai"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "_View"
-msgstr "_Rodymas"
+msgstr "_Rodyti"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
@@ -345,12 +345,8 @@ msgid "Misc"
 msgstr "Kita"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Muzikos failai gali būti grojami be grafinės aplinkos taip taupant sistemos "
-"resursus"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Muzikos failai gali būti grojami be grafinės aplinkos taip taupant sistemos resursus"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -392,7 +388,6 @@ msgstr "<b>Dydis: </b>"
 msgid "<b>Title: </b>"
 msgstr "<b>Pavadinimas: </b>"
 
-#, fuzzy
 #~ msgid "Server"
 #~ msgstr "Tvarkyklė:"
 
