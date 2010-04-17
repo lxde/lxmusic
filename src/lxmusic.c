@@ -75,6 +75,9 @@ typedef struct _TrackProperties{
     const char *url;
     const char *mime;
     const char *comment;
+    const char *picture_front_md5;
+    unsigned char *picture_front;
+    
     int32_t duration;
     int32_t isvbr;
     int32_t bitrate;
@@ -1273,6 +1276,8 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
 	    val_str = &(properties->url);	    
 	else if (strcmp( key, "title" ) == 0) 
 	    val_str = &(properties->title);	    
+	else if (strcmp( key, "picture_front" ) == 0)
+	    val_str = &(properties->picture_front_md5);
 	else if (strcmp( key, "duration" ) == 0)
 	    val_int = &(properties->duration);
 	else if (strcmp( key, "isvbr" ) == 0)
