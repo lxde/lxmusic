@@ -75,8 +75,7 @@ typedef struct _TrackProperties{
     const char *url;
     const char *mime;
     const char *comment;
-    const char *picture_front_md5;
-    unsigned char *picture_front;
+    const char *picture_front;
     
     int32_t duration;
     int32_t isvbr;
@@ -1238,6 +1237,9 @@ static int update_track( xmmsv_t *value, GtkTreeIter* it )
     return FALSE;
 }
 
+/* helper macro to access struct member based on string key */
+#define MAYBE_GET_PROPERTY(properties, member, key_str, val) if (strcmp( key_str, #member ) == 0) val = &(properties->member); 
+
 static gboolean get_track_properties (xmmsv_t *value, TrackProperties *properties)  
 {
     /* traverse the dict of dict */
@@ -1262,31 +1264,18 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
 	xmmsv_dict_iter_pair (parent_it, &key, &child_value);
 
 	/* check type of property */
-	if (strcmp( key, "artist" ) == 0)
-	    val_str = &(properties->artist);
-	else if (strcmp( key, "album" ) == 0)
-	    val_str = &(properties->album);
-	else if (strcmp( key, "mime" ) == 0)
-	    val_str = &(properties->mime);
-	else if (strcmp( key, "comment" ) == 0)
-	    val_str = &(properties->comment);
-	else if (strcmp( key, "channel" ) == 0)
-	    val_str = &channel;	    	    
-	else if (strcmp( key, "url" ) == 0)
-	    val_str = &(properties->url);	    
-	else if (strcmp( key, "title" ) == 0) 
-	    val_str = &(properties->title);	    
-	else if (strcmp( key, "picture_front" ) == 0)
-	    val_str = &(properties->picture_front_md5);
-	else if (strcmp( key, "duration" ) == 0)
-	    val_int = &(properties->duration);
-	else if (strcmp( key, "isvbr" ) == 0)
-	    val_int = &(properties->isvbr);
-	else if (strcmp( key, "bitrate" ) == 0)
-	    val_int = &(properties->bitrate);
-	else if (strcmp( key, "size" ) == 0)
-	    val_int = &(properties->size);
-	
+	MAYBE_GET_PROPERTY(properties, artist, key, val_str);
+	MAYBE_GET_PROPERTY(properties, album, key, val_str);
+	MAYBE_GET_PROPERTY(properties, mime, key, val_str);
+	MAYBE_GET_PROPERTY(properties, comment, key, val_str);
+	MAYBE_GET_PROPERTY(properties, url, key, val_str);
+	MAYBE_GET_PROPERTY(properties, title, key, val_str);
+	MAYBE_GET_PROPERTY(properties, picture_front, key, val_str);
+	MAYBE_GET_PROPERTY(properties, duration, key, val_int);
+	MAYBE_GET_PROPERTY(properties, isvbr, key, val_int);
+	MAYBE_GET_PROPERTY(properties, bitrate, key, val_int);
+	MAYBE_GET_PROPERTY(properties, size, key, val_int);
+
 	/* check if we got a dict_of_dict */
 	if (xmmsv_is_type (child_value, XMMSV_TYPE_DICT) )
 	{
