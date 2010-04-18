@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-06 16:08+0100\n"
-"PO-Revision-Date: 2010-03-21 21:51+0200\n"
+"PO-Revision-Date: 2010-04-18 00:04+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fo\n"
@@ -319,7 +319,7 @@ msgstr "Tippistødd:"
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "Dátufløgu tóleind:"
+msgstr "Dátufløgu tóleind: "
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
