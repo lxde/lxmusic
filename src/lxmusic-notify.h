@@ -25,9 +25,8 @@
 #include <gtk/gtk.h>
 
 typedef struct _LXMusicNotification  *LXMusicNotification;
-
-LXMusicNotification lxmusic_do_notify_prepare(const gchar *artist, const gchar *title, const char *summary);
-void lxmusic_do_notify_status_icon	( LXMusicNotification lxn, GtkStatusIcon* status_icon);
+LXMusicNotification lxmusic_do_notify_prepare(const gchar *artist, const gchar *title, const char *summary, GtkStatusIcon *status_icon);
 void lxmusic_do_notify_pixbuf		( LXMusicNotification lxn, GdkPixbuf* pixbuf);
+void lxmusic_do_notify 			( LXMusicNotification lxn );
 
 #endif

@@ -83,9 +83,11 @@ typedef struct _TrackProperties{
     int32_t size;
 }TrackProperties;
 
-static void 	send_notifcation			( const gchar *artist, const gchar* title );
+static void 	send_notification			( LXMusicNotification lxn );
+static void 	send_notification_pixbuf		( LXMusicNotification lxn, GdkPixbuf *pixbuf );
 static int 	update_track				( xmmsv_t *value, GtkTreeIter* it );
 static int 	on_coll_info_received			( xmmsv_t* value, void* user_data );
+static int 	on_picture_front_received		( xmmsv_t* value, void* user_data );
 
 static xmmsc_connection_t *con = NULL;
 static GtkWidget *main_win = NULL;
@@ -1214,8 +1216,19 @@ static int update_track( xmmsv_t *value, GtkTreeIter* it )
      current_track_updated = id == cur_track_id;
      if ( current_track_updated ) 
     {
-	/* send desktop notification if current track was updated */  
-	send_notifcation( track_properties.artist, track_properties.title );
+	LXMusicNotification lxn = lxmusic_do_notify_prepare ( track_properties.artist, track_properties.title,  
+							      _("Now Playing:"), GTK_STATUS_ICON(tray_icon) );
+	if (!track_properties.picture_front) 
+	    /* send desktop notification if current track was updated */  
+	    send_notification( lxn );
+	else 
+	{
+	    /* postpone notification: wait for album art */
+	    xmmsc_result_t* res = xmmsc_bindata_retrieve( con, track_properties.picture_front );
+	    /* we need to keep a reference on track property strings because we pass it down here */
+	    xmmsc_result_notifier_set_full (res, on_picture_front_received, lxn, NULL);
+	    xmmsc_result_unref( res );
+	}
 	if( tray_icon ) 
 	{
 	    GString* tray_tooltip = create_window_title(track_properties.artist, track_properties.title, playback_status == XMMS_PLAYBACK_STATUS_PLAY);
@@ -1227,6 +1240,24 @@ static int update_track( xmmsv_t *value, GtkTreeIter* it )
     g_free( guessed_title );
     return FALSE;
 }
+
+static int on_picture_front_received ( xmmsv_t* value, void* user_data ) 
+{
+    const unsigned char *bin_data;
+    LXMusicNotification lxn = (LXMusicNotification) user_data;
+    unsigned int bin_len;
+    g_assert(xmmsv_get_bin( value, &bin_data, &bin_len ) );
+    GInputStream *picture_front_stream = g_memory_input_stream_new_from_data (bin_data, bin_len, NULL );
+    GdkPixbuf *picture_front_pixbuf =  gdk_pixbuf_new_from_stream( G_INPUT_STREAM(picture_front_stream), NULL, NULL );
+    g_object_unref (picture_front_stream);
+    if (picture_front_pixbuf) 
+    {
+	send_notification_pixbuf( lxn, picture_front_pixbuf );
+	gdk_pixbuf_unref( picture_front_pixbuf );
+    }
+    return TRUE;
+}
+
 
 /* helper macro to access struct member based on string key */
 #define MAYBE_GET_PROPERTY(properties, member, key_str, val) if (strcmp( key_str, #member ) == 0) val = &(properties->member); 
@@ -1773,22 +1804,42 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     if( tray_icon )
         gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon), window_title->str);
 
-    send_notifcation( track_properties.artist, track_properties.title );
-
+    LXMusicNotification lxn = lxmusic_do_notify_prepare ( track_properties.artist, track_properties.title,  
+							      _("Now Playing:"), GTK_STATUS_ICON(tray_icon) );
+    if (!track_properties.picture_front) 
+	send_notification( lxn );
+    else 
+    {
+	/* postpone notification: wait for album art */
+	xmmsc_result_t* res = xmmsc_bindata_retrieve( con, track_properties.picture_front );
+	xmmsc_result_notifier_set_and_unref (res, on_picture_front_received, lxn );
+    }
     g_string_free( window_title, TRUE );
     return TRUE;
 }
 
 
-static void send_notifcation( const gchar *artist, const gchar* title ) 
+static void send_notification_pixbuf( LXMusicNotification lxn, GdkPixbuf *pixbuf ) 
 {
 #ifdef HAVE_LIBNOTIFY
-    if(!GTK_WIDGET_VISIBLE(main_win)) 
-	lxmusic_do_notify_status_icon( artist, title, _("Now Playing:"), GTK_STATUS_ICON(tray_icon) );
+    if(!GTK_WIDGET_VISIBLE(main_win))  
+    {
+	/* FIXME: Hardcoded notification icon size */
+	GdkPixbuf *scaled_pixbuf = gdk_pixbuf_scale_simple( pixbuf, 64, 64, GDK_INTERP_HYPER );
+	lxmusic_do_notify_pixbuf( lxn, scaled_pixbuf );
+	gdk_pixbuf_unref( scaled_pixbuf );
+    }
+    
 #endif	/* HAVE_LIBNOTIFY */
 }
 
-
+static void send_notification( LXMusicNotification lxn ) 
+{
+#ifdef HAVE_LIBNOTIFY
+    if(!GTK_WIDGET_VISIBLE(main_win)) 
+	lxmusic_do_notify( lxn );
+#endif	/* HAVE_LIBNOTIFY */
+}
 
 
 static int on_playback_cur_track_changed( xmmsv_t* value, void* user_data )
@@ -2378,11 +2429,6 @@ int main (int argc, char *argv[])
 
     /* build the GUI */
     setup_ui();
-
-#ifdef HAVE_LIBNOTIFY
-    if (!notify_is_initted ())
-	notify_init ("LXMusic");
-#endif
 
     /* some dirty hacks to show the window earlier :-D */
     while( gtk_events_pending() )
