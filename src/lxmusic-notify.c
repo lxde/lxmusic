@@ -20,7 +20,8 @@
  */
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-#include "lxmusic-notify.h"
+#include <libnotify/notify.h>
+#include "lxmusic-notify.h"    
 
 #define LXMUSIC_NOTIFY_NOTIFICATION_SHOW( notify )  do  { GError *error = NULL; 	\
     if (!notify_notification_show (notify, &error)) { 					\
@@ -29,28 +30,32 @@
     }											\
 } while (0);							
 
-static NotifyNotification* lxmusic_do_notify_int(const gchar *artist, const gchar *title, const char *summary);
-
-void lxmusic_do_notify_status_icon( const gchar *artist, const gchar *title, const char *summary, GtkStatusIcon* status_icon) 
+struct _LXMusicNotification
 {
-    NotifyNotification* notify = lxmusic_do_notify_int( artist, title, summary );
-    g_return_if_fail (notify != NULL);
+    NotifyNotification *notify;
+};
 
-    notify_notification_attach_to_status_icon( notify, status_icon );
-    LXMUSIC_NOTIFY_NOTIFICATION_SHOW( notify );
+void lxmusic_do_notify_status_icon( LXMusicNotification lxn, GtkStatusIcon* status_icon)
+{
+    notify_notification_attach_to_status_icon( lxn->notify, status_icon );
+    LXMUSIC_NOTIFY_NOTIFICATION_SHOW( lxn->notify );
+    g_free( lxn);
 }
 
-void lxmusic_do_notify_pixbuf( const gchar *artist, const gchar *title, const char *summary, GdkPixbuf* pixbuf) 
+void lxmusic_do_notify_pixbuf( LXMusicNotification lxn, GdkPixbuf* pixbuf) 
 {
-    NotifyNotification* notify = lxmusic_do_notify_int(artist, title, summary);
-    g_return_if_fail (notify != NULL);
-    notify_notification_set_icon_from_pixbuf ( notify, pixbuf );
-    LXMUSIC_NOTIFY_NOTIFICATION_SHOW( notify );
+    notify_notification_set_icon_from_pixbuf ( lxn->notify, pixbuf );
+    LXMUSIC_NOTIFY_NOTIFICATION_SHOW( lxn->notify );
+    g_free(lxn);
 }
 
 
-static NotifyNotification* lxmusic_do_notify_int(const gchar *artist, const gchar *title, const char *summary)
+LXMusicNotification lxmusic_do_notify_prepare(const gchar *artist, const gchar *title, const char *summary)
 {
+
+    if (!notify_is_initted ())
+	notify_init ("LXMusic");
+
     GString* message = g_string_new("");
     if ( (artist != NULL) && (title != NULL ) ) {	
 	/* metadata available */
@@ -60,11 +65,11 @@ static NotifyNotification* lxmusic_do_notify_int(const gchar *artist, const gcha
     /* use filename without markup */
     else 			
 	g_string_append( message, title );
-    
-    NotifyNotification *notify = notify_notification_new (summary, message->str, "lxmusic", NULL);
-    notify_notification_set_urgency (notify, NOTIFY_URGENCY_NORMAL);
-    notify_notification_set_timeout (notify, NOTIFY_EXPIRES_DEFAULT);
+    struct _LXMusicNotification *lxn = g_new ( struct _LXMusicNotification, 1);
+    lxn->notify = notify_notification_new (summary, message->str, "lxmusic", NULL);
+    notify_notification_set_urgency (lxn->notify, NOTIFY_URGENCY_NORMAL);
+    notify_notification_set_timeout (lxn->notify, NOTIFY_EXPIRES_DEFAULT);
     g_string_free( message, TRUE );
-    return notify;
+    return lxn;
 }
 

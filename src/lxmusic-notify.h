@@ -23,17 +23,11 @@
 #define LXMUSIC_NOTIFY_H
 
 #include <gtk/gtk.h>
-#include <libnotify/notify.h>
 
-typedef struct _LXMusic_Notification LXMusic_Notification;
+typedef struct _LXMusicNotification  *LXMusicNotification;
 
-struct _LXMusic_Notification
-{
-    NotifyNotification*	notification;
-};
-    
-void lxmusic_do_notify_pixbuf( const gchar *artist, const gchar *title, const char *summary, GdkPixbuf* pixbuf);
-void lxmusic_do_notify_status_icon( const gchar *artist, const gchar *title, const char *summary, GtkStatusIcon* status_icon);
-
+LXMusicNotification lxmusic_do_notify_prepare(const gchar *artist, const gchar *title, const char *summary);
+void lxmusic_do_notify_status_icon	( LXMusicNotification lxn, GtkStatusIcon* status_icon);
+void lxmusic_do_notify_pixbuf		( LXMusicNotification lxn, GdkPixbuf* pixbuf);
 
 #endif
