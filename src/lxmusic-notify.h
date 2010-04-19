@@ -30,13 +30,10 @@ typedef struct _LXMusic_Notification LXMusic_Notification;
 struct _LXMusic_Notification
 {
     NotifyNotification*	notification;
-    GtkStatusIcon *status_icon;
 };
     
-void lxmusic_notification_free( LXMusic_Notification *n );
-LXMusic_Notification* lxmusic_notification_new( GtkStatusIcon *status_icon );
-void lxmusic_do_notify ( LXMusic_Notification *n,
-			const char *summary,
-			const char *message );
+void lxmusic_do_notify_pixbuf( const gchar *artist, const gchar *title, const char *summary, GdkPixbuf* pixbuf);
+void lxmusic_do_notify_status_icon( const gchar *artist, const gchar *title, const char *summary, GtkStatusIcon* status_icon);
+
 
 #endif

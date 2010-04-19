@@ -87,11 +87,6 @@ static void 	send_notifcation			( const gchar *artist, const gchar* title );
 static int 	update_track				( xmmsv_t *value, GtkTreeIter* it );
 static int 	on_coll_info_received			( xmmsv_t* value, void* user_data );
 
-
-#ifdef HAVE_LIBNOTIFY
-static LXMusic_Notification *lxmusic_notification = NULL;
-#endif 
-
 static xmmsc_connection_t *con = NULL;
 static GtkWidget *main_win = NULL;
 static GtkWidget *tray_icon = NULL;
@@ -215,10 +210,6 @@ void on_quit(GtkAction* act, gpointer user_data)
 
     if(tray_icon)
         g_object_unref(tray_icon);
-
-#ifdef HAVE_LIBNOTIFY
-    lxmusic_notification_free( lxmusic_notification );
-#endif 
 
     if( ! play_after_exit )
     {
@@ -1792,21 +1783,8 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 static void send_notifcation( const gchar *artist, const gchar* title ) 
 {
 #ifdef HAVE_LIBNOTIFY
-    if( ! GTK_WIDGET_VISIBLE(main_win) ) 
-    {
-	GString* notification_message = g_string_new("");
-	
-	if ( (artist != NULL) && (title != NULL ) ) {	
-	    /* metadata available */
-	    g_string_append_printf(notification_message, "<b>%s: </b><i>%s</i>", _("Artist"), artist );
-	    g_string_append_printf(notification_message, "\n<b>%s: </b><i>%s</i>", _("Title"), title );
-	}
-	/* use filename without markup */
-	else 			
-	    g_string_append( notification_message, title );
-	lxmusic_do_notify ( lxmusic_notification, _("Now Playing:"), notification_message->str );
-	g_string_free( notification_message, TRUE );
-    }
+    if(!GTK_WIDGET_VISIBLE(main_win)) 
+	lxmusic_do_notify_status_icon( artist, title, _("Now Playing:"), GTK_STATUS_ICON(tray_icon) );
 #endif	/* HAVE_LIBNOTIFY */
 }
 
@@ -2404,7 +2382,6 @@ int main (int argc, char *argv[])
 #ifdef HAVE_LIBNOTIFY
     if (!notify_is_initted ())
 	notify_init ("LXMusic");
-    lxmusic_notification  = lxmusic_notification_new( GTK_STATUS_ICON( tray_icon ) );
 #endif
 
     /* some dirty hacks to show the window earlier :-D */
