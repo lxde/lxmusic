@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-06 16:08+0100\n"
-"PO-Revision-Date: 2010-04-18 00:04+0200\n"
+"PO-Revision-Date: 2010-05-03 01:00+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fo\n"
@@ -195,7 +195,7 @@ msgstr "Skriva inn lyklaorð her"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
-msgstr ""
+msgstr "Yndisløg"
 
 #: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
@@ -338,7 +338,6 @@ msgid "KB"
 msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
-#, fuzzy
 msgid "Minimize to system tray on close"
 msgstr "Minsta til kervisbakka, tá ið sløkkt verður"
 
@@ -366,7 +365,7 @@ msgstr "Sertokki"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Vís kervisbakka ímynd"
 
 #: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
