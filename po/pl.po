@@ -4,30 +4,29 @@
 # translation of lxmusic.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Grzegorz Gibas <amigib@gmail.com>, 2009.
 # Artur Kruszewski <mazdac@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-06 16:08+0100\n"
+"POT-Creation-Date: 2010-05-13 08:34+0000\n"
 "PO-Revision-Date: 2010-01-13 23:38+0200\n"
 "Last-Translator: Artur <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.0\n"
 
-#: ../src/lxmusic.c:278
+#: ../src/lxmusic.c:261
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Oficjalna ikona xmms2 stworzona przez Arnaud DIDRY"
 
-#: ../src/lxmusic.c:289
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -36,60 +35,59 @@ msgstr ""
 "Prosty interfejs graficzny dla klienta XMMS2"
 
 #. default
-#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:625
+#: ../src/lxmusic.c:670
 msgid "Bitrate: "
-msgstr "Bitrate: "
+msgstr "Średnia bitowa: "
 
-#: ../src/lxmusic.c:927
+#: ../src/lxmusic.c:972
 msgid "Audio Files"
-msgstr "Pliki Audio"
+msgstr "Pliki audio"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:977
 msgid "All Files"
 msgstr "Wszystkie pliki"
 
-#: ../src/lxmusic.c:959
+#: ../src/lxmusic.c:1004
 msgid "Input a URL"
 msgstr "Wpisz URL"
 
-#. metadata available
-#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
-msgid "Artist"
-msgstr "Artysta"
-
-#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
-msgid "Album"
-msgstr "Album"
-
-#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
-msgid "Title"
-msgstr "Tytuł"
-
-#: ../src/lxmusic.c:1392
-msgid "Length"
-msgstr "Długość"
-
-#: ../src/lxmusic.c:1564
-msgid "Default"
-msgstr "Domyślne"
-
-#: ../src/lxmusic.c:1682
-msgid "Pause"
-msgstr "Pauza"
-
-#: ../src/lxmusic.c:1696
-msgid "Play"
-msgstr "Odtwarzaj"
-
-#: ../src/lxmusic.c:1777
+#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
 msgid "Now Playing:"
 msgstr "Teraz gra:"
 
-#: ../src/lxmusic.c:2242
+#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
+msgid "Artist"
+msgstr "Artysta"
+
+#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+msgid "Album"
+msgstr "Album"
+
+#: ../src/lxmusic.c:1444
+msgid "Title"
+msgstr "Tytuł"
+
+#: ../src/lxmusic.c:1450
+msgid "Length"
+msgstr "Długość"
+
+#: ../src/lxmusic.c:1617
+msgid "Default"
+msgstr "Domyślne"
+
+#: ../src/lxmusic.c:1735
+msgid "Pause"
+msgstr "Pauza"
+
+#: ../src/lxmusic.c:1749
+msgid "Play"
+msgstr "Odtwarzaj"
+
+#: ../src/lxmusic.c:2301
 msgid "Create new playlist"
 msgstr "Utwórz nową listę odtwarzania"
 
@@ -351,12 +349,8 @@ msgid "Misc"
 msgstr "Inne"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Pliki muzyczne mogą być odtwarzane bez interfejsu graficznego, celem "
-"zmniejszenie użycia zasobów systemowych"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Pliki muzyczne mogą być odtwarzane bez interfejsu graficznego, celem zmniejszenie użycia zasobów systemowych"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -398,7 +392,6 @@ msgstr "<b>Rozmiar: </b>"
 msgid "<b>Title: </b>"
 msgstr "<b>Tytuł: </b>"
 
-#, fuzzy
 #~ msgid "Server"
 #~ msgstr "Wyjście:"
 
