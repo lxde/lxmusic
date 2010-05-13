@@ -162,7 +162,7 @@ msgstr "Odtwarzacz muzyczny"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr "Odtwarzaj swoje pliki muzyczne łatwiej"
+msgstr "Łatwiej odtwarzaj swoje pliki muzyczne"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -186,7 +186,7 @@ msgstr "Wszystkie"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "Utwórz _nową  listę"
+msgstr "Utwórz _nową listę"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
