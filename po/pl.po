@@ -346,7 +346,7 @@ msgstr "Minimalizuj do tacki systemowej"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
-msgstr "Inne"
+msgstr "Różne"
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid "Music files can be played without graphical user interface to save system resources"
