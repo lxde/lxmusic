@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-18 04:09+0000\n"
-"PO-Revision-Date: 2010-04-06 16:31+0200\n"
+"PO-Revision-Date: 2010-05-25 18:13+0200\n"
 "Last-Translator: Max <mpui@tut.by>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ru\n"
@@ -29,7 +29,7 @@ msgid ""
 "Simple GUI XMMS2 client"
 msgstr ""
 "Музыкальный проигрыватель для LXDE\n"
-"Простой GUI-клиент XMMS2 "
+"Простой GUI-клиент XMMS2"
 
 #. default
 #: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
@@ -336,7 +336,7 @@ msgstr "Общий"
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
-msgstr "Кб"
+msgstr "КБ"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
@@ -348,7 +348,9 @@ msgstr "Разное"
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Звуковые файлы должны быть воспроизведены без использования графического интерфейса пользователя (GUI) для экономии системных ресурсов."
+msgstr ""
+"Звуковые файлы должны быть воспроизведены без использования графического "
+"интерфейса пользователя для экономии системных ресурсов"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
