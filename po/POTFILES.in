@@ -7,3 +7,4 @@ data/lxmusic.ui.glade
 data/popup.ui.glade
 data/pref-dlg.ui.glade
 data/track-info.ui.glade
+src/lxmusic-notify.c
