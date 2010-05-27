@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-06 16:08+0100\n"
+"POT-Creation-Date: 2010-05-27 13:00+0200\n"
 "PO-Revision-Date: 2009-11-26 12:23+0100\n"
 "Last-Translator: Olav Andreas Lindekleiv <olalinde@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-#: ../src/lxmusic.c:278
+#: ../src/lxmusic.c:261
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Offisielt ikon for xmms2 laget av Arnaud DIDRY"
 
-#: ../src/lxmusic.c:289
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -29,60 +29,61 @@ msgstr ""
 "Enkel grafisk XMMS2-klient"
 
 #. default
-#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:625
+#: ../src/lxmusic.c:670
 msgid "Bitrate: "
 msgstr "Bitrate: _"
 
-#: ../src/lxmusic.c:927
+#: ../src/lxmusic.c:972
 msgid "Audio Files"
 msgstr "Lydfiler"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:977
 msgid "All Files"
 msgstr "Alle filer"
 
-#: ../src/lxmusic.c:959
+#: ../src/lxmusic.c:1004
 msgid "Input a URL"
 msgstr "Oppgi en URL"
 
-#. metadata available
-#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
-msgid "Artist"
-msgstr "Artist"
-
-#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
-msgid "Album"
-msgstr "Album"
-
-#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
-msgid "Title"
-msgstr "Tittel"
-
-#: ../src/lxmusic.c:1392
-msgid "Length"
-msgstr "Lengde"
-
-#: ../src/lxmusic.c:1564
-msgid "Default"
-msgstr "Standard"
-
-#: ../src/lxmusic.c:1682
-msgid "Pause"
-msgstr "Pause"
-
-#: ../src/lxmusic.c:1696
-msgid "Play"
-msgstr "Spill av"
-
-#: ../src/lxmusic.c:1777
+#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
 msgid "Now Playing:"
 msgstr "Spilles nå:"
 
-#: ../src/lxmusic.c:2242
+#. metadata available
+#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:66
+msgid "Artist"
+msgstr "Artist"
+
+#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+msgid "Album"
+msgstr "Album"
+
+#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+msgid "Title"
+msgstr "Tittel"
+
+#: ../src/lxmusic.c:1450
+msgid "Length"
+msgstr "Lengde"
+
+#: ../src/lxmusic.c:1617
+msgid "Default"
+msgstr "Standard"
+
+#: ../src/lxmusic.c:1735
+msgid "Pause"
+msgstr "Pause"
+
+#: ../src/lxmusic.c:1749
+msgid "Play"
+msgstr "Spill av"
+
+#: ../src/lxmusic.c:2301
 msgid "Create new playlist"
 msgstr "Lag ny spilleliste"
 

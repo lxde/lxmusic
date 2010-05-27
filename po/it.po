@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-06 16:08+0100\n"
+"POT-Creation-Date: 2010-05-27 13:00+0200\n"
 "PO-Revision-Date: 2010-04-16 13:46+0100\n"
 "Last-Translator: Andrea Florio <andrea@opensuse.org>\n"
 "Language-Team: \n"
@@ -18,11 +18,11 @@ msgstr ""
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 
-#: ../src/lxmusic.c:278
+#: ../src/lxmusic.c:261
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Icone ufficiali XMMS2 (Arnaud DIDRY)"
 
-#: ../src/lxmusic.c:289
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -31,66 +31,61 @@ msgstr ""
 "Interfaccia grafica semplice per XMMS2"
 
 #. default
-#: ../src/lxmusic.c:462
-#: ../src/utils.c:98
-#: ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:625
+#: ../src/lxmusic.c:670
 msgid "Bitrate: "
 msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:927
+#: ../src/lxmusic.c:972
 msgid "Audio Files"
 msgstr "File audio"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:977
 msgid "All Files"
 msgstr "Tutti i file"
 
-#: ../src/lxmusic.c:959
+#: ../src/lxmusic.c:1004
 msgid "Input a URL"
 msgstr "Inserire URL"
 
-#. metadata available
-#: ../src/lxmusic.c:1370
-#: ../src/lxmusic.c:1771
-#: ../data/lxmusic.ui.glade.h:7
-msgid "Artist"
-msgstr "Artista"
-
-#: ../src/lxmusic.c:1378
-#: ../data/lxmusic.ui.glade.h:5
-msgid "Album"
-msgstr "Album"
-
-#: ../src/lxmusic.c:1386
-#: ../src/lxmusic.c:1772
-msgid "Title"
-msgstr "Titolo"
-
-#: ../src/lxmusic.c:1392
-msgid "Length"
-msgstr "Durata"
-
-#: ../src/lxmusic.c:1564
-msgid "Default"
-msgstr "Standard"
-
-#: ../src/lxmusic.c:1682
-msgid "Pause"
-msgstr "Pausa"
-
-#: ../src/lxmusic.c:1696
-msgid "Play"
-msgstr "Riproduci"
-
-#: ../src/lxmusic.c:1777
+#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
 msgid "Now Playing:"
 msgstr "In riproduzione:"
 
-#: ../src/lxmusic.c:2242
+#. metadata available
+#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:66
+msgid "Artist"
+msgstr "Artista"
+
+#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+msgid "Album"
+msgstr "Album"
+
+#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+msgid "Title"
+msgstr "Titolo"
+
+#: ../src/lxmusic.c:1450
+msgid "Length"
+msgstr "Durata"
+
+#: ../src/lxmusic.c:1617
+msgid "Default"
+msgstr "Standard"
+
+#: ../src/lxmusic.c:1735
+msgid "Pause"
+msgstr "Pausa"
+
+#: ../src/lxmusic.c:1749
+msgid "Play"
+msgstr "Riproduci"
+
+#: ../src/lxmusic.c:2301
 msgid "Create new playlist"
 msgstr "Creare una nuova lista di riproduzione"
 
@@ -105,14 +100,12 @@ msgstr "Errore"
 msgid "Advanced Linux Sound Architecture"
 msgstr "Advanced Linux Sound Architecture"
 
-#: ../src/lxmusic-plugin-config.c:18
-#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Dispositivo:"
 
-#: ../src/lxmusic-plugin-config.c:19
-#: ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Mixer:"
 
@@ -135,8 +128,7 @@ msgstr "PulseAudio"
 msgid "Name:"
 msgstr "Nome:"
 
-#: ../src/lxmusic-plugin-config.c:33
-#: ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Server:"
 
@@ -206,8 +198,7 @@ msgstr "Digita parola chiave qui"
 msgid "Favorites"
 msgstr "Preferiti"
 
-#: ../data/lxmusic.ui.glade.h:12
-#: ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Proprietà del file"
 
@@ -356,8 +347,12 @@ msgid "Misc"
 msgstr "Altro"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "I file musicali possono essere riprodotti senza interfaccia grafica per risparmiare risorse di sistema"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"I file musicali possono essere riprodotti senza interfaccia grafica per "
+"risparmiare risorse di sistema"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -402,6 +397,7 @@ msgstr "<b>Titolo: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Driver:"
+
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -412,6 +408,7 @@ msgstr "<b>Titolo: </b>"
 #~ "Titolo Traccia\n"
 #~ "Artista\n"
 #~ "Album"
+
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -420,8 +417,9 @@ msgstr "<b>Titolo: </b>"
 #~ "Non Ripetere\n"
 #~ "Ripeti Attuale\n"
 #~ "Ripeti Tutto"
+
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Usa OSS per l'uscita audio"
+
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "Usa Pulse Audio per l'uscita audio"
-

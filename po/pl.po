@@ -4,14 +4,14 @@
 # translation of lxmusic.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Grzegorz Gibas <amigib@gmail.com>, 2009.
 # Artur Kruszewski <mazdac@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-13 08:34+0000\n"
+"POT-Creation-Date: 2010-05-27 13:00+0200\n"
 "PO-Revision-Date: 2010-01-13 23:38+0200\n"
 "Last-Translator: Artur <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -19,7 +19,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.0\n"
 
 #: ../src/lxmusic.c:261
@@ -59,7 +60,9 @@ msgstr "Wpisz URL"
 msgid "Now Playing:"
 msgstr "Teraz gra:"
 
+#. metadata available
 #: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:66
 msgid "Artist"
 msgstr "Artysta"
 
@@ -67,7 +70,7 @@ msgstr "Artysta"
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1444
+#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
 msgid "Title"
 msgstr "Tytuł"
 
@@ -349,8 +352,12 @@ msgid "Misc"
 msgstr "Różne"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Pliki muzyczne mogą być odtwarzane bez interfejsu graficznego, celem zmniejszenie użycia zasobów systemowych"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"Pliki muzyczne mogą być odtwarzane bez interfejsu graficznego, celem "
+"zmniejszenie użycia zasobów systemowych"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "

@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-06 16:08+0100\n"
+"POT-Creation-Date: 2010-05-27 13:00+0200\n"
 "PO-Revision-Date: 2010-03-09 12:26+0200\n"
 "Last-Translator: Indalecio <ifreiria@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
-"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: ../src/lxmusic.c:278
+#: ../src/lxmusic.c:261
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Iconas oficiais de xmms2 por Arnaud DIDRY"
 
-#: ../src/lxmusic.c:289
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -31,60 +31,61 @@ msgstr ""
 "Cliente gráfico sinxelo de XMMS2"
 
 #. default
-#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:625
+#: ../src/lxmusic.c:670
 msgid "Bitrate: "
 msgstr "Taxa de bits: "
 
-#: ../src/lxmusic.c:927
+#: ../src/lxmusic.c:972
 msgid "Audio Files"
 msgstr "Ficheiros de audio"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:977
 msgid "All Files"
 msgstr "Todos os ficheiros"
 
-#: ../src/lxmusic.c:959
+#: ../src/lxmusic.c:1004
 msgid "Input a URL"
 msgstr "Introduza un URL"
 
-#. metadata available
-#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
-msgid "Artist"
-msgstr "Artista"
-
-#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
-msgid "Album"
-msgstr "Álbum"
-
-#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
-msgid "Title"
-msgstr "Título"
-
-#: ../src/lxmusic.c:1392
-msgid "Length"
-msgstr "Lonxitude"
-
-#: ../src/lxmusic.c:1564
-msgid "Default"
-msgstr "Predeterminado"
-
-#: ../src/lxmusic.c:1682
-msgid "Pause"
-msgstr "Deter"
-
-#: ../src/lxmusic.c:1696
-msgid "Play"
-msgstr "Reproducir"
-
-#: ../src/lxmusic.c:1777
+#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
 msgid "Now Playing:"
 msgstr "Reproducindo:"
 
-#: ../src/lxmusic.c:2242
+#. metadata available
+#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:66
+msgid "Artist"
+msgstr "Artista"
+
+#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+msgid "Album"
+msgstr "Álbum"
+
+#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+msgid "Title"
+msgstr "Título"
+
+#: ../src/lxmusic.c:1450
+msgid "Length"
+msgstr "Lonxitude"
+
+#: ../src/lxmusic.c:1617
+msgid "Default"
+msgstr "Predeterminado"
+
+#: ../src/lxmusic.c:1735
+msgid "Pause"
+msgstr "Deter"
+
+#: ../src/lxmusic.c:1749
+msgid "Play"
+msgstr "Reproducir"
+
+#: ../src/lxmusic.c:2301
 msgid "Create new playlist"
 msgstr "Crear unha nova lista de reprodución"
 

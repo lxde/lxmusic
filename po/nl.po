@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-12 08:35+0000\n"
+"POT-Creation-Date: 2010-05-27 13:00+0200\n"
 "PO-Revision-Date: 2009-12-29 18:36+0100\n"
 "Last-Translator: Sander De Voogdt <celettu@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,9 @@ msgstr "Voer een URL in"
 msgid "Now Playing:"
 msgstr "Nu aan het afspelen:"
 
+#. metadata available
 #: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:66
 msgid "Artist"
 msgstr "Artiest"
 
@@ -61,7 +63,7 @@ msgstr "Artiest"
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1444
+#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
 msgid "Title"
 msgstr "Titel"
 
@@ -343,8 +345,11 @@ msgid "Misc"
 msgstr "Misc"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Audiobestanden kunnen afgespeeld worden zonder GUI om geheugen te sparen"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"Audiobestanden kunnen afgespeeld worden zonder GUI om geheugen te sparen"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "

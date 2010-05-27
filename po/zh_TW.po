@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-06 16:08+0100\n"
+"POT-Creation-Date: 2010-05-27 13:00+0200\n"
 "PO-Revision-Date: 2009-07-26 09:11+0200\n"
 "Last-Translator: 羅廷中 <timloo0710@gmail.com>\n"
 "Language-Team: pcman.tw@gmail.com\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-#: ../src/lxmusic.c:278
+#: ../src/lxmusic.c:261
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "由 Arnaud DIDRY 製作的 xmms2 官方圖示"
 
-#: ../src/lxmusic.c:289
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -29,60 +29,61 @@ msgstr ""
 "簡單的圖形介面 XMMS2 客戶端"
 
 #. default
-#: ../src/lxmusic.c:462 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:625
+#: ../src/lxmusic.c:670
 msgid "Bitrate: "
 msgstr "位元率："
 
-#: ../src/lxmusic.c:927
+#: ../src/lxmusic.c:972
 msgid "Audio Files"
 msgstr "音樂檔"
 
-#: ../src/lxmusic.c:932
+#: ../src/lxmusic.c:977
 msgid "All Files"
 msgstr "所有檔案"
 
-#: ../src/lxmusic.c:959
+#: ../src/lxmusic.c:1004
 msgid "Input a URL"
 msgstr "輸入一個 URL"
 
-#. metadata available
-#: ../src/lxmusic.c:1370 ../src/lxmusic.c:1771 ../data/lxmusic.ui.glade.h:7
-msgid "Artist"
-msgstr "藝人"
-
-#: ../src/lxmusic.c:1378 ../data/lxmusic.ui.glade.h:5
-msgid "Album"
-msgstr "專輯"
-
-#: ../src/lxmusic.c:1386 ../src/lxmusic.c:1772
-msgid "Title"
-msgstr "標題"
-
-#: ../src/lxmusic.c:1392
-msgid "Length"
-msgstr "長度"
-
-#: ../src/lxmusic.c:1564
-msgid "Default"
-msgstr "預設"
-
-#: ../src/lxmusic.c:1682
-msgid "Pause"
-msgstr "暫停"
-
-#: ../src/lxmusic.c:1696
-msgid "Play"
-msgstr "播放"
-
-#: ../src/lxmusic.c:1777
+#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
 msgid "Now Playing:"
 msgstr "現正播放："
 
-#: ../src/lxmusic.c:2242
+#. metadata available
+#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:66
+msgid "Artist"
+msgstr "藝人"
+
+#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+msgid "Album"
+msgstr "專輯"
+
+#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+msgid "Title"
+msgstr "標題"
+
+#: ../src/lxmusic.c:1450
+msgid "Length"
+msgstr "長度"
+
+#: ../src/lxmusic.c:1617
+msgid "Default"
+msgstr "預設"
+
+#: ../src/lxmusic.c:1735
+msgid "Pause"
+msgstr "暫停"
+
+#: ../src/lxmusic.c:1749
+msgid "Play"
+msgstr "播放"
+
+#: ../src/lxmusic.c:2301
 msgid "Create new playlist"
 msgstr "建立新的播放清單"
 

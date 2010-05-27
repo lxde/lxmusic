@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-20 04:11+0000\n"
+"POT-Creation-Date: 2010-05-27 13:00+0200\n"
 "PO-Revision-Date: 2010-04-21 15:50-0500\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish\n"
@@ -54,7 +54,9 @@ msgstr "Introduzca un URL"
 msgid "Now Playing:"
 msgstr "Reproduciendo:"
 
+#. metadata available
 #: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:66
 msgid "Artist"
 msgstr "Artista"
 
@@ -62,7 +64,7 @@ msgstr "Artista"
 msgid "Album"
 msgstr "Álbum"
 
-#: ../src/lxmusic.c:1444
+#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
 msgid "Title"
 msgstr "Título"
 
