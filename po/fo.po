@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2010-06-07 16:08+0200\n"
+"PO-Revision-Date: 2010-06-07 16:13+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fo\n"
@@ -37,7 +37,7 @@ msgstr "LXMusic"
 
 #: ../src/lxmusic.c:670
 msgid "Bitrate: "
-msgstr "Bitferð:"
+msgstr "Bitferð: "
 
 #: ../src/lxmusic.c:972
 msgid "Audio Files"
@@ -316,7 +316,7 @@ msgstr "Ljóð"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr "Tippistødd:"
+msgstr "Tippistødd: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
@@ -328,7 +328,7 @@ msgstr "Hald fram at avspæla, eftir at LXMusic er sløkkt"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "Forsett ID3 V1 koting:"
+msgstr "Forsett ID3 V1 koting: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
@@ -358,7 +358,7 @@ msgstr ""
 # Ískoyti = plugin
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr "Ískoyti:"
+msgstr "Ískoyti: "
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
