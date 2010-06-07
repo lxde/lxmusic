@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2010-05-03 01:00+0200\n"
+"PO-Revision-Date: 2010-06-07 16:08+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fo\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -28,7 +28,7 @@ msgid ""
 "Simple GUI XMMS2 client"
 msgstr ""
 "Tónleika avspælari hjá LXDE\n"
-"Einføld  GUI XMMS2 viðskiftari"
+"Einføld GUI XMMS2 viðskiftari"
 
 #. default
 #: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
@@ -37,7 +37,7 @@ msgstr "LXMusic"
 
 #: ../src/lxmusic.c:670
 msgid "Bitrate: "
-msgstr "Bitferð"
+msgstr "Bitferð:"
 
 #: ../src/lxmusic.c:972
 msgid "Audio Files"
@@ -98,7 +98,7 @@ msgstr "Brek"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr "ALSA (Framkomið Linux Ljóð Byggilag)"
+msgstr "ALSA Framkomið Linux Ljóð Byggilag"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
@@ -112,7 +112,7 @@ msgstr "Miksari:"
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr "OSS (Opið Ljóð Kervi)"
+msgstr "OSS Opið Ljóð Kervi"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
