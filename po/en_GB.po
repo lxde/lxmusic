@@ -232,104 +232,84 @@ msgid "Remove From Playlist"
 msgstr "Remove from Playlist"
 
 #: ../data/lxmusic.ui.glade.h:23
-#, fuzzy
 msgid "Remove Selected Items"
-msgstr "Remove the selected file(s) from the composition"
+msgstr "Remove Selected Items"
 
 #: ../data/lxmusic.ui.glade.h:24
-#, fuzzy
 msgid "Remove items from the playlist"
-msgstr "Remove Item from Playlist"
+msgstr "Remove items from the playlist"
 
 #: ../data/lxmusic.ui.glade.h:25
-#, fuzzy
 msgid "Repeat All"
-msgstr "All Files"
+msgstr "Repeat All"
 
 #: ../data/lxmusic.ui.glade.h:26
-#, fuzzy
 msgid "Repeat Current"
-msgstr "Current Locale: "
+msgstr "Repeat Current"
 
 #: ../data/lxmusic.ui.glade.h:27
-#, fuzzy
 msgid "Show Playlist"
-msgstr "Clear Playlist"
+msgstr "Show Playlist"
 
 #: ../data/lxmusic.ui.glade.h:28
-#, fuzzy
 msgid "Stop"
 msgstr "Stop"
 
 #: ../data/lxmusic.ui.glade.h:29
-#, fuzzy
 msgid "Track Name"
-msgstr "Unknown name"
+msgstr "Track Name"
 
 #: ../data/lxmusic.ui.glade.h:30
-#, fuzzy
 msgid "_Delete Current Playlist"
-msgstr "Adding %s to playlist"
+msgstr "_Delete Current Playlist"
 
 #: ../data/lxmusic.ui.glade.h:31
-#, fuzzy
 msgid "_File"
 msgstr "_File"
 
 #: ../data/lxmusic.ui.glade.h:32
-#, fuzzy
 msgid "_Help"
 msgstr "_Help"
 
 #: ../data/lxmusic.ui.glade.h:33
-#, fuzzy
 msgid "_Locate Currently Played"
-msgstr "Currently selected device"
+msgstr "_Locate Currently Played"
 
 #: ../data/lxmusic.ui.glade.h:34
-#, fuzzy
 msgid "_Playlist"
 msgstr "_Playlist"
 
 #: ../data/lxmusic.ui.glade.h:35
-#, fuzzy
 msgid "_Switch To Playlist"
-msgstr "Adding %s to playlist"
+msgstr "_Switch To Playlist"
 
 #: ../data/lxmusic.ui.glade.h:36
-#, fuzzy
 msgid "_Tools"
 msgstr "_Tools"
 
 #: ../data/lxmusic.ui.glade.h:37
-#, fuzzy
 msgid "_View"
 msgstr "_View"
 
 #: ../data/popup.ui.glade.h:1
-#, fuzzy
 msgid "_Show Main Window"
-msgstr "show about window"
+msgstr "_Show Main Window"
 
 #: ../data/pref-dlg.ui.glade.h:1
-#, fuzzy
 msgid "<b>Audio CD</b>"
-msgstr "Audio CD"
+msgstr "<b>Audio CD</b>"
 
 #: ../data/pref-dlg.ui.glade.h:2
-#, fuzzy
 msgid "<b>Output</b>"
-msgstr "Output"
+msgstr "<b>Output</b>"
 
 #: ../data/pref-dlg.ui.glade.h:3
-#, fuzzy
 msgid "Audio"
-msgstr "Audio Bitrate:"
+msgstr "Audio"
 
 #: ../data/pref-dlg.ui.glade.h:4
-#, fuzzy
 msgid "Buffer Size: "
-msgstr "Video Size:"
+msgstr "Buffer Size: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 #, fuzzy
