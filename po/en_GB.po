@@ -189,7 +189,7 @@ msgstr "Enter keyword here"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
-msgstr "Favorites"
+msgstr "Favourites"
 
 #: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
@@ -229,7 +229,7 @@ msgstr "Remove All Items"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr "Remove from Playlist"
+msgstr "Remove From Playlist"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
