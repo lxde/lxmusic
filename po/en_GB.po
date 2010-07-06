@@ -312,9 +312,8 @@ msgid "Buffer Size: "
 msgstr "Buffer Size: "
 
 #: ../data/pref-dlg.ui.glade.h:5
-#, fuzzy
 msgid "CD-ROM Device: "
-msgstr "CD Reader device"
+msgstr "CD-ROM Device: "
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
@@ -325,12 +324,10 @@ msgid "Default ID3 V1 Encoding: "
 msgstr "Default ID3 V1 Encoding: "
 
 #: ../data/pref-dlg.ui.glade.h:8
-#, fuzzy
 msgid "General"
 msgstr "General"
 
 #: ../data/pref-dlg.ui.glade.h:9
-#, fuzzy
 msgid "KB"
 msgstr "KB"
 
@@ -347,7 +344,6 @@ msgid "Music files can be played without graphical user interface to save system
 msgstr "Music files can be played without graphical user interface to save system resources"
 
 #: ../data/pref-dlg.ui.glade.h:13
-#, fuzzy
 msgid "Plugin: "
 msgstr "Plugin"
 
@@ -356,41 +352,33 @@ msgid "Preference"
 msgstr "Preference"
 
 #: ../data/pref-dlg.ui.glade.h:15
-#, fuzzy
 msgid "Show system tray icon"
-msgstr "Show a separate icon for each notebook"
+msgstr "Show system tray icon"
 
 #: ../data/track-info.ui.glade.h:1
-#, fuzzy
 msgid "<b>Album: </b>"
-msgstr "Album"
+msgstr "<b>Album: </b>"
 
 #: ../data/track-info.ui.glade.h:2
-#, fuzzy
 msgid "<b>Artist: </b>"
-msgstr "Artist"
+msgstr "<b>Artist: </b>"
 
 #: ../data/track-info.ui.glade.h:3
-#, fuzzy
 msgid "<b>Comment: </b>"
-msgstr "Comment"
+msgstr "<b>Comment: </b>"
 
 #: ../data/track-info.ui.glade.h:4
-#, fuzzy
 msgid "<b>File Type: </b>"
-msgstr "File _type:"
+msgstr "<b>File Type: </b>"
 
 #: ../data/track-info.ui.glade.h:5
-#, fuzzy
 msgid "<b>File: </b>"
-msgstr "_File"
+msgstr "<b>File: </b>"
 
 #: ../data/track-info.ui.glade.h:6
-#, fuzzy
 msgid "<b>Size: </b>"
-msgstr "Size:"
+msgstr "<b>Size: </b>"
 
 #: ../data/track-info.ui.glade.h:7
-#, fuzzy
 msgid "<b>Title: </b>"
-msgstr "Title"
+msgstr "<b>Title: </b>"
