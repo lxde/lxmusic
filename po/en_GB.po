@@ -1,3 +1,4 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -23,9 +24,7 @@ msgstr ""
 "Simple GUI XMMS2 client"
 
 #. default
-#: ../src/lxmusic.c:445
-#: ../src/utils.c:98
-#: ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -45,25 +44,21 @@ msgstr "All Files"
 msgid "Input a URL"
 msgstr "Input a URL"
 
-#: ../src/lxmusic.c:1220
-#: ../src/lxmusic.c:1808
+#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
 msgid "Now Playing:"
 msgstr "Now Playing:"
 
 #. metadata available
-#: ../src/lxmusic.c:1428
-#: ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
 #: ../src/lxmusic-notify.c:66
 msgid "Artist"
 msgstr "Artist"
 
-#: ../src/lxmusic.c:1436
-#: ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1444
-#: ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
 msgid "Title"
 msgstr "Title"
 
@@ -98,14 +93,12 @@ msgstr "Error"
 msgid "Advanced Linux Sound Architecture"
 msgstr "Advanced Linux Sound Architecture"
 
-#: ../src/lxmusic-plugin-config.c:18
-#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Device:"
 
-#: ../src/lxmusic-plugin-config.c:19
-#: ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Mixer:"
 
@@ -128,8 +121,7 @@ msgstr "PulseAudio"
 msgid "Name:"
 msgstr "Name:"
 
-#: ../src/lxmusic-plugin-config.c:33
-#: ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Server:"
 
@@ -148,117 +140,96 @@ msgid "JACK Audio Connection Kit"
 msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
-#, fuzzy
 msgid "Disk Writer"
-msgstr "Removable Disk"
+msgstr "Disk Writer"
 
 #: ../src/lxmusic-plugin-config.c:44
-#, fuzzy
 msgid "Destination Directory:"
-msgstr "Please select the destination directory"
+msgstr "Destination Directory:"
 
 #: ../data/lxmusic.desktop.in.h:1
-#, fuzzy
 msgid "Music Player"
-msgstr "%s Music Player"
+msgstr "Music Player"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
 msgstr "Play your music files easily"
 
 #: ../data/lxmusic.ui.glade.h:1
-#, fuzzy
 msgid "Add Files or Folders"
-msgstr "Sort _folders before files"
+msgstr "Add Files or Folders"
 
 #: ../data/lxmusic.ui.glade.h:2
-#, fuzzy
 msgid "Add To Playlist"
-msgstr "Add Item to Playlist"
+msgstr "Add To Playlist"
 
 #: ../data/lxmusic.ui.glade.h:3
-#, fuzzy
 msgid "Add URL"
-msgstr "Help URL"
+msgstr "Add URL"
 
 #: ../data/lxmusic.ui.glade.h:4
-#, fuzzy
 msgid "Add files to the playlist"
-msgstr "Add Item to Playlist"
+msgstr "Add files to the playlist"
 
 #: ../data/lxmusic.ui.glade.h:6
-#, fuzzy
 msgid "All"
 msgstr "All"
 
 #: ../data/lxmusic.ui.glade.h:8
-#, fuzzy
 msgid "Create _New Playlist"
-msgstr "Create New View"
+msgstr "Create _New Playlist"
 
 #: ../data/lxmusic.ui.glade.h:9
-#, fuzzy
 msgid "Current Playlist"
-msgstr "Clear Playlist"
+msgstr "Current Playlist"
 
 #: ../data/lxmusic.ui.glade.h:10
-#, fuzzy
 msgid "Enter keyword here"
-msgstr "Open Terminal Here"
+msgstr "Enter keyword here"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
 msgstr "Favorites"
 
-#: ../data/lxmusic.ui.glade.h:12
-#: ../data/track-info.ui.glade.h:8
-#, fuzzy
+#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "File Properties"
 
 #: ../data/lxmusic.ui.glade.h:13
-#, fuzzy
 msgid "Filter:"
-msgstr "_Filter"
+msgstr "Filter:"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
 msgstr "Locate currently played track"
 
 #: ../data/lxmusic.ui.glade.h:16
-#, fuzzy
 msgid "Media Library"
-msgstr "Media _Info"
+msgstr "Media Library"
 
 #: ../data/lxmusic.ui.glade.h:17
-#, fuzzy
 msgid "Next"
 msgstr "Next"
 
 #: ../data/lxmusic.ui.glade.h:18
-#, fuzzy
 msgid "No Repeat"
-msgstr "No dependencies"
+msgstr "No Repeat"
 
 #: ../data/lxmusic.ui.glade.h:19
-#, fuzzy
 msgid "Play/Pause"
-msgstr "Dis_play:"
+msgstr "Play/Pause"
 
 #: ../data/lxmusic.ui.glade.h:20
-#, fuzzy
 msgid "Previous"
 msgstr "Previous"
 
 #: ../data/lxmusic.ui.glade.h:21
-#, fuzzy
 msgid "Remove All Items"
-msgstr "Number of Undo Items"
+msgstr "Remove All Items"
 
 #: ../data/lxmusic.ui.glade.h:22
-#, fuzzy
 msgid "Remove From Playlist"
-msgstr "Remove Item from Playlist"
+msgstr "Remove from Playlist"
 
 #: ../data/lxmusic.ui.glade.h:23
 #, fuzzy
@@ -443,4 +414,3 @@ msgstr "Size:"
 #, fuzzy
 msgid "<b>Title: </b>"
 msgstr "Title"
-
