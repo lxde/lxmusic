@@ -1,0 +1,446 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-06 08:48+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Steve (Yorvyk) Cook <yorvik.ubunto@googlemail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/lxmusic.c:261
+msgid "Official icon of xmms2 by Arnaud DIDRY"
+msgstr "Official icon of xmms2 by Arnaud DIDRY"
+
+#: ../src/lxmusic.c:272
+msgid ""
+"Music Player for LXDE\n"
+"Simple GUI XMMS2 client"
+msgstr ""
+"Music Player for LXDE\n"
+"Simple GUI XMMS2 client"
+
+#. default
+#: ../src/lxmusic.c:445
+#: ../src/utils.c:98
+#: ../data/lxmusic.ui.glade.h:14
+msgid "LXMusic"
+msgstr "LXMusic"
+
+#: ../src/lxmusic.c:670
+msgid "Bitrate: "
+msgstr "Bitrate: "
+
+#: ../src/lxmusic.c:972
+msgid "Audio Files"
+msgstr "Audio Files"
+
+#: ../src/lxmusic.c:977
+msgid "All Files"
+msgstr "All Files"
+
+#: ../src/lxmusic.c:1004
+msgid "Input a URL"
+msgstr "Input a URL"
+
+#: ../src/lxmusic.c:1220
+#: ../src/lxmusic.c:1808
+msgid "Now Playing:"
+msgstr "Now Playing:"
+
+#. metadata available
+#: ../src/lxmusic.c:1428
+#: ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:66
+msgid "Artist"
+msgstr "Artist"
+
+#: ../src/lxmusic.c:1436
+#: ../data/lxmusic.ui.glade.h:5
+msgid "Album"
+msgstr "Album"
+
+#: ../src/lxmusic.c:1444
+#: ../src/lxmusic-notify.c:67
+msgid "Title"
+msgstr "Title"
+
+#: ../src/lxmusic.c:1450
+msgid "Length"
+msgstr "Length"
+
+#: ../src/lxmusic.c:1617
+msgid "Default"
+msgstr "Default"
+
+#: ../src/lxmusic.c:1735
+msgid "Pause"
+msgstr "Pause"
+
+#: ../src/lxmusic.c:1749
+msgid "Play"
+msgstr "Play"
+
+#: ../src/lxmusic.c:2301
+msgid "Create new playlist"
+msgstr "Create new playlist"
+
+#: ../src/utils.c:81
+msgid "Error"
+msgstr "Error"
+
+#. alsa use:
+#. * # xmms2 config_list|egrep "^alsa"
+#. * to get list of possible config variables
+#: ../src/lxmusic-plugin-config.c:17
+msgid "Advanced Linux Sound Architecture"
+msgstr "Advanced Linux Sound Architecture"
+
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:28
+msgid "Device:"
+msgstr "Device:"
+
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
+msgid "Mixer:"
+msgstr "Mixer:"
+
+#. oss
+#: ../src/lxmusic-plugin-config.c:22
+msgid "Open Sound System"
+msgstr "Open Sound System"
+
+#. ao
+#: ../src/lxmusic-plugin-config.c:27
+msgid "Cross-platform audio output library"
+msgstr "Cross-platform audio output library"
+
+#. pulse
+#: ../src/lxmusic-plugin-config.c:31
+msgid "PulseAudio"
+msgstr "PulseAudio"
+
+#: ../src/lxmusic-plugin-config.c:32
+msgid "Name:"
+msgstr "Name:"
+
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
+msgid "Server:"
+msgstr "Server:"
+
+#: ../src/lxmusic-plugin-config.c:34
+msgid "Sink:"
+msgstr "Sink:"
+
+#. airtunes
+#: ../src/lxmusic-plugin-config.c:37
+msgid "AirTunes"
+msgstr "AirTunes"
+
+#. jack
+#: ../src/lxmusic-plugin-config.c:41
+msgid "JACK Audio Connection Kit"
+msgstr "JACK Audio Connection Kit"
+
+#: ../src/lxmusic-plugin-config.c:43
+#, fuzzy
+msgid "Disk Writer"
+msgstr "Removable Disk"
+
+#: ../src/lxmusic-plugin-config.c:44
+#, fuzzy
+msgid "Destination Directory:"
+msgstr "Please select the destination directory"
+
+#: ../data/lxmusic.desktop.in.h:1
+#, fuzzy
+msgid "Music Player"
+msgstr "%s Music Player"
+
+#: ../data/lxmusic.desktop.in.h:2
+msgid "Play your music files easily"
+msgstr "Play your music files easily"
+
+#: ../data/lxmusic.ui.glade.h:1
+#, fuzzy
+msgid "Add Files or Folders"
+msgstr "Sort _folders before files"
+
+#: ../data/lxmusic.ui.glade.h:2
+#, fuzzy
+msgid "Add To Playlist"
+msgstr "Add Item to Playlist"
+
+#: ../data/lxmusic.ui.glade.h:3
+#, fuzzy
+msgid "Add URL"
+msgstr "Help URL"
+
+#: ../data/lxmusic.ui.glade.h:4
+#, fuzzy
+msgid "Add files to the playlist"
+msgstr "Add Item to Playlist"
+
+#: ../data/lxmusic.ui.glade.h:6
+#, fuzzy
+msgid "All"
+msgstr "All"
+
+#: ../data/lxmusic.ui.glade.h:8
+#, fuzzy
+msgid "Create _New Playlist"
+msgstr "Create New View"
+
+#: ../data/lxmusic.ui.glade.h:9
+#, fuzzy
+msgid "Current Playlist"
+msgstr "Clear Playlist"
+
+#: ../data/lxmusic.ui.glade.h:10
+#, fuzzy
+msgid "Enter keyword here"
+msgstr "Open Terminal Here"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "Favorites"
+msgstr "Favorites"
+
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
+#, fuzzy
+msgid "File Properties"
+msgstr "File Properties"
+
+#: ../data/lxmusic.ui.glade.h:13
+#, fuzzy
+msgid "Filter:"
+msgstr "_Filter"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Locate currently played track"
+msgstr "Locate currently played track"
+
+#: ../data/lxmusic.ui.glade.h:16
+#, fuzzy
+msgid "Media Library"
+msgstr "Media _Info"
+
+#: ../data/lxmusic.ui.glade.h:17
+#, fuzzy
+msgid "Next"
+msgstr "Next"
+
+#: ../data/lxmusic.ui.glade.h:18
+#, fuzzy
+msgid "No Repeat"
+msgstr "No dependencies"
+
+#: ../data/lxmusic.ui.glade.h:19
+#, fuzzy
+msgid "Play/Pause"
+msgstr "Dis_play:"
+
+#: ../data/lxmusic.ui.glade.h:20
+#, fuzzy
+msgid "Previous"
+msgstr "Previous"
+
+#: ../data/lxmusic.ui.glade.h:21
+#, fuzzy
+msgid "Remove All Items"
+msgstr "Number of Undo Items"
+
+#: ../data/lxmusic.ui.glade.h:22
+#, fuzzy
+msgid "Remove From Playlist"
+msgstr "Remove Item from Playlist"
+
+#: ../data/lxmusic.ui.glade.h:23
+#, fuzzy
+msgid "Remove Selected Items"
+msgstr "Remove the selected file(s) from the composition"
+
+#: ../data/lxmusic.ui.glade.h:24
+#, fuzzy
+msgid "Remove items from the playlist"
+msgstr "Remove Item from Playlist"
+
+#: ../data/lxmusic.ui.glade.h:25
+#, fuzzy
+msgid "Repeat All"
+msgstr "All Files"
+
+#: ../data/lxmusic.ui.glade.h:26
+#, fuzzy
+msgid "Repeat Current"
+msgstr "Current Locale: "
+
+#: ../data/lxmusic.ui.glade.h:27
+#, fuzzy
+msgid "Show Playlist"
+msgstr "Clear Playlist"
+
+#: ../data/lxmusic.ui.glade.h:28
+#, fuzzy
+msgid "Stop"
+msgstr "Stop"
+
+#: ../data/lxmusic.ui.glade.h:29
+#, fuzzy
+msgid "Track Name"
+msgstr "Unknown name"
+
+#: ../data/lxmusic.ui.glade.h:30
+#, fuzzy
+msgid "_Delete Current Playlist"
+msgstr "Adding %s to playlist"
+
+#: ../data/lxmusic.ui.glade.h:31
+#, fuzzy
+msgid "_File"
+msgstr "_File"
+
+#: ../data/lxmusic.ui.glade.h:32
+#, fuzzy
+msgid "_Help"
+msgstr "_Help"
+
+#: ../data/lxmusic.ui.glade.h:33
+#, fuzzy
+msgid "_Locate Currently Played"
+msgstr "Currently selected device"
+
+#: ../data/lxmusic.ui.glade.h:34
+#, fuzzy
+msgid "_Playlist"
+msgstr "_Playlist"
+
+#: ../data/lxmusic.ui.glade.h:35
+#, fuzzy
+msgid "_Switch To Playlist"
+msgstr "Adding %s to playlist"
+
+#: ../data/lxmusic.ui.glade.h:36
+#, fuzzy
+msgid "_Tools"
+msgstr "_Tools"
+
+#: ../data/lxmusic.ui.glade.h:37
+#, fuzzy
+msgid "_View"
+msgstr "_View"
+
+#: ../data/popup.ui.glade.h:1
+#, fuzzy
+msgid "_Show Main Window"
+msgstr "show about window"
+
+#: ../data/pref-dlg.ui.glade.h:1
+#, fuzzy
+msgid "<b>Audio CD</b>"
+msgstr "Audio CD"
+
+#: ../data/pref-dlg.ui.glade.h:2
+#, fuzzy
+msgid "<b>Output</b>"
+msgstr "Output"
+
+#: ../data/pref-dlg.ui.glade.h:3
+#, fuzzy
+msgid "Audio"
+msgstr "Audio Bitrate:"
+
+#: ../data/pref-dlg.ui.glade.h:4
+#, fuzzy
+msgid "Buffer Size: "
+msgstr "Video Size:"
+
+#: ../data/pref-dlg.ui.glade.h:5
+#, fuzzy
+msgid "CD-ROM Device: "
+msgstr "CD Reader device"
+
+#: ../data/pref-dlg.ui.glade.h:6
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "Continue playback in background after exiting LXMusic"
+
+#: ../data/pref-dlg.ui.glade.h:7
+msgid "Default ID3 V1 Encoding: "
+msgstr "Default ID3 V1 Encoding: "
+
+#: ../data/pref-dlg.ui.glade.h:8
+#, fuzzy
+msgid "General"
+msgstr "General"
+
+#: ../data/pref-dlg.ui.glade.h:9
+#, fuzzy
+msgid "KB"
+msgstr "KB"
+
+#: ../data/pref-dlg.ui.glade.h:10
+msgid "Minimize to system tray on close"
+msgstr "Minimize to system tray on close"
+
+#: ../data/pref-dlg.ui.glade.h:11
+msgid "Misc"
+msgstr "Misc"
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Music files can be played without graphical user interface to save system resources"
+
+#: ../data/pref-dlg.ui.glade.h:13
+#, fuzzy
+msgid "Plugin: "
+msgstr "Plugin"
+
+#: ../data/pref-dlg.ui.glade.h:14
+msgid "Preference"
+msgstr "Preference"
+
+#: ../data/pref-dlg.ui.glade.h:15
+#, fuzzy
+msgid "Show system tray icon"
+msgstr "Show a separate icon for each notebook"
+
+#: ../data/track-info.ui.glade.h:1
+#, fuzzy
+msgid "<b>Album: </b>"
+msgstr "Album"
+
+#: ../data/track-info.ui.glade.h:2
+#, fuzzy
+msgid "<b>Artist: </b>"
+msgstr "Artist"
+
+#: ../data/track-info.ui.glade.h:3
+#, fuzzy
+msgid "<b>Comment: </b>"
+msgstr "Comment"
+
+#: ../data/track-info.ui.glade.h:4
+#, fuzzy
+msgid "<b>File Type: </b>"
+msgstr "File _type:"
+
+#: ../data/track-info.ui.glade.h:5
+#, fuzzy
+msgid "<b>File: </b>"
+msgstr "_File"
+
+#: ../data/track-info.ui.glade.h:6
+#, fuzzy
+msgid "<b>Size: </b>"
+msgstr "Size:"
+
+#: ../data/track-info.ui.glade.h:7
+#, fuzzy
+msgid "<b>Title: </b>"
+msgstr "Title"
+
