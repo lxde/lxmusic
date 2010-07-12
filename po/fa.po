@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2010-07-07 17:05+0200\n"
+"PO-Revision-Date: 2010-07-11 17:50+0200\n"
 "Last-Translator: Hamidreza <n3gb0y@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fa\n"
@@ -340,9 +340,8 @@ msgid "KB"
 msgstr "کیلوبایت"
 
 #: ../data/pref-dlg.ui.glade.h:10
-#, fuzzy
 msgid "Minimize to system tray on close"
-msgstr "کوچک سازی در بخش هشدار(کنار ساعت) در صورت خروج"
+msgstr "کوچک سازی در بخش هشدار در صورت خروج"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
