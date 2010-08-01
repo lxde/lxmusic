@@ -143,6 +143,7 @@ static int win_ypos = 0;
 void 			on_locate_cur_track	(GtkAction* act, gpointer user_data);
 void 			on_play_btn_clicked	(GtkButton* btn, gpointer user_data);
 
+static gboolean 	on_tray_icon_middle_clicked	(GtkWidget *widget, GdkEventButton *event, gpointer data);
 static void 		on_volume_btn_scrolled		(GtkWidget *widget, GdkEventScroll *event, gpointer user_data);
 
 static GtkTreeIter	get_current_track_iter	();
@@ -449,6 +450,27 @@ static void create_tray_icon()
     g_signal_connect(tray_icon, "activate", G_CALLBACK(on_tray_icon_activate), NULL );
     g_signal_connect(tray_icon, "popup-menu", G_CALLBACK(on_tray_icon_popup_menu), NULL );
     g_signal_connect(tray_icon, "scroll-event", G_CALLBACK(on_volume_btn_scrolled), volume_btn);
+    g_signal_connect(tray_icon, "button_press_event", G_CALLBACK(on_tray_icon_middle_clicked), NULL );
+ }
+
+static gboolean on_tray_icon_middle_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data) { 
+    /* Only handle the keypress event on middle click Toggle play/pause */
+    if ( event->button == 2 ) {
+	xmmsc_result_t *res;
+	if( playback_status == XMMS_PLAYBACK_STATUS_PLAY )
+	{
+	    res = xmmsc_playback_pause(con);
+	    xmmsc_result_notifier_set_and_unref(res, on_playback_started, NULL);
+	}
+	else
+	{
+	    res = xmmsc_playback_start(con);
+	    xmmsc_result_unref(res);
+	}
+	return TRUE;
+	
+    } 
+    return FALSE;
 }
 
 void on_preference(GtkAction* act, gpointer data)
