@@ -88,6 +88,7 @@ static void 	send_notification_pixbuf		( LXMusicNotification lxn, GdkPixbuf *pix
 static int 	update_track				( xmmsv_t *value, GtkTreeIter* it );
 static int 	on_coll_info_received			( xmmsv_t* value, void* user_data );
 static int 	on_picture_front_received		( xmmsv_t* value, void* user_data );
+static int 	on_playback_started			( xmmsv_t* value, void* user_data );
 
 static xmmsc_connection_t *con = NULL;
 static GtkWidget *main_win = NULL;
@@ -141,6 +142,8 @@ static int win_ypos = 0;
 
 void 			on_locate_cur_track	(GtkAction* act, gpointer user_data);
 void 			on_play_btn_clicked	(GtkButton* btn, gpointer user_data);
+
+static void 		on_volume_btn_scrolled		(GtkWidget *widget, GdkEventScroll *event, gpointer user_data);
 
 static GtkTreeIter	get_current_track_iter	();
 static gboolean		get_track_properties 	(xmmsv_t *value, TrackProperties *properties);
