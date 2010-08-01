@@ -448,6 +448,7 @@ static void create_tray_icon()
     gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon), _("LXMusic"));
     g_signal_connect(tray_icon, "activate", G_CALLBACK(on_tray_icon_activate), NULL );
     g_signal_connect(tray_icon, "popup-menu", G_CALLBACK(on_tray_icon_popup_menu), NULL );
+    g_signal_connect(tray_icon, "scroll-event", G_CALLBACK(on_volume_btn_scrolled), volume_btn);
 }
 
 void on_preference(GtkAction* act, gpointer data)
