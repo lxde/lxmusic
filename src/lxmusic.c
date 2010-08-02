@@ -2002,7 +2002,7 @@ static void on_volume_btn_changed(GtkScaleButton* btn, gdouble val, gpointer use
 
 static void on_volume_btn_scrolled(GtkWidget *widget, GdkEventScroll *event, gpointer user_data)
 {
-	guint volume;
+	gshort volume;
 	GtkAdjustment *vol_adj;
 	xmmsc_result_t *res;
 	res = xmmsc_playback_volume_get(con);
@@ -2013,10 +2013,16 @@ static void on_volume_btn_scrolled(GtkWidget *widget, GdkEventScroll *event, gpo
 	{
 		case GDK_SCROLL_UP:
 			volume = gtk_adjustment_get_value (vol_adj) + 2;
+			if ( volume >= 100 ){
+			  volume = 100;
+			}
 			gtk_adjustment_set_value (GTK_ADJUSTMENT(vol_adj), volume);
 			break;
 		case GDK_SCROLL_DOWN:
 			volume = gtk_adjustment_get_value (vol_adj) - 2;
+			if ( volume <= 0 ){
+			  volume = 0;
+			}
 			gtk_adjustment_set_value (GTK_ADJUSTMENT(vol_adj), volume);
 			break;
 		default:
