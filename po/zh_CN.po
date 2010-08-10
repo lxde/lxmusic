@@ -3,12 +3,12 @@
 # This file is distributed under the same license as the lxmusic package.
 # Hong Jen Yee (PCMan) <pcman.tw@gmail.com>, 2008.
 # Anthony Fok <foka@debian.org>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 13:00+0200\n"
+"POT-Creation-Date: 2010-08-09 05:40+0000\n"
 "PO-Revision-Date: 2009-03-21 03:44+0800\n"
 "Last-Translator: Anthony Fok <foka@debian.org>\n"
 "Language-Team: pcman.tw@gmail.com\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:261
+#: ../src/lxmusic.c:265
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "由 Arnaud DIDRY 制作的 xmms2 官方图标"
 
-#: ../src/lxmusic.c:272
+#: ../src/lxmusic.c:276
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -29,61 +29,61 @@ msgstr ""
 "简单的图形界面 XMMS2 客户端"
 
 #. default
-#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:449 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:670
+#: ../src/lxmusic.c:696
 msgid "Bitrate: "
 msgstr "比特率："
 
-#: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:998
 msgid "Audio Files"
 msgstr "音乐文件"
 
-#: ../src/lxmusic.c:977
+#: ../src/lxmusic.c:1003
 msgid "All Files"
 msgstr "所有文件"
 
-#: ../src/lxmusic.c:1004
+#: ../src/lxmusic.c:1030
 msgid "Input a URL"
 msgstr "输入一个 URL"
 
-#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
+#: ../src/lxmusic.c:1246 ../src/lxmusic.c:1834
 msgid "Now Playing:"
 msgstr "正在播放："
 
 #. metadata available
-#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1454 ../data/lxmusic.ui.glade.h:7
 #: ../src/lxmusic-notify.c:66
 msgid "Artist"
 msgstr "艺术家"
 
-#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1462 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "专辑"
 
-#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1470 ../src/lxmusic-notify.c:67
 msgid "Title"
 msgstr "标题"
 
-#: ../src/lxmusic.c:1450
+#: ../src/lxmusic.c:1476
 msgid "Length"
 msgstr "长度"
 
-#: ../src/lxmusic.c:1617
+#: ../src/lxmusic.c:1643
 msgid "Default"
 msgstr "默认"
 
-#: ../src/lxmusic.c:1735
+#: ../src/lxmusic.c:1761
 msgid "Pause"
 msgstr "暂停"
 
-#: ../src/lxmusic.c:1749
+#: ../src/lxmusic.c:1775
 msgid "Play"
 msgstr "播放"
 
-#: ../src/lxmusic.c:2301
+#: ../src/lxmusic.c:2333
 msgid "Create new playlist"
 msgstr "创建新的播放列表"
 
@@ -155,8 +155,9 @@ msgid "Destination Directory:"
 msgstr ""
 
 #: ../data/lxmusic.desktop.in.h:1
+#, fuzzy
 msgid "Music Player"
-msgstr ""
+msgstr "音乐播放器"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
@@ -347,9 +348,7 @@ msgid "Misc"
 msgstr "杂项"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
+msgid "Music files can be played without graphical user interface to save system resources"
 msgstr "音乐能够在图形界面关闭后，仍继续播放，以节省系统资源"
 
 #: ../data/pref-dlg.ui.glade.h:13
@@ -392,7 +391,6 @@ msgstr "<b>大小：</b>"
 msgid "<b>Title: </b>"
 msgstr "<b>标题：</b>"
 
-#, fuzzy
 #~ msgid "Server"
 #~ msgstr "驱动程序："
 
