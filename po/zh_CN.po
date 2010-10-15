@@ -9,12 +9,15 @@ msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-09 05:40+0000\n"
-"PO-Revision-Date: 2009-03-21 03:44+0800\n"
-"Last-Translator: Anthony Fok <foka@debian.org>\n"
+"PO-Revision-Date: 2010-10-15 13:57+0200\n"
+"Last-Translator: Yinghua_Wang <wantinghard@gmail.com>\n"
 "Language-Team: pcman.tw@gmail.com\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/lxmusic.c:265
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -96,7 +99,7 @@ msgstr "错误"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "高级 Linux 声音架构(ALSA)"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
@@ -110,58 +113,55 @@ msgstr "混音器："
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "开放声音系统(OSS)"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "跨平台音频输出库"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
-#, fuzzy
 msgid "PulseAudio"
-msgstr "音频"
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "名称："
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
-#, fuzzy
 msgid "Server:"
-msgstr "驱动程序："
+msgstr "服务器："
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "接收器："
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio 连接套件"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "磁盘写入程序"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "目标目录："
 
 #: ../data/lxmusic.desktop.in.h:1
-#, fuzzy
 msgid "Music Player"
 msgstr "音乐播放器"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "轻松播放您的音乐文件"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -229,7 +229,7 @@ msgstr "播放/暂停"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
-msgstr "前一首 "
+msgstr "前一首"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
