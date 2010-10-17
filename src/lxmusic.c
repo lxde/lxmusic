@@ -38,9 +38,7 @@
 #include <gdk/gdkx.h>
 #include <gdk/gdkkeysyms.h>
 
-#ifdef HAVE_LIBNOTIFY
 #include "lxmusic-notify.h"
-#endif
 
 #include "lxmusic-plugin-config.h"
 #include "utils.h"
@@ -1847,7 +1845,6 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 
 static void send_notification_pixbuf( LXMusicNotification lxn, GdkPixbuf *pixbuf ) 
 {
-#ifdef HAVE_LIBNOTIFY
     if(!GTK_WIDGET_VISIBLE(main_win))  
     {
 	/* FIXME: Hardcoded notification icon size */
@@ -1855,16 +1852,12 @@ static void send_notification_pixbuf( LXMusicNotification lxn, GdkPixbuf *pixbuf
 	lxmusic_do_notify_pixbuf( lxn, scaled_pixbuf );
 	gdk_pixbuf_unref( scaled_pixbuf );
     }
-    
-#endif	/* HAVE_LIBNOTIFY */
 }
 
 static void send_notification( LXMusicNotification lxn ) 
 {
-#ifdef HAVE_LIBNOTIFY
     if(!GTK_WIDGET_VISIBLE(main_win)) 
 	lxmusic_do_notify( lxn );
-#endif	/* HAVE_LIBNOTIFY */
 }
 
 

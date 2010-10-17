@@ -20,7 +20,15 @@
  */
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+
+#ifdef HAVE_CONFIG_H
+#  include <config.h>
+#endif
+
+#if HAVE_LIBNOTIFY
 #include <libnotify/notify.h>
+#endif	/* HAVE_LIBNOTIFY */
+
 #include "lxmusic-notify.h"    
 
 #define LXMUSIC_NOTIFY_NOTIFICATION_SHOW( notify )  do  { GError *error = NULL; 	\
@@ -32,18 +40,23 @@
 
 struct _LXMusicNotification
 {
+#if HAVE_LIBNOTIFY
     NotifyNotification *notify;
+#endif	/* HAVE_LIBNOTIFY */
 };
 
 void lxmusic_do_notify_pixbuf( LXMusicNotification lxn, GdkPixbuf* pixbuf) 
 {
+#if HAVE_LIBNOTIFY
     notify_notification_set_icon_from_pixbuf ( lxn->notify, pixbuf );
     LXMUSIC_NOTIFY_NOTIFICATION_SHOW( lxn->notify );
     g_free(lxn);
+#endif	/* HAVE_LIBNOTIFY */
 }
 
 void lxmusic_do_notify( LXMusicNotification lxn ) 
 {
+#if HAVE_LIBNOTIFY
     GValue val = { 0, };
     g_value_init (&val, G_TYPE_STRING);
     g_value_set_string( &val, "lxmusic" );
@@ -51,13 +64,14 @@ void lxmusic_do_notify( LXMusicNotification lxn )
     g_value_unset (&val);
     LXMUSIC_NOTIFY_NOTIFICATION_SHOW( lxn->notify );
     g_free(lxn);
+#endif	/* HAVE_LIBNOTIFY */
 }
 
 
 
 LXMusicNotification lxmusic_do_notify_prepare(const gchar *artist, const gchar *title, const char *summary, GtkStatusIcon *status_icon)
 {
-
+#if HAVE_LIBNOTIFY
     if (!notify_is_initted ())
 	notify_init ("LXMusic");
     GString* message = g_string_new("");
@@ -76,5 +90,6 @@ LXMusicNotification lxmusic_do_notify_prepare(const gchar *artist, const gchar *
     notify_notification_set_timeout (lxn->notify, NOTIFY_EXPIRES_DEFAULT);
     g_string_free( message, TRUE );
     return lxn;
+#endif	/* HAVE_LIBNOTIFY */
 }
 

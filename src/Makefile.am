@@ -8,9 +8,7 @@ INCLUDES = \
 
 bin_PROGRAMS = lxmusic
 
-if HAVE_LIBNOTIFY
 libnotify_sources = lxmusic-notify.c lxmusic-notify.h
-endif
 
 lxmusic_SOURCES = \
 	lxmusic.c \
