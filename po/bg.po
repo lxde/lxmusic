@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2010-09-12 18:23+0200\n"
+"PO-Revision-Date: 2010-10-21 08:50+0200\n"
 "Last-Translator: Радослав <Rec.ku@hotmail.com>\n"
 "Language-Team: MIME-Version: 1.0\n"
 "Language: bg\n"
@@ -322,11 +322,11 @@ msgstr "Буфер:"
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "Компактдискво устройство:"
+msgstr "Компактдисково устройство:"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "Продължи изпълнението след изход от LXDMusic"
+msgstr "Продължи изпълнението след изход от LXMusic"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
@@ -334,7 +334,7 @@ msgstr "Разкодирай ID3 V1 по подразбиране:"
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
-msgstr "Основни"
+msgstr "Общи"
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
