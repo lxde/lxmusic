@@ -59,11 +59,11 @@ msgstr "Oluliko kati:"
 #: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
 #: ../src/lxmusic-notify.c:66
 msgid "Artist"
-msgstr "Omuluyimba"
+msgstr "Mu baluyimba"
 
 #: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
-msgstr "Alubamu"
+msgstr "Mu alubamu"
 
 #: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
 msgid "Title"
@@ -180,7 +180,7 @@ msgstr "Olukalala lwongereko fayiro"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr "Byonna"
+msgstr "Mu byonna"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
@@ -264,7 +264,7 @@ msgstr "Gyako"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr "Lutambi"
+msgstr "Mu ntambi"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
