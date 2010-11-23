@@ -1900,8 +1900,8 @@ static int on_playlist_pos_changed( xmmsv_t* val, void* user_data )
                     gtk_list_store_set(list_store, &it, COL_WEIGHT, PANGO_WEIGHT_BOLD, -1);
 
 		    /* update id of currently played track */
-		    xmmsv_dict_get( val, "id", &int_value );
-		    xmmsv_get_int( int_value, &cur_track_id );
+                    if( xmmsv_dict_get( val, "id", &int_value ) )
+                        xmmsv_get_int( int_value, &cur_track_id );
                 }
 		/* scroll to currently played song */
 		gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(playlist_view), path, NULL, FALSE, 0.0, 0.0 );
