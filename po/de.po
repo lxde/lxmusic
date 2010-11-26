@@ -1,12 +1,12 @@
 # German translation for lxmusic.
 # Benedikt Klus <b.klus89@web.de>, 2009.
 # Mario Blättermann <mariobl@gnome.org>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 13:00+0200\n"
+"POT-Creation-Date: 2010-11-26 06:55+0000\n"
 "PO-Revision-Date: 2009-12-29 23:13+0100\n"
 "Last-Translator: Christoph Wickert <christoph.wickert@googlemail.com>\n"
 "Language-Team: \n"
@@ -19,12 +19,12 @@ msgstr ""
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#: ../src/lxmusic.c:261
+# 
+#: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Offizielles Icon von XMMS2 (Arnaud DIDRY)"
 
-#: ../src/lxmusic.c:272
+#: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -33,61 +33,61 @@ msgstr ""
 "Einfache GUI für XMMS2"
 
 #. default
-#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:670
+#: ../src/lxmusic.c:694
 msgid "Bitrate: "
 msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr "Audio-Dateien"
+msgstr "Audiodateien"
 
-#: ../src/lxmusic.c:977
+#: ../src/lxmusic.c:1001
 msgid "All Files"
 msgstr "Alle Dateien"
 
-#: ../src/lxmusic.c:1004
+#: ../src/lxmusic.c:1028
 msgid "Input a URL"
 msgstr "URL einfügen"
 
-#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "Aktuelle Wiedergabe:"
 
 #. metadata available
-#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
-#: ../src/lxmusic-notify.c:66
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Interpret"
 
-#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/lxmusic.c:1450
+#: ../src/lxmusic.c:1474
 msgid "Length"
 msgstr "Länge"
 
-#: ../src/lxmusic.c:1617
+#: ../src/lxmusic.c:1641
 msgid "Default"
 msgstr "Standard"
 
-#: ../src/lxmusic.c:1735
+#: ../src/lxmusic.c:1759
 msgid "Pause"
 msgstr "Pause"
 
-#: ../src/lxmusic.c:1749
+#: ../src/lxmusic.c:1773
 msgid "Play"
 msgstr "Abspielen"
 
-#: ../src/lxmusic.c:2301
+#: ../src/lxmusic.c:2326
 msgid "Create new playlist"
 msgstr "Neue Wiedergabeliste erstellen"
 
@@ -95,20 +95,22 @@ msgstr "Neue Wiedergabeliste erstellen"
 msgid "Error"
 msgstr "Fehler"
 
-# Advanced Linux Sound Architecture/ ALSA ist der Name, kann man schlecht übersetzen.
 #. alsa use:
 #. * # xmms2 config_list|egrep "^alsa"
 #. * to get list of possible config variables
+# Advanced Linux Sound Architecture/ ALSA ist der Name, kann man schlecht
+# übersetzen.
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr "Advanced Linux Sound Architecture (Soundtreiber)"
+msgstr "Advanced Linux Sound Architecture (ALSA)"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Gerät:"
 
-# "Filter:" war vorgeschlagen. Aufgrund fehlenden Kontexts eher "Mischer" oder "Mischpult"
+# "Filter:" war vorgeschlagen. Aufgrund fehlenden Kontexts eher "Mischer" oder
+# "Mischpult"
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Mischer:"
@@ -116,7 +118,7 @@ msgstr "Mischer:"
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr "Offenes Audiosystem"
+msgstr "Offenes Audiosystem (OSS)"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
@@ -130,7 +132,7 @@ msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr "Name"
+msgstr "Name:"
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
@@ -252,11 +254,11 @@ msgstr "Einträge aus der Wiedergabeliste entfernen"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr "Wiederhole alle"
+msgstr "Alles wiederholen"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr "Wiederhole aktuelles Lied"
+msgstr "Aktuelles Lied wiederholen"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
@@ -264,11 +266,11 @@ msgstr "Wiedergabeliste anzeigen"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
-msgstr "Stop"
+msgstr "Stopp"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr "Liedname"
+msgstr "Titel"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
@@ -292,7 +294,7 @@ msgstr "_Wiedergabeliste"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "_Wechsle zur Playlist"
+msgstr "Zu _Wiedergabeliste wechseln"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
@@ -344,19 +346,15 @@ msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
-msgstr "Beim Schließen in den Tray minimieren"
+msgstr "Beim Schließen in das Benachrichtigungsfeld minimieren"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
 msgstr "Sonstiges"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
-"Musikdateien können ohne graphische Benutzeroberfläche wiedergegeben werden, "
-"um Systemressourcen zu sparen"
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Musikdateien können ohne graphische Benutzeroberfläche wiedergegeben werden, um Systemressourcen zu sparen"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -368,7 +366,7 @@ msgstr "Einstellungen"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr "Zeige Tray-Icon"
+msgstr "Symbol im Benachrichtigungsfeld anzeigen"
 
 #: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
@@ -384,7 +382,7 @@ msgstr "<b>Kommentar: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Dateien nach Typ: </b>"
+msgstr "<b>Dateientyp: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
@@ -398,7 +396,6 @@ msgstr "<b>Größe: </b>"
 msgid "<b>Title: </b>"
 msgstr "<b>Titel: </b>"
 
-#, fuzzy
 #~ msgid "Server"
 #~ msgstr "Treiber:"
 
