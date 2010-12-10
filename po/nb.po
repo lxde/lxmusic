@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2010-11-03 19:18+0200\n"
+"PO-Revision-Date: 2010-12-10 06:14+0200\n"
 "Last-Translator: Sam <wilsonsamm@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb\n"
@@ -37,7 +37,7 @@ msgstr "LXMusic"
 
 #: ../src/lxmusic.c:670
 msgid "Bitrate: "
-msgstr "Bitrate: _"
+msgstr "Bitrate:"
 
 #: ../src/lxmusic.c:972
 msgid "Audio Files"
@@ -160,7 +160,7 @@ msgstr "Musikkspiller"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "Spill musikkfiler"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -320,7 +320,7 @@ msgstr "Bufferstørrelse:"
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "CD-ROM enhet: _"
+msgstr "CD-ROM enhet:"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
@@ -328,7 +328,7 @@ msgstr "Fortsett avspilling i bakgrunnen etter at LXMusic er avsluttet"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "Standard ID3 V1-koding: _"
+msgstr "Standard ID3 V1-koding:"
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
@@ -354,7 +354,7 @@ msgstr "Musikkfiler kan spilles av uten grafisk grensesnitt"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr "Innstikk: _"
+msgstr "Innstikk:"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
