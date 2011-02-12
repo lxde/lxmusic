@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: LXMusic 0.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2011-02-12 18:26+0200\n"
+"PO-Revision-Date: 2011-02-12 18:32+0200\n"
 "Last-Translator: Klemen <klemen.kosir@gmx.com>\n"
 "Language-Team: Slovenian <paxmanpwnz@gmail.com>\n"
 "Language: sl\n"
@@ -258,7 +258,7 @@ msgstr "Pokaži seznam predvajanaj"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
-msgstr "Ustavi"
+msgstr "Zaustavi"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
