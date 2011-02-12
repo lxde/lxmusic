@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: LXMusic 0.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2011-02-05 12:36+0200\n"
-"Last-Translator: Klemen <klemen913@gmail.com>\n"
+"PO-Revision-Date: 2011-02-12 18:26+0200\n"
+"Last-Translator: Klemen <klemen.kosir@gmx.com>\n"
 "Language-Team: Slovenian <paxmanpwnz@gmail.com>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -18,14 +18,14 @@ msgstr ""
 
 #: ../src/lxmusic.c:261
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Uradna ikona xmms, ki jo je ustvaril Arnaud DIDRY"
+msgstr "Uradno ikono XMMS2 je ustvaril Arnaud Didry"
 
 #: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Predvajalnik zvoka za LXDE\n"
+"Predvajalnik glasbe za LXDE\n"
 "Grafični odjemalec za XMMS2"
 
 #. default
@@ -46,12 +46,10 @@ msgid "All Files"
 msgstr "Vse datoteke"
 
 #: ../src/lxmusic.c:1004
-#, fuzzy
 msgid "Input a URL"
-msgstr "Vnesi URL naslov"
+msgstr "Vnesite URL naslov"
 
 #: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
-#, fuzzy
 msgid "Now Playing:"
 msgstr "Predvaja se:"
 
@@ -75,7 +73,7 @@ msgstr "Trajanje"
 
 #: ../src/lxmusic.c:1617
 msgid "Default"
-msgstr "Privzeto"
+msgstr "Privzeti seznam"
 
 #: ../src/lxmusic.c:1735
 msgid "Pause"
@@ -86,7 +84,6 @@ msgid "Play"
 msgstr "Predvajaj"
 
 #: ../src/lxmusic.c:2301
-#, fuzzy
 msgid "Create new playlist"
 msgstr "Ustvari nov seznam predvajanja"
 
@@ -117,9 +114,8 @@ msgstr "Open Sound System"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
-#, fuzzy
 msgid "Cross-platform audio output library"
-msgstr "Med-platformna izhodna zvočna knjižnica"
+msgstr "Knjižnica za izhod zvoka, ki deluje v različnih okoljih"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
@@ -149,9 +145,8 @@ msgid "JACK Audio Connection Kit"
 msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
-#, fuzzy
 msgid "Disk Writer"
-msgstr "Pisanje na disk"
+msgstr "Zapisovalec na disk"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
@@ -162,9 +157,8 @@ msgid "Music Player"
 msgstr "Predvajalnik glasbe"
 
 #: ../data/lxmusic.desktop.in.h:2
-#, fuzzy
 msgid "Play your music files easily"
-msgstr "Enostavno predvajanje vaših glasbenih datotek"
+msgstr "Predvajajte svoje glasbene datoteke"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
@@ -188,14 +182,13 @@ msgstr "Vse"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "Ustvari _nov seznam predvajanja"
+msgstr "Ustvari nov seznam predvajanja"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
 msgstr "Trenutni seznam predvajanja"
 
 #: ../data/lxmusic.ui.glade.h:10
-#, fuzzy
 msgid "Enter keyword here"
 msgstr "Vpišite ključne besede"
 
@@ -208,12 +201,10 @@ msgid "File Properties"
 msgstr "Lastnosti datoteke"
 
 #: ../data/lxmusic.ui.glade.h:13
-#, fuzzy
 msgid "Filter:"
-msgstr "Išči:"
+msgstr "Iskanje:"
 
 #: ../data/lxmusic.ui.glade.h:15
-#, fuzzy
 msgid "Locate currently played track"
 msgstr "Najdi trenutno predvajano skladbo"
 
@@ -226,7 +217,6 @@ msgid "Next"
 msgstr "Naslednja"
 
 #: ../data/lxmusic.ui.glade.h:18
-#, fuzzy
 msgid "No Repeat"
 msgstr "Brez ponavljanja"
 
@@ -235,9 +225,8 @@ msgid "Play/Pause"
 msgstr "Predvajaj/premor"
 
 #: ../data/lxmusic.ui.glade.h:20
-#, fuzzy
 msgid "Previous"
-msgstr "Predhodna"
+msgstr "Prejšnja"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
@@ -268,7 +257,6 @@ msgid "Show Playlist"
 msgstr "Pokaži seznam predvajanaj"
 
 #: ../data/lxmusic.ui.glade.h:28
-#, fuzzy
 msgid "Stop"
 msgstr "Ustavi"
 
@@ -289,9 +277,8 @@ msgid "_Help"
 msgstr "_Pomoč"
 
 #: ../data/lxmusic.ui.glade.h:33
-#, fuzzy
 msgid "_Locate Currently Played"
-msgstr "Najdi _trenutno predvajanega"
+msgstr "Najdi _trenutno predvajano skladbo"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
@@ -318,7 +305,6 @@ msgid "<b>Audio CD</b>"
 msgstr "<b>Zvočni CD</b>"
 
 #: ../data/pref-dlg.ui.glade.h:2
-#, fuzzy
 msgid "<b>Output</b>"
 msgstr "<b>Izhod</b>"
 
@@ -335,7 +321,6 @@ msgid "CD-ROM Device: "
 msgstr "Naprava CD-ROM: "
 
 #: ../data/pref-dlg.ui.glade.h:6
-#, fuzzy
 msgid "Continue playback in background after exiting LXMusic"
 msgstr "Po izhodu nadaljuj predvajanje v ozadju"
 
@@ -372,7 +357,6 @@ msgid "Plugin: "
 msgstr "Vstavek: "
 
 #: ../data/pref-dlg.ui.glade.h:14
-#, fuzzy
 msgid "Preference"
 msgstr "Možnosti"
 
