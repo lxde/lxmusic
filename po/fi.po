@@ -17,373 +17,396 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../src/lxmusic.c:261
+#: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr ""
+msgstr "Arnaud DIDRY:n luoma xmms2:n virallinen kuvake"
 
 #: ../src/lxmusic.c:272
+#: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
+"Musiikki soitin LXDE:lle\n"
+"Yksinkertainen GUI XMMS2:lle"
 
 #. default
 #: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447
 msgid "LXMusic"
-msgstr ""
+msgstr "LXMusiikki"
 
 #: ../src/lxmusic.c:670
+#: ../src/lxmusic.c:694
 msgid "Bitrate: "
-msgstr ""
+msgstr "Bittinopeus:"
 
 #: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr ""
+msgstr "Ääni tiedostot"
 
 #: ../src/lxmusic.c:977
+#: ../src/lxmusic.c:1001
 msgid "All Files"
-msgstr ""
+msgstr "Kaikki tiedotot"
 
 #: ../src/lxmusic.c:1004
+#: ../src/lxmusic.c:1028
 msgid "Input a URL"
-msgstr ""
+msgstr "Anna URL"
 
 #: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
+#: ../src/lxmusic.c:1244
+#: ../src/lxmusic.c:1832
 msgid "Now Playing:"
-msgstr ""
+msgstr "Toistetaan."
 
 #. metadata available
 #: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
 #: ../src/lxmusic-notify.c:66
+#: ../src/lxmusic.c:1452
+#: ../src/lxmusic-notify.c:80
 msgid "Artist"
-msgstr ""
+msgstr "Artisti"
 
 #: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460
 msgid "Album"
-msgstr ""
+msgstr "Albumi"
 
 #: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1468
+#: ../src/lxmusic-notify.c:81
 msgid "Title"
-msgstr ""
+msgstr "Otsikko"
 
 #: ../src/lxmusic.c:1450
+#: ../src/lxmusic.c:1474
 msgid "Length"
-msgstr ""
+msgstr "Pituus"
 
 #: ../src/lxmusic.c:1617
+#: ../src/lxmusic.c:1641
 msgid "Default"
-msgstr ""
+msgstr "Oletukset"
 
 #: ../src/lxmusic.c:1735
+#: ../src/lxmusic.c:1759
 msgid "Pause"
-msgstr ""
+msgstr "Tauko"
 
 #: ../src/lxmusic.c:1749
+#: ../src/lxmusic.c:1773
 msgid "Play"
-msgstr ""
+msgstr "Toista"
 
 #: ../src/lxmusic.c:2301
+#: ../src/lxmusic.c:2326
 msgid "Create new playlist"
-msgstr ""
+msgstr "Luo uusi toistolista"
 
 #: ../src/utils.c:81
 msgid "Error"
-msgstr ""
+msgstr "Virhe"
 
 #. alsa use:
 #. * # xmms2 config_list|egrep "^alsa"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "Advanced Linux Sound Architecture"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
-msgstr ""
+msgstr "Laite:"
 
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr ""
+msgstr "Mikseri:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "Open Sound System"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "Cross-platform audio output library"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
 msgid "PulseAudio"
-msgstr ""
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Nimi:"
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr ""
+msgstr "Palvelin:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "Sink:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "Levykirjoitin"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Kohde kansio:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr ""
+msgstr "Musiikki soitin"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "Soita musiikkiasi helposti"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
-msgstr ""
+msgstr "Lisää tiedostoja tai kansioita"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
-msgstr ""
+msgstr "Lisää toistolistaan"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Add URL"
-msgstr ""
+msgstr "Lisää URL"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
-msgstr ""
+msgstr "Lisää tiedostoja toistolistaan"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "Kaikki"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr ""
+msgstr "Luo _uusi toistolista"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr ""
+msgstr "Nykyinen toistolista"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
-msgstr ""
+msgstr "Anna tähän avainsana"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
-msgstr ""
+msgstr "Suosikit"
 
 #: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
-msgstr ""
+msgstr "Tiedoston ominaisuudet"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Filter:"
-msgstr ""
+msgstr "Suodatin:"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
-msgstr ""
+msgstr "Paikallista parhaillaan soiva kappale"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
-msgstr ""
+msgstr "Kirjasto"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Next"
-msgstr ""
+msgstr "Seuraava"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "Älä toista"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
-msgstr ""
+msgstr "Toista/tauko"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
-msgstr ""
+msgstr "Edellinen"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
-msgstr ""
+msgstr "Poista kaikki"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr ""
+msgstr "Poista toistolistalta"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
-msgstr ""
+msgstr "Poista valitut kohteet"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
-msgstr ""
+msgstr "Poista kohteita toistolistalta"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr ""
+msgstr "Toista kaikki"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr ""
+msgstr "Toista nykyinen"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
-msgstr ""
+msgstr "Näytä soittolista"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
-msgstr ""
+msgstr "Pysäytä"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr ""
+msgstr "Raidan nimi"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr ""
+msgstr "_Poista nykyinen soittolista"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
-msgstr ""
+msgstr "_Tiedosto"
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "_Help"
-msgstr ""
+msgstr "_Apua"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr ""
+msgstr "_Paikallista nykyinen kappale"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr ""
+msgstr "_Soittolista"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr ""
+msgstr "_Vaihda soittolistaan"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
-msgstr ""
+msgstr "_Työkalut"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "_View"
-msgstr ""
+msgstr "_Näytä"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr ""
+msgstr "Näytä pääikkuna"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr ""
+msgstr "<b>Ääni CD-levy</b>"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
-msgstr ""
+msgstr "<b>Ulostulo</b>"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Audio"
-msgstr ""
+msgstr "Ääni"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr ""
+msgstr "Puskurin koko: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr ""
+msgstr "CD-ROM laite: "
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr ""
+msgstr "Jatka toistoa taustalla LXMusiikin sulkemisen jälkeen"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr ""
+msgstr "ID3 V1 tagien oletus koodaus: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
-msgstr ""
+msgstr "Kt"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
-msgstr ""
+msgstr "Pienennä ilmoitusalueelle suljettaessa"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
-msgstr ""
+msgstr "Muut"
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
+"Musiikki tiedostot voidaan toistaa ilman graafista käyttöliittymää "
+"resurssien säästämiseksi."
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr ""
+msgstr "Liitännäinen: "
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
-msgstr ""
+msgstr "Etusija"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Näytä ilmoitusalueen kuvake"
 
 #: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
-msgstr ""
+msgstr "<b>Albumi: </b>"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr ""
+msgstr "<b>Artisti: </b>"
 
 #: ../data/track-info.ui.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr ""
+msgstr "<b>Kommentti: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr ""
+msgstr "<b>Tiedosto tyyppi: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
-msgstr ""
+msgstr "<b<Tiedosto: </b>"
 
 #: ../data/track-info.ui.glade.h:6
 msgid "<b>Size: </b>"
-msgstr ""
+msgstr "<b>Koko: </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "<b>Otsikko: </b>"
