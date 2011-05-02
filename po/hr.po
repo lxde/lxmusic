@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/projects/lxde/support\n"
 "POT-Creation-Date: 2010-11-26 06:55+0000\n"
-"PO-Revision-Date: 2011-02-28 20:49+0200\n"
+"PO-Revision-Date: 2011-05-02 19:14+0200\n"
 "Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: Croatian <ikoli@yahoo.com>\n"
 "Language: hr\n"
@@ -52,7 +52,7 @@ msgstr "Ubaci URL"
 
 #: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
-msgstr "Trenutno Svira:"
+msgstr "Trenutno svira:"
 
 #. metadata available
 #: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
@@ -121,7 +121,7 @@ msgstr ""
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
 msgid "PulseAudio"
-msgstr ""
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
@@ -167,7 +167,7 @@ msgstr "Dodaj Datoteke ili Direktorije"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
-msgstr "Dodaj Play Listi"
+msgstr "Dodaj listi izvođenja"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Add URL"
@@ -175,7 +175,7 @@ msgstr "Dodaj URL"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
-msgstr "Dodaj datoteke na play listu"
+msgstr "Dodaj datoteke na listu izvođenja"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
@@ -183,7 +183,7 @@ msgstr "Sve"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "Napravi _Novu listu izvođenja"
+msgstr "Napravi _novu listu izvođenja"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
@@ -231,7 +231,7 @@ msgstr "Prethodni"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
-msgstr "Ukloni Sve Stavke"
+msgstr "Ukloni sve stavke"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
@@ -239,7 +239,7 @@ msgstr "Ukloni sa liste izvođenja"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
-msgstr "Ukloni Odabrane Stavke"
+msgstr "Ukloni odabrane stavke"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
@@ -315,7 +315,7 @@ msgstr "Glazba"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr "Veličina Međuspremnika: "
+msgstr "Veličina međuspremnika: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
