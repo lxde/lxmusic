@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2011-04-16 09:39+0200\n"
-"Last-Translator: Praveen <mail2ipn@gmail.com>\n"
+"PO-Revision-Date: 2011-05-19 16:14+0200\n"
+"Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "అన్ని ఫైళ్ళు"
 
 #: ../src/lxmusic.c:1004
 msgid "Input a URL"
-msgstr ""
+msgstr "ఒక URL ఇన్‌పుట్ వలె ఇవ్వు"
 
 #: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
 msgid "Now Playing:"
@@ -190,7 +190,7 @@ msgstr "ప్రస్తుత పాటలజాబితా"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
-msgstr ""
+msgstr "ముఖ్యపదాన్ని ఇక్కడ ప్రవేశపెట్టండి"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
@@ -206,7 +206,7 @@ msgstr "వడపోత:"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
-msgstr ""
+msgstr "ప్రస్తుతం ఆడుతున్న ట్రాక్ స్థానాన్ని కనుగొను"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
@@ -278,7 +278,7 @@ msgstr "సహాయం (_H)"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr ""
+msgstr "ప్రస్తుతం ప్లే అవుతున్న దాని స్థానమును కనుగొను (_L)"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
@@ -322,11 +322,11 @@ msgstr "CD-ROM పరికరం:"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr ""
+msgstr "LXసంగీతం నుండి నిష్క్రమించిన తరువాత ప్లేబాక్ నేపథ్యములో కొనసాగించు"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr ""
+msgstr "అప్రమేయ ID3 V1 ఎన్కోడింగ్:"
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
@@ -338,17 +338,19 @@ msgstr "కిబై"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
-msgstr ""
+msgstr "మూసివేసినపుడ వ్యవస్థ పల్లెము వద్ద కనిష్టీకరించు"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
-msgstr ""
+msgstr "మిస్క్"
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
+"వ్యవస్థ వనరులను భద్రపరుచుటకు గ్రాఫికల్ అంతరవర్తి లేకుండానే సంగీత ఫైళ్ళను "
+"ఆడించవచ్చు"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -360,7 +362,7 @@ msgstr "ప్రాధాన్యత"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr ""
+msgstr "వ్యవస్థ పల్లెము ప్రతీకను చూపించు"
 
 #: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
