@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: http://sourceforge.net/projects/lxde/support\n"
 "POT-Creation-Date: 2010-11-26 06:55+0000\n"
-"PO-Revision-Date: 2011-05-02 19:14+0200\n"
+"PO-Revision-Date: 2011-05-20 11:25+0200\n"
 "Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: Croatian <ikoli@yahoo.com>\n"
 "Language: hr\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Službena ikona za xmms2 od Arnaud DIDRY"
+msgstr "Službena ikona za xmms2 napravio Arnaud DIDRY"
 
 #: ../src/lxmusic.c:274
 msgid ""
@@ -40,11 +40,11 @@ msgstr "Bitrate: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr "Glazbene Datoteke"
+msgstr "Glazbene datoteke"
 
 #: ../src/lxmusic.c:1001
 msgid "All Files"
-msgstr "Sve Datoteke"
+msgstr "Sve datoteke"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
@@ -74,7 +74,7 @@ msgstr "Duljina"
 
 #: ../src/lxmusic.c:1641
 msgid "Default"
-msgstr "Standardno"
+msgstr "Zadano"
 
 #: ../src/lxmusic.c:1759
 msgid "Pause"
@@ -299,11 +299,11 @@ msgstr "_Izgled"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr "_Prikaži Glavni Prozor"
+msgstr "_Prikaži glavni prozor"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr "<b>Glazbeni CD</b>"
+msgstr "<b>Audio CD</b>"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
@@ -311,7 +311,7 @@ msgstr "<b>Izlaz</b>"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Audio"
-msgstr "Glazba"
+msgstr "Audio"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
