@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2010-09-22 11:32-0000\n"
-"Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
+"PO-Revision-Date: 2011-05-14 02:22+0200\n"
+"Last-Translator: Sérgio <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.1.0\n"
+"X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: PORTUGAL\n"
 
@@ -41,7 +42,7 @@ msgstr "LXMusic"
 
 #: ../src/lxmusic.c:670
 msgid "Bitrate: "
-msgstr "Taxa de \"Bits\":"
+msgstr "Taxa de bits: "
 
 #: ../src/lxmusic.c:972
 msgid "Audio Files"
@@ -106,7 +107,7 @@ msgstr "Erro"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr "\"Advanced Linux Sound Architecture\""
+msgstr "Advanced Linux Sound Architecture"
 
 #: ../src/lxmusic-plugin-config.c:18
 #: ../src/lxmusic-plugin-config.c:23
@@ -122,7 +123,7 @@ msgstr "Equalizador:"
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr "\"Open Sound System\""
+msgstr "Open Sound System"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
@@ -132,7 +133,7 @@ msgstr "Biblioteca de saída áudio multi-plataforma"
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
 msgid "PulseAudio"
-msgstr "\"PulseAudio\""
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
@@ -150,12 +151,12 @@ msgstr "Depósito:"
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr "\"AirTunes\""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr "\"JACK Audio Connection Kit\""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
@@ -328,11 +329,11 @@ msgstr "Áudio"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr "Tamanho de memória:"
+msgstr "Tamanho de memória: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "Dispositivo CD-ROM:"
+msgstr "Dispositivo CD-ROM: "
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
@@ -340,7 +341,7 @@ msgstr "Continuar a tocar em segundo plano após sair do LXMusic"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "Codificação ID3 V1 por omissão:"
+msgstr "Codificação ID3 V1 por omissão: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
@@ -364,7 +365,7 @@ msgstr "Os ficheiros de música podem ser reproduzidos sem interface gráfica pa
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr "\"Plug-in\":"
+msgstr "\"Plug-in\": "
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
@@ -396,9 +397,8 @@ msgstr "<b>Ficheiro: </b>"
 
 #: ../data/track-info.ui.glade.h:6
 msgid "<b>Size: </b>"
-msgstr "<b>Tamanho: <b>"
+msgstr "<b>Tamanho: </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Título: </b>"
-
