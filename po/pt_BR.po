@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the lxmusic package.
 # Og Maciel <ogmaciel@gnome.org>, 2009.
 # Henrique P. Machado <zehrique@gmail.com>, 2009.
+# Sérgio Cipolla <secipolla@gmail.com>, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-18 06:07+0000\n"
-"PO-Revision-Date: 2010-11-18 11:16-0300\n"
+"PO-Revision-Date: 2011-05-23 17:21-0300\n"
 "Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -289,7 +290,7 @@ msgstr "Aj_uda"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Localizar atualmente reproduzida"
+msgstr "_Localizar a faixa em reprodução"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
@@ -402,6 +403,7 @@ msgstr "<b>Título: </b>"
 #, fuzzy
 #~ msgid "Server"
 #~ msgstr "Driver:"
+
 #~ msgid ""
 #~ "All\n"
 #~ "Track Name\n"
@@ -412,6 +414,7 @@ msgstr "<b>Título: </b>"
 #~ "Nome da faixa\n"
 #~ "Artista\n"
 #~ "Álbum"
+
 #~ msgid ""
 #~ "No Repeat\n"
 #~ "Repeat Current\n"
@@ -420,8 +423,9 @@ msgstr "<b>Título: </b>"
 #~ "Repetir: desligado\n"
 #~ "Repetir: faixa\n"
 #~ "Repetir: tudo"
+
 #~ msgid "Use OSS for audio output"
 #~ msgstr "Usar OSS para saída de áudio"
+
 #~ msgid "Use Pulse Audio for audio output"
 #~ msgstr "Usar Pulse Audio para saída de áudio"
-
