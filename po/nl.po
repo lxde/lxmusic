@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2011-05-19 11:24+0200\n"
+"PO-Revision-Date: 2011-05-28 17:27+0200\n"
 "Last-Translator: Pjotr <pliniusminor@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nl\n"
@@ -87,7 +87,7 @@ msgstr "Afspelen"
 
 #: ../src/lxmusic.c:2301
 msgid "Create new playlist"
-msgstr "Nieuwe afspeellijst aanmaken"
+msgstr "Nieuwe speellijst aanmaken"
 
 #: ../src/utils.c:81
 msgid "Error"
@@ -107,7 +107,7 @@ msgstr "Apparaat:"
 
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr "Mixer:"
+msgstr "Mengpaneel:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
@@ -168,7 +168,7 @@ msgstr "Bestanden of Mappen toevoegen"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
-msgstr "Toevoegen aan Afspeellijst"
+msgstr "Toevoegen aan Speellijst"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Add URL"
@@ -176,7 +176,7 @@ msgstr "URL toevoegen"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
-msgstr "Bestanden toevoegen aan de afspeellijst"
+msgstr "Bestanden toevoegen aan de speellijst"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
@@ -184,11 +184,11 @@ msgstr "Alle"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "_Nieuwe Afspeellijst aanmaken"
+msgstr "_Nieuwe Speellijst aanmaken"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr "Huidige Afspeellijst"
+msgstr "Huidige Speellijst"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
@@ -236,7 +236,7 @@ msgstr "Alle elementen verwijderen"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr "Van Afspeellijst verwijderen"
+msgstr "Van Speellijst verwijderen"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
@@ -244,7 +244,7 @@ msgstr "Geselecteerde elementen verwijderen"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
-msgstr "Elementen van afspeellijst verwijderen"
+msgstr "Elementen van speellijst verwijderen"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
@@ -256,7 +256,7 @@ msgstr "Huidige herhalen"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
-msgstr "Toon Afspeellijst"
+msgstr "Toon Speellijst"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
@@ -268,7 +268,7 @@ msgstr "Naam van het nummer"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr "_Verwijder Huidige Afspeellijst"
+msgstr "_Verwijder Huidige Speellijst"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
@@ -284,11 +284,11 @@ msgstr "_Zoek nu spelend nummer op"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr "_Afspeellijst"
+msgstr "_Speellijst"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "Over_schakelen naar Afspeellijst"
+msgstr "Over_schakelen naar Speellijst"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
@@ -304,7 +304,7 @@ msgstr "_Toon Hoofdvenster"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr "<b>Audio-CD</b>"
+msgstr "<b>Geluids-CD</b>"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
@@ -312,7 +312,7 @@ msgstr "<b>Uitvoer</b>"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Audio"
-msgstr "Audio"
+msgstr "Geluid"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
@@ -320,7 +320,7 @@ msgstr "Buffergrootte: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr "CD-ROM-apparaat"
+msgstr "CD-ROM-apparaat: "
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
@@ -340,7 +340,7 @@ msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
-msgstr "Minimaliseren in systeemvak bij sluiten"
+msgstr "Minimaliseren naar systeemvak bij sluiten"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
