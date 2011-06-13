@@ -1,22 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Dutch translation of the lxmusic package.
+# Copyright (C) the author of the lxmusic package.
+# This file is distributed under the same license as the 
+# lxmusic package.
+# Pjotr, 2011.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2011-06-02 23:42+0200\n"
-"Last-Translator: Pjotr <>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: nl\n"
+"POT-Creation-Date: 2011-05-27 04:04+0000\n"
+"PO-Revision-Date: 2011-06-13 11:34+0200\n"
+"Last-Translator: Pjotr\n"
+"Language-Team: Dutch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/lxmusic.c:261
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -53,7 +53,7 @@ msgstr "Voer een URL in"
 
 #: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
 msgid "Now Playing:"
-msgstr "Nu aan het Afspelen:"
+msgstr "Nu aan het afspelen:"
 
 #. metadata available
 #: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
@@ -79,7 +79,7 @@ msgstr "Standaard"
 
 #: ../src/lxmusic.c:1735
 msgid "Pause"
-msgstr "Pauzeren"
+msgstr "Pauze"
 
 #: ../src/lxmusic.c:1749
 msgid "Play"
@@ -380,7 +380,7 @@ msgstr "<b>Commentaar: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Bestandtype: </b>"
+msgstr "<b>Bestandstype: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
@@ -395,7 +395,7 @@ msgid "<b>Title: </b>"
 msgstr "<b>Titel: </b>"
 
 #~ msgid "Server"
-#~ msgstr "Stuurapparaat:"
+#~ msgstr "Server"
 
 #~ msgid ""
 #~ "All\n"
@@ -404,7 +404,7 @@ msgstr "<b>Titel: </b>"
 #~ "Album"
 #~ msgstr ""
 #~ "Alle\n"
-#~ "Bestandsnaam\n"
+#~ "Spoornaam\n"
 #~ "Artiest\n"
 #~ "Album"
 
@@ -418,7 +418,7 @@ msgstr "<b>Titel: </b>"
 #~ "Alle herhalen"
 
 #~ msgid "Use OSS for audio output"
-#~ msgstr "Gebruik OSS voor audio output"
+#~ msgstr "Gebruik OSS voor audio-uitvoer"
 
 #~ msgid "Use Pulse Audio for audio output"
-#~ msgstr "Gebruik Pulse Audio voor audio output"
+#~ msgstr "Gebruik Pulse Audio voor audio-uitvoer"
