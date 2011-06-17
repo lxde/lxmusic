@@ -1,4 +1,4 @@
-# Dutch translation of the lxmusic package.
+# Dutch translation for the lxmusic package.
 # Copyright (C) the author of the lxmusic package.
 # This file is distributed under the same license as the 
 # lxmusic package.
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
+"Language: nl (Dutch)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/lxmusic.c:261
@@ -28,7 +28,7 @@ msgid ""
 "Simple GUI XMMS2 client"
 msgstr ""
 "Muziekspeler voor LXDE\n"
-"Eenvoudige grafische schil rond XMMS2"
+"Eenvoudige grafische schil voor XMMS2"
 
 #. default
 #: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
@@ -280,7 +280,7 @@ msgstr "_Hulp"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Zoek nu spelend nummer op"
+msgstr "_Zoek thans spelend nummer op"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
@@ -380,7 +380,7 @@ msgstr "<b>Commentaar: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Bestandstype: </b>"
+msgstr "<b>Bestandtype: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
