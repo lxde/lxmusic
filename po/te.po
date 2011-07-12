@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2011-05-19 16:14+0200\n"
+"PO-Revision-Date: 2011-07-12 17:47+0200\n"
 "Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -20,13 +20,15 @@ msgstr ""
 
 #: ../src/lxmusic.c:261
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr ""
+msgstr "ఆర్నౌడ్ డిడ్రిచే రూపొందించిన xmms2 యొక్క అధికారిక ప్రతీక"
 
 #: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
+"LXDE కొరకు సంగీత ఆటకము\n"
+"సరళ GUI XMMS2 క్లయింటు"
 
 #. default
 #: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
@@ -137,7 +139,7 @@ msgstr ""
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "ఎయిర్ ట్యూన్స్"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
