@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 13:00+0200\n"
-"PO-Revision-Date: 2011-07-12 17:47+0200\n"
+"PO-Revision-Date: 2011-07-12 17:53+0200\n"
 "Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -117,7 +117,7 @@ msgstr "శబ్ధ వ్యవస్థను తెరువు"
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "క్రాస్-ప్లాట్‌ఫార్మ్ ఆడియో అవుట్‌పుట్ లైబ్రరీ"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
@@ -134,7 +134,7 @@ msgstr "సేవకం:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "సింక్:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
