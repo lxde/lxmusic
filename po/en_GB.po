@@ -1,21 +1,22 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-06 08:48+0000\n"
+"POT-Creation-Date: 2011-07-22 16:34+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Steve (Yorvyk) Cook <yorvik.ubunto@googlemail.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/lxmusic.c:261
+#: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Official icon of xmms2 by Arnaud DIDRY"
 
-#: ../src/lxmusic.c:272
+#: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -24,61 +25,61 @@ msgstr ""
 "Simple GUI XMMS2 client"
 
 #. default
-#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:670
+#: ../src/lxmusic.c:694
 msgid "Bitrate: "
 msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:996
 msgid "Audio Files"
 msgstr "Audio Files"
 
-#: ../src/lxmusic.c:977
+#: ../src/lxmusic.c:1001
 msgid "All Files"
 msgstr "All Files"
 
-#: ../src/lxmusic.c:1004
+#: ../src/lxmusic.c:1028
 msgid "Input a URL"
 msgstr "Input a URL"
 
-#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "Now Playing:"
 
 #. metadata available
-#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
-#: ../src/lxmusic-notify.c:66
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Artist"
 
-#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
 msgstr "Title"
 
-#: ../src/lxmusic.c:1450
+#: ../src/lxmusic.c:1474
 msgid "Length"
 msgstr "Length"
 
-#: ../src/lxmusic.c:1617
+#: ../src/lxmusic.c:1641
 msgid "Default"
 msgstr "Default"
 
-#: ../src/lxmusic.c:1735
+#: ../src/lxmusic.c:1759
 msgid "Pause"
 msgstr "Pause"
 
-#: ../src/lxmusic.c:1749
+#: ../src/lxmusic.c:1773
 msgid "Play"
 msgstr "Play"
 
-#: ../src/lxmusic.c:2301
+#: ../src/lxmusic.c:2326
 msgid "Create new playlist"
 msgstr "Create new playlist"
 
@@ -340,8 +341,12 @@ msgid "Misc"
 msgstr "Misc"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Music files can be played without graphical user interface to save system resources"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"Music files can be played without graphical user interface to save system "
+"resources"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "

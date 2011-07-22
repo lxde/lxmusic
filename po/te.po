@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 13:00+0200\n"
+"POT-Creation-Date: 2011-07-22 16:34+0200\n"
 "PO-Revision-Date: 2011-07-12 17:53+0200\n"
 "Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: ../src/lxmusic.c:261
+#: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "ఆర్నౌడ్ డిడ్రిచే రూపొందించిన xmms2 యొక్క అధికారిక ప్రతీక"
 
-#: ../src/lxmusic.c:272
+#: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -31,61 +31,61 @@ msgstr ""
 "సరళ GUI XMMS2 క్లయింటు"
 
 #. default
-#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LX సంగీతం"
 
-#: ../src/lxmusic.c:670
+#: ../src/lxmusic.c:694
 msgid "Bitrate: "
 msgstr "బిట్‌రేట్:"
 
-#: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:996
 msgid "Audio Files"
 msgstr "ఆడియో ఫైళ్ళు"
 
-#: ../src/lxmusic.c:977
+#: ../src/lxmusic.c:1001
 msgid "All Files"
 msgstr "అన్ని ఫైళ్ళు"
 
-#: ../src/lxmusic.c:1004
+#: ../src/lxmusic.c:1028
 msgid "Input a URL"
 msgstr "ఒక URL ఇన్‌పుట్ వలె ఇవ్వు"
 
-#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "ఇపుడు ప్లేచేస్తున్నది:"
 
 #. metadata available
-#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
-#: ../src/lxmusic-notify.c:66
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "కళాకారుడు"
 
-#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "ఆల్బమ్"
 
-#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
 msgstr "శీర్షిక"
 
-#: ../src/lxmusic.c:1450
+#: ../src/lxmusic.c:1474
 msgid "Length"
 msgstr "సమయం"
 
-#: ../src/lxmusic.c:1617
+#: ../src/lxmusic.c:1641
 msgid "Default"
 msgstr "అప్రమేయం"
 
-#: ../src/lxmusic.c:1735
+#: ../src/lxmusic.c:1759
 msgid "Pause"
 msgstr "నిలిపివేయి"
 
-#: ../src/lxmusic.c:1749
+#: ../src/lxmusic.c:1773
 msgid "Play"
 msgstr "ప్లేచేయి"
 
-#: ../src/lxmusic.c:2301
+#: ../src/lxmusic.c:2326
 msgid "Create new playlist"
 msgstr "కొత్త పాటలజాబితాను సృష్టించు"
 
@@ -350,9 +350,7 @@ msgstr "మిస్క్"
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
-msgstr ""
-"వ్యవస్థ వనరులను భద్రపరుచుటకు గ్రాఫికల్ అంతరవర్తి లేకుండానే సంగీత ఫైళ్ళను "
-"ఆడించవచ్చు"
+msgstr "వ్యవస్థ వనరులను భద్రపరుచుటకు గ్రాఫికల్ అంతరవర్తి లేకుండానే సంగీత ఫైళ్ళను ఆడించవచ్చు"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "

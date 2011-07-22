@@ -7,83 +7,84 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 13:00+0200\n"
+"POT-Creation-Date: 2011-07-22 16:34+0200\n"
 "PO-Revision-Date: 2009-10-21 15:48+0200\n"
 "Last-Translator: alexandre raymond <alekcxjo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-#: ../src/lxmusic.c:261
+#: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr ""
 
-#: ../src/lxmusic.c:272
+#: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
 
 #. default
-#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMosica"
 
-#: ../src/lxmusic.c:670
+#: ../src/lxmusic.c:694
 msgid "Bitrate: "
 msgstr ""
 
-#: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:996
 msgid "Audio Files"
 msgstr "Fichèrs sons"
 
-#: ../src/lxmusic.c:977
+#: ../src/lxmusic.c:1001
 msgid "All Files"
 msgstr "Tots los fichèrs"
 
-#: ../src/lxmusic.c:1004
+#: ../src/lxmusic.c:1028
 #, fuzzy
 msgid "Input a URL"
 msgstr "Entrar n'adreci"
 
-#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "Joyènt yóra:"
 
 #. metadata available
-#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
-#: ../src/lxmusic-notify.c:66
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Artiste"
 
-#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Albóm"
 
-#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
 msgstr "Titre"
 
-#: ../src/lxmusic.c:1450
+#: ../src/lxmusic.c:1474
 msgid "Length"
 msgstr "Long"
 
-#: ../src/lxmusic.c:1617
+#: ../src/lxmusic.c:1641
 msgid "Default"
 msgstr ""
 
-#: ../src/lxmusic.c:1735
+#: ../src/lxmusic.c:1759
 #, fuzzy
 msgid "Pause"
 msgstr "Pausa"
 
-#: ../src/lxmusic.c:1749
+#: ../src/lxmusic.c:1773
 msgid "Play"
 msgstr "Joyèr"
 
-#: ../src/lxmusic.c:2301
+#: ../src/lxmusic.c:2326
 msgid "Create new playlist"
 msgstr "Crear na lista de leyturi"
 

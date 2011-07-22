@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-05 05:43+0000\n"
+"POT-Creation-Date: 2011-07-22 16:34+0200\n"
 "PO-Revision-Date: 2011-03-17 20:55+0200\n"
 "Last-Translator: enginmanap <enginmanap@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: ../src/lxmusic.c:265
+#: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Arnaud DIDRY tarafından resmi xmms2 simgesi"
 
-#: ../src/lxmusic.c:276
+#: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -31,67 +31,61 @@ msgstr ""
 "Basit Grafik Arayüzlü XMMS2 istemcisi"
 
 #. default
-#: ../src/lxmusic.c:449
-#: ../src/utils.c:98
-#: ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:696
+#: ../src/lxmusic.c:694
 msgid "Bitrate: "
 msgstr "Bitoranı: "
 
-#: ../src/lxmusic.c:998
+#: ../src/lxmusic.c:996
 msgid "Audio Files"
 msgstr "Ses Dosyaları"
 
-#: ../src/lxmusic.c:1003
+#: ../src/lxmusic.c:1001
 msgid "All Files"
 msgstr "Tüm Dosyalar"
 
-#: ../src/lxmusic.c:1030
+#: ../src/lxmusic.c:1028
 msgid "Input a URL"
 msgstr "Bir URL girin"
 
-#: ../src/lxmusic.c:1246
-#: ../src/lxmusic.c:1834
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "Şimdi Çalınan:"
 
 #. metadata available
-#: ../src/lxmusic.c:1454
-#: ../data/lxmusic.ui.glade.h:7
-#: ../src/lxmusic-notify.c:66
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Sanatçı"
 
-#: ../src/lxmusic.c:1462
-#: ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Albüm"
 
-#: ../src/lxmusic.c:1470
-#: ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
 msgstr "Başlık"
 
-#: ../src/lxmusic.c:1476
+#: ../src/lxmusic.c:1474
 msgid "Length"
 msgstr "Süre"
 
-#: ../src/lxmusic.c:1643
+#: ../src/lxmusic.c:1641
 msgid "Default"
 msgstr "Öntanımlı"
 
-#: ../src/lxmusic.c:1761
+#: ../src/lxmusic.c:1759
 msgid "Pause"
 msgstr "Beklet"
 
-#: ../src/lxmusic.c:1775
+#: ../src/lxmusic.c:1773
 msgid "Play"
 msgstr "Yürüt"
 
-#: ../src/lxmusic.c:2333
+#: ../src/lxmusic.c:2326
 msgid "Create new playlist"
 msgstr "Yeni oynatma listesi oluştur"
 
@@ -106,14 +100,12 @@ msgstr "Hata"
 msgid "Advanced Linux Sound Architecture"
 msgstr "Gelişmiş Linux Ses Mimarisi"
 
-#: ../src/lxmusic-plugin-config.c:18
-#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Aygıt:"
 
-#: ../src/lxmusic-plugin-config.c:19
-#: ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Mixer:"
 
@@ -136,8 +128,7 @@ msgstr "PulseAudio"
 msgid "Name:"
 msgstr "Ad:"
 
-#: ../src/lxmusic-plugin-config.c:33
-#: ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Sunucu:"
 
@@ -207,8 +198,7 @@ msgstr "Anahtar kelimeyi buraya girin"
 msgid "Favorites"
 msgstr "Sık kullanılanlar"
 
-#: ../data/lxmusic.ui.glade.h:12
-#: ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Dosya Özellikleri"
 
@@ -357,8 +347,12 @@ msgid "Misc"
 msgstr "Çeşitli"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Müzik dosyaları sistem kaynaklarından kazanmak için grafik arayüz olmadan da çalınabilir"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"Müzik dosyaları sistem kaynaklarından kazanmak için grafik arayüz olmadan da "
+"çalınabilir"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "

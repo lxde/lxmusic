@@ -8,23 +8,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-14 23:56+0100\n"
+"POT-Creation-Date: 2011-07-22 16:34+0200\n"
 "PO-Revision-Date: 2010-06-15 06:21+0100\n"
 "Last-Translator: Jay Alexander Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: Serbian\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Serbian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../src/lxmusic.c:271
+#: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Званична икона за XMMS2 (направио Arnaud DIDRY)"
 
-#: ../src/lxmusic.c:282
+#: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -33,66 +35,61 @@ msgstr ""
 "Једноставан клијент за XMMS2"
 
 #. default
-#: ../src/lxmusic.c:455
-#: ../src/utils.c:168
-#: ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "Звуковник"
 
-#: ../src/lxmusic.c:638
+#: ../src/lxmusic.c:694
 msgid "Bitrate: "
 msgstr "Битски проток:"
 
-#: ../src/lxmusic.c:940
+#: ../src/lxmusic.c:996
 msgid "Audio Files"
 msgstr "Звучне датотеке"
 
-#: ../src/lxmusic.c:945
+#: ../src/lxmusic.c:1001
 msgid "All Files"
 msgstr "Све датотеке"
 
-#: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:1028
 msgid "Input a URL"
 msgstr "Унесите локацију (URL)"
 
-#. metadata available
-#: ../src/lxmusic.c:1363
-#: ../src/lxmusic.c:1780
-#: ../data/lxmusic.ui.glade.h:7
-msgid "Artist"
-msgstr "Извођач"
-
-#: ../src/lxmusic.c:1371
-#: ../data/lxmusic.ui.glade.h:5
-msgid "Album"
-msgstr "Албум"
-
-#: ../src/lxmusic.c:1379
-#: ../src/lxmusic.c:1781
-msgid "Title"
-msgstr "Наслов"
-
-#: ../src/lxmusic.c:1385
-msgid "Length"
-msgstr "Дужина"
-
-#: ../src/lxmusic.c:1557
-msgid "Default"
-msgstr "Подразумевано"
-
-#: ../src/lxmusic.c:1675
-msgid "Pause"
-msgstr "Паузирај"
-
-#: ../src/lxmusic.c:1689
-msgid "Play"
-msgstr "Пусти"
-
-#: ../src/lxmusic.c:1786
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "Управо пуштам: "
 
-#: ../src/lxmusic.c:2248
+#. metadata available
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:80
+msgid "Artist"
+msgstr "Извођач"
+
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
+msgid "Album"
+msgstr "Албум"
+
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
+msgid "Title"
+msgstr "Наслов"
+
+#: ../src/lxmusic.c:1474
+msgid "Length"
+msgstr "Дужина"
+
+#: ../src/lxmusic.c:1641
+msgid "Default"
+msgstr "Подразумевано"
+
+#: ../src/lxmusic.c:1759
+msgid "Pause"
+msgstr "Паузирај"
+
+#: ../src/lxmusic.c:1773
+msgid "Play"
+msgstr "Пусти"
+
+#: ../src/lxmusic.c:2326
 msgid "Create new playlist"
 msgstr "Направи листу песама"
 
@@ -108,14 +105,12 @@ msgstr "Грешка"
 msgid "Advanced Linux Sound Architecture"
 msgstr "Advanced Linux Sound Architecture"
 
-#: ../src/lxmusic-plugin-config.c:18
-#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Уређај:"
 
-#: ../src/lxmusic-plugin-config.c:19
-#: ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Тонска контрола:"
 
@@ -141,8 +136,7 @@ msgstr "PulseAudio"
 msgid "Name:"
 msgstr "Име:"
 
-#: ../src/lxmusic-plugin-config.c:33
-#: ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Сервер:"
 
@@ -214,8 +208,7 @@ msgstr "Унесите кључну реч овде"
 msgid "Favorites"
 msgstr "Омиљене"
 
-#: ../data/lxmusic.ui.glade.h:12
-#: ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Особине датотеке"
 
@@ -364,7 +357,9 @@ msgid "Misc"
 msgstr "Разно"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
 msgstr "Омогућена репродукција без графичког приказа (код слабијих рачунара)"
 
 #: ../data/pref-dlg.ui.glade.h:13
@@ -406,4 +401,3 @@ msgstr "<b>Величина: </b>"
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Наслов: </b>"
-

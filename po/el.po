@@ -2,29 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-07 05:28+0000\n"
+"POT-Creation-Date: 2011-07-22 16:34+0200\n"
 "PO-Revision-Date: 2010-04-08 23:05+0200\n"
 "Last-Translator: <edhunter@sidux.com>\n"
 "Language-Team: Greek\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: ../src/lxmusic.c:261
+#: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Επίσημο εικονίδιο του XMMS2 από τον Arnaud DIDRY"
 
-#: ../src/lxmusic.c:272
+#: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -33,61 +33,61 @@ msgstr ""
 "Απλό γραφικό πρόγραμμα πελάτης για το XMMS2"
 
 #. default
-#: ../src/lxmusic.c:445 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:670
+#: ../src/lxmusic.c:694
 msgid "Bitrate: "
 msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:972
+#: ../src/lxmusic.c:996
 msgid "Audio Files"
 msgstr "Αρχεία ήχου"
 
-#: ../src/lxmusic.c:977
+#: ../src/lxmusic.c:1001
 msgid "All Files"
 msgstr "Όλα τα αρχεία"
 
-#: ../src/lxmusic.c:1004
+#: ../src/lxmusic.c:1028
 msgid "Input a URL"
 msgstr "Εισαγωγή URL"
 
-#: ../src/lxmusic.c:1220 ../src/lxmusic.c:1808
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "Τώρα παίζει:"
 
 #. metadata available
-#: ../src/lxmusic.c:1428 ../data/lxmusic.ui.glade.h:7
-#: ../src/lxmusic-notify.c:66
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Καλλιτέχνης"
 
-#: ../src/lxmusic.c:1436 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Άλμπουμ"
 
-#: ../src/lxmusic.c:1444 ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
 msgstr "Τίτλος"
 
-#: ../src/lxmusic.c:1450
+#: ../src/lxmusic.c:1474
 msgid "Length"
 msgstr "Διάρκεια"
 
-#: ../src/lxmusic.c:1617
+#: ../src/lxmusic.c:1641
 msgid "Default"
 msgstr "Προκαθορισμένο"
 
-#: ../src/lxmusic.c:1735
+#: ../src/lxmusic.c:1759
 msgid "Pause"
 msgstr "Παύση"
 
-#: ../src/lxmusic.c:1749
+#: ../src/lxmusic.c:1773
 msgid "Play"
 msgstr "Αναπαραγωγή"
 
-#: ../src/lxmusic.c:2301
+#: ../src/lxmusic.c:2326
 msgid "Create new playlist"
 msgstr "Δημιουργία νέας λίστας αναπαραγωγής"
 
@@ -349,8 +349,12 @@ msgid "Misc"
 msgstr "Διάφορα"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Τα αρχεία μουσικής μπορούν να αναπαραχθούν χωρίς γραφικό περιβάλλον για χρήση λιγότερων πόρων συστήματος"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"Τα αρχεία μουσικής μπορούν να αναπαραχθούν χωρίς γραφικό περιβάλλον για "
+"χρήση λιγότερων πόρων συστήματος"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "

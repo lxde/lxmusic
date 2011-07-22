@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-18 06:07+0000\n"
+"POT-Creation-Date: 2011-07-22 16:34+0200\n"
 "PO-Revision-Date: 2011-05-23 17:21-0300\n"
 "Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,9 +32,7 @@ msgstr ""
 "Um cliente gráfico simples do XMMS2"
 
 #. default
-#: ../src/lxmusic.c:447
-#: ../src/utils.c:98
-#: ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -53,25 +52,21 @@ msgstr "Todos os arquivos"
 msgid "Input a URL"
 msgstr "Digitar um URL"
 
-#: ../src/lxmusic.c:1244
-#: ../src/lxmusic.c:1832
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "Reproduzindo:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452
-#: ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Artista"
 
-#: ../src/lxmusic.c:1460
-#: ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "Álbum"
 
-#: ../src/lxmusic.c:1468
-#: ../src/lxmusic-notify.c:81
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
 msgstr "Título"
 
@@ -106,14 +101,12 @@ msgstr "Erro"
 msgid "Advanced Linux Sound Architecture"
 msgstr "ALSA - Advanced Linux Sound Architecture"
 
-#: ../src/lxmusic-plugin-config.c:18
-#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Dispositivo:"
 
-#: ../src/lxmusic-plugin-config.c:19
-#: ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Equalizador:"
 
@@ -136,8 +129,7 @@ msgstr "PulseAudio"
 msgid "Name:"
 msgstr "Nome:"
 
-#: ../src/lxmusic-plugin-config.c:33
-#: ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Servidor:"
 
@@ -207,8 +199,7 @@ msgstr "Digite a palavra-chave aqui"
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: ../data/lxmusic.ui.glade.h:12
-#: ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
 msgstr "Propriedades do arquivo"
 
@@ -357,8 +348,12 @@ msgid "Misc"
 msgstr "Miscelânea"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "Arquivos de música podem ser reproduzidos sem a interface gráfica para economizar recursos do sistema"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"Arquivos de música podem ser reproduzidos sem a interface gráfica para "
+"economizar recursos do sistema"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "

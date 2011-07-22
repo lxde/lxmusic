@@ -2,27 +2,27 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-16 05:41+0000\n"
+"POT-Creation-Date: 2011-07-22 16:34+0200\n"
 "PO-Revision-Date: 2010-07-11 17:50+0200\n"
 "Last-Translator: Hamidreza <n3gb0y@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
-#: ../src/lxmusic.c:265
+#: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "شمایل رسمی xmms2 توسط Arnaud DIDRY"
 
-#: ../src/lxmusic.c:276
+#: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -31,61 +31,61 @@ msgstr ""
 "رابط گرافیکی ساده مصرف کننده XMMS2"
 
 #. default
-#: ../src/lxmusic.c:449 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
 msgstr "اِل اکس آهنگ"
 
-#: ../src/lxmusic.c:696
+#: ../src/lxmusic.c:694
 msgid "Bitrate: "
 msgstr "میزان انتقال بیت:"
 
-#: ../src/lxmusic.c:998
+#: ../src/lxmusic.c:996
 msgid "Audio Files"
 msgstr "پرونده‌های صوتی"
 
-#: ../src/lxmusic.c:1003
+#: ../src/lxmusic.c:1001
 msgid "All Files"
 msgstr "تمام پرونده‌ها"
 
-#: ../src/lxmusic.c:1030
+#: ../src/lxmusic.c:1028
 msgid "Input a URL"
 msgstr "یک آدرس اینترنتی وارد کنید"
 
-#: ../src/lxmusic.c:1246 ../src/lxmusic.c:1834
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "هم اکنون در حال پخش :"
 
 #. metadata available
-#: ../src/lxmusic.c:1454 ../data/lxmusic.ui.glade.h:7
-#: ../src/lxmusic-notify.c:66
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "هنرمند"
 
-#: ../src/lxmusic.c:1462 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
 msgstr "آلبوم"
 
-#: ../src/lxmusic.c:1470 ../src/lxmusic-notify.c:67
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
 msgstr "عنوان"
 
-#: ../src/lxmusic.c:1476
+#: ../src/lxmusic.c:1474
 msgid "Length"
 msgstr "طول"
 
-#: ../src/lxmusic.c:1643
+#: ../src/lxmusic.c:1641
 msgid "Default"
 msgstr "پیش‌فرض"
 
-#: ../src/lxmusic.c:1761
+#: ../src/lxmusic.c:1759
 msgid "Pause"
 msgstr "مکث"
 
-#: ../src/lxmusic.c:1775
+#: ../src/lxmusic.c:1773
 msgid "Play"
 msgstr "پخش"
 
-#: ../src/lxmusic.c:2333
+#: ../src/lxmusic.c:2326
 msgid "Create new playlist"
 msgstr "ایجاد لیست پخش جدید"
 
@@ -347,8 +347,12 @@ msgid "Misc"
 msgstr "متفرقه"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid "Music files can be played without graphical user interface to save system resources"
-msgstr "پرونده‌های آهنگ می‌توانند برای حفظ منابع سیستمی بدون رابط گرافیکی کاربری  پخش شوند"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"پرونده‌های آهنگ می‌توانند برای حفظ منابع سیستمی بدون رابط گرافیکی کاربری  پخش "
+"شوند"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
