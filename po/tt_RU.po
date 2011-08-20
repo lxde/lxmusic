@@ -1,26 +1,25 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 16:34+0200\n"
-"PO-Revision-Date: 2011-07-18 14:58+0200\n"
-"Last-Translator: Ainur <ainur.shakirov.tt@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2011-08-18 02:02+0400\n"
+"Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>\n"
+"Language-Team: Tatar <>\n"
 "Language: tt_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Lokalize 1.2\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Arnaud DIDRY затыннан xmms2 өчен рөсми билгечек"
+msgstr "Arnaud DIDRY затыннан xmms2 өчен рәсми билгечек"
 
 #: ../src/lxmusic.c:274
 msgid ""
@@ -75,7 +74,7 @@ msgstr "Озынлык"
 
 #: ../src/lxmusic.c:1641
 msgid "Default"
-msgstr "Үрнәк"
+msgstr "Үрнәкле"
 
 #: ../src/lxmusic.c:1759
 msgid "Pause"
@@ -87,7 +86,7 @@ msgstr "Уйнату"
 
 #: ../src/lxmusic.c:2326
 msgid "Create new playlist"
-msgstr "Яңа плейлист төзү"
+msgstr "Яңа җыр исемлеген өстәү"
 
 #: ../src/utils.c:81
 msgid "Error"
@@ -103,16 +102,16 @@ msgstr "Advanced Linux Sound Architecture (ALSA)"
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
-msgstr ""
+msgstr "Җайланма:"
 
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr ""
+msgstr "Микшер:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "OSS"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
@@ -122,15 +121,15 @@ msgstr ""
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
 msgid "PulseAudio"
-msgstr ""
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Исем:"
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr ""
+msgstr "Сервер:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
@@ -139,16 +138,16 @@ msgstr ""
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "Диск яздыручысы"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
@@ -156,39 +155,39 @@ msgstr ""
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr ""
+msgstr "Музыка уйнатучысы"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "Яраткан җырларыгызны җиңел итеп тыңлагыз"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
-msgstr ""
+msgstr "Файллар һәм каталоглар өстәү"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
-msgstr ""
+msgstr "Җыр исемлегенә өстәү"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Add URL"
-msgstr ""
+msgstr "Веб-адрес өстәү"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
-msgstr ""
+msgstr "Җыр исемлегенә файллар өстәү"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "Барлык"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr ""
+msgstr "Яңа җыр исемлеге өстәү"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr ""
+msgstr "Хәзерге җыр исемлеге"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
@@ -196,11 +195,11 @@ msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
-msgstr ""
+msgstr "Яратылган"
 
 #: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
 msgid "File Properties"
-msgstr ""
+msgstr "Файл сыйфатлары"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Filter:"
@@ -212,23 +211,23 @@ msgstr ""
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
-msgstr ""
+msgstr "Медиа китапханәсе"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Next"
-msgstr ""
+msgstr "Алдагы"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "Кабатламаска"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
-msgstr ""
+msgstr "Уйнату/Тыналыш"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
-msgstr ""
+msgstr "Алдынгы"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
@@ -391,3 +390,4 @@ msgstr ""
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr ""
+
