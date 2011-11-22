@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 16:34+0200\n"
-"PO-Revision-Date: 2011-05-14 02:22+0200\n"
+"PO-Revision-Date: 2011-11-22 14:49+0200\n"
 "Last-Translator: Sérgio <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
 "Language: pt\n"
@@ -78,7 +78,7 @@ msgstr "Duração"
 
 #: ../src/lxmusic.c:1641
 msgid "Default"
-msgstr "Omissão"
+msgstr "Padrão"
 
 #: ../src/lxmusic.c:1759
 msgid "Pause"
@@ -331,7 +331,7 @@ msgstr "Continuar a tocar em segundo plano após sair do LXMusic"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "Codificação ID3 V1 por omissão: "
+msgstr "Codificação ID3 V1 padrão: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
