@@ -11,7 +11,7 @@
   <object class="GtkDialog" id="pref_dlg">
     <property name="visible">True</property>
     <property name="border_width">10</property>
-    <property name="title" translatable="yes">Preference</property>
+    <property name="title" translatable="yes">Preferences</property>
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox1">
