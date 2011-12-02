@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 16:34+0200\n"
-"PO-Revision-Date: 2010-03-09 12:26+0200\n"
-"Last-Translator: Indalecio <ifreiria@gmail.com>\n"
+"PO-Revision-Date: 2011-12-02 16:35+0200\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -41,7 +41,7 @@ msgstr "Taxa de bits: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr "Ficheiros de audio"
+msgstr "Ficheiros de son"
 
 #: ../src/lxmusic.c:1001
 msgid "All Files"
@@ -59,7 +59,7 @@ msgstr "Reproducindo:"
 #: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
-msgstr "Artista"
+msgstr "Interprete"
 
 #: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
 msgid "Album"
@@ -71,7 +71,7 @@ msgstr "Título"
 
 #: ../src/lxmusic.c:1474
 msgid "Length"
-msgstr "Lonxitude"
+msgstr "Duración"
 
 #: ../src/lxmusic.c:1641
 msgid "Default"
@@ -98,12 +98,12 @@ msgstr "Erro"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr "Arquitectura avanzada de sons de Linux"
+msgstr "Arquitectura Avanzada de Son de Linux"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
-msgstr "Dispositivo"
+msgstr "Dispositivo:"
 
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
@@ -117,7 +117,7 @@ msgstr "Sistema aberto de son"
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr "Biblioteca multiplataforma de saída de audio"
+msgstr "Biblioteca multiplataforma de saída de son"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
@@ -176,7 +176,7 @@ msgstr "Engadir URL"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
-msgstr "Engadir ficheiros á lista de reproducción"
+msgstr "Engadir ficheiros á lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
@@ -192,7 +192,7 @@ msgstr "Lista de reprodución actual"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
-msgstr "Introduza aquí a clave"
+msgstr "Introduza aquí a palabra clave"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
@@ -208,7 +208,7 @@ msgstr "Filtro:"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
-msgstr "Localizar a pista reproducida actualmente"
+msgstr "Sitúe a pista reproducida actualmente"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
@@ -232,19 +232,19 @@ msgstr "Anterior"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
-msgstr "Quitar todos os elementos"
+msgstr "Retirar todos os elementos"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr "Quitar da lista de reprodución"
+msgstr "Retirar da lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
-msgstr "Quitar os elementos seleccionados"
+msgstr "Retirar os elementos seleccionados"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
-msgstr "Quitar os elementos da lista de reprodución"
+msgstr "Retirar os elementos da lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
@@ -268,7 +268,7 @@ msgstr "Nome da pista"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr "_Borrar a lista de reprodución actual"
+msgstr "_Eliminar a lista de reprodución actual"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
@@ -280,15 +280,15 @@ msgstr "_Axuda"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Localizar o ficheiro reproducido"
+msgstr "_Situar o ficheiro reproducido"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr "Lista de re_produción"
+msgstr "Lista de _reprodución"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "Cambiar a li_sta de reprodución"
+msgstr "_Cambiar a lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
@@ -300,11 +300,11 @@ msgstr "_Ver"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr "Mo_strar a xanela principal"
+msgstr "_Mostrar a xanela principal"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr "<b>CD de audio</b>"
+msgstr "<b>CD de son</b>"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
@@ -312,11 +312,11 @@ msgstr "<b>Saída</b>"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Audio"
-msgstr "Audio"
+msgstr "Son"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr "Tamaño do buffer: "
+msgstr "Tamaño do búfer: "
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
@@ -328,7 +328,7 @@ msgstr "Continuar reproducindo en segundo plano ao saír de LXMusic"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "Codificación Predeterminada para ID3 V1: "
+msgstr "Codificación predeterminada para ID3 V1: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
@@ -340,11 +340,11 @@ msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
-msgstr "Minimizar á bandexa do sistema ao pechar"
+msgstr "Minimizar na área de notificación ao pechar"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
-msgstr "Misc"
+msgstr "Varios"
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid ""
@@ -364,7 +364,7 @@ msgstr "Preferencia"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr "Mostrar a icona na bandexa do sistema"
+msgstr "Mostrar a icona na área de notificación"
 
 #: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
@@ -372,7 +372,7 @@ msgstr "<b>Álbum: </b>"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr "<b>Artista: </b>"
+msgstr "<b>Interprete: </b>"
 
 #: ../data/track-info.ui.glade.h:3
 msgid "<b>Comment: </b>"
