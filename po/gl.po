@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 16:34+0200\n"
-"PO-Revision-Date: 2011-12-02 16:35+0200\n"
+"PO-Revision-Date: 2011-12-24 13:55+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -256,7 +256,7 @@ msgstr "Repetir actual"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
-msgstr "Mostrar a lista de reprodución"
+msgstr "Amosar a lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
@@ -364,7 +364,7 @@ msgstr "Preferencia"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr "Mostrar a icona na área de notificación"
+msgstr "Amosar a icona na área de notificación"
 
 #: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
