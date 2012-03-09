@@ -3,28 +3,28 @@ msgstr ""
 "Project-Id-Version: LXDE\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 16:34+0200\n"
-"PO-Revision-Date: 2010-01-24 11:10-0800\n"
-"Last-Translator: alexxed <alexxed@gmail.com>\n"
+"PO-Revision-Date: 2012-03-09 11:34+0200\n"
+"Last-Translator: Mișu <dumol@l10n.ro>\n"
 "Language-Team: Romanian <LL@li.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2;\n"
-"X-Generator: Narro 0.9.4 on http://tradu.softwareliber.ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Iconița oficială pentru xmms2 de Arnaud DIDRY"
+msgstr "Iconița oficială xmms2 creată de Arnaud DIDRY"
 
 #: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Program de ascultat muzică pentru LXDE\n"
-"XMMS2 cu interfață simplă"
+"Player audio pentru LXDE\n"
+"Un mic client grafic XMMS2"
 
 #. default
 #: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
@@ -45,7 +45,7 @@ msgstr "Toate fișierele"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
-msgstr "Introduceți o adresă"
+msgstr "Introduceți un URL"
 
 #: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
@@ -71,7 +71,7 @@ msgstr "Durată"
 
 #: ../src/lxmusic.c:1641
 msgid "Default"
-msgstr "Implicit"
+msgstr "Implicită"
 
 #: ../src/lxmusic.c:1759
 msgid "Pause"
@@ -83,7 +83,7 @@ msgstr "Redare"
 
 #: ../src/lxmusic.c:2326
 msgid "Create new playlist"
-msgstr "Creează listă de redare nouă"
+msgstr "Creați o nouă listă de redare"
 
 #: ../src/utils.c:81
 msgid "Error"
@@ -94,7 +94,7 @@ msgstr "Eroare"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr "Arhitectură avansată de sunet pentru Linux (ALSA)"
+msgstr "Arhitectură audio avansată pentru Linux (ALSA)"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
@@ -128,9 +128,10 @@ msgstr "Nume:"
 msgid "Server:"
 msgstr "Server:"
 
+# Are cineva o idee mai bună?
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr "Sink:"
+msgstr "Cale (sink):"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
@@ -140,7 +141,7 @@ msgstr "AirTunes"
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr "JACK Audio Connection Kit"
+msgstr "Kitul de conectare audio JACK"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
@@ -148,31 +149,31 @@ msgstr "Scriere pe disc"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr "Directorul destinație:"
+msgstr "Directorul de destinație:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr "Program de redare muzică"
+msgstr "Player audio"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr "Redă cu ușurința fișierele de muzică"
+msgstr "Ascultați-vă facil muzica stocată"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
-msgstr "Adăugați fișiere sau dosare"
+msgstr "Adăugați fișiere sau directoare"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
-msgstr "Adaugă în lista de redare"
+msgstr "Adăugați în lista de redare"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Add URL"
-msgstr "Adaugă URL"
+msgstr "Adăugați un URL"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
-msgstr "Adaugă fișiere în lista de redare"
+msgstr "Adăugați fișiere în lista de redare"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
@@ -180,7 +181,7 @@ msgstr "Tot"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr "Creează listă de redare _nouă"
+msgstr "Creați o _nouă listă de redare"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
@@ -188,7 +189,7 @@ msgstr "Lista de redare curentă"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
-msgstr "Introduceți cuvântul cheie aici"
+msgstr "Introduceți un cuvânt cheie aici"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
@@ -204,7 +205,7 @@ msgstr "Filtru:"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
-msgstr "Localizează piesa care este redată"
+msgstr "Localizează piesa în curs de redare"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
@@ -212,7 +213,7 @@ msgstr "Bibliotecă multimedia"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Next"
-msgstr "Următoarea"
+msgstr "Înainte"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
@@ -224,7 +225,7 @@ msgstr "Redare/Pauză"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
-msgstr "Precedenta"
+msgstr "Înapoi"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
@@ -256,7 +257,7 @@ msgstr "Arată lista de redare"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
-msgstr "Oprește"
+msgstr "Stop"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
@@ -264,7 +265,7 @@ msgstr "Numele piesei"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr "Șterge lista curentă _de redare"
+msgstr "Șt_erge lista curentă de redare"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
@@ -276,19 +277,19 @@ msgstr "_Ajutor"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr "_Localizează piesa curentă"
+msgstr "Locali_zează piesa redată"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr "_Listă de redare"
+msgstr "Listă de _redare"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr "Comută la li_sta de redare"
+msgstr "C_omută la lista de redare"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
-msgstr "Unel_te"
+msgstr "_Unelte"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "_View"
@@ -296,7 +297,7 @@ msgstr "_Vizualizare"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr "Arată ferea_stra principală"
+msgstr "Arată _fereastra principală"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
@@ -304,7 +305,7 @@ msgstr "<b>CD audio</b>"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
-msgstr "<b>Ieșire</b>"
+msgstr "<b>Ieșire audio</b>"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Audio"
@@ -320,7 +321,7 @@ msgstr "Dispozitiv CD-ROM: "
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "Continuă redarea în fundal după ce ies din LXMusic"
+msgstr "Continuă în fundal redarea după închiderea LXMusic"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
@@ -328,15 +329,15 @@ msgstr "Codare ID3 V1 implicită: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
-msgstr "General"
+msgstr "Generale"
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
-msgstr "KO"
+msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
-msgstr "Minimizează la închidere în zona de notificare"
+msgstr "Minimizează în zona de notificare la închidere"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
@@ -347,16 +348,17 @@ msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
-"Fișierele de muzică pot fi redate fără interfață grafică pentru a economisi "
-"resursele de sistem"
+"Pentru a economisi resursele de sistem, muzica poate fi redată fără o "
+"interfață grafică"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr "Extensie: "
+msgstr "Modul: "
 
+# Am verificat în interfață
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
-msgstr "Preferință"
+msgstr "Preferințe"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
@@ -376,7 +378,7 @@ msgstr "<b>Comentariu: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr "<b>Tip fișier: </b>"
+msgstr "<b>Tip de fișier: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
