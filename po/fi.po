@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 16:34+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2012-03-11 10:25+0200\n"
+"Last-Translator: Juhani <juhaninumminen0@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -26,7 +27,7 @@ msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Musiikki soitin LXDE:lle\n"
+"Musiikkisoitin LXDE:lle\n"
 "Yksinkertainen GUI XMMS2:lle"
 
 #. default
@@ -36,15 +37,15 @@ msgstr "LXMusiikki"
 
 #: ../src/lxmusic.c:694
 msgid "Bitrate: "
-msgstr "Bittinopeus:"
+msgstr "Bittinopeus: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr "Ääni tiedostot"
+msgstr "Äänitiedostot"
 
 #: ../src/lxmusic.c:1001
 msgid "All Files"
-msgstr "Kaikki tiedotot"
+msgstr "Kaikki tiedostot"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
@@ -52,7 +53,7 @@ msgstr "Anna URL"
 
 #: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
-msgstr "Toistetaan."
+msgstr "Nyt soi:"
 
 #. metadata available
 #: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
@@ -116,7 +117,7 @@ msgstr "Open Sound System"
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr "Cross-platform audio output library"
+msgstr "Järjestelmäriippumaton äänentoistokirjasto"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
@@ -151,11 +152,11 @@ msgstr "Levykirjoitin"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr "Kohde kansio:"
+msgstr "Kohdekansio:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr "Musiikki soitin"
+msgstr "Musiikkisoitin"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
@@ -299,7 +300,7 @@ msgstr "_Näytä"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr "Näytä pääikkuna"
+msgstr "Näytä pää_ikkuna"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
@@ -327,7 +328,7 @@ msgstr "Jatka toistoa taustalla LXMusiikin sulkemisen jälkeen"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr "ID3 V1 tagien oletus koodaus: "
+msgstr "ID3 V1 tagien oletusmerkistökoodaus: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
@@ -350,8 +351,8 @@ msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
-"Musiikki tiedostot voidaan toistaa ilman graafista käyttöliittymää "
-"resurssien säästämiseksi."
+"Musiikkitiedostot voidaan toistaa ilman graafista käyttöliittymää resurssien "
+"säästämiseksi"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
@@ -383,7 +384,7 @@ msgstr "<b>Tiedosto tyyppi: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
-msgstr "<b<Tiedosto: </b>"
+msgstr "<b>Tiedosto: </b>"
 
 #: ../data/track-info.ui.glade.h:6
 msgid "<b>Size: </b>"
