@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 16:34+0200\n"
-"PO-Revision-Date: 2012-04-14 07:53+0200\n"
+"PO-Revision-Date: 2012-04-16 05:41+0200\n"
 "Last-Translator: Walter <wwycheuk@gmail.com>\n"
 "Language-Team: pcman.tw@gmail.com\n"
 "Language: zh_TW\n"
@@ -49,7 +49,7 @@ msgstr "所有檔案"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
-msgstr "輸入一個 URL"
+msgstr "輸入 URL"
 
 #: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
@@ -67,7 +67,7 @@ msgstr "專輯"
 
 #: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
-msgstr "標題"
+msgstr "歌名"
 
 #: ../src/lxmusic.c:1474
 msgid "Length"
@@ -134,7 +134,7 @@ msgstr "伺服器："
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr "Sink："
+msgstr "輸入端："
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
@@ -160,7 +160,7 @@ msgstr "音樂播放程式"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr "簡單地播放你的音樂檔案"
+msgstr "簡易播放音樂檔案"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
