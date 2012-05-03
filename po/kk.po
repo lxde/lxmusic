@@ -1,0 +1,403 @@
+# Kazakh translation for lxmusic.
+# Copyright (C) 2012 The LXDE team
+# This file is distributed under the same license as the LXDE package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-22 16:34+0200\n"
+"PO-Revision-Date: 2012-05-03 00:17+0600\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Kazakh\n"
+"X-Poedit-Country: KAZAKHSTAN\n"
+
+#: ../src/lxmusic.c:263
+msgid "Official icon of xmms2 by Arnaud DIDRY"
+msgstr "xmms2 ресми таңбашасын жасаған Arnaud DIDRY"
+
+#: ../src/lxmusic.c:274
+msgid ""
+"Music Player for LXDE\n"
+"Simple GUI XMMS2 client"
+msgstr ""
+"LXDE үшін музыка плеері\n"
+"Қарапайым GUI XMMS2 клиенті"
+
+#. default
+#: ../src/lxmusic.c:447
+#: ../src/utils.c:98
+#: ../data/lxmusic.ui.glade.h:14
+msgid "LXMusic"
+msgstr "LXMusic"
+
+#: ../src/lxmusic.c:694
+msgid "Bitrate: "
+msgstr "Битрейт:"
+
+#: ../src/lxmusic.c:996
+msgid "Audio Files"
+msgstr "Аудио файлдары"
+
+#: ../src/lxmusic.c:1001
+msgid "All Files"
+msgstr "Барлық файлдар"
+
+#: ../src/lxmusic.c:1028
+msgid "Input a URL"
+msgstr "URL енгізіңіз"
+
+#: ../src/lxmusic.c:1244
+#: ../src/lxmusic.c:1832
+msgid "Now Playing:"
+msgstr "Ағымдағы ойнатылуда:"
+
+#. metadata available
+#: ../src/lxmusic.c:1452
+#: ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic-notify.c:80
+msgid "Artist"
+msgstr "Әртіс"
+
+#: ../src/lxmusic.c:1460
+#: ../data/lxmusic.ui.glade.h:5
+msgid "Album"
+msgstr "Альбом"
+
+#: ../src/lxmusic.c:1468
+#: ../src/lxmusic-notify.c:81
+msgid "Title"
+msgstr "Атауы"
+
+#: ../src/lxmusic.c:1474
+msgid "Length"
+msgstr "Ұзақтығы"
+
+#: ../src/lxmusic.c:1641
+msgid "Default"
+msgstr "Бастапқы"
+
+#: ../src/lxmusic.c:1759
+msgid "Pause"
+msgstr "Аялдату"
+
+#: ../src/lxmusic.c:1773
+msgid "Play"
+msgstr "Ойнату"
+
+#: ../src/lxmusic.c:2326
+msgid "Create new playlist"
+msgstr "Жаңа ойнату тізімін жасау"
+
+#: ../src/utils.c:81
+msgid "Error"
+msgstr "Қате"
+
+#. alsa use:
+#. * # xmms2 config_list|egrep "^alsa"
+#. * to get list of possible config variables
+#: ../src/lxmusic-plugin-config.c:17
+msgid "Advanced Linux Sound Architecture"
+msgstr "Advanced Linux Sound Architecture"
+
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:28
+msgid "Device:"
+msgstr "Құрылғы:"
+
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
+msgid "Mixer:"
+msgstr "Микшер:"
+
+#. oss
+#: ../src/lxmusic-plugin-config.c:22
+msgid "Open Sound System"
+msgstr "Open Sound System"
+
+#. ao
+#: ../src/lxmusic-plugin-config.c:27
+msgid "Cross-platform audio output library"
+msgstr "Платформааралық аудио шығыс жинағы"
+
+#. pulse
+#: ../src/lxmusic-plugin-config.c:31
+msgid "PulseAudio"
+msgstr "PulseAudio"
+
+#: ../src/lxmusic-plugin-config.c:32
+msgid "Name:"
+msgstr "Аты:"
+
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
+msgid "Server:"
+msgstr "Сервер:"
+
+#: ../src/lxmusic-plugin-config.c:34
+msgid "Sink:"
+msgstr "Алушы:"
+
+#. airtunes
+#: ../src/lxmusic-plugin-config.c:37
+msgid "AirTunes"
+msgstr "AirTunes"
+
+#. jack
+#: ../src/lxmusic-plugin-config.c:41
+msgid "JACK Audio Connection Kit"
+msgstr "JACK Audio Connection Kit"
+
+#: ../src/lxmusic-plugin-config.c:43
+msgid "Disk Writer"
+msgstr "Диск жазушысы"
+
+#: ../src/lxmusic-plugin-config.c:44
+msgid "Destination Directory:"
+msgstr "Мақсат бумасы:"
+
+#: ../data/lxmusic.desktop.in.h:1
+msgid "Music Player"
+msgstr "Музыка ойнатушысы"
+
+#: ../data/lxmusic.desktop.in.h:2
+msgid "Play your music files easily"
+msgstr "Музыка файлдарыңызды жеңіл ойнату"
+
+#: ../data/lxmusic.ui.glade.h:1
+msgid "Add Files or Folders"
+msgstr "Файлдар не бумаларды қосу"
+
+#: ../data/lxmusic.ui.glade.h:2
+msgid "Add To Playlist"
+msgstr "Ойнату тізіміне қосу"
+
+#: ../data/lxmusic.ui.glade.h:3
+msgid "Add URL"
+msgstr "URL қосу"
+
+#: ../data/lxmusic.ui.glade.h:4
+msgid "Add files to the playlist"
+msgstr "Ойнату тізіміне файлдарды қосу"
+
+#: ../data/lxmusic.ui.glade.h:6
+msgid "All"
+msgstr "Барлығы"
+
+#: ../data/lxmusic.ui.glade.h:8
+msgid "Create _New Playlist"
+msgstr "Жаңа ойнату тізімін жа_сау"
+
+#: ../data/lxmusic.ui.glade.h:9
+msgid "Current Playlist"
+msgstr "Ағымдағы ойнату тізімі"
+
+#: ../data/lxmusic.ui.glade.h:10
+msgid "Enter keyword here"
+msgstr "Кілт сөзді осында енгізіңіз"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "Favorites"
+msgstr "Сүйіктілер"
+
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
+msgid "File Properties"
+msgstr "Файл қасиеттері"
+
+#: ../data/lxmusic.ui.glade.h:13
+msgid "Filter:"
+msgstr "Фильтр:"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Locate currently played track"
+msgstr "Ағымдағы тректі табу"
+
+#: ../data/lxmusic.ui.glade.h:16
+msgid "Media Library"
+msgstr "Медиа жинағы"
+
+#: ../data/lxmusic.ui.glade.h:17
+msgid "Next"
+msgstr "Келесі"
+
+#: ../data/lxmusic.ui.glade.h:18
+msgid "No Repeat"
+msgstr "Қайталамау"
+
+#: ../data/lxmusic.ui.glade.h:19
+msgid "Play/Pause"
+msgstr "Ойнату/Аялдату"
+
+#: ../data/lxmusic.ui.glade.h:20
+msgid "Previous"
+msgstr "Алдыңғы"
+
+#: ../data/lxmusic.ui.glade.h:21
+msgid "Remove All Items"
+msgstr "Барлық нәрсені өшіру"
+
+#: ../data/lxmusic.ui.glade.h:22
+msgid "Remove From Playlist"
+msgstr "Ойнату тізімінен өшіру"
+
+#: ../data/lxmusic.ui.glade.h:23
+msgid "Remove Selected Items"
+msgstr "Таңдалған нәрселерді өшіру"
+
+#: ../data/lxmusic.ui.glade.h:24
+msgid "Remove items from the playlist"
+msgstr "Ойнату тізімінен нәрселерді өшіру"
+
+#: ../data/lxmusic.ui.glade.h:25
+msgid "Repeat All"
+msgstr "Барлығын қайталау"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Repeat Current"
+msgstr "Ағымдағыны қайталау"
+
+#: ../data/lxmusic.ui.glade.h:27
+msgid "Show Playlist"
+msgstr "Ойнату тізімін көрсету"
+
+#: ../data/lxmusic.ui.glade.h:28
+msgid "Stop"
+msgstr "Тоқтату"
+
+#: ../data/lxmusic.ui.glade.h:29
+msgid "Track Name"
+msgstr "Трек атауы"
+
+#: ../data/lxmusic.ui.glade.h:30
+msgid "_Delete Current Playlist"
+msgstr "Ағымдағы ойнату тізімін ө_шіру"
+
+#: ../data/lxmusic.ui.glade.h:31
+msgid "_File"
+msgstr "_Файл"
+
+#: ../data/lxmusic.ui.glade.h:32
+msgid "_Help"
+msgstr "_Көмек"
+
+#: ../data/lxmusic.ui.glade.h:33
+msgid "_Locate Currently Played"
+msgstr "Ағымдағы ойнатудағыны _табу"
+
+#: ../data/lxmusic.ui.glade.h:34
+msgid "_Playlist"
+msgstr "Ой_нату тізімі"
+
+#: ../data/lxmusic.ui.glade.h:35
+msgid "_Switch To Playlist"
+msgstr "О_йнату тізіміне ауысу"
+
+#: ../data/lxmusic.ui.glade.h:36
+msgid "_Tools"
+msgstr "Са_ймандар"
+
+#: ../data/lxmusic.ui.glade.h:37
+msgid "_View"
+msgstr "_Түрі"
+
+#: ../data/popup.ui.glade.h:1
+msgid "_Show Main Window"
+msgstr "Ба_сты терезені көрсету"
+
+#: ../data/pref-dlg.ui.glade.h:1
+msgid "<b>Audio CD</b>"
+msgstr "<b>Аудио CD</b>"
+
+#: ../data/pref-dlg.ui.glade.h:2
+msgid "<b>Output</b>"
+msgstr "<b>Шығыс</b>"
+
+#: ../data/pref-dlg.ui.glade.h:3
+msgid "Audio"
+msgstr "Аудио"
+
+#: ../data/pref-dlg.ui.glade.h:4
+msgid "Buffer Size: "
+msgstr "Буфер өлшемі:"
+
+#: ../data/pref-dlg.ui.glade.h:5
+msgid "CD-ROM Device: "
+msgstr "CD-ROM құрылғысы: "
+
+#: ../data/pref-dlg.ui.glade.h:6
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "LXMusic-тен шыққаннан кейін фонда ойнату"
+
+#: ../data/pref-dlg.ui.glade.h:7
+msgid "Default ID3 V1 Encoding: "
+msgstr "ID3 V1 бастапқы кодталуы: "
+
+#: ../data/pref-dlg.ui.glade.h:8
+msgid "General"
+msgstr "Жалпы"
+
+#: ../data/pref-dlg.ui.glade.h:9
+msgid "KB"
+msgstr "КБ"
+
+#: ../data/pref-dlg.ui.glade.h:10
+msgid "Minimize to system tray on close"
+msgstr "Жабылған кезде жүйелік трейге қайыру"
+
+#: ../data/pref-dlg.ui.glade.h:11
+msgid "Misc"
+msgstr "Таңд."
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "Музыка файлдарын жүйелік ресурстарын үнемдеу мақсатында графикалық интерфейссіз-ақ ойнатуға болады"
+
+#: ../data/pref-dlg.ui.glade.h:13
+msgid "Plugin: "
+msgstr "Плагин:"
+
+#: ../data/pref-dlg.ui.glade.h:14
+msgid "Preference"
+msgstr "Баптаулар"
+
+#: ../data/pref-dlg.ui.glade.h:15
+msgid "Show system tray icon"
+msgstr "Жүйелік трей таңбашасын көрсету"
+
+#: ../data/track-info.ui.glade.h:1
+msgid "<b>Album: </b>"
+msgstr "<b>Альбом:</b>"
+
+#: ../data/track-info.ui.glade.h:2
+msgid "<b>Artist: </b>"
+msgstr "<b>Әртіс: </b>"
+
+#: ../data/track-info.ui.glade.h:3
+msgid "<b>Comment: </b>"
+msgstr "<b>Түсіндірме: </b>"
+
+#: ../data/track-info.ui.glade.h:4
+msgid "<b>File Type: </b>"
+msgstr "<b>Файл түрі: </b>"
+
+#: ../data/track-info.ui.glade.h:5
+msgid "<b>File: </b>"
+msgstr "<b>Файл: </b>"
+
+#: ../data/track-info.ui.glade.h:6
+msgid "<b>Size: </b>"
+msgstr "<b>Өлшемі: </b>"
+
+#: ../data/track-info.ui.glade.h:7
+msgid "<b>Title: </b>"
+msgstr "<b>Атауы: </b>"
+
