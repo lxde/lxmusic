@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 16:34+0200\n"
+"POT-Creation-Date: 2012-05-20 17:04+0200\n"
 "PO-Revision-Date: 2011-05-23 17:21-0300\n"
 "Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -32,7 +32,7 @@ msgstr ""
 "Um cliente gráfico simples do XMMS2"
 
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -57,12 +57,12 @@ msgid "Now Playing:"
 msgstr "Reproduzindo:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Artista"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "Álbum"
 
@@ -164,190 +164,159 @@ msgid "Play your music files easily"
 msgstr "Reproduza seus arquivos de música facilmente"
 
 #: ../data/lxmusic.ui.glade.h:1
-msgid "Add Files or Folders"
-msgstr "Adicionar arquivos ou pastas"
-
-#: ../data/lxmusic.ui.glade.h:2
-msgid "Add To Playlist"
-msgstr "Adicionar à lista de reprodução"
-
-#: ../data/lxmusic.ui.glade.h:3
-msgid "Add URL"
-msgstr "Adicionar URL"
-
-#: ../data/lxmusic.ui.glade.h:4
-msgid "Add files to the playlist"
-msgstr "Adicionar arquivos à lista de reprodução"
-
-#: ../data/lxmusic.ui.glade.h:6
-msgid "All"
-msgstr "Tudo"
-
-#: ../data/lxmusic.ui.glade.h:8
-msgid "Create _New Playlist"
-msgstr "Criar uma _nova lista de reprodução"
-
-#: ../data/lxmusic.ui.glade.h:9
-msgid "Current Playlist"
-msgstr "Lista de reprodução atual"
-
-#: ../data/lxmusic.ui.glade.h:10
-msgid "Enter keyword here"
-msgstr "Digite a palavra-chave aqui"
-
-#: ../data/lxmusic.ui.glade.h:11
-msgid "Favorites"
-msgstr "Favoritos"
-
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
-msgid "File Properties"
-msgstr "Propriedades do arquivo"
-
-#: ../data/lxmusic.ui.glade.h:13
-msgid "Filter:"
-msgstr "Filtro:"
-
-#: ../data/lxmusic.ui.glade.h:15
-msgid "Locate currently played track"
-msgstr "Localizar a faixa em reprodução"
-
-#: ../data/lxmusic.ui.glade.h:16
-msgid "Media Library"
-msgstr "Biblioteca de mídia"
-
-#: ../data/lxmusic.ui.glade.h:17
-msgid "Next"
-msgstr "Próxima"
-
-#: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
 msgstr "Não repetir"
 
-#: ../data/lxmusic.ui.glade.h:19
-msgid "Play/Pause"
-msgstr "Reproduzir/Pausar"
-
-#: ../data/lxmusic.ui.glade.h:20
-msgid "Previous"
-msgstr "Anterior"
-
-#: ../data/lxmusic.ui.glade.h:21
-msgid "Remove All Items"
-msgstr "Remover todos os itens"
-
-#: ../data/lxmusic.ui.glade.h:22
-msgid "Remove From Playlist"
-msgstr "Remover da lista de reprodução"
-
-#: ../data/lxmusic.ui.glade.h:23
-msgid "Remove Selected Items"
-msgstr "Remover os itens selecionados"
-
-#: ../data/lxmusic.ui.glade.h:24
-msgid "Remove items from the playlist"
-msgstr "Remover os itens da lista de reprodução"
-
-#: ../data/lxmusic.ui.glade.h:25
-msgid "Repeat All"
-msgstr "Repetir todas"
-
-#: ../data/lxmusic.ui.glade.h:26
+#: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
 msgstr "Repetir atual"
 
-#: ../data/lxmusic.ui.glade.h:27
+#: ../data/lxmusic.ui.glade.h:3
+msgid "Repeat All"
+msgstr "Repetir todas"
+
+#: ../data/lxmusic.ui.glade.h:4
+msgid "All"
+msgstr "Tudo"
+
+#: ../data/lxmusic.ui.glade.h:7
+msgid "Track Name"
+msgstr "Nome da faixa"
+
+#: ../data/lxmusic.ui.glade.h:8
+msgid "_File"
+msgstr "_Arquivo"
+
+#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+msgid "File Properties"
+msgstr "Propriedades do arquivo"
+
+#: ../data/lxmusic.ui.glade.h:10
+msgid "_Playlist"
+msgstr "Lista de re_produção"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "_Switch To Playlist"
+msgstr "_Alternar para a lista de reprodução"
+
+#: ../data/lxmusic.ui.glade.h:12
+msgid "_Locate Currently Played"
+msgstr "_Localizar a faixa em reprodução"
+
+#: ../data/lxmusic.ui.glade.h:13
+msgid "Add To Playlist"
+msgstr "Adicionar à lista de reprodução"
+
+#: ../data/lxmusic.ui.glade.h:14
+msgid "Add Files or Folders"
+msgstr "Adicionar arquivos ou pastas"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Add URL"
+msgstr "Adicionar URL"
+
+#: ../data/lxmusic.ui.glade.h:16
+msgid "Remove From Playlist"
+msgstr "Remover da lista de reprodução"
+
+#: ../data/lxmusic.ui.glade.h:17
+msgid "Remove Selected Items"
+msgstr "Remover os itens selecionados"
+
+#: ../data/lxmusic.ui.glade.h:18
+msgid "Remove All Items"
+msgstr "Remover todos os itens"
+
+#: ../data/lxmusic.ui.glade.h:19
+msgid "Create _New Playlist"
+msgstr "Criar uma _nova lista de reprodução"
+
+#: ../data/lxmusic.ui.glade.h:20
+msgid "_Delete Current Playlist"
+msgstr "Excluir a lista _de reprodução atual"
+
+#: ../data/lxmusic.ui.glade.h:21
+msgid "_View"
+msgstr "_Ver"
+
+#: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
 msgstr "Mostrar lista de reprodução"
+
+#: ../data/lxmusic.ui.glade.h:23
+msgid "_Tools"
+msgstr "Ferramen_tas"
+
+#: ../data/lxmusic.ui.glade.h:24
+msgid "_Help"
+msgstr "Aj_uda"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Previous"
+msgstr "Anterior"
+
+#: ../data/lxmusic.ui.glade.h:27
+msgid "Play/Pause"
+msgstr "Reproduzir/Pausar"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
 msgstr "Parar"
 
 #: ../data/lxmusic.ui.glade.h:29
-msgid "Track Name"
-msgstr "Nome da faixa"
+msgid "Next"
+msgstr "Próxima"
 
 #: ../data/lxmusic.ui.glade.h:30
-msgid "_Delete Current Playlist"
-msgstr "Excluir a lista _de reprodução atual"
+msgid "Current Playlist"
+msgstr "Lista de reprodução atual"
 
 #: ../data/lxmusic.ui.glade.h:31
-msgid "_File"
-msgstr "_Arquivo"
+msgid "Favorites"
+msgstr "Favoritos"
 
 #: ../data/lxmusic.ui.glade.h:32
-msgid "_Help"
-msgstr "Aj_uda"
+msgid "Media Library"
+msgstr "Biblioteca de mídia"
 
 #: ../data/lxmusic.ui.glade.h:33
-msgid "_Locate Currently Played"
-msgstr "_Localizar a faixa em reprodução"
+msgid "Add files to the playlist"
+msgstr "Adicionar arquivos à lista de reprodução"
 
 #: ../data/lxmusic.ui.glade.h:34
-msgid "_Playlist"
-msgstr "Lista de re_produção"
+msgid "Remove items from the playlist"
+msgstr "Remover os itens da lista de reprodução"
 
 #: ../data/lxmusic.ui.glade.h:35
-msgid "_Switch To Playlist"
-msgstr "_Alternar para a lista de reprodução"
+msgid "Locate currently played track"
+msgstr "Localizar a faixa em reprodução"
 
 #: ../data/lxmusic.ui.glade.h:36
-msgid "_Tools"
-msgstr "Ferramen_tas"
+msgid "Filter:"
+msgstr "Filtro:"
 
 #: ../data/lxmusic.ui.glade.h:37
-msgid "_View"
-msgstr "_Ver"
+msgid "Enter keyword here"
+msgstr "Digite a palavra-chave aqui"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
 msgstr "Mo_strar a janela principal"
 
 #: ../data/pref-dlg.ui.glade.h:1
-msgid "<b>Audio CD</b>"
-msgstr "<b>CD de áudio</b>"
+#, fuzzy
+msgid "Preferences"
+msgstr "Preferência"
 
 #: ../data/pref-dlg.ui.glade.h:2
-msgid "<b>Output</b>"
-msgstr "<b>Saída</b>"
+msgid "Show system tray icon"
+msgstr "Mostrar ícone na área de notificação"
 
 #: ../data/pref-dlg.ui.glade.h:3
-msgid "Audio"
-msgstr "Áudio"
-
-#: ../data/pref-dlg.ui.glade.h:4
-msgid "Buffer Size: "
-msgstr "Tamanho do buffer: "
-
-#: ../data/pref-dlg.ui.glade.h:5
-msgid "CD-ROM Device: "
-msgstr "Dispositivo de CD-ROM: "
-
-#: ../data/pref-dlg.ui.glade.h:6
-msgid "Continue playback in background after exiting LXMusic"
-msgstr "Continuar a reprodução em segundo plano depois de sair do LXMusic"
-
-#: ../data/pref-dlg.ui.glade.h:7
-msgid "Default ID3 V1 Encoding: "
-msgstr "Codificação padrão para ID3 V1: "
-
-#: ../data/pref-dlg.ui.glade.h:8
-msgid "General"
-msgstr "Geral"
-
-#: ../data/pref-dlg.ui.glade.h:9
-msgid "KB"
-msgstr "KB"
-
-#: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
 msgstr "Minimizar para a área de notificação ao fechar"
 
-#: ../data/pref-dlg.ui.glade.h:11
-msgid "Misc"
-msgstr "Miscelânea"
-
-#: ../data/pref-dlg.ui.glade.h:12
+#: ../data/pref-dlg.ui.glade.h:4
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
@@ -355,45 +324,77 @@ msgstr ""
 "Arquivos de música podem ser reproduzidos sem a interface gráfica para "
 "economizar recursos do sistema"
 
-#: ../data/pref-dlg.ui.glade.h:13
+#: ../data/pref-dlg.ui.glade.h:5
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "Continuar a reprodução em segundo plano depois de sair do LXMusic"
+
+#: ../data/pref-dlg.ui.glade.h:6
+msgid "General"
+msgstr "Geral"
+
+#: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
 msgstr "Plug-in: "
 
+#: ../data/pref-dlg.ui.glade.h:8
+msgid "Buffer Size: "
+msgstr "Tamanho do buffer: "
+
+#: ../data/pref-dlg.ui.glade.h:9
+msgid "KB"
+msgstr "KB"
+
+#: ../data/pref-dlg.ui.glade.h:10
+msgid "<b>Output</b>"
+msgstr "<b>Saída</b>"
+
+#: ../data/pref-dlg.ui.glade.h:11
+msgid "CD-ROM Device: "
+msgstr "Dispositivo de CD-ROM: "
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "<b>Audio CD</b>"
+msgstr "<b>CD de áudio</b>"
+
+#: ../data/pref-dlg.ui.glade.h:13
+msgid "Audio"
+msgstr "Áudio"
+
 #: ../data/pref-dlg.ui.glade.h:14
-msgid "Preference"
-msgstr "Preferência"
+msgid "Default ID3 V1 Encoding: "
+msgstr "Codificação padrão para ID3 V1: "
 
 #: ../data/pref-dlg.ui.glade.h:15
-msgid "Show system tray icon"
-msgstr "Mostrar ícone na área de notificação"
-
-#: ../data/track-info.ui.glade.h:1
-msgid "<b>Album: </b>"
-msgstr "<b>Álbum: </b>"
+msgid "Misc"
+msgstr "Miscelânea"
 
 #: ../data/track-info.ui.glade.h:2
-msgid "<b>Artist: </b>"
-msgstr "<b>Artista: </b>"
-
-#: ../data/track-info.ui.glade.h:3
-msgid "<b>Comment: </b>"
-msgstr "<b>Comentário: </b>"
-
-#: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
 msgstr "<b>Tipo de arquivo: </b>"
 
-#: ../data/track-info.ui.glade.h:5
-msgid "<b>File: </b>"
-msgstr "<b>Arquivo: </b>"
-
-#: ../data/track-info.ui.glade.h:6
+#: ../data/track-info.ui.glade.h:3
 msgid "<b>Size: </b>"
 msgstr "<b>Tamanho: </b>"
+
+#: ../data/track-info.ui.glade.h:4
+msgid "<b>Comment: </b>"
+msgstr "<b>Comentário: </b>"
+
+#: ../data/track-info.ui.glade.h:5
+msgid "<b>Artist: </b>"
+msgstr "<b>Artista: </b>"
+
+#: ../data/track-info.ui.glade.h:6
+msgid "<b>Album: </b>"
+msgstr "<b>Álbum: </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Título: </b>"
+
+#: ../data/track-info.ui.glade.h:8
+msgid "<b>File: </b>"
+msgstr "<b>Arquivo: </b>"
 
 #, fuzzy
 #~ msgid "Server"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 16:34+0200\n"
+"POT-Creation-Date: 2012-05-20 17:04+0200\n"
 "PO-Revision-Date: 2010-07-11 17:50+0200\n"
 "Last-Translator: Hamidreza <n3gb0y@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 "رابط گرافیکی ساده مصرف کننده XMMS2"
 
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "اِل اکس آهنگ"
 
@@ -56,12 +56,12 @@ msgid "Now Playing:"
 msgstr "هم اکنون در حال پخش :"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "هنرمند"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "آلبوم"
 
@@ -163,190 +163,159 @@ msgid "Play your music files easily"
 msgstr "پخش آسان پرونده‌های آهنگ شما"
 
 #: ../data/lxmusic.ui.glade.h:1
-msgid "Add Files or Folders"
-msgstr "افزودن پرونده‌ها یا پوشه‌ها"
-
-#: ../data/lxmusic.ui.glade.h:2
-msgid "Add To Playlist"
-msgstr "افزودن به لیست پخش"
-
-#: ../data/lxmusic.ui.glade.h:3
-msgid "Add URL"
-msgstr "افزودن آدرس اینترنتی"
-
-#: ../data/lxmusic.ui.glade.h:4
-msgid "Add files to the playlist"
-msgstr "افزودن پرونده‌ها به لیست پخش"
-
-#: ../data/lxmusic.ui.glade.h:6
-msgid "All"
-msgstr "همگی"
-
-#: ../data/lxmusic.ui.glade.h:8
-msgid "Create _New Playlist"
-msgstr "ایجادـ لیست پخش جدید"
-
-#: ../data/lxmusic.ui.glade.h:9
-msgid "Current Playlist"
-msgstr "لیست پخش کنونی"
-
-#: ../data/lxmusic.ui.glade.h:10
-msgid "Enter keyword here"
-msgstr "کلمه کلیدی را اینجا وارد کنید"
-
-#: ../data/lxmusic.ui.glade.h:11
-msgid "Favorites"
-msgstr "علاقه‌مندی‌ها"
-
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
-msgid "File Properties"
-msgstr "ویژگی‌های پرونده"
-
-#: ../data/lxmusic.ui.glade.h:13
-msgid "Filter:"
-msgstr "صافی:"
-
-#: ../data/lxmusic.ui.glade.h:15
-msgid "Locate currently played track"
-msgstr "قرار دادن تراک پخش شده کنونی"
-
-#: ../data/lxmusic.ui.glade.h:16
-msgid "Media Library"
-msgstr "کتابخانه رسانه"
-
-#: ../data/lxmusic.ui.glade.h:17
-msgid "Next"
-msgstr "بعدی"
-
-#: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
 msgstr "بدون تکرار"
 
-#: ../data/lxmusic.ui.glade.h:19
-msgid "Play/Pause"
-msgstr "پخش/مکث"
-
-#: ../data/lxmusic.ui.glade.h:20
-msgid "Previous"
-msgstr "قبلی"
-
-#: ../data/lxmusic.ui.glade.h:21
-msgid "Remove All Items"
-msgstr "حذف تمام موارد"
-
-#: ../data/lxmusic.ui.glade.h:22
-msgid "Remove From Playlist"
-msgstr "حذف از فهرست پخش"
-
-#: ../data/lxmusic.ui.glade.h:23
-msgid "Remove Selected Items"
-msgstr "حذف موارد مشخص شده"
-
-#: ../data/lxmusic.ui.glade.h:24
-msgid "Remove items from the playlist"
-msgstr "حذف مواردی از فهرست پخش"
-
-#: ../data/lxmusic.ui.glade.h:25
-msgid "Repeat All"
-msgstr "تکرار همگی"
-
-#: ../data/lxmusic.ui.glade.h:26
+#: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
 msgstr "تکرار کنونی"
 
-#: ../data/lxmusic.ui.glade.h:27
+#: ../data/lxmusic.ui.glade.h:3
+msgid "Repeat All"
+msgstr "تکرار همگی"
+
+#: ../data/lxmusic.ui.glade.h:4
+msgid "All"
+msgstr "همگی"
+
+#: ../data/lxmusic.ui.glade.h:7
+msgid "Track Name"
+msgstr "نام آهنگ"
+
+#: ../data/lxmusic.ui.glade.h:8
+msgid "_File"
+msgstr "ـ پرونده"
+
+#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+msgid "File Properties"
+msgstr "ویژگی‌های پرونده"
+
+#: ../data/lxmusic.ui.glade.h:10
+msgid "_Playlist"
+msgstr "ـفهرست‌پخش"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "_Switch To Playlist"
+msgstr "ـ تغییر به فهرست پخش"
+
+#: ../data/lxmusic.ui.glade.h:12
+msgid "_Locate Currently Played"
+msgstr "ـ تعیین محل هم اکنون پخش شده"
+
+#: ../data/lxmusic.ui.glade.h:13
+msgid "Add To Playlist"
+msgstr "افزودن به لیست پخش"
+
+#: ../data/lxmusic.ui.glade.h:14
+msgid "Add Files or Folders"
+msgstr "افزودن پرونده‌ها یا پوشه‌ها"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Add URL"
+msgstr "افزودن آدرس اینترنتی"
+
+#: ../data/lxmusic.ui.glade.h:16
+msgid "Remove From Playlist"
+msgstr "حذف از فهرست پخش"
+
+#: ../data/lxmusic.ui.glade.h:17
+msgid "Remove Selected Items"
+msgstr "حذف موارد مشخص شده"
+
+#: ../data/lxmusic.ui.glade.h:18
+msgid "Remove All Items"
+msgstr "حذف تمام موارد"
+
+#: ../data/lxmusic.ui.glade.h:19
+msgid "Create _New Playlist"
+msgstr "ایجادـ لیست پخش جدید"
+
+#: ../data/lxmusic.ui.glade.h:20
+msgid "_Delete Current Playlist"
+msgstr "ـ حذف فهرست پخش کنونی"
+
+#: ../data/lxmusic.ui.glade.h:21
+msgid "_View"
+msgstr "ـ مشاهده"
+
+#: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
 msgstr "نمایش فهرست پخش"
+
+#: ../data/lxmusic.ui.glade.h:23
+msgid "_Tools"
+msgstr "ـ ابزار"
+
+#: ../data/lxmusic.ui.glade.h:24
+msgid "_Help"
+msgstr "ـ کمک"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Previous"
+msgstr "قبلی"
+
+#: ../data/lxmusic.ui.glade.h:27
+msgid "Play/Pause"
+msgstr "پخش/مکث"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
 msgstr "توقف"
 
 #: ../data/lxmusic.ui.glade.h:29
-msgid "Track Name"
-msgstr "نام آهنگ"
+msgid "Next"
+msgstr "بعدی"
 
 #: ../data/lxmusic.ui.glade.h:30
-msgid "_Delete Current Playlist"
-msgstr "ـ حذف فهرست پخش کنونی"
+msgid "Current Playlist"
+msgstr "لیست پخش کنونی"
 
 #: ../data/lxmusic.ui.glade.h:31
-msgid "_File"
-msgstr "ـ پرونده"
+msgid "Favorites"
+msgstr "علاقه‌مندی‌ها"
 
 #: ../data/lxmusic.ui.glade.h:32
-msgid "_Help"
-msgstr "ـ کمک"
+msgid "Media Library"
+msgstr "کتابخانه رسانه"
 
 #: ../data/lxmusic.ui.glade.h:33
-msgid "_Locate Currently Played"
-msgstr "ـ تعیین محل هم اکنون پخش شده"
+msgid "Add files to the playlist"
+msgstr "افزودن پرونده‌ها به لیست پخش"
 
 #: ../data/lxmusic.ui.glade.h:34
-msgid "_Playlist"
-msgstr "ـفهرست‌پخش"
+msgid "Remove items from the playlist"
+msgstr "حذف مواردی از فهرست پخش"
 
 #: ../data/lxmusic.ui.glade.h:35
-msgid "_Switch To Playlist"
-msgstr "ـ تغییر به فهرست پخش"
+msgid "Locate currently played track"
+msgstr "قرار دادن تراک پخش شده کنونی"
 
 #: ../data/lxmusic.ui.glade.h:36
-msgid "_Tools"
-msgstr "ـ ابزار"
+msgid "Filter:"
+msgstr "صافی:"
 
 #: ../data/lxmusic.ui.glade.h:37
-msgid "_View"
-msgstr "ـ مشاهده"
+msgid "Enter keyword here"
+msgstr "کلمه کلیدی را اینجا وارد کنید"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
 msgstr "ـ نمایش پنجره اصلی"
 
 #: ../data/pref-dlg.ui.glade.h:1
-msgid "<b>Audio CD</b>"
-msgstr "<b>دیسک صوتی</b>"
+#, fuzzy
+msgid "Preferences"
+msgstr "تنظیمات"
 
 #: ../data/pref-dlg.ui.glade.h:2
-msgid "<b>Output</b>"
-msgstr "<b>خروجی</b>"
+msgid "Show system tray icon"
+msgstr "نمایش شمایل سینی سامانه"
 
 #: ../data/pref-dlg.ui.glade.h:3
-msgid "Audio"
-msgstr "صوت"
-
-#: ../data/pref-dlg.ui.glade.h:4
-msgid "Buffer Size: "
-msgstr "حجم میانگیر:"
-
-#: ../data/pref-dlg.ui.glade.h:5
-msgid "CD-ROM Device: "
-msgstr "دستگاه دیسک خوان:"
-
-#: ../data/pref-dlg.ui.glade.h:6
-msgid "Continue playback in background after exiting LXMusic"
-msgstr "ادامه پخش در پس‌زمینه پس از خروج از LXMusic"
-
-#: ../data/pref-dlg.ui.glade.h:7
-msgid "Default ID3 V1 Encoding: "
-msgstr "کد کنندگی پیش‌فرض ID3 نسخه۱:"
-
-#: ../data/pref-dlg.ui.glade.h:8
-msgid "General"
-msgstr "عمومی"
-
-#: ../data/pref-dlg.ui.glade.h:9
-msgid "KB"
-msgstr "کیلوبایت"
-
-#: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
 msgstr "کوچک سازی در بخش هشدار در صورت خروج"
 
-#: ../data/pref-dlg.ui.glade.h:11
-msgid "Misc"
-msgstr "متفرقه"
-
-#: ../data/pref-dlg.ui.glade.h:12
+#: ../data/pref-dlg.ui.glade.h:4
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
@@ -354,42 +323,74 @@ msgstr ""
 "پرونده‌های آهنگ می‌توانند برای حفظ منابع سیستمی بدون رابط گرافیکی کاربری  پخش "
 "شوند"
 
-#: ../data/pref-dlg.ui.glade.h:13
+#: ../data/pref-dlg.ui.glade.h:5
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "ادامه پخش در پس‌زمینه پس از خروج از LXMusic"
+
+#: ../data/pref-dlg.ui.glade.h:6
+msgid "General"
+msgstr "عمومی"
+
+#: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
 msgstr "افزونه :"
 
+#: ../data/pref-dlg.ui.glade.h:8
+msgid "Buffer Size: "
+msgstr "حجم میانگیر:"
+
+#: ../data/pref-dlg.ui.glade.h:9
+msgid "KB"
+msgstr "کیلوبایت"
+
+#: ../data/pref-dlg.ui.glade.h:10
+msgid "<b>Output</b>"
+msgstr "<b>خروجی</b>"
+
+#: ../data/pref-dlg.ui.glade.h:11
+msgid "CD-ROM Device: "
+msgstr "دستگاه دیسک خوان:"
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "<b>Audio CD</b>"
+msgstr "<b>دیسک صوتی</b>"
+
+#: ../data/pref-dlg.ui.glade.h:13
+msgid "Audio"
+msgstr "صوت"
+
 #: ../data/pref-dlg.ui.glade.h:14
-msgid "Preference"
-msgstr "تنظیمات"
+msgid "Default ID3 V1 Encoding: "
+msgstr "کد کنندگی پیش‌فرض ID3 نسخه۱:"
 
 #: ../data/pref-dlg.ui.glade.h:15
-msgid "Show system tray icon"
-msgstr "نمایش شمایل سینی سامانه"
-
-#: ../data/track-info.ui.glade.h:1
-msgid "<b>Album: </b>"
-msgstr "<b>آلبوم : </b>"
+msgid "Misc"
+msgstr "متفرقه"
 
 #: ../data/track-info.ui.glade.h:2
-msgid "<b>Artist: </b>"
-msgstr "<b>هنرمند :</b>"
-
-#: ../data/track-info.ui.glade.h:3
-msgid "<b>Comment: </b>"
-msgstr "<b>نظر: </b>"
-
-#: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
 msgstr "<b>نوع پرونده :</b>"
 
-#: ../data/track-info.ui.glade.h:5
-msgid "<b>File: </b>"
-msgstr "<b>پرونده :</b>"
-
-#: ../data/track-info.ui.glade.h:6
+#: ../data/track-info.ui.glade.h:3
 msgid "<b>Size: </b>"
 msgstr "<b>اندازه : </b>"
+
+#: ../data/track-info.ui.glade.h:4
+msgid "<b>Comment: </b>"
+msgstr "<b>نظر: </b>"
+
+#: ../data/track-info.ui.glade.h:5
+msgid "<b>Artist: </b>"
+msgstr "<b>هنرمند :</b>"
+
+#: ../data/track-info.ui.glade.h:6
+msgid "<b>Album: </b>"
+msgstr "<b>آلبوم : </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>عنوان:</b>"
+
+#: ../data/track-info.ui.glade.h:8
+msgid "<b>File: </b>"
+msgstr "<b>پرونده :</b>"

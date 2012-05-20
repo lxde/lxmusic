@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 16:34+0200\n"
+"POT-Creation-Date: 2012-05-20 17:04+0200\n"
 "PO-Revision-Date: 2011-08-07 16:28+0200\n"
 "Last-Translator: Мікалай <crom-a@tut.by>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: ../src/lxmusic.c:263
@@ -32,7 +32,7 @@ msgstr ""
 "Просты графічны кліент XMMS2"
 
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -57,12 +57,12 @@ msgid "Now Playing:"
 msgstr "Прайграць:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Выканаўца"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "Альбом"
 
@@ -164,190 +164,159 @@ msgid "Play your music files easily"
 msgstr "Слухайце сваю музыку лёгка"
 
 #: ../data/lxmusic.ui.glade.h:1
-msgid "Add Files or Folders"
-msgstr "Дадаць файлы ці каталогі"
-
-#: ../data/lxmusic.ui.glade.h:2
-msgid "Add To Playlist"
-msgstr "Дадаць спіс прайгравання"
-
-#: ../data/lxmusic.ui.glade.h:3
-msgid "Add URL"
-msgstr "Дадаць URL"
-
-#: ../data/lxmusic.ui.glade.h:4
-msgid "Add files to the playlist"
-msgstr "Дадаць файлы ў спіс прайгравання"
-
-#: ../data/lxmusic.ui.glade.h:6
-msgid "All"
-msgstr "Усе"
-
-#: ../data/lxmusic.ui.glade.h:8
-msgid "Create _New Playlist"
-msgstr "Стварыць _новы спіс прайгравання"
-
-#: ../data/lxmusic.ui.glade.h:9
-msgid "Current Playlist"
-msgstr "Бягучы спіс прайгравання"
-
-#: ../data/lxmusic.ui.glade.h:10
-msgid "Enter keyword here"
-msgstr "Увядзіце тут ключавое слова"
-
-#: ../data/lxmusic.ui.glade.h:11
-msgid "Favorites"
-msgstr "Любімыя"
-
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
-msgid "File Properties"
-msgstr "Уласцівасці файла"
-
-#: ../data/lxmusic.ui.glade.h:13
-msgid "Filter:"
-msgstr "Фільтр:"
-
-#: ../data/lxmusic.ui.glade.h:15
-msgid "Locate currently played track"
-msgstr "Знайсці трэк, які зараз гучыць"
-
-#: ../data/lxmusic.ui.glade.h:16
-msgid "Media Library"
-msgstr "Медыя-бібліятэка"
-
-#: ../data/lxmusic.ui.glade.h:17
-msgid "Next"
-msgstr "Наступны"
-
-#: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
 msgstr "Не паўтараць"
 
-#: ../data/lxmusic.ui.glade.h:19
-msgid "Play/Pause"
-msgstr "Прайграванне/Паўза"
-
-#: ../data/lxmusic.ui.glade.h:20
-msgid "Previous"
-msgstr "Папярэдні"
-
-#: ../data/lxmusic.ui.glade.h:21
-msgid "Remove All Items"
-msgstr "Сцерці усе пункты"
-
-#: ../data/lxmusic.ui.glade.h:22
-msgid "Remove From Playlist"
-msgstr "Сцерці са спіса прайгравання"
-
-#: ../data/lxmusic.ui.glade.h:23
-msgid "Remove Selected Items"
-msgstr "Сцерці абраныя пункты"
-
-#: ../data/lxmusic.ui.glade.h:24
-msgid "Remove items from the playlist"
-msgstr "Сцерці пункты са спісу прайгравання"
-
-#: ../data/lxmusic.ui.glade.h:25
-msgid "Repeat All"
-msgstr "Паўтараць усё"
-
-#: ../data/lxmusic.ui.glade.h:26
+#: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
 msgstr "Паўтараць бягучы"
 
-#: ../data/lxmusic.ui.glade.h:27
+#: ../data/lxmusic.ui.glade.h:3
+msgid "Repeat All"
+msgstr "Паўтараць усё"
+
+#: ../data/lxmusic.ui.glade.h:4
+msgid "All"
+msgstr "Усе"
+
+#: ../data/lxmusic.ui.glade.h:7
+msgid "Track Name"
+msgstr "Назва запісу"
+
+#: ../data/lxmusic.ui.glade.h:8
+msgid "_File"
+msgstr "Ф_айл"
+
+#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+msgid "File Properties"
+msgstr "Уласцівасці файла"
+
+#: ../data/lxmusic.ui.glade.h:10
+msgid "_Playlist"
+msgstr "_Спіс прайгравання"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "_Switch To Playlist"
+msgstr "_Перайсці да спісу прайгравання"
+
+#: ../data/lxmusic.ui.glade.h:12
+msgid "_Locate Currently Played"
+msgstr "_Знайсці бягучы запіс"
+
+#: ../data/lxmusic.ui.glade.h:13
+msgid "Add To Playlist"
+msgstr "Дадаць спіс прайгравання"
+
+#: ../data/lxmusic.ui.glade.h:14
+msgid "Add Files or Folders"
+msgstr "Дадаць файлы ці каталогі"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Add URL"
+msgstr "Дадаць URL"
+
+#: ../data/lxmusic.ui.glade.h:16
+msgid "Remove From Playlist"
+msgstr "Сцерці са спіса прайгравання"
+
+#: ../data/lxmusic.ui.glade.h:17
+msgid "Remove Selected Items"
+msgstr "Сцерці абраныя пункты"
+
+#: ../data/lxmusic.ui.glade.h:18
+msgid "Remove All Items"
+msgstr "Сцерці усе пункты"
+
+#: ../data/lxmusic.ui.glade.h:19
+msgid "Create _New Playlist"
+msgstr "Стварыць _новы спіс прайгравання"
+
+#: ../data/lxmusic.ui.glade.h:20
+msgid "_Delete Current Playlist"
+msgstr "_Сцерці бягучы спіс прайгравання"
+
+#: ../data/lxmusic.ui.glade.h:21
+msgid "_View"
+msgstr "_Выгляд"
+
+#: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
 msgstr "Паказаць спіс прайгравання"
+
+#: ../data/lxmusic.ui.glade.h:23
+msgid "_Tools"
+msgstr "_Інструменты"
+
+#: ../data/lxmusic.ui.glade.h:24
+msgid "_Help"
+msgstr "_Даведка"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Previous"
+msgstr "Папярэдні"
+
+#: ../data/lxmusic.ui.glade.h:27
+msgid "Play/Pause"
+msgstr "Прайграванне/Паўза"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
 msgstr "Стоп"
 
 #: ../data/lxmusic.ui.glade.h:29
-msgid "Track Name"
-msgstr "Назва запісу"
+msgid "Next"
+msgstr "Наступны"
 
 #: ../data/lxmusic.ui.glade.h:30
-msgid "_Delete Current Playlist"
-msgstr "_Сцерці бягучы спіс прайгравання"
+msgid "Current Playlist"
+msgstr "Бягучы спіс прайгравання"
 
 #: ../data/lxmusic.ui.glade.h:31
-msgid "_File"
-msgstr "Ф_айл"
+msgid "Favorites"
+msgstr "Любімыя"
 
 #: ../data/lxmusic.ui.glade.h:32
-msgid "_Help"
-msgstr "_Даведка"
+msgid "Media Library"
+msgstr "Медыя-бібліятэка"
 
 #: ../data/lxmusic.ui.glade.h:33
-msgid "_Locate Currently Played"
-msgstr "_Знайсці бягучы запіс"
+msgid "Add files to the playlist"
+msgstr "Дадаць файлы ў спіс прайгравання"
 
 #: ../data/lxmusic.ui.glade.h:34
-msgid "_Playlist"
-msgstr "_Спіс прайгравання"
+msgid "Remove items from the playlist"
+msgstr "Сцерці пункты са спісу прайгравання"
 
 #: ../data/lxmusic.ui.glade.h:35
-msgid "_Switch To Playlist"
-msgstr "_Перайсці да спісу прайгравання"
+msgid "Locate currently played track"
+msgstr "Знайсці трэк, які зараз гучыць"
 
 #: ../data/lxmusic.ui.glade.h:36
-msgid "_Tools"
-msgstr "_Інструменты"
+msgid "Filter:"
+msgstr "Фільтр:"
 
 #: ../data/lxmusic.ui.glade.h:37
-msgid "_View"
-msgstr "_Выгляд"
+msgid "Enter keyword here"
+msgstr "Увядзіце тут ключавое слова"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
 msgstr "_Паказаць галоўнае акно"
 
 #: ../data/pref-dlg.ui.glade.h:1
-msgid "<b>Audio CD</b>"
-msgstr "<b>Audio CD</b>"
+#, fuzzy
+msgid "Preferences"
+msgstr "Пераважнае"
 
 #: ../data/pref-dlg.ui.glade.h:2
-msgid "<b>Output</b>"
-msgstr "<b>Вывад</b>"
+msgid "Show system tray icon"
+msgstr "Паказваць значок у сістэмным трэі"
 
 #: ../data/pref-dlg.ui.glade.h:3
-msgid "Audio"
-msgstr "Аўдыё"
-
-#: ../data/pref-dlg.ui.glade.h:4
-msgid "Buffer Size: "
-msgstr "Памер буфера: "
-
-#: ../data/pref-dlg.ui.glade.h:5
-msgid "CD-ROM Device: "
-msgstr "CD-ROM прылада: "
-
-#: ../data/pref-dlg.ui.glade.h:6
-msgid "Continue playback in background after exiting LXMusic"
-msgstr "Працягнуць прайграванне ў фонавым рэжыме пасля выхаду з LXMusic"
-
-#: ../data/pref-dlg.ui.glade.h:7
-msgid "Default ID3 V1 Encoding: "
-msgstr "Прадвызначаны знаказбор для ID3 V1: "
-
-#: ../data/pref-dlg.ui.glade.h:8
-msgid "General"
-msgstr "Агульны"
-
-#: ../data/pref-dlg.ui.glade.h:9
-msgid "KB"
-msgstr "КБ"
-
-#: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
 msgstr "Хаваць у трэй замест закрыцця"
 
-#: ../data/pref-dlg.ui.glade.h:11
-msgid "Misc"
-msgstr "Рознае"
-
-#: ../data/pref-dlg.ui.glade.h:12
+#: ../data/pref-dlg.ui.glade.h:4
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
@@ -355,42 +324,74 @@ msgstr ""
 "Музыка можа прайгравацца без выкарыстання графічнай абалонкі для захавання "
 "сістэмных рэсурсаў"
 
-#: ../data/pref-dlg.ui.glade.h:13
+#: ../data/pref-dlg.ui.glade.h:5
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "Працягнуць прайграванне ў фонавым рэжыме пасля выхаду з LXMusic"
+
+#: ../data/pref-dlg.ui.glade.h:6
+msgid "General"
+msgstr "Агульны"
+
+#: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
 msgstr "Плагін:"
 
+#: ../data/pref-dlg.ui.glade.h:8
+msgid "Buffer Size: "
+msgstr "Памер буфера: "
+
+#: ../data/pref-dlg.ui.glade.h:9
+msgid "KB"
+msgstr "КБ"
+
+#: ../data/pref-dlg.ui.glade.h:10
+msgid "<b>Output</b>"
+msgstr "<b>Вывад</b>"
+
+#: ../data/pref-dlg.ui.glade.h:11
+msgid "CD-ROM Device: "
+msgstr "CD-ROM прылада: "
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "<b>Audio CD</b>"
+msgstr "<b>Audio CD</b>"
+
+#: ../data/pref-dlg.ui.glade.h:13
+msgid "Audio"
+msgstr "Аўдыё"
+
 #: ../data/pref-dlg.ui.glade.h:14
-msgid "Preference"
-msgstr "Пераважнае"
+msgid "Default ID3 V1 Encoding: "
+msgstr "Прадвызначаны знаказбор для ID3 V1: "
 
 #: ../data/pref-dlg.ui.glade.h:15
-msgid "Show system tray icon"
-msgstr "Паказваць значок у сістэмным трэі"
-
-#: ../data/track-info.ui.glade.h:1
-msgid "<b>Album: </b>"
-msgstr "<b>Альбом: </b>"
+msgid "Misc"
+msgstr "Рознае"
 
 #: ../data/track-info.ui.glade.h:2
-msgid "<b>Artist: </b>"
-msgstr "<b>Выканаўца: </b>"
-
-#: ../data/track-info.ui.glade.h:3
-msgid "<b>Comment: </b>"
-msgstr "<b>Каментарый: </b>"
-
-#: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
 msgstr "<b>Тып файла: </b>"
 
-#: ../data/track-info.ui.glade.h:5
-msgid "<b>File: </b>"
-msgstr "<b>Файл: </b>"
-
-#: ../data/track-info.ui.glade.h:6
+#: ../data/track-info.ui.glade.h:3
 msgid "<b>Size: </b>"
 msgstr "<b>Памер: </b>"
+
+#: ../data/track-info.ui.glade.h:4
+msgid "<b>Comment: </b>"
+msgstr "<b>Каментарый: </b>"
+
+#: ../data/track-info.ui.glade.h:5
+msgid "<b>Artist: </b>"
+msgstr "<b>Выканаўца: </b>"
+
+#: ../data/track-info.ui.glade.h:6
+msgid "<b>Album: </b>"
+msgstr "<b>Альбом: </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Назва: </b>"
+
+#: ../data/track-info.ui.glade.h:8
+msgid "<b>File: </b>"
+msgstr "<b>Файл: </b>"

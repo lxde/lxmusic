@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 16:34+0200\n"
+"POT-Creation-Date: 2012-05-20 17:04+0200\n"
 "PO-Revision-Date: 2010-04-08 23:05+0200\n"
 "Last-Translator: <edhunter@sidux.com>\n"
 "Language-Team: Greek\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Απλό γραφικό πρόγραμμα πελάτης για το XMMS2"
 
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -58,12 +58,12 @@ msgid "Now Playing:"
 msgstr "Τώρα παίζει:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Καλλιτέχνης"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "Άλμπουμ"
 
@@ -165,190 +165,159 @@ msgid "Play your music files easily"
 msgstr "Εύκολη αναπαραγωγή της μουσικής σας"
 
 #: ../data/lxmusic.ui.glade.h:1
-msgid "Add Files or Folders"
-msgstr "Προσθήκη αρχείων ή φακέλων"
-
-#: ../data/lxmusic.ui.glade.h:2
-msgid "Add To Playlist"
-msgstr "Προσθήκη στη λίστα αναπαραγωγής"
-
-#: ../data/lxmusic.ui.glade.h:3
-msgid "Add URL"
-msgstr "Προσθήκη URL"
-
-#: ../data/lxmusic.ui.glade.h:4
-msgid "Add files to the playlist"
-msgstr "Προσθήκη αρχείων στη λίστα αναπαραγωγής"
-
-#: ../data/lxmusic.ui.glade.h:6
-msgid "All"
-msgstr "Όλα"
-
-#: ../data/lxmusic.ui.glade.h:8
-msgid "Create _New Playlist"
-msgstr "Δημιουργία _νέας λίστας αναπαραγωγής"
-
-#: ../data/lxmusic.ui.glade.h:9
-msgid "Current Playlist"
-msgstr "Τρέχουσα λίστα αναπαραγωγής"
-
-#: ../data/lxmusic.ui.glade.h:10
-msgid "Enter keyword here"
-msgstr "Εισαγωγή λέξης κλειδί εδώ"
-
-#: ../data/lxmusic.ui.glade.h:11
-msgid "Favorites"
-msgstr "Αγαπημένα"
-
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
-msgid "File Properties"
-msgstr "Ιδιότητες αρχείων"
-
-#: ../data/lxmusic.ui.glade.h:13
-msgid "Filter:"
-msgstr "Φίλτρο:"
-
-#: ../data/lxmusic.ui.glade.h:15
-msgid "Locate currently played track"
-msgstr "Εύρεση κομματιού που αναπαράγεται"
-
-#: ../data/lxmusic.ui.glade.h:16
-msgid "Media Library"
-msgstr "Βιβλιοθήκη πολυμέσων"
-
-#: ../data/lxmusic.ui.glade.h:17
-msgid "Next"
-msgstr "Επόμενο"
-
-#: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
 msgstr "Χωρίς επανάληψη"
 
-#: ../data/lxmusic.ui.glade.h:19
-msgid "Play/Pause"
-msgstr "Αναπαραγωγή/Παύση"
-
-#: ../data/lxmusic.ui.glade.h:20
-msgid "Previous"
-msgstr "Προηγούμενο"
-
-#: ../data/lxmusic.ui.glade.h:21
-msgid "Remove All Items"
-msgstr "Αφαίρεση όλων"
-
-#: ../data/lxmusic.ui.glade.h:22
-msgid "Remove From Playlist"
-msgstr "Αφαίρεση από τη λίστα αναπαραγωγής"
-
-#: ../data/lxmusic.ui.glade.h:23
-msgid "Remove Selected Items"
-msgstr "Αφαίρεση επιλεγμένων"
-
-#: ../data/lxmusic.ui.glade.h:24
-msgid "Remove items from the playlist"
-msgstr "Αφαίρεση αντικειμένων από τη λίστα"
-
-#: ../data/lxmusic.ui.glade.h:25
-msgid "Repeat All"
-msgstr "Επανάληψη όλων"
-
-#: ../data/lxmusic.ui.glade.h:26
+#: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
 msgstr "Επανάληψη τρέχον"
 
-#: ../data/lxmusic.ui.glade.h:27
+#: ../data/lxmusic.ui.glade.h:3
+msgid "Repeat All"
+msgstr "Επανάληψη όλων"
+
+#: ../data/lxmusic.ui.glade.h:4
+msgid "All"
+msgstr "Όλα"
+
+#: ../data/lxmusic.ui.glade.h:7
+msgid "Track Name"
+msgstr "Όνομα κομματιού"
+
+#: ../data/lxmusic.ui.glade.h:8
+msgid "_File"
+msgstr "_Αρχείο"
+
+#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+msgid "File Properties"
+msgstr "Ιδιότητες αρχείων"
+
+#: ../data/lxmusic.ui.glade.h:10
+msgid "_Playlist"
+msgstr "_Λίστα αναπαραγωγής"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "_Switch To Playlist"
+msgstr "_Εναλλαγή στη λίστα αναπαραγωγής"
+
+#: ../data/lxmusic.ui.glade.h:12
+msgid "_Locate Currently Played"
+msgstr "_Εύρεση κομματιού που αναπαράγεται"
+
+#: ../data/lxmusic.ui.glade.h:13
+msgid "Add To Playlist"
+msgstr "Προσθήκη στη λίστα αναπαραγωγής"
+
+#: ../data/lxmusic.ui.glade.h:14
+msgid "Add Files or Folders"
+msgstr "Προσθήκη αρχείων ή φακέλων"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Add URL"
+msgstr "Προσθήκη URL"
+
+#: ../data/lxmusic.ui.glade.h:16
+msgid "Remove From Playlist"
+msgstr "Αφαίρεση από τη λίστα αναπαραγωγής"
+
+#: ../data/lxmusic.ui.glade.h:17
+msgid "Remove Selected Items"
+msgstr "Αφαίρεση επιλεγμένων"
+
+#: ../data/lxmusic.ui.glade.h:18
+msgid "Remove All Items"
+msgstr "Αφαίρεση όλων"
+
+#: ../data/lxmusic.ui.glade.h:19
+msgid "Create _New Playlist"
+msgstr "Δημιουργία _νέας λίστας αναπαραγωγής"
+
+#: ../data/lxmusic.ui.glade.h:20
+msgid "_Delete Current Playlist"
+msgstr "_Διαγραφή τρέχουσας λίστας"
+
+#: ../data/lxmusic.ui.glade.h:21
+msgid "_View"
+msgstr "_Προβολή"
+
+#: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
 msgstr "Εμφάνιση λίστας αναπαραγωγής"
+
+#: ../data/lxmusic.ui.glade.h:23
+msgid "_Tools"
+msgstr "_Εργαλεία"
+
+#: ../data/lxmusic.ui.glade.h:24
+msgid "_Help"
+msgstr "_Βοήθεια"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Previous"
+msgstr "Προηγούμενο"
+
+#: ../data/lxmusic.ui.glade.h:27
+msgid "Play/Pause"
+msgstr "Αναπαραγωγή/Παύση"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
 msgstr "Διακοπή"
 
 #: ../data/lxmusic.ui.glade.h:29
-msgid "Track Name"
-msgstr "Όνομα κομματιού"
+msgid "Next"
+msgstr "Επόμενο"
 
 #: ../data/lxmusic.ui.glade.h:30
-msgid "_Delete Current Playlist"
-msgstr "_Διαγραφή τρέχουσας λίστας"
+msgid "Current Playlist"
+msgstr "Τρέχουσα λίστα αναπαραγωγής"
 
 #: ../data/lxmusic.ui.glade.h:31
-msgid "_File"
-msgstr "_Αρχείο"
+msgid "Favorites"
+msgstr "Αγαπημένα"
 
 #: ../data/lxmusic.ui.glade.h:32
-msgid "_Help"
-msgstr "_Βοήθεια"
+msgid "Media Library"
+msgstr "Βιβλιοθήκη πολυμέσων"
 
 #: ../data/lxmusic.ui.glade.h:33
-msgid "_Locate Currently Played"
-msgstr "_Εύρεση κομματιού που αναπαράγεται"
+msgid "Add files to the playlist"
+msgstr "Προσθήκη αρχείων στη λίστα αναπαραγωγής"
 
 #: ../data/lxmusic.ui.glade.h:34
-msgid "_Playlist"
-msgstr "_Λίστα αναπαραγωγής"
+msgid "Remove items from the playlist"
+msgstr "Αφαίρεση αντικειμένων από τη λίστα"
 
 #: ../data/lxmusic.ui.glade.h:35
-msgid "_Switch To Playlist"
-msgstr "_Εναλλαγή στη λίστα αναπαραγωγής"
+msgid "Locate currently played track"
+msgstr "Εύρεση κομματιού που αναπαράγεται"
 
 #: ../data/lxmusic.ui.glade.h:36
-msgid "_Tools"
-msgstr "_Εργαλεία"
+msgid "Filter:"
+msgstr "Φίλτρο:"
 
 #: ../data/lxmusic.ui.glade.h:37
-msgid "_View"
-msgstr "_Προβολή"
+msgid "Enter keyword here"
+msgstr "Εισαγωγή λέξης κλειδί εδώ"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
 msgstr "_Εμφάνιση κεντρικού παραθύρου"
 
 #: ../data/pref-dlg.ui.glade.h:1
-msgid "<b>Audio CD</b>"
-msgstr "<b>CD ήχου</b>"
+#, fuzzy
+msgid "Preferences"
+msgstr "Επιλογές"
 
 #: ../data/pref-dlg.ui.glade.h:2
-msgid "<b>Output</b>"
-msgstr "<b>Έξοδος ήχου</b>"
+msgid "Show system tray icon"
+msgstr "Εμφάνιση εικονιδίου στο πλάισιο συστήματος"
 
 #: ../data/pref-dlg.ui.glade.h:3
-msgid "Audio"
-msgstr "Ήχος"
-
-#: ../data/pref-dlg.ui.glade.h:4
-msgid "Buffer Size: "
-msgstr "Μέγεθος προσωρινής μνήμης:"
-
-#: ../data/pref-dlg.ui.glade.h:5
-msgid "CD-ROM Device: "
-msgstr "Συσκευή CD-ROM:"
-
-#: ../data/pref-dlg.ui.glade.h:6
-msgid "Continue playback in background after exiting LXMusic"
-msgstr "Συνέχισε την αναπαραγωγή στο παρασκήνιο μετά την έξοδο από το LXMusic"
-
-#: ../data/pref-dlg.ui.glade.h:7
-msgid "Default ID3 V1 Encoding: "
-msgstr "Προκαθορισμένη ID3 V1 κωδικοποίηση:"
-
-#: ../data/pref-dlg.ui.glade.h:8
-msgid "General"
-msgstr "Γενικά"
-
-#: ../data/pref-dlg.ui.glade.h:9
-msgid "KB"
-msgstr "ΚΒ"
-
-#: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
 msgstr "Ελαχιστοποίηση στο πλάισιο συστήματος κατά το κλείσιμο"
 
-#: ../data/pref-dlg.ui.glade.h:11
-msgid "Misc"
-msgstr "Διάφορα"
-
-#: ../data/pref-dlg.ui.glade.h:12
+#: ../data/pref-dlg.ui.glade.h:4
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
@@ -356,45 +325,77 @@ msgstr ""
 "Τα αρχεία μουσικής μπορούν να αναπαραχθούν χωρίς γραφικό περιβάλλον για "
 "χρήση λιγότερων πόρων συστήματος"
 
-#: ../data/pref-dlg.ui.glade.h:13
+#: ../data/pref-dlg.ui.glade.h:5
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "Συνέχισε την αναπαραγωγή στο παρασκήνιο μετά την έξοδο από το LXMusic"
+
+#: ../data/pref-dlg.ui.glade.h:6
+msgid "General"
+msgstr "Γενικά"
+
+#: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
 msgstr "Επέκταση:"
 
+#: ../data/pref-dlg.ui.glade.h:8
+msgid "Buffer Size: "
+msgstr "Μέγεθος προσωρινής μνήμης:"
+
+#: ../data/pref-dlg.ui.glade.h:9
+msgid "KB"
+msgstr "ΚΒ"
+
+#: ../data/pref-dlg.ui.glade.h:10
+msgid "<b>Output</b>"
+msgstr "<b>Έξοδος ήχου</b>"
+
+#: ../data/pref-dlg.ui.glade.h:11
+msgid "CD-ROM Device: "
+msgstr "Συσκευή CD-ROM:"
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "<b>Audio CD</b>"
+msgstr "<b>CD ήχου</b>"
+
+#: ../data/pref-dlg.ui.glade.h:13
+msgid "Audio"
+msgstr "Ήχος"
+
 #: ../data/pref-dlg.ui.glade.h:14
-msgid "Preference"
-msgstr "Επιλογές"
+msgid "Default ID3 V1 Encoding: "
+msgstr "Προκαθορισμένη ID3 V1 κωδικοποίηση:"
 
 #: ../data/pref-dlg.ui.glade.h:15
-msgid "Show system tray icon"
-msgstr "Εμφάνιση εικονιδίου στο πλάισιο συστήματος"
-
-#: ../data/track-info.ui.glade.h:1
-msgid "<b>Album: </b>"
-msgstr "<b>Άλμπουμ: </b>"
+msgid "Misc"
+msgstr "Διάφορα"
 
 #: ../data/track-info.ui.glade.h:2
-msgid "<b>Artist: </b>"
-msgstr "<b>Καλλιτέχνης: </b>"
-
-#: ../data/track-info.ui.glade.h:3
-msgid "<b>Comment: </b>"
-msgstr "<b>Σχόλιο: </b>"
-
-#: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
 msgstr "<b>Τύπος αρχείου: </b>"
 
-#: ../data/track-info.ui.glade.h:5
-msgid "<b>File: </b>"
-msgstr "<b>Αρχείο: </b>"
-
-#: ../data/track-info.ui.glade.h:6
+#: ../data/track-info.ui.glade.h:3
 msgid "<b>Size: </b>"
 msgstr "<b>Μέγεθος: </b>"
+
+#: ../data/track-info.ui.glade.h:4
+msgid "<b>Comment: </b>"
+msgstr "<b>Σχόλιο: </b>"
+
+#: ../data/track-info.ui.glade.h:5
+msgid "<b>Artist: </b>"
+msgstr "<b>Καλλιτέχνης: </b>"
+
+#: ../data/track-info.ui.glade.h:6
+msgid "<b>Album: </b>"
+msgstr "<b>Άλμπουμ: </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Τίτλος: </b>"
+
+#: ../data/track-info.ui.glade.h:8
+msgid "<b>File: </b>"
+msgstr "<b>Αρχείο: </b>"
 
 #~ msgid "Server"
 #~ msgstr "Οδηγός:"

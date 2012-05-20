@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 16:34+0200\n"
+"POT-Creation-Date: 2012-05-20 17:04+0200\n"
 "PO-Revision-Date: 2010-10-15 13:57+0200\n"
 "Last-Translator: Yinghua_Wang <wantinghard@gmail.com>\n"
 "Language-Team: pcman.tw@gmail.com\n"
@@ -32,7 +32,7 @@ msgstr ""
 "简单的图形界面 XMMS2 客户端"
 
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -57,12 +57,12 @@ msgid "Now Playing:"
 msgstr "正在播放："
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "艺术家"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "专辑"
 
@@ -164,234 +164,235 @@ msgid "Play your music files easily"
 msgstr "轻松播放您的音乐文件"
 
 #: ../data/lxmusic.ui.glade.h:1
-msgid "Add Files or Folders"
-msgstr "添加文件或文件夹"
-
-#: ../data/lxmusic.ui.glade.h:2
-msgid "Add To Playlist"
-msgstr "添加到播放列表"
-
-#: ../data/lxmusic.ui.glade.h:3
-msgid "Add URL"
-msgstr "添加 URL"
-
-#: ../data/lxmusic.ui.glade.h:4
-msgid "Add files to the playlist"
-msgstr "添加文件到播放列表"
-
-#: ../data/lxmusic.ui.glade.h:6
-msgid "All"
-msgstr "全部"
-
-#: ../data/lxmusic.ui.glade.h:8
-msgid "Create _New Playlist"
-msgstr "创建新的播放列表(_N)"
-
-#: ../data/lxmusic.ui.glade.h:9
-msgid "Current Playlist"
-msgstr "当前的播放列表"
-
-#: ../data/lxmusic.ui.glade.h:10
-msgid "Enter keyword here"
-msgstr "在此输入关键字"
-
-#: ../data/lxmusic.ui.glade.h:11
-msgid "Favorites"
-msgstr "收藏夹"
-
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
-msgid "File Properties"
-msgstr "文件属性"
-
-#: ../data/lxmusic.ui.glade.h:13
-msgid "Filter:"
-msgstr "过滤器："
-
-#: ../data/lxmusic.ui.glade.h:15
-msgid "Locate currently played track"
-msgstr "跳到正在播放的歌曲"
-
-#: ../data/lxmusic.ui.glade.h:16
-msgid "Media Library"
-msgstr "媒体库"
-
-#: ../data/lxmusic.ui.glade.h:17
-msgid "Next"
-msgstr "下一首"
-
-#: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
 msgstr "不要重复"
 
-#: ../data/lxmusic.ui.glade.h:19
-msgid "Play/Pause"
-msgstr "播放/暂停"
-
-#: ../data/lxmusic.ui.glade.h:20
-msgid "Previous"
-msgstr "前一首"
-
-#: ../data/lxmusic.ui.glade.h:21
-msgid "Remove All Items"
-msgstr "删除所有项目"
-
-#: ../data/lxmusic.ui.glade.h:22
-msgid "Remove From Playlist"
-msgstr "从播放列表删除"
-
-#: ../data/lxmusic.ui.glade.h:23
-msgid "Remove Selected Items"
-msgstr "删除选取的项目"
-
-#: ../data/lxmusic.ui.glade.h:24
-msgid "Remove items from the playlist"
-msgstr "从播放列表删除项目"
-
-#: ../data/lxmusic.ui.glade.h:25
-msgid "Repeat All"
-msgstr "重复全部"
-
-#: ../data/lxmusic.ui.glade.h:26
+#: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
 msgstr "重复当前的"
 
-#: ../data/lxmusic.ui.glade.h:27
+#: ../data/lxmusic.ui.glade.h:3
+msgid "Repeat All"
+msgstr "重复全部"
+
+#: ../data/lxmusic.ui.glade.h:4
+msgid "All"
+msgstr "全部"
+
+#: ../data/lxmusic.ui.glade.h:7
+msgid "Track Name"
+msgstr "歌曲名称"
+
+#: ../data/lxmusic.ui.glade.h:8
+msgid "_File"
+msgstr "文件(_F)"
+
+#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+msgid "File Properties"
+msgstr "文件属性"
+
+#: ../data/lxmusic.ui.glade.h:10
+msgid "_Playlist"
+msgstr "播放列表(_P)"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "_Switch To Playlist"
+msgstr "切换到播放列表(_S)"
+
+#: ../data/lxmusic.ui.glade.h:12
+msgid "_Locate Currently Played"
+msgstr "跳到正在播放的歌曲(_L)"
+
+#: ../data/lxmusic.ui.glade.h:13
+msgid "Add To Playlist"
+msgstr "添加到播放列表"
+
+#: ../data/lxmusic.ui.glade.h:14
+msgid "Add Files or Folders"
+msgstr "添加文件或文件夹"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Add URL"
+msgstr "添加 URL"
+
+#: ../data/lxmusic.ui.glade.h:16
+msgid "Remove From Playlist"
+msgstr "从播放列表删除"
+
+#: ../data/lxmusic.ui.glade.h:17
+msgid "Remove Selected Items"
+msgstr "删除选取的项目"
+
+#: ../data/lxmusic.ui.glade.h:18
+msgid "Remove All Items"
+msgstr "删除所有项目"
+
+#: ../data/lxmusic.ui.glade.h:19
+msgid "Create _New Playlist"
+msgstr "创建新的播放列表(_N)"
+
+#: ../data/lxmusic.ui.glade.h:20
+msgid "_Delete Current Playlist"
+msgstr "删除当前的播放列表(_D)"
+
+#: ../data/lxmusic.ui.glade.h:21
+msgid "_View"
+msgstr "视图(_V)"
+
+#: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
 msgstr "显示播放列表"
+
+#: ../data/lxmusic.ui.glade.h:23
+msgid "_Tools"
+msgstr "工具(_T)"
+
+#: ../data/lxmusic.ui.glade.h:24
+msgid "_Help"
+msgstr "帮助(_H)"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Previous"
+msgstr "前一首"
+
+#: ../data/lxmusic.ui.glade.h:27
+msgid "Play/Pause"
+msgstr "播放/暂停"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
 msgstr "停止"
 
 #: ../data/lxmusic.ui.glade.h:29
-msgid "Track Name"
-msgstr "歌曲名称"
+msgid "Next"
+msgstr "下一首"
 
 #: ../data/lxmusic.ui.glade.h:30
-msgid "_Delete Current Playlist"
-msgstr "删除当前的播放列表(_D)"
+msgid "Current Playlist"
+msgstr "当前的播放列表"
 
 #: ../data/lxmusic.ui.glade.h:31
-msgid "_File"
-msgstr "文件(_F)"
+msgid "Favorites"
+msgstr "收藏夹"
 
 #: ../data/lxmusic.ui.glade.h:32
-msgid "_Help"
-msgstr "帮助(_H)"
+msgid "Media Library"
+msgstr "媒体库"
 
 #: ../data/lxmusic.ui.glade.h:33
-msgid "_Locate Currently Played"
-msgstr "跳到正在播放的歌曲(_L)"
+msgid "Add files to the playlist"
+msgstr "添加文件到播放列表"
 
 #: ../data/lxmusic.ui.glade.h:34
-msgid "_Playlist"
-msgstr "播放列表(_P)"
+msgid "Remove items from the playlist"
+msgstr "从播放列表删除项目"
 
 #: ../data/lxmusic.ui.glade.h:35
-msgid "_Switch To Playlist"
-msgstr "切换到播放列表(_S)"
+msgid "Locate currently played track"
+msgstr "跳到正在播放的歌曲"
 
 #: ../data/lxmusic.ui.glade.h:36
-msgid "_Tools"
-msgstr "工具(_T)"
+msgid "Filter:"
+msgstr "过滤器："
 
 #: ../data/lxmusic.ui.glade.h:37
-msgid "_View"
-msgstr "视图(_V)"
+msgid "Enter keyword here"
+msgstr "在此输入关键字"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
 msgstr "显示主窗口(_S)"
 
 #: ../data/pref-dlg.ui.glade.h:1
-msgid "<b>Audio CD</b>"
-msgstr "<b>音乐 CD</b>"
+#, fuzzy
+msgid "Preferences"
+msgstr "首选项"
 
 #: ../data/pref-dlg.ui.glade.h:2
-msgid "<b>Output</b>"
-msgstr "<b>输出</b>"
+msgid "Show system tray icon"
+msgstr "显示系统托盘图标"
 
 #: ../data/pref-dlg.ui.glade.h:3
-msgid "Audio"
-msgstr "音频"
+msgid "Minimize to system tray on close"
+msgstr "关闭时最小化到系统托盘"
 
 #: ../data/pref-dlg.ui.glade.h:4
-msgid "Buffer Size: "
-msgstr "缓冲大小："
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr "音乐能够在图形界面关闭后，仍继续播放，以节省系统资源"
 
 #: ../data/pref-dlg.ui.glade.h:5
-msgid "CD-ROM Device: "
-msgstr "CD-ROM 设备："
-
-#: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
 msgstr "结束 LXMusic 后仍继续在后台播放音乐"
 
-#: ../data/pref-dlg.ui.glade.h:7
-msgid "Default ID3 V1 Encoding: "
-msgstr "默认 ID3 V1 编码："
-
-#: ../data/pref-dlg.ui.glade.h:8
+#: ../data/pref-dlg.ui.glade.h:6
 msgid "General"
 msgstr "常规"
+
+#: ../data/pref-dlg.ui.glade.h:7
+msgid "Plugin: "
+msgstr "插件："
+
+#: ../data/pref-dlg.ui.glade.h:8
+msgid "Buffer Size: "
+msgstr "缓冲大小："
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
 msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
-msgid "Minimize to system tray on close"
-msgstr "关闭时最小化到系统托盘"
+msgid "<b>Output</b>"
+msgstr "<b>输出</b>"
 
 #: ../data/pref-dlg.ui.glade.h:11
+msgid "CD-ROM Device: "
+msgstr "CD-ROM 设备："
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "<b>Audio CD</b>"
+msgstr "<b>音乐 CD</b>"
+
+#: ../data/pref-dlg.ui.glade.h:13
+msgid "Audio"
+msgstr "音频"
+
+#: ../data/pref-dlg.ui.glade.h:14
+msgid "Default ID3 V1 Encoding: "
+msgstr "默认 ID3 V1 编码："
+
+#: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
 msgstr "杂项"
 
-#: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr "音乐能够在图形界面关闭后，仍继续播放，以节省系统资源"
-
-#: ../data/pref-dlg.ui.glade.h:13
-msgid "Plugin: "
-msgstr "插件："
-
-#: ../data/pref-dlg.ui.glade.h:14
-msgid "Preference"
-msgstr "首选项"
-
-#: ../data/pref-dlg.ui.glade.h:15
-msgid "Show system tray icon"
-msgstr "显示系统托盘图标"
-
-#: ../data/track-info.ui.glade.h:1
-msgid "<b>Album: </b>"
-msgstr "<b>专辑：</b>"
-
 #: ../data/track-info.ui.glade.h:2
-msgid "<b>Artist: </b>"
-msgstr "<b>艺术家：</b>"
-
-#: ../data/track-info.ui.glade.h:3
-msgid "<b>Comment: </b>"
-msgstr "<b>注解：</b>"
-
-#: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
 msgstr "<b>文件类型：</b>"
 
-#: ../data/track-info.ui.glade.h:5
-msgid "<b>File: </b>"
-msgstr "<b>文件：</b>"
-
-#: ../data/track-info.ui.glade.h:6
+#: ../data/track-info.ui.glade.h:3
 msgid "<b>Size: </b>"
 msgstr "<b>大小：</b>"
+
+#: ../data/track-info.ui.glade.h:4
+msgid "<b>Comment: </b>"
+msgstr "<b>注解：</b>"
+
+#: ../data/track-info.ui.glade.h:5
+msgid "<b>Artist: </b>"
+msgstr "<b>艺术家：</b>"
+
+#: ../data/track-info.ui.glade.h:6
+msgid "<b>Album: </b>"
+msgstr "<b>专辑：</b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>标题：</b>"
+
+#: ../data/track-info.ui.glade.h:8
+msgid "<b>File: </b>"
+msgstr "<b>文件：</b>"
 
 #~ msgid "Server"
 #~ msgstr "驱动程序："

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 16:34+0200\n"
+"POT-Creation-Date: 2012-05-20 17:04+0200\n"
 "PO-Revision-Date: 2011-07-28 12:54+0200\n"
 "Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 "సరళ GUI XMMS2 క్లయింటు"
 
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LX సంగీతం"
 
@@ -56,12 +56,12 @@ msgid "Now Playing:"
 msgstr "ఇపుడు ప్లేచేస్తున్నది:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "కళాకారుడు"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "ఆల్బమ్"
 
@@ -163,231 +163,232 @@ msgid "Play your music files easily"
 msgstr "మీ సంగీత ఫైళ్ళను సులువుగా ప్లేచేయండి"
 
 #: ../data/lxmusic.ui.glade.h:1
-msgid "Add Files or Folders"
-msgstr "అన్ని ఫైళ్ళు లేదా సంచయాలు"
-
-#: ../data/lxmusic.ui.glade.h:2
-msgid "Add To Playlist"
-msgstr "పాటలజాబితాకు జతచేయి"
-
-#: ../data/lxmusic.ui.glade.h:3
-msgid "Add URL"
-msgstr "URL జతచేయి"
-
-#: ../data/lxmusic.ui.glade.h:4
-msgid "Add files to the playlist"
-msgstr "ఫైళ్ళను పాటలజాబితాకు జతచేయి"
-
-#: ../data/lxmusic.ui.glade.h:6
-msgid "All"
-msgstr "అన్నీ"
-
-#: ../data/lxmusic.ui.glade.h:8
-msgid "Create _New Playlist"
-msgstr "కొత్త పాటలజాబితాను సృష్టించు (_N)"
-
-#: ../data/lxmusic.ui.glade.h:9
-msgid "Current Playlist"
-msgstr "ప్రస్తుత పాటలజాబితా"
-
-#: ../data/lxmusic.ui.glade.h:10
-msgid "Enter keyword here"
-msgstr "ముఖ్యపదాన్ని ఇక్కడ ప్రవేశపెట్టండి"
-
-#: ../data/lxmusic.ui.glade.h:11
-msgid "Favorites"
-msgstr "ఇష్టమైనవి"
-
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
-msgid "File Properties"
-msgstr "ఫైల్ లక్షణాలు"
-
-#: ../data/lxmusic.ui.glade.h:13
-msgid "Filter:"
-msgstr "వడపోత:"
-
-#: ../data/lxmusic.ui.glade.h:15
-msgid "Locate currently played track"
-msgstr "ప్రస్తుతం ఆడుతున్న ట్రాక్ స్థానాన్ని కనుగొను"
-
-#: ../data/lxmusic.ui.glade.h:16
-msgid "Media Library"
-msgstr "మీడియా లైబ్రరీ"
-
-#: ../data/lxmusic.ui.glade.h:17
-msgid "Next"
-msgstr "తదుపరి"
-
-#: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
 msgstr "పునరావృతం చేయవద్దు"
 
-#: ../data/lxmusic.ui.glade.h:19
-msgid "Play/Pause"
-msgstr "ప్లే/నిలిపివేయి"
-
-#: ../data/lxmusic.ui.glade.h:20
-msgid "Previous"
-msgstr "మునుపటి"
-
-#: ../data/lxmusic.ui.glade.h:21
-msgid "Remove All Items"
-msgstr "అన్ని అంశాలను తొలగించు"
-
-#: ../data/lxmusic.ui.glade.h:22
-msgid "Remove From Playlist"
-msgstr "పాటలజాబితా నుండి తొలగించు"
-
-#: ../data/lxmusic.ui.glade.h:23
-msgid "Remove Selected Items"
-msgstr "ఎంచుకున్న అంశాలను తొలగించు"
-
-#: ../data/lxmusic.ui.glade.h:24
-msgid "Remove items from the playlist"
-msgstr "పాటలజాబితా నుండి అంశాలను తొలగించు"
-
-#: ../data/lxmusic.ui.glade.h:25
-msgid "Repeat All"
-msgstr "అన్నిటినీ పునరావృతంచేయి"
-
-#: ../data/lxmusic.ui.glade.h:26
+#: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
 msgstr "ప్రస్తుతపుదానిని పునరావృతంచేయి"
 
-#: ../data/lxmusic.ui.glade.h:27
+#: ../data/lxmusic.ui.glade.h:3
+msgid "Repeat All"
+msgstr "అన్నిటినీ పునరావృతంచేయి"
+
+#: ../data/lxmusic.ui.glade.h:4
+msgid "All"
+msgstr "అన్నీ"
+
+#: ../data/lxmusic.ui.glade.h:7
+msgid "Track Name"
+msgstr "ట్రాక్ పేరు"
+
+#: ../data/lxmusic.ui.glade.h:8
+msgid "_File"
+msgstr "ఫైల్ (_F)"
+
+#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+msgid "File Properties"
+msgstr "ఫైల్ లక్షణాలు"
+
+#: ../data/lxmusic.ui.glade.h:10
+msgid "_Playlist"
+msgstr "పాటలజాబితా (_P)"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "_Switch To Playlist"
+msgstr "పాటలజాబితాను మార్చు (_S)"
+
+#: ../data/lxmusic.ui.glade.h:12
+msgid "_Locate Currently Played"
+msgstr "ప్రస్తుతం ప్లే అవుతున్న దాని స్థానమును కనుగొను (_L)"
+
+#: ../data/lxmusic.ui.glade.h:13
+msgid "Add To Playlist"
+msgstr "పాటలజాబితాకు జతచేయి"
+
+#: ../data/lxmusic.ui.glade.h:14
+msgid "Add Files or Folders"
+msgstr "అన్ని ఫైళ్ళు లేదా సంచయాలు"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Add URL"
+msgstr "URL జతచేయి"
+
+#: ../data/lxmusic.ui.glade.h:16
+msgid "Remove From Playlist"
+msgstr "పాటలజాబితా నుండి తొలగించు"
+
+#: ../data/lxmusic.ui.glade.h:17
+msgid "Remove Selected Items"
+msgstr "ఎంచుకున్న అంశాలను తొలగించు"
+
+#: ../data/lxmusic.ui.glade.h:18
+msgid "Remove All Items"
+msgstr "అన్ని అంశాలను తొలగించు"
+
+#: ../data/lxmusic.ui.glade.h:19
+msgid "Create _New Playlist"
+msgstr "కొత్త పాటలజాబితాను సృష్టించు (_N)"
+
+#: ../data/lxmusic.ui.glade.h:20
+msgid "_Delete Current Playlist"
+msgstr "ప్రస్థుత పాటలజాబితాను తీసివేయి (_D)"
+
+#: ../data/lxmusic.ui.glade.h:21
+msgid "_View"
+msgstr "వీక్షణ (_V)"
+
+#: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
 msgstr "పాటలజాబితాను చూపించు"
+
+#: ../data/lxmusic.ui.glade.h:23
+msgid "_Tools"
+msgstr "సాధనాలు (_T)"
+
+#: ../data/lxmusic.ui.glade.h:24
+msgid "_Help"
+msgstr "సహాయం (_H)"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Previous"
+msgstr "మునుపటి"
+
+#: ../data/lxmusic.ui.glade.h:27
+msgid "Play/Pause"
+msgstr "ప్లే/నిలిపివేయి"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
 msgstr "ఆపు"
 
 #: ../data/lxmusic.ui.glade.h:29
-msgid "Track Name"
-msgstr "ట్రాక్ పేరు"
+msgid "Next"
+msgstr "తదుపరి"
 
 #: ../data/lxmusic.ui.glade.h:30
-msgid "_Delete Current Playlist"
-msgstr "ప్రస్థుత పాటలజాబితాను తీసివేయి (_D)"
+msgid "Current Playlist"
+msgstr "ప్రస్తుత పాటలజాబితా"
 
 #: ../data/lxmusic.ui.glade.h:31
-msgid "_File"
-msgstr "ఫైల్ (_F)"
+msgid "Favorites"
+msgstr "ఇష్టమైనవి"
 
 #: ../data/lxmusic.ui.glade.h:32
-msgid "_Help"
-msgstr "సహాయం (_H)"
+msgid "Media Library"
+msgstr "మీడియా లైబ్రరీ"
 
 #: ../data/lxmusic.ui.glade.h:33
-msgid "_Locate Currently Played"
-msgstr "ప్రస్తుతం ప్లే అవుతున్న దాని స్థానమును కనుగొను (_L)"
+msgid "Add files to the playlist"
+msgstr "ఫైళ్ళను పాటలజాబితాకు జతచేయి"
 
 #: ../data/lxmusic.ui.glade.h:34
-msgid "_Playlist"
-msgstr "పాటలజాబితా (_P)"
+msgid "Remove items from the playlist"
+msgstr "పాటలజాబితా నుండి అంశాలను తొలగించు"
 
 #: ../data/lxmusic.ui.glade.h:35
-msgid "_Switch To Playlist"
-msgstr "పాటలజాబితాను మార్చు (_S)"
+msgid "Locate currently played track"
+msgstr "ప్రస్తుతం ఆడుతున్న ట్రాక్ స్థానాన్ని కనుగొను"
 
 #: ../data/lxmusic.ui.glade.h:36
-msgid "_Tools"
-msgstr "సాధనాలు (_T)"
+msgid "Filter:"
+msgstr "వడపోత:"
 
 #: ../data/lxmusic.ui.glade.h:37
-msgid "_View"
-msgstr "వీక్షణ (_V)"
+msgid "Enter keyword here"
+msgstr "ముఖ్యపదాన్ని ఇక్కడ ప్రవేశపెట్టండి"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
 msgstr "ప్రధాన విండోను చూపించు (_S)"
 
 #: ../data/pref-dlg.ui.glade.h:1
-msgid "<b>Audio CD</b>"
-msgstr "<b>ఆడియో CD</b>"
+#, fuzzy
+msgid "Preferences"
+msgstr "ప్రాధాన్యత"
 
 #: ../data/pref-dlg.ui.glade.h:2
-msgid "<b>Output</b>"
-msgstr "<b>అవుట్‌పుట్</b>"
+msgid "Show system tray icon"
+msgstr "వ్యవస్థ పల్లెము ప్రతీకను చూపించు"
 
 #: ../data/pref-dlg.ui.glade.h:3
-msgid "Audio"
-msgstr "ఆడియో"
+msgid "Minimize to system tray on close"
+msgstr "మూసివేసినపుడ వ్యవస్థ పల్లెము వద్ద కనిష్టీకరించు"
 
 #: ../data/pref-dlg.ui.glade.h:4
-msgid "Buffer Size: "
-msgstr "బఫర్ పరిమాణం:"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr "వ్యవస్థ వనరులను భద్రపరుచుటకు గ్రాఫికల్ అంతరవర్తి లేకుండానే సంగీత ఫైళ్ళను ఆడించవచ్చు"
 
 #: ../data/pref-dlg.ui.glade.h:5
-msgid "CD-ROM Device: "
-msgstr "CD-ROM పరికరం:"
-
-#: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
 msgstr "LXసంగీతం నుండి నిష్క్రమించిన తరువాత ప్లేబాక్ నేపథ్యములో కొనసాగించు"
 
-#: ../data/pref-dlg.ui.glade.h:7
-msgid "Default ID3 V1 Encoding: "
-msgstr "అప్రమేయ ID3 V1 ఎన్కోడింగ్:"
-
-#: ../data/pref-dlg.ui.glade.h:8
+#: ../data/pref-dlg.ui.glade.h:6
 msgid "General"
 msgstr "సాధారణ"
+
+#: ../data/pref-dlg.ui.glade.h:7
+msgid "Plugin: "
+msgstr "ప్లగిన్:"
+
+#: ../data/pref-dlg.ui.glade.h:8
+msgid "Buffer Size: "
+msgstr "బఫర్ పరిమాణం:"
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
 msgstr "కిబై"
 
 #: ../data/pref-dlg.ui.glade.h:10
-msgid "Minimize to system tray on close"
-msgstr "మూసివేసినపుడ వ్యవస్థ పల్లెము వద్ద కనిష్టీకరించు"
+msgid "<b>Output</b>"
+msgstr "<b>అవుట్‌పుట్</b>"
 
 #: ../data/pref-dlg.ui.glade.h:11
+msgid "CD-ROM Device: "
+msgstr "CD-ROM పరికరం:"
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "<b>Audio CD</b>"
+msgstr "<b>ఆడియో CD</b>"
+
+#: ../data/pref-dlg.ui.glade.h:13
+msgid "Audio"
+msgstr "ఆడియో"
+
+#: ../data/pref-dlg.ui.glade.h:14
+msgid "Default ID3 V1 Encoding: "
+msgstr "అప్రమేయ ID3 V1 ఎన్కోడింగ్:"
+
+#: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
 msgstr "మిస్క్"
 
-#: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr "వ్యవస్థ వనరులను భద్రపరుచుటకు గ్రాఫికల్ అంతరవర్తి లేకుండానే సంగీత ఫైళ్ళను ఆడించవచ్చు"
-
-#: ../data/pref-dlg.ui.glade.h:13
-msgid "Plugin: "
-msgstr "ప్లగిన్:"
-
-#: ../data/pref-dlg.ui.glade.h:14
-msgid "Preference"
-msgstr "ప్రాధాన్యత"
-
-#: ../data/pref-dlg.ui.glade.h:15
-msgid "Show system tray icon"
-msgstr "వ్యవస్థ పల్లెము ప్రతీకను చూపించు"
-
-#: ../data/track-info.ui.glade.h:1
-msgid "<b>Album: </b>"
-msgstr "<b>ఆల్బమ్: </b>"
-
 #: ../data/track-info.ui.glade.h:2
-msgid "<b>Artist: </b>"
-msgstr "<b>కళాకారుడు: </b>"
-
-#: ../data/track-info.ui.glade.h:3
-msgid "<b>Comment: </b>"
-msgstr "<b>వ్యాఖ్య: </b>"
-
-#: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
 msgstr "<b>ఫైల్ రకం: </b>"
 
-#: ../data/track-info.ui.glade.h:5
-msgid "<b>File: </b>"
-msgstr "<b>ఫైల్: </b>"
-
-#: ../data/track-info.ui.glade.h:6
+#: ../data/track-info.ui.glade.h:3
 msgid "<b>Size: </b>"
 msgstr "<b>పరిమాణం: </b>"
+
+#: ../data/track-info.ui.glade.h:4
+msgid "<b>Comment: </b>"
+msgstr "<b>వ్యాఖ్య: </b>"
+
+#: ../data/track-info.ui.glade.h:5
+msgid "<b>Artist: </b>"
+msgstr "<b>కళాకారుడు: </b>"
+
+#: ../data/track-info.ui.glade.h:6
+msgid "<b>Album: </b>"
+msgstr "<b>ఆల్బమ్: </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>శీర్షిక: </b>"
+
+#: ../data/track-info.ui.glade.h:8
+msgid "<b>File: </b>"
+msgstr "<b>ఫైల్: </b>"

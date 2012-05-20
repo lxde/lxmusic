@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXMusic 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 16:34+0200\n"
+"POT-Creation-Date: 2012-05-20 17:04+0200\n"
 "PO-Revision-Date: 2010-04-24 12:08+0200\n"
 "Last-Translator: Mario <mb@mariobehling.de>\n"
 "Language-Team: \n"
@@ -30,7 +30,7 @@ msgstr ""
 "Ứng dụng khách XMMS2 với giao diện đồ họa đơn giản"
 
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
@@ -55,12 +55,12 @@ msgid "Now Playing:"
 msgstr "Hiện đang phát:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Nghệ sĩ"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "Album"
 
@@ -163,190 +163,159 @@ msgid "Play your music files easily"
 msgstr "Phát tập tin âm nhạc của bạn một cách dễ dàng"
 
 #: ../data/lxmusic.ui.glade.h:1
-msgid "Add Files or Folders"
-msgstr "Thêm Tập tin và Thư mục"
-
-#: ../data/lxmusic.ui.glade.h:2
-msgid "Add To Playlist"
-msgstr "Thêm Vào Danh sách"
-
-#: ../data/lxmusic.ui.glade.h:3
-msgid "Add URL"
-msgstr "Thêm Địa chỉ URL"
-
-#: ../data/lxmusic.ui.glade.h:4
-msgid "Add files to the playlist"
-msgstr "Thêm tập tin vào danh sách"
-
-#: ../data/lxmusic.ui.glade.h:6
-msgid "All"
-msgstr "Tất cả"
-
-#: ../data/lxmusic.ui.glade.h:8
-msgid "Create _New Playlist"
-msgstr "Tạo _Danh sách Mới"
-
-#: ../data/lxmusic.ui.glade.h:9
-msgid "Current Playlist"
-msgstr "Danh sách hiện tại"
-
-#: ../data/lxmusic.ui.glade.h:10
-msgid "Enter keyword here"
-msgstr "Nhập từ khóa tại đây"
-
-#: ../data/lxmusic.ui.glade.h:11
-msgid "Favorites"
-msgstr "Yêu thích"
-
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
-msgid "File Properties"
-msgstr "Thuộc tính Tập tin"
-
-#: ../data/lxmusic.ui.glade.h:13
-msgid "Filter:"
-msgstr "Bộ lọc:"
-
-#: ../data/lxmusic.ui.glade.h:15
-msgid "Locate currently played track"
-msgstr "Xác định vị trí bài hát đang được phát"
-
-#: ../data/lxmusic.ui.glade.h:16
-msgid "Media Library"
-msgstr "Thư viện truyền thông"
-
-#: ../data/lxmusic.ui.glade.h:17
-msgid "Next"
-msgstr "Phát bài phía sau"
-
-#: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
 msgstr "Không Lặp lại"
 
-#: ../data/lxmusic.ui.glade.h:19
-msgid "Play/Pause"
-msgstr "Phát/Tạm dừng"
-
-#: ../data/lxmusic.ui.glade.h:20
-msgid "Previous"
-msgstr "Phát bài trước"
-
-#: ../data/lxmusic.ui.glade.h:21
-msgid "Remove All Items"
-msgstr "Loại bỏ Tất Cả Bài hát"
-
-#: ../data/lxmusic.ui.glade.h:22
-msgid "Remove From Playlist"
-msgstr "Loại bỏ Tất cả Danh sách"
-
-#: ../data/lxmusic.ui.glade.h:23
-msgid "Remove Selected Items"
-msgstr "Loại bỏ Bài hát Được chọn"
-
-#: ../data/lxmusic.ui.glade.h:24
-msgid "Remove items from the playlist"
-msgstr "Loại bỏ bài hát trong danh sách"
-
-#: ../data/lxmusic.ui.glade.h:25
-msgid "Repeat All"
-msgstr "Lặp lại tất cả"
-
-#: ../data/lxmusic.ui.glade.h:26
+#: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
 msgstr "Lặp lại Bài đang phát"
 
-#: ../data/lxmusic.ui.glade.h:27
+#: ../data/lxmusic.ui.glade.h:3
+msgid "Repeat All"
+msgstr "Lặp lại tất cả"
+
+#: ../data/lxmusic.ui.glade.h:4
+msgid "All"
+msgstr "Tất cả"
+
+#: ../data/lxmusic.ui.glade.h:7
+msgid "Track Name"
+msgstr "Tên Bài hát"
+
+#: ../data/lxmusic.ui.glade.h:8
+msgid "_File"
+msgstr "_Tập tin"
+
+#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+msgid "File Properties"
+msgstr "Thuộc tính Tập tin"
+
+#: ../data/lxmusic.ui.glade.h:10
+msgid "_Playlist"
+msgstr "_Danh sách"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "_Switch To Playlist"
+msgstr "_Chuyển Đến Danh sách"
+
+#: ../data/lxmusic.ui.glade.h:12
+msgid "_Locate Currently Played"
+msgstr "_Xác định Đang Được phát"
+
+#: ../data/lxmusic.ui.glade.h:13
+msgid "Add To Playlist"
+msgstr "Thêm Vào Danh sách"
+
+#: ../data/lxmusic.ui.glade.h:14
+msgid "Add Files or Folders"
+msgstr "Thêm Tập tin và Thư mục"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Add URL"
+msgstr "Thêm Địa chỉ URL"
+
+#: ../data/lxmusic.ui.glade.h:16
+msgid "Remove From Playlist"
+msgstr "Loại bỏ Tất cả Danh sách"
+
+#: ../data/lxmusic.ui.glade.h:17
+msgid "Remove Selected Items"
+msgstr "Loại bỏ Bài hát Được chọn"
+
+#: ../data/lxmusic.ui.glade.h:18
+msgid "Remove All Items"
+msgstr "Loại bỏ Tất Cả Bài hát"
+
+#: ../data/lxmusic.ui.glade.h:19
+msgid "Create _New Playlist"
+msgstr "Tạo _Danh sách Mới"
+
+#: ../data/lxmusic.ui.glade.h:20
+msgid "_Delete Current Playlist"
+msgstr "_Xóa Danh sách Hiện tại"
+
+#: ../data/lxmusic.ui.glade.h:21
+msgid "_View"
+msgstr "_Hiển thị"
+
+#: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
 msgstr "Hiển thị Danh sách"
+
+#: ../data/lxmusic.ui.glade.h:23
+msgid "_Tools"
+msgstr "_Công cụ"
+
+#: ../data/lxmusic.ui.glade.h:24
+msgid "_Help"
+msgstr "Trợ _giúp"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Previous"
+msgstr "Phát bài trước"
+
+#: ../data/lxmusic.ui.glade.h:27
+msgid "Play/Pause"
+msgstr "Phát/Tạm dừng"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
 msgstr "Dừng phát"
 
 #: ../data/lxmusic.ui.glade.h:29
-msgid "Track Name"
-msgstr "Tên Bài hát"
+msgid "Next"
+msgstr "Phát bài phía sau"
 
 #: ../data/lxmusic.ui.glade.h:30
-msgid "_Delete Current Playlist"
-msgstr "_Xóa Danh sách Hiện tại"
+msgid "Current Playlist"
+msgstr "Danh sách hiện tại"
 
 #: ../data/lxmusic.ui.glade.h:31
-msgid "_File"
-msgstr "_Tập tin"
+msgid "Favorites"
+msgstr "Yêu thích"
 
 #: ../data/lxmusic.ui.glade.h:32
-msgid "_Help"
-msgstr "Trợ _giúp"
+msgid "Media Library"
+msgstr "Thư viện truyền thông"
 
 #: ../data/lxmusic.ui.glade.h:33
-msgid "_Locate Currently Played"
-msgstr "_Xác định Đang Được phát"
+msgid "Add files to the playlist"
+msgstr "Thêm tập tin vào danh sách"
 
 #: ../data/lxmusic.ui.glade.h:34
-msgid "_Playlist"
-msgstr "_Danh sách"
+msgid "Remove items from the playlist"
+msgstr "Loại bỏ bài hát trong danh sách"
 
 #: ../data/lxmusic.ui.glade.h:35
-msgid "_Switch To Playlist"
-msgstr "_Chuyển Đến Danh sách"
+msgid "Locate currently played track"
+msgstr "Xác định vị trí bài hát đang được phát"
 
 #: ../data/lxmusic.ui.glade.h:36
-msgid "_Tools"
-msgstr "_Công cụ"
+msgid "Filter:"
+msgstr "Bộ lọc:"
 
 #: ../data/lxmusic.ui.glade.h:37
-msgid "_View"
-msgstr "_Hiển thị"
+msgid "Enter keyword here"
+msgstr "Nhập từ khóa tại đây"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
 msgstr "_Hiển thị Cửa sổ Chính"
 
 #: ../data/pref-dlg.ui.glade.h:1
-msgid "<b>Audio CD</b>"
-msgstr "<b>Audio CD</b>"
+#, fuzzy
+msgid "Preferences"
+msgstr "Tùy chỉnh"
 
 #: ../data/pref-dlg.ui.glade.h:2
-msgid "<b>Output</b>"
-msgstr "<b>Đầu ra</b>"
+msgid "Show system tray icon"
+msgstr "Hiển thị biểu tượng khay hệ thống"
 
 #: ../data/pref-dlg.ui.glade.h:3
-msgid "Audio"
-msgstr "Âm thanh"
-
-#: ../data/pref-dlg.ui.glade.h:4
-msgid "Buffer Size: "
-msgstr "Kích thước Bộ đệm:"
-
-#: ../data/pref-dlg.ui.glade.h:5
-msgid "CD-ROM Device: "
-msgstr "Thiết bị CD-ROM:"
-
-#: ../data/pref-dlg.ui.glade.h:6
-msgid "Continue playback in background after exiting LXMusic"
-msgstr "Tiếp tục chơi trong ở hậu cảnh sau khi thoát LXMusic"
-
-#: ../data/pref-dlg.ui.glade.h:7
-msgid "Default ID3 V1 Encoding: "
-msgstr "Mã hóa ID3 V1 Mặc định: "
-
-#: ../data/pref-dlg.ui.glade.h:8
-msgid "General"
-msgstr "Chung"
-
-#: ../data/pref-dlg.ui.glade.h:9
-msgid "KB"
-msgstr "KB"
-
-#: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
 msgstr "Thu nhỏ xuống khay hệ thống khi đóng"
 
-#: ../data/pref-dlg.ui.glade.h:11
-msgid "Misc"
-msgstr "Linh tinh"
-
-#: ../data/pref-dlg.ui.glade.h:12
+#: ../data/pref-dlg.ui.glade.h:4
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
@@ -354,42 +323,74 @@ msgstr ""
 "Tập tin âm nhạc có thể được phát mà không cần giao diện đồ họa để tiết kiệm "
 "tài nguyên hệ thống"
 
-#: ../data/pref-dlg.ui.glade.h:13
+#: ../data/pref-dlg.ui.glade.h:5
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "Tiếp tục chơi trong ở hậu cảnh sau khi thoát LXMusic"
+
+#: ../data/pref-dlg.ui.glade.h:6
+msgid "General"
+msgstr "Chung"
+
+#: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
 msgstr "Bộ hỗ trợ:"
 
+#: ../data/pref-dlg.ui.glade.h:8
+msgid "Buffer Size: "
+msgstr "Kích thước Bộ đệm:"
+
+#: ../data/pref-dlg.ui.glade.h:9
+msgid "KB"
+msgstr "KB"
+
+#: ../data/pref-dlg.ui.glade.h:10
+msgid "<b>Output</b>"
+msgstr "<b>Đầu ra</b>"
+
+#: ../data/pref-dlg.ui.glade.h:11
+msgid "CD-ROM Device: "
+msgstr "Thiết bị CD-ROM:"
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "<b>Audio CD</b>"
+msgstr "<b>Audio CD</b>"
+
+#: ../data/pref-dlg.ui.glade.h:13
+msgid "Audio"
+msgstr "Âm thanh"
+
 #: ../data/pref-dlg.ui.glade.h:14
-msgid "Preference"
-msgstr "Tùy chỉnh"
+msgid "Default ID3 V1 Encoding: "
+msgstr "Mã hóa ID3 V1 Mặc định: "
 
 #: ../data/pref-dlg.ui.glade.h:15
-msgid "Show system tray icon"
-msgstr "Hiển thị biểu tượng khay hệ thống"
-
-#: ../data/track-info.ui.glade.h:1
-msgid "<b>Album: </b>"
-msgstr "<b>Album: </b>"
+msgid "Misc"
+msgstr "Linh tinh"
 
 #: ../data/track-info.ui.glade.h:2
-msgid "<b>Artist: </b>"
-msgstr "<b>Nghệ sĩ: </b>"
-
-#: ../data/track-info.ui.glade.h:3
-msgid "<b>Comment: </b>"
-msgstr "<b>Chú thích: </b>"
-
-#: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
 msgstr "<b>Loại Tập tin: </b>"
 
-#: ../data/track-info.ui.glade.h:5
-msgid "<b>File: </b>"
-msgstr "<b>Tập tin: </b>"
-
-#: ../data/track-info.ui.glade.h:6
+#: ../data/track-info.ui.glade.h:3
 msgid "<b>Size: </b>"
 msgstr "<b>Kích thước: </b>"
+
+#: ../data/track-info.ui.glade.h:4
+msgid "<b>Comment: </b>"
+msgstr "<b>Chú thích: </b>"
+
+#: ../data/track-info.ui.glade.h:5
+msgid "<b>Artist: </b>"
+msgstr "<b>Nghệ sĩ: </b>"
+
+#: ../data/track-info.ui.glade.h:6
+msgid "<b>Album: </b>"
+msgstr "<b>Album: </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
 msgstr "<b>Tiêu đề: </b>"
+
+#: ../data/track-info.ui.glade.h:8
+msgid "<b>File: </b>"
+msgstr "<b>Tập tin: </b>"
