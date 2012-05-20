@@ -1,390 +1,400 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Korean translation for the lxmusic package.
+# Copyright (C) 2009-2012 Free software foundation Inc.
+# This file is distributed under the same license as the lxmusic package.
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxmusic.master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 16:34+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-04-06 06:36+0900\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
+"Language-Team: \n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr ""
+msgstr "Arnaud DIDRY가 제작한 xmms2의 공식 아이콘입니다"
 
 #: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
+"LXDE의 음악 재생기\n"
+"간단한 GUI XMMS2 클라이언트"
 
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:14
+#: ../src/lxmusic.c:447
+#: ../src/utils.c:98
+#: ../data/lxmusic.ui.glade.h:14
 msgid "LXMusic"
-msgstr ""
+msgstr "LXMusic"
 
 #: ../src/lxmusic.c:694
 msgid "Bitrate: "
-msgstr ""
+msgstr "비트 전송율:"
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr ""
+msgstr "음악 파일"
 
 #: ../src/lxmusic.c:1001
 msgid "All Files"
-msgstr ""
+msgstr "모든 파일"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
-msgstr ""
+msgstr "URL을 입력하십시오"
 
-#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
+#: ../src/lxmusic.c:1244
+#: ../src/lxmusic.c:1832
 msgid "Now Playing:"
-msgstr ""
+msgstr "재생 중:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:7
+#: ../src/lxmusic.c:1452
+#: ../data/lxmusic.ui.glade.h:7
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
-msgstr ""
+msgstr "음악가"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1460
+#: ../data/lxmusic.ui.glade.h:5
 msgid "Album"
-msgstr ""
+msgstr "앨범"
 
-#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
+#: ../src/lxmusic.c:1468
+#: ../src/lxmusic-notify.c:81
 msgid "Title"
-msgstr ""
+msgstr "제목"
 
 #: ../src/lxmusic.c:1474
 msgid "Length"
-msgstr ""
+msgstr "길이"
 
 #: ../src/lxmusic.c:1641
 msgid "Default"
-msgstr ""
+msgstr "기본"
 
 #: ../src/lxmusic.c:1759
 msgid "Pause"
-msgstr ""
+msgstr "일시 정지"
 
 #: ../src/lxmusic.c:1773
 msgid "Play"
-msgstr ""
+msgstr "재생"
 
 #: ../src/lxmusic.c:2326
 msgid "Create new playlist"
-msgstr ""
+msgstr "새 재생 목록 만들기"
 
 #: ../src/utils.c:81
 msgid "Error"
-msgstr ""
+msgstr "오류"
 
 #. alsa use:
 #. * # xmms2 config_list|egrep "^alsa"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "고급 리눅스 사운드 구조"
 
-#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18
+#: ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
-msgstr ""
+msgstr "장치:"
 
-#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19
+#: ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr ""
+msgstr "믹서:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "오픈 사운드 시스템"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "교차 플랫폼 오디오 출력 라이브러리"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
 msgid "PulseAudio"
-msgstr ""
+msgstr "펄스오디오"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "이름:"
 
-#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33
+#: ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr ""
+msgstr "서버:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "싱크:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "에어튠즈"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "잭 오디오 연결 키트"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "디스크 기록"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "대상 디렉터리:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr ""
+msgstr "음악 재생기"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "음악 파일을 쉽게 재생합니다"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "Add Files or Folders"
-msgstr ""
+msgstr "파일이나 폴더 추가"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Add To Playlist"
-msgstr ""
+msgstr "재생 목록에 추가"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Add URL"
-msgstr ""
+msgstr "URL 추가"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "Add files to the playlist"
-msgstr ""
+msgstr "재생 목록에 파일 추가"
 
 #: ../data/lxmusic.ui.glade.h:6
 msgid "All"
-msgstr ""
+msgstr "전체"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "Create _New Playlist"
-msgstr ""
+msgstr "새 재생 목록 만들기(_N)"
 
 #: ../data/lxmusic.ui.glade.h:9
 msgid "Current Playlist"
-msgstr ""
+msgstr "현재 재생 목록"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "Enter keyword here"
-msgstr ""
+msgstr "키워드를 여기에 입력하십시오"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "Favorites"
-msgstr ""
+msgstr "즐겨찾기"
 
-#: ../data/lxmusic.ui.glade.h:12 ../data/track-info.ui.glade.h:8
+#: ../data/lxmusic.ui.glade.h:12
+#: ../data/track-info.ui.glade.h:8
 msgid "File Properties"
-msgstr ""
+msgstr "파일 속성"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Filter:"
-msgstr ""
+msgstr "필터:"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Locate currently played track"
-msgstr ""
+msgstr "현재 재생하는 트랙을 지정합니다"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Media Library"
-msgstr ""
+msgstr "미디어 라이브러리"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Next"
-msgstr ""
+msgstr "다음"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "No Repeat"
-msgstr ""
+msgstr "반복 안함"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Play/Pause"
-msgstr ""
+msgstr "재생/일시 정지"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "Previous"
-msgstr ""
+msgstr "이전"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "Remove All Items"
-msgstr ""
+msgstr "모든 항목 제거"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Remove From Playlist"
-msgstr ""
+msgstr "재생 목록으로부터 제거"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "Remove Selected Items"
-msgstr ""
+msgstr "선택한 항목 제거"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "Remove items from the playlist"
-msgstr ""
+msgstr "재생 목록으로부터 항목 제거"
 
 #: ../data/lxmusic.ui.glade.h:25
 msgid "Repeat All"
-msgstr ""
+msgstr "전체 반복"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Repeat Current"
-msgstr ""
+msgstr "현재 음악 반복"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Show Playlist"
-msgstr ""
+msgstr "재생 목록 표시"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
-msgstr ""
+msgstr "정지"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Track Name"
-msgstr ""
+msgstr "트랙 이름"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "_Delete Current Playlist"
-msgstr ""
+msgstr "현재 재생 목록 삭제(_D)"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "_File"
-msgstr ""
+msgstr "파일(_F)"
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "_Help"
-msgstr ""
+msgstr "도움말(_H)"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "_Locate Currently Played"
-msgstr ""
+msgstr "현재 재생할 위치 지정(_L)"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "_Playlist"
-msgstr ""
+msgstr "재생 목록(_P)"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "_Switch To Playlist"
-msgstr ""
+msgstr "재생 목록으로 전환(_S)"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "_Tools"
-msgstr ""
+msgstr "도구(_T)"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "_View"
-msgstr ""
+msgstr "보기(_V)"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr ""
+msgstr "메인 창 표시(_S)"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "<b>Audio CD</b>"
-msgstr ""
+msgstr "<b>오디오 CD</b>"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "<b>Output</b>"
-msgstr ""
+msgstr "<b>출력</b>"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Audio"
-msgstr ""
+msgstr "오디오"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid "Buffer Size: "
-msgstr ""
+msgstr "버퍼 크기:"
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "CD-ROM Device: "
-msgstr ""
+msgstr "CD-ROM 장치:"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "Continue playback in background after exiting LXMusic"
-msgstr ""
+msgstr "LXMusic을 빠져나간 후 백그라운드에서 재생을 계속"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Default ID3 V1 Encoding: "
-msgstr ""
+msgstr "기본 ID3 V1 인코딩:"
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "General"
-msgstr ""
+msgstr "이반"
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "Minimize to system tray on close"
-msgstr ""
+msgstr "닫을 때 시스템 표시줄로 최소화"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "Misc"
-msgstr ""
+msgstr "기타"
 
 #: ../data/pref-dlg.ui.glade.h:12
-msgid ""
-"Music files can be played without graphical user interface to save system "
-"resources"
-msgstr ""
+msgid "Music files can be played without graphical user interface to save system resources"
+msgstr "음악 파일을 시스템 자원을 절약하기 위해 그래픽 사용자 인터페이스를 사용하지 않고 재생할 수 있습니다"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Plugin: "
-msgstr ""
+msgstr "플러그인:"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Preference"
-msgstr ""
+msgstr "기본 설정"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Show system tray icon"
-msgstr ""
+msgstr "시스템 표시줄 아이콘 표시"
 
 #: ../data/track-info.ui.glade.h:1
 msgid "<b>Album: </b>"
-msgstr ""
+msgstr "<b>앨범:</b>"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>Artist: </b>"
-msgstr ""
+msgstr "<b>음악가:</b>"
 
 #: ../data/track-info.ui.glade.h:3
 msgid "<b>Comment: </b>"
-msgstr ""
+msgstr "<b>설명:</b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>File Type: </b>"
-msgstr ""
+msgstr "<b>파일 유형:</b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>File: </b>"
-msgstr ""
+msgstr "<b>파일:</b>"
 
 #: ../data/track-info.ui.glade.h:6
 msgid "<b>Size: </b>"
-msgstr ""
+msgstr "<b>크기:</b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "<b>제목:</b>"
+
