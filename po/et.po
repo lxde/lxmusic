@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 17:04+0200\n"
-"PO-Revision-Date: 2012-01-22 18:38+0200\n"
+"PO-Revision-Date: 2012-05-20 19:35+0200\n"
 "Last-Translator: Anari <anari.jalakas@gmail.com>\n"
 "Language-Team: Gnome Estonian Translation Team <gnome-et linux ee>\n"
 "Language: et\n"
@@ -304,7 +304,6 @@ msgid "_Show Main Window"
 msgstr "_Näita peaakent"
 
 #: ../data/pref-dlg.ui.glade.h:1
-#, fuzzy
 msgid "Preferences"
 msgstr "Eelistused"
 
