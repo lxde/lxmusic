@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 17:04+0200\n"
-"PO-Revision-Date: 2011-12-24 13:55+0200\n"
+"PO-Revision-Date: 2012-05-22 10:43+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -200,7 +200,7 @@ msgstr "_Cambiar a lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:12
 msgid "_Locate Currently Played"
-msgstr "_Situar o ficheiro reproducido"
+msgstr "_Localizar o ficheiro que está a reproducir"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Add To Playlist"
@@ -288,7 +288,7 @@ msgstr "Retirar os elementos da lista de reprodución"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "Locate currently played track"
-msgstr "Sitúe a pista reproducida actualmente"
+msgstr "Localice a pista que está a reproducir"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "Filter:"
@@ -303,9 +303,8 @@ msgid "_Show Main Window"
 msgstr "_Mostrar a xanela principal"
 
 #: ../data/pref-dlg.ui.glade.h:1
-#, fuzzy
 msgid "Preferences"
-msgstr "Preferencia"
+msgstr "Preferencias"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "Show system tray icon"
