@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: LXDE\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 17:04+0200\n"
-"PO-Revision-Date: 2012-03-09 11:34+0200\n"
+"PO-Revision-Date: 2012-05-23 11:24+0200\n"
 "Last-Translator: Mișu <dumol@l10n.ro>\n"
 "Language-Team: Romanian <LL@li.org>\n"
 "Language: ro\n"
@@ -301,7 +301,6 @@ msgstr "Arată _fereastra principală"
 
 # Am verificat în interfață
 #: ../data/pref-dlg.ui.glade.h:1
-#, fuzzy
 msgid "Preferences"
 msgstr "Preferințe"
 
