@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 17:04+0200\n"
-"PO-Revision-Date: 2010-11-09 00:26+0200\n"
+"PO-Revision-Date: 2012-07-07 22:39+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: lg\n"
@@ -303,7 +303,6 @@ msgid "_Show Main Window"
 msgstr "_Laga eddirisa erya bulijjo"
 
 #: ../data/pref-dlg.ui.glade.h:1
-#, fuzzy
 msgid "Preferences"
 msgstr "Enteekateeka"
 
