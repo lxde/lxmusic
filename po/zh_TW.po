@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 17:04+0200\n"
-"PO-Revision-Date: 2012-04-16 05:41+0200\n"
+"PO-Revision-Date: 2012-07-09 11:26+0200\n"
 "Last-Translator: Walter <wwycheuk@gmail.com>\n"
 "Language-Team: pcman.tw@gmail.com\n"
 "Language: zh_TW\n"
@@ -303,7 +303,6 @@ msgid "_Show Main Window"
 msgstr "顯示主視窗(_S)"
 
 #: ../data/pref-dlg.ui.glade.h:1
-#, fuzzy
 msgid "Preferences"
 msgstr "偏好設定"
 
