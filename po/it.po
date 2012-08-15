@@ -2,18 +2,19 @@
 # Copyright (C) 2009 Fabio Barone <phonky at gmx.net>
 # This file is distributed under the same license as the lxmusic package
 # Fabio Barone <phonky at gmx.net>, 2009
-#
+# Andrea Florio <andrea@opensuse.org>, 2010.
+# Daniele Forsi <daniele@forsi.it>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 17:04+0200\n"
-"PO-Revision-Date: 2010-04-16 13:46+0100\n"
-"Last-Translator: Andrea Florio <andrea@opensuse.org>\n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2012-08-15 17:36+0200\n"
+"Last-Translator: Daniele Forsi <daniele@forsi.it>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: Italian\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Icone ufficiali XMMS2 (Arnaud DIDRY)"
+msgstr "Icona ufficiale XMMS2 di Arnaud DIDRY"
 
 #: ../src/lxmusic.c:274
 msgid ""
@@ -76,7 +77,7 @@ msgstr "Durata"
 
 #: ../src/lxmusic.c:1641
 msgid "Default"
-msgstr "Standard"
+msgstr "Predefinita"
 
 #: ../src/lxmusic.c:1759
 msgid "Pause"
@@ -86,9 +87,11 @@ msgstr "Pausa"
 msgid "Play"
 msgstr "Riproduci"
 
+# traduco playlist->scaletta come in Totem
+# in alternativa potrei lasciarlo invariato come in Rhythmbox
 #: ../src/lxmusic.c:2326
 msgid "Create new playlist"
-msgstr "Creare una nuova lista di riproduzione"
+msgstr "Crea una nuova scaletta"
 
 #: ../src/utils.c:81
 msgid "Error"
@@ -165,15 +168,15 @@ msgstr "Riproduci facilmente i tuoi file musicali"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "No Repeat"
-msgstr "Senza ripetizione"
+msgstr "Non ripetere"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
-msgstr "Ripetere attuale"
+msgstr "Ripeti attuale"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Repeat All"
-msgstr "Ripetere tutti"
+msgstr "Ripeti tutti"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "All"
@@ -181,7 +184,7 @@ msgstr "Tutti"
 
 #: ../data/lxmusic.ui.glade.h:7
 msgid "Track Name"
-msgstr "Brano"
+msgstr "Nome traccia"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "_File"
@@ -189,23 +192,23 @@ msgstr "_File"
 
 #: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
 msgid "File Properties"
-msgstr "Propriet‡ del file"
+msgstr "Propriet√† file"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "_Playlist"
-msgstr "_Lista di Riproduzione"
+msgstr "_Scaletta"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "_Switch To Playlist"
-msgstr "_Cambia a lista di riproduzione"
+msgstr "_Passa alla scaletta"
 
 #: ../data/lxmusic.ui.glade.h:12
 msgid "_Locate Currently Played"
-msgstr "Trova Brano in Riproduzione"
+msgstr "_Trova brano in riproduzione"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Add To Playlist"
-msgstr "Aggiungi a lista di riproduzione"
+msgstr "Aggiungi alla scaletta"
 
 #: ../data/lxmusic.ui.glade.h:14
 msgid "Add Files or Folders"
@@ -217,23 +220,23 @@ msgstr "Aggiungi URL"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
-msgstr "Rimuovi dalla lista di riproduzione"
+msgstr "Rimuovi dalla scaletta"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Remove Selected Items"
-msgstr "Rimuovi elementi selezionati"
+msgstr "Rimuovi gli elementi selezionati"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "Remove All Items"
-msgstr "Rimuovi tutti i brani"
+msgstr "Rimuovi tutti gli elementi"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Create _New Playlist"
-msgstr "Crea una _Nuova lista di riproduzione"
+msgstr "Crea _nuova scaletta"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "_Delete Current Playlist"
-msgstr "_Elimina lista di riproduzione attuale"
+msgstr "_Elimina scaletta attuale"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "_View"
@@ -241,7 +244,7 @@ msgstr "_Visualizza"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
-msgstr "Mostra lista di riproduzione"
+msgstr "Mostra scaletta"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "_Tools"
@@ -249,7 +252,7 @@ msgstr "_Strumenti"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "_Help"
-msgstr "_Aiuto"
+msgstr "A_iuto"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Previous"
@@ -265,11 +268,11 @@ msgstr "Stop"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Next"
-msgstr "Prossimo"
+msgstr "Successivo"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "Current Playlist"
-msgstr "Lista di riproduzione attuale"
+msgstr "Scaletta attuale"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "Favorites"
@@ -277,15 +280,15 @@ msgstr "Preferiti"
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "Media Library"
-msgstr "Biblioteca media"
+msgstr "Mediateca"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "Add files to the playlist"
-msgstr "Aggiungi file alla lista di riproduzione"
+msgstr "Aggiunge file alla scaletta"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "Remove items from the playlist"
-msgstr "Rimuovi elementi dalla lista di riproduzione"
+msgstr "Rimuove elementi dalla scaletta"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "Locate currently played track"
@@ -297,16 +300,15 @@ msgstr "Filtro:"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "Enter keyword here"
-msgstr "Digita parola chiave qui"
+msgstr "Digita una parola chiave qui"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr "Mostra Finestra _Principale"
+msgstr "Mostra finestra _principale"
 
 #: ../data/pref-dlg.ui.glade.h:1
-#, fuzzy
 msgid "Preferences"
-msgstr "Impostazioni"
+msgstr "Preferenze"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "Show system tray icon"
@@ -342,7 +344,7 @@ msgstr "Dimensione buffer: "
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
-msgstr "KB"
+msgstr "kB"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "<b>Output</b>"
@@ -362,11 +364,11 @@ msgstr "Audio"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Default ID3 V1 Encoding: "
-msgstr "Codificazione standard ID3 V1: "
+msgstr "Codifica ID3 V1 predefinita: "
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
-msgstr "Altro"
+msgstr "Varie"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>File Type: </b>"
@@ -395,10 +397,6 @@ msgstr "<b>Titolo: </b>"
 #: ../data/track-info.ui.glade.h:8
 msgid "<b>File: </b>"
 msgstr "<b>File: </b>"
-
-#, fuzzy
-#~ msgid "Server"
-#~ msgstr "Driver:"
 
 #~ msgid ""
 #~ "All\n"
