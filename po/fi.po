@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 17:04+0200\n"
-"PO-Revision-Date: 2012-03-11 10:25+0200\n"
+"PO-Revision-Date: 2012-06-06 16:49+0200\n"
 "Last-Translator: Juhani <juhaninumminen0@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
@@ -303,9 +303,8 @@ msgid "_Show Main Window"
 msgstr "Näytä pää_ikkuna"
 
 #: ../data/pref-dlg.ui.glade.h:1
-#, fuzzy
 msgid "Preferences"
-msgstr "Etusija"
+msgstr "Asetukset"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "Show system tray icon"
