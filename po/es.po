@@ -8,27 +8,28 @@ msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:09+0200\n"
-"PO-Revision-Date: 2012-05-21 06:59+0200\n"
-"Last-Translator: Hugo <sysadmin@cips.cu>\n"
+"PO-Revision-Date: 2013-07-08 21:07+0000\n"
+"Last-Translator: Adolfo <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1373317657.0\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Iconos oficiales de xmms2 por Arnaud DIDRY"
+msgstr "Icono oficial de xmms2 por Arnaud DIDRY"
 
 #: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Reproductor de Música para LXDE\n"
-"Cliente gráfico sencillo de XMMS2"
+"Reproductor musical para LXDE\n"
+"Una interfaz gráfica sencilla para XMMS2"
 
 #. default
 #: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
@@ -41,7 +42,7 @@ msgstr "Tasa de bits: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr "Archivos de audio"
+msgstr "Archivos de sonido"
 
 #: ../src/lxmusic.c:1001
 msgid "All Files"
@@ -49,11 +50,11 @@ msgstr "Todos los archivos"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
-msgstr "Introduzca un URL"
+msgstr "Escriba un URL"
 
 #: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
-msgstr "Reproduciendo:"
+msgstr "Ahora en reproducción:"
 
 #. metadata available
 #: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
@@ -87,7 +88,7 @@ msgstr "Reproducir"
 
 #: ../src/lxmusic.c:2326
 msgid "Create new playlist"
-msgstr "Crear nueva lista de reproducción"
+msgstr "Crear lista de reproducción nueva"
 
 #: ../src/utils.c:81
 msgid "Error"
@@ -117,7 +118,7 @@ msgstr "Sistema abierto de sonido"
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr "Librería multiplataforma de salida de audio"
+msgstr "Biblioteca multiplataforma de salida de sonido"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
@@ -160,7 +161,7 @@ msgstr "Reproductor de música"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr "Reproducir fácilmente sus archivos de música"
+msgstr "Reproduzca fácilmente sus archivos de música"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "No Repeat"
@@ -192,7 +193,7 @@ msgstr "Propiedades del archivo"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "_Playlist"
-msgstr "Lista de re_producción"
+msgstr "_Lista de reprod."
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "_Switch To Playlist"
@@ -212,7 +213,7 @@ msgstr "Añadir archivos o directorios"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Add URL"
-msgstr "Añadir URL"
+msgstr "Añadir un URL"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
@@ -228,11 +229,11 @@ msgstr "Quitar todos los elementos"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Create _New Playlist"
-msgstr "Crear _nueva lista de reproducción"
+msgstr "Crear lista de reproducción _nueva"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "_Delete Current Playlist"
-msgstr "Borrar lista _de reproducción actual"
+msgstr "_Eliminar lista de reproducción actual"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "_View"
@@ -244,7 +245,7 @@ msgstr "Mostrar lista de reproducción"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "_Tools"
-msgstr "Herramien_tas"
+msgstr "_Herramientas"
 
 # subrayar la y puede resultar confuso en algunas tipografías
 #: ../data/lxmusic.ui.glade.h:24
@@ -257,7 +258,7 @@ msgstr "Anterior"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Play/Pause"
-msgstr "Reproducir/Pausar"
+msgstr "Reproducir/pausar"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
@@ -309,11 +310,11 @@ msgstr "Preferencias"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "Show system tray icon"
-msgstr "Mostrar icono en la bandeja del sistema"
+msgstr "Mostrar icono en el área de notificación"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Minimize to system tray on close"
-msgstr "Minimizar a la bandeja del sistema al cerrar"
+msgstr "Minimizar al área de notificación al cerrar"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid ""
@@ -353,19 +354,19 @@ msgstr "Dispositivo de CD-ROM: "
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid "<b>Audio CD</b>"
-msgstr "<b>CD de Audio</b>"
+msgstr "<b>CD de sonido</b>"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Audio"
-msgstr "Audio"
+msgstr "Sonido"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Default ID3 V1 Encoding: "
-msgstr "Codificación por defecto para ID3 V1: "
+msgstr "Codificación predeterminada para ID3 V1: "
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
-msgstr "Misc"
+msgstr "Varios"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>File Type: </b>"
