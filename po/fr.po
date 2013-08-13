@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:09+0200\n"
-"PO-Revision-Date: 2012-06-12 01:16+0200\n"
-"Last-Translator: Cilyan <gaknar@gmail.com>\n"
+"PO-Revision-Date: 2013-08-13 08:37+0000\n"
+"Last-Translator: Julien <Julius22@laposte.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1376383042.0\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -107,7 +108,7 @@ msgstr "Périphérique :"
 
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr "Mixer :"
+msgstr "Mélangeur :"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
@@ -144,7 +145,7 @@ msgstr "AirTunes"
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr "JACK Audio Connection Kit"
+msgstr "Kit de connexion audio JACK"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
@@ -152,7 +153,7 @@ msgstr "Graveur de disque"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr "Répertoire de destination :"
+msgstr "Dossier de destination :"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
@@ -296,7 +297,7 @@ msgstr "Filtre :"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "Enter keyword here"
-msgstr "Saisissez un mot clé"
+msgstr "Saisissez un mot-clé"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
@@ -340,7 +341,7 @@ msgstr "Taille du tampon : "
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
-msgstr "Ko"
+msgstr "ko"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "<b>Output</b>"
