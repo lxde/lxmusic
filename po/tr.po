@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:09+0200\n"
-"PO-Revision-Date: 2012-07-08 22:38+0200\n"
-"Last-Translator: Necdet <necdetyucel@gmail.com>\n"
+"PO-Revision-Date: 2013-11-06 21:33+0000\n"
+"Last-Translator: vgezer <volkangezer@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1383773617.0\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -107,7 +108,7 @@ msgstr "Aygıt:"
 
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr "Mixer:"
+msgstr "Karıştırıcı:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
@@ -192,7 +193,7 @@ msgstr "Dosya Özellikleri"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "_Playlist"
-msgstr "_Oynatma Listesi"
+msgstr "_Çalma listesi"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "_Switch To Playlist"
@@ -232,7 +233,7 @@ msgstr "Ye_ni Oynatma Listesi Oluştur"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "_Delete Current Playlist"
-msgstr "Yürürlükteki Oynatma Listesini _Sil"
+msgstr "Güncel Oynatma Listesini _Sil"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "_View"
