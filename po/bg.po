@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:09+0200\n"
-"PO-Revision-Date: 2012-05-31 17:30+0200\n"
+"PO-Revision-Date: 2013-11-09 14:01+0000\n"
 "Last-Translator: Радослав <reckku@gmail.com>\n"
 "Language-Team: MIME-Version: 1.0\n"
 "Language: bg\n"
@@ -16,9 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: Bulgarian\n"
-"X-Poedit-Country: BULGARIA\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1384005695.0\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -39,7 +38,7 @@ msgstr "LXMusic"
 
 #: ../src/lxmusic.c:694
 msgid "Bitrate: "
-msgstr "Плътност:"
+msgstr "Плътност: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
@@ -146,7 +145,7 @@ msgstr "AirTunes"
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr "Свързващ аудио инструмент (JACK)"
+msgstr "Свързващ звука инструмент (JACK)"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
@@ -302,7 +301,7 @@ msgstr "Тук въведете термин за търсене"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr "_Показване на главния прозорец."
+msgstr "_Показване на основния прозорец"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "Preferences"
@@ -321,8 +320,8 @@ msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
-"Музикалните файлове, могат да бъдат изпълнявани без GUI, за по-малко "
-"системни ресурси"
+"Музикалните файлове, могат да бъдат изпълнявани без графичен интерфейс, за "
+"да се спестят системни ресурси"
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "Continue playback in background after exiting LXMusic"
@@ -334,11 +333,11 @@ msgstr "Общи"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
-msgstr "Приставка:"
+msgstr "Приставка: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "Buffer Size: "
-msgstr "Буфер:"
+msgstr "Буфер: "
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
@@ -350,7 +349,7 @@ msgstr "<b>Изходящ</b>"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "CD-ROM Device: "
-msgstr "Компактдисково устройство:"
+msgstr "Компактдисково устройство: "
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid "<b>Audio CD</b>"
@@ -362,7 +361,7 @@ msgstr "Аудио"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Default ID3 V1 Encoding: "
-msgstr "Разкодирай ID3 V1 по подразбиране:"
+msgstr "Разкодирай ID3 V1 по подразбиране: "
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
@@ -374,7 +373,7 @@ msgstr "<b>Тип файл: </b>"
 
 #: ../data/track-info.ui.glade.h:3
 msgid "<b>Size: </b>"
-msgstr "<b>Размер: <b/>"
+msgstr "<b>Размер: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>Comment: </b>"
