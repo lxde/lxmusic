@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:09+0200\n"
+"POT-Creation-Date: 2013-11-13 23:47+0100\n"
 "PO-Revision-Date: 2013-09-06 02:40+0100\n"
 "Last-Translator: Jay A.Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: Serbian\n"
@@ -16,7 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Serbian\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -34,9 +35,7 @@ msgstr ""
 "Jednostavan klijent za IksMMS2"
 
 #. default
-#: ../src/lxmusic.c:447
-#: ../src/utils.c:98
-#: ../data/lxmusic.ui.glade.h:25
+#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "Zvukovnik"
 
@@ -56,25 +55,21 @@ msgstr "Sve datoteke"
 msgid "Input a URL"
 msgstr "Unesite lokaciju (URL)"
 
-#: ../src/lxmusic.c:1244
-#: ../src/lxmusic.c:1832
+#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
 msgstr "Upravo puštam: "
 
 #. metadata available
-#: ../src/lxmusic.c:1452
-#: ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
 msgstr "Izvođač"
 
-#: ../src/lxmusic.c:1460
-#: ../data/lxmusic.ui.glade.h:6
+#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1468
-#: ../src/lxmusic-notify.c:81
+#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
 msgstr "Naslov"
 
@@ -109,14 +104,12 @@ msgstr "Greška"
 msgid "Advanced Linux Sound Architecture"
 msgstr "ALSA posrednik"
 
-#: ../src/lxmusic-plugin-config.c:18
-#: ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
 msgstr "Uređaj:"
 
-#: ../src/lxmusic-plugin-config.c:19
-#: ../src/lxmusic-plugin-config.c:24
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
 msgstr "Tonska kontrola:"
 
@@ -139,8 +132,7 @@ msgstr "Pulse-audio posrednik"
 msgid "Name:"
 msgstr "Ime:"
 
-#: ../src/lxmusic-plugin-config.c:33
-#: ../src/lxmusic-plugin-config.c:38
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
 msgstr "Server:"
 
@@ -198,8 +190,7 @@ msgstr "Naslov"
 msgid "_File"
 msgstr "_Datoteka"
 
-#: ../data/lxmusic.ui.glade.h:9
-#: ../data/track-info.ui.glade.h:1
+#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
 msgid "File Properties"
 msgstr "Osobine datoteke"
 
@@ -328,7 +319,9 @@ msgid "Minimize to system tray on close"
 msgstr "Po zatvaranju prozora postavi u sistemsku kasetu"
 
 #: ../data/pref-dlg.ui.glade.h:4
-msgid "Music files can be played without graphical user interface to save system resources"
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
 msgstr "Omogućena reprodukcija bez grafičkog prikaza (kod slabijih računara)"
 
 #: ../data/pref-dlg.ui.glade.h:5
@@ -402,4 +395,3 @@ msgstr "<b>Naslov: </b>"
 #: ../data/track-info.ui.glade.h:8
 msgid "<b>File: </b>"
 msgstr "<b>Datoteka: </b>"
-
