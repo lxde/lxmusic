@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2013-12-20 09:43+0000\n"
+"PO-Revision-Date: 2013-12-20 11:28+0000\n"
 "Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Gnome Estonian Translation Team <gnome-et linux ee>\n"
 "Language: et\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1387532615.0\n"
+"X-POOTLE-MTIME: 1387538937.0\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -169,7 +169,7 @@ msgstr "Ei korda"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
-msgstr "Korda praegust"
+msgstr "Korda ühte"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Repeat All"
@@ -197,7 +197,7 @@ msgstr "_Esitusnimekiri"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "_Switch To Playlist"
-msgstr "_Lülitu esitusnimekirjale"
+msgstr "_Ava esitusnimekiri"
 
 #: ../data/lxmusic.ui.glade.h:12
 msgid "_Locate Currently Played"
@@ -209,7 +209,7 @@ msgstr "Lisa esitusnimekirja"
 
 #: ../data/lxmusic.ui.glade.h:14
 msgid "Add Files or Folders"
-msgstr "Failide või kataloogide lisamine"
+msgstr "Failid või kataloogid"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Add URL"
@@ -221,11 +221,11 @@ msgstr "Eemalda esitusnimekirjast"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Remove Selected Items"
-msgstr "Eemalda valitud kirjed"
+msgstr "Eemalda valitud laulud"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "Remove All Items"
-msgstr "Eemalda kõik kirjed"
+msgstr "Eemalda kõik laulud"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Create _New Playlist"
@@ -233,7 +233,7 @@ msgstr "Loo _uus esitusnimekiri"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "_Delete Current Playlist"
-msgstr "_Kustata praegune esitusnimekiri"
+msgstr "_Kustuta see esitusnimekiri"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "_View"
@@ -281,15 +281,15 @@ msgstr "Meediakogu"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "Add files to the playlist"
-msgstr "Lisa faile esitusnimekirja"
+msgstr "Failide lisamine esitusnimekirja"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "Remove items from the playlist"
-msgstr "Eemalda kirjed esitusnimekirjast"
+msgstr "Esitusnimekirjast eemaldamine"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "Locate currently played track"
-msgstr "Leia praegu esitatav lugu"
+msgstr "Praegu esitatava laulu leidmine"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "Filter:"
@@ -325,7 +325,7 @@ msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "Esitamist jätkatakse taustal pärast LXMuuusika sulgemist"
+msgstr "Esitamist jätkatakse taustal pärast LXMuusika sulgemist"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "General"
