@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the 
 # lxmusic package.
 # Pjotr, 2011.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2012-05-20 19:24+0200\n"
+"PO-Revision-Date: 2014-01-28 14:39+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -17,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1390919974.0\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -80,7 +80,7 @@ msgstr "Standaard"
 
 #: ../src/lxmusic.c:1759
 msgid "Pause"
-msgstr "Pauze"
+msgstr "Pauzeren"
 
 #: ../src/lxmusic.c:1773
 msgid "Play"
