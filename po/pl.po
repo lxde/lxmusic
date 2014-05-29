@@ -4,13 +4,12 @@
 # Grzegorz Gibas <amigib@gmail.com>, 2009.
 # Artur Kruszewski <mazdac@gmail.com>, 2009.
 # Piotr Sokół <psokol@jabster.pl>, 2011.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2013-08-27 10:26+0000\n"
+"PO-Revision-Date: 2014-05-29 06:31+0000\n"
 "Last-Translator: Piotr <strebski@o2.pl>\n"
 "Language-Team: Polish <>\n"
 "Language: pl\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1377599171.0\n"
+"X-POOTLE-MTIME: 1401345079.0\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -45,7 +44,7 @@ msgstr "Tempo bitowe: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr "Pliki nagrań dźwiękowych"
+msgstr "Pliki dźwiękowe"
 
 #: ../src/lxmusic.c:1001
 msgid "All Files"
@@ -102,7 +101,7 @@ msgstr "Błąd"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr "ALSA"
+msgstr "ALSA (Zaawansowana Architektura Dźwięku Linuksa)"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
@@ -116,7 +115,7 @@ msgstr "Mikser:"
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr "OSS"
+msgstr "OSS (Otwarty System Dźwięku)"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
@@ -148,7 +147,7 @@ msgstr "AirTunes"
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr "JACK"
+msgstr "Komplet Podłączenia Dźwięku JACK"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
@@ -164,7 +163,7 @@ msgstr "Odtwarzacz muzyczny"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr "Odtwarza nagrania dźwiękowe zachowując prostotę obsługi"
+msgstr "Odtwarza nagrania dźwiękowe przy prostocie obsługi"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "No Repeat"
@@ -192,7 +191,7 @@ msgstr "_Plik"
 
 #: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
 msgid "File Properties"
-msgstr "Właściwości"
+msgstr "Właściwości pliku"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "_Playlist"
@@ -208,11 +207,11 @@ msgstr "_Zaznacz odtwarzane nagranie"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Add To Playlist"
-msgstr "Dodaj elementy"
+msgstr "Dodaj do listy odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:14
 msgid "Add Files or Folders"
-msgstr "Pliki lub katalogi"
+msgstr "Dodaj pliki lub katalogi"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Add URL"
@@ -220,15 +219,15 @@ msgstr "Adres URL"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
-msgstr "Usuń elementy"
+msgstr "Usuń z listy odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Remove Selected Items"
-msgstr "Zaznaczone"
+msgstr "Usuń zaznaczone"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "Remove All Items"
-msgstr "Wszystkie"
+msgstr "Usuń wszystkie"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Create _New Playlist"
@@ -236,7 +235,7 @@ msgstr "_Utwórz"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "_Delete Current Playlist"
-msgstr "_Usuń bieżącą"
+msgstr "_Usuń bieżącą listę odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "_View"
