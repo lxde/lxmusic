@@ -1,21 +1,24 @@
 # Arabic translations for PACKAGE package.
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# أحمد فرغل <ahmad.farghal@gmail.com>, 2009.
 #
+# أحمد فرغل <ahmad.farghal@gmail.com>, 2009.
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: LXMusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2010-01-06 19:42+0100\n"
-"Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
-"Language-Team: Arabic\n"
-"Language: \n"
+"PO-Revision-Date: 2014-07-10 23:06+0300\n"
+"Last-Translator: Safa Alfulaij <safa1996alfulaij@gmail.com>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && "
+"n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -26,7 +29,7 @@ msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"مشغل موسيقى لـLXDE\n"
+"مشغل موسيقى لـلكسدي\n"
 "عميل رسومي بسيط لـXMMS2"
 
 #. default
@@ -40,15 +43,15 @@ msgstr "معدل بِت: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr "ملفات صوت"
+msgstr "ملفات صوتيّة"
 
 #: ../src/lxmusic.c:1001
 msgid "All Files"
-msgstr "كل الملفات"
+msgstr "كلّ الملفات"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
-msgstr "أدخل عنوانا"
+msgstr "أدخِل وصلة"
 
 #: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
@@ -78,7 +81,7 @@ msgstr "الافتراضية"
 
 #: ../src/lxmusic.c:1759
 msgid "Pause"
-msgstr "أوقف مؤقتا"
+msgstr "ألبث"
 
 #: ../src/lxmusic.c:1773
 msgid "Play"
@@ -116,7 +119,7 @@ msgstr "نظام الصوت المفتوح OSS"
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr "مكتبة خرج الصوت عابرة المنصات ao"
+msgstr "مكتبة خرج الصوت عابرة للمنصات ao"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
@@ -133,7 +136,7 @@ msgstr "الخادم:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr "المصب:"
+msgstr "المصرف:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
@@ -143,7 +146,7 @@ msgstr "AirTunes"
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr "عدة اتصال الصوت JACK"
+msgstr "عُدّة اتصال الصوت JACK"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
@@ -151,15 +154,15 @@ msgstr "كاتب الأقراص"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr "الدليل الهدف:"
+msgstr "الدليل المقصد:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr "مشغل الموسيقى"
+msgstr "مشغّل موسيقى"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr "يشغل ملفات الموسيقى بسهولة"
+msgstr "يشغّل ملفاتك الموسيقية بسهولة"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "No Repeat"
@@ -167,15 +170,15 @@ msgstr "لا تكرار"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
-msgstr "كرر المقطوعة الحالية"
+msgstr "كرّر المقطوعة الحالية"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Repeat All"
-msgstr "كرر الكل"
+msgstr "كرّر الكلّ"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "All"
-msgstr "الكل"
+msgstr "الكلّ"
 
 #: ../data/lxmusic.ui.glade.h:7
 msgid "Track Name"
@@ -195,11 +198,11 @@ msgstr "_قائمة تشغيل"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "_Switch To Playlist"
-msgstr "انت_قل لقائمة التشغيل"
+msgstr "ب_دّل إلى قائمة التشغيل"
 
 #: ../data/lxmusic.ui.glade.h:12
 msgid "_Locate Currently Played"
-msgstr "اقف_ز للمقطوعة التي يتم تشغيلها"
+msgstr "_جِد المشغّلة حاليًا"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Add To Playlist"
@@ -211,7 +214,7 @@ msgstr "أضف ملفات أو مجلدات"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Add URL"
-msgstr "أضف عنوانا"
+msgstr "أضف وصلة"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
@@ -219,11 +222,11 @@ msgstr "أزل من قائمة التشغيل"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Remove Selected Items"
-msgstr "أزل العناصر المنتقاة"
+msgstr "أزل العناصر المحدّدة"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "Remove All Items"
-msgstr "أزل جميع العناصر"
+msgstr "أزل كلّ العناصر"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Create _New Playlist"
@@ -235,7 +238,7 @@ msgstr "ا_حذف قائمة التشغيل الحالية"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "_View"
-msgstr "_عرض"
+msgstr "من&ظور"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
@@ -255,7 +258,7 @@ msgstr "السابقة"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Play/Pause"
-msgstr "شغّل أو أوقف مؤقتا"
+msgstr "شغّل/ألبِث"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
@@ -271,7 +274,7 @@ msgstr "قائمة التشغيل الحالية"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "Favorites"
-msgstr "المفضلة"
+msgstr "المفضّلة"
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "Media Library"
@@ -287,7 +290,7 @@ msgstr "أزل عناصر من قائمة التشغيل"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "Locate currently played track"
-msgstr "اقفز للمقطوعة التي يتم تشغيلها حاليا"
+msgstr "جِد المقطوعة المشغّلة حاليًا"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "Filter:"
@@ -295,24 +298,23 @@ msgstr "رشّح:"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "Enter keyword here"
-msgstr "أدخل كلمة مفتاحية هنا"
+msgstr "أدخِل كلمة مفتاحية هنا"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
 msgstr "أ_ظهر النافذة الرئيسية"
 
 #: ../data/pref-dlg.ui.glade.h:1
-#, fuzzy
 msgid "Preferences"
 msgstr "تفضيلات"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "Show system tray icon"
-msgstr "أظهر أيقونة في مساحة التبليغ"
+msgstr "أظهر أيقونة صينية النظام"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Minimize to system tray on close"
-msgstr "قلص لمساحة التبليغ عند الإغلاق"
+msgstr "صغّر إلى صينية النظام عند الإغلاق"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid ""
@@ -322,19 +324,19 @@ msgstr "يمكن تشغيل ملفات الموسيقى بدون واجهة رس
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "استمر في تشغيل الموسيقى في الخلفية بعد الخروج من LXMusic"
+msgstr "تابع تشغيل الموسيقى في الخلفية بعد الخروج من LXMusic"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "General"
-msgstr "عامة"
+msgstr "عامّ"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
-msgstr "الملحق: "
+msgstr "الملحقة:"
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "Buffer Size: "
-msgstr "حجم التخزين المؤقت: "
+msgstr "حجم المخزون:"
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
@@ -346,7 +348,7 @@ msgstr "<b>الخَرْج</b>"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "CD-ROM Device: "
-msgstr "جهاز CD-ROM: "
+msgstr "جهاز CD-ROM:"
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid "<b>Audio CD</b>"
@@ -358,11 +360,11 @@ msgstr "الصوت"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Default ID3 V1 Encoding: "
-msgstr "ترميز ID3 V1 الافتراضي: "
+msgstr "ترميز ID3 V1 الافتراضي:"
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
-msgstr "متنوعة"
+msgstr "متنوّع"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>File Type: </b>"
