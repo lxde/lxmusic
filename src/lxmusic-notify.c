@@ -27,6 +27,9 @@
 
 #if HAVE_LIBNOTIFY
 #include <libnotify/notify.h>
+#ifndef NOTIFY_CHECK_VERSION
+#define NOTIFY_CHECK_VERSION(a,b,c) 0
+#endif
 #endif	/* HAVE_LIBNOTIFY */
 
 #include "lxmusic-notify.h"    
@@ -84,9 +87,15 @@ LXMusicNotification lxmusic_do_notify_prepare(const gchar *artist, const gchar *
     else 			
 	g_string_append( message, title );
     struct _LXMusicNotification *lxn = g_new ( struct _LXMusicNotification, 1);
+#if NOTIFY_CHECK_VERSION (0, 7, 0)
+    lxn->notify = notify_notification_new (summary, message->str, NULL);
+#else
     lxn->notify = notify_notification_new (summary, message->str, NULL, NULL);
+#endif
     notify_notification_set_urgency (lxn->notify, NOTIFY_URGENCY_NORMAL);
+#if !NOTIFY_CHECK_VERSION (0, 7, 0)
     notify_notification_attach_to_status_icon( lxn->notify, status_icon );
+#endif
     notify_notification_set_timeout (lxn->notify, NOTIFY_EXPIRES_DEFAULT);
     g_string_free( message, TRUE );
     return lxn;
