@@ -6,6 +6,8 @@ desktopdir=$(datadir)/applications
 icon_DATA=lxmusic.png
 icondir=$(datadir)/pixmaps
 
+man_MANS = lxmusic.1
+
 uidir=$(datadir)/lxmusic
 # GtkBuilder UI definition files
 ui_DATA= \
@@ -18,4 +20,5 @@ EXTRA_DIST = \
 	$(desktop_DATA) \
 	$(desktop_in_files) \
 	$(icon_DATA) \
-	$(ui_DATA)
+	$(ui_DATA) \
+	$(man_MANS)
