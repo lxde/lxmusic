@@ -2041,7 +2041,7 @@ static int on_playback_volume_changed( xmmsv_t* value, void* user_data )
 	xmmsv_get_error( value, &error_msg );
 	g_warning( "%s: %s", __func__, error_msg );
     }
-    else if (xmmsv_is_type( value, XMMSV_TYPE_DICT ))
+    else if (value != NULL && xmmsv_is_type( value, XMMSV_TYPE_DICT ))
     {
 	xmmsv_dict_foreach( value, get_channel_volumes, &volumes );
         for( l = volumes; l; l = l->next )
