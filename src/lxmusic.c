@@ -83,7 +83,7 @@ typedef struct _TrackProperties{
 
 static void 	send_notification			( LXMusicNotification lxn );
 static void 	send_notification_pixbuf		( LXMusicNotification lxn, GdkPixbuf *pixbuf );
-static int 	update_track				( xmmsv_t *value, GtkTreeIter* it );
+static int 	update_track				( xmmsv_t *value, GtkTreeRowReference* ref );
 static int 	on_coll_info_received			( xmmsv_t* value, void* user_data );
 static int 	on_picture_front_received		( xmmsv_t* value, void* user_data );
 static int 	on_playback_started			( xmmsv_t* value, void* user_data );
@@ -620,10 +620,14 @@ static int on_coll_info_received(xmmsv_t* value, void* user_data)
     while (gtk_list_store_iter_is_valid( list_store , &it )) 
     {
 	xmmsv_t *track_info;
+        GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(list_store), &it);
+        GtkTreeRowReference *ref = gtk_tree_row_reference_new(GTK_TREE_MODEL(list_store), path);
+        gtk_tree_path_free(path);
 	gtk_tree_model_get( model, &it, COL_ID, &id, -1 );
 	/* find corressponding track info */
 	track_info = (xmmsv_t*) g_hash_table_lookup( id_to_coll_info, GINT_TO_POINTER( id ));
-	update_track( track_info, &it ); 
+	update_track( track_info, ref );
+	gtk_tree_row_reference_free(ref);
 	gtk_tree_model_iter_next( model, &it );
 	i++;
     }
@@ -1216,31 +1220,40 @@ static void render_num( GtkTreeViewColumn* col, GtkCellRenderer* render,
     g_object_set( render, "text", buf, NULL );
 }
 
-static int update_track( xmmsv_t *value, GtkTreeIter* it )
+static int update_track( xmmsv_t *value, GtkTreeRowReference *ref )
 {
     TrackProperties track_properties;
-    gboolean current_track_updated;
     char time_buf[32];
     int32_t id;
     gchar *guessed_title = NULL;
+    GtkTreePath *path;
+    GtkTreeIter it;
+    gboolean ok;
+
     if( xmmsv_is_error ( value ) ) {
         return FALSE;
     }
 
+    if (!gtk_tree_row_reference_valid(ref)) /* track was removed from the list */
+        return FALSE;
+    path = gtk_tree_row_reference_get_path(ref);
+    ok = gtk_tree_model_get_iter(GTK_TREE_MODEL(list_store), &it, path);
+    gtk_tree_path_free(path);
+    if (!ok)
+        return FALSE;
     if (!get_track_properties( value, &track_properties)) 
 	track_properties.title = guessed_title = guess_title_from_url( track_properties.url );
     timeval_to_str( track_properties.duration/1000, time_buf, G_N_ELEMENTS(time_buf) );
 
-    gtk_list_store_set( list_store, it,
+    gtk_list_store_set( list_store, &it,
                         COL_ARTIST, track_properties.artist,
                         COL_ALBUM, track_properties.album,
                         COL_TITLE, track_properties.title,
                         COL_LEN, time_buf, -1 );
 
-    
-    gtk_tree_model_get( GTK_TREE_MODEL(list_store), it, COL_ID, &id, -1 );
-     current_track_updated = id == cur_track_id;
-     if ( current_track_updated ) 
+
+    gtk_tree_model_get( GTK_TREE_MODEL(list_store), &it, COL_ID, &id, -1 );
+    if (id > 0)
     {
 	LXMusicNotification lxn = lxmusic_do_notify_prepare ( track_properties.artist, track_properties.title,  
 							      _("Now Playing:"), GTK_STATUS_ICON(tray_icon) );
@@ -1361,8 +1374,11 @@ static gboolean get_track_properties (xmmsv_t *value, TrackProperties *propertie
 static void queue_update_track( uint32_t id, GtkTreeIter* it )
 {
     xmmsc_result_t *res = xmmsc_medialib_get_info( con, id );
-    xmmsc_result_notifier_set_full ( res, (xmmsc_result_notifier_t)update_track, it, (
-					 xmmsc_user_data_free_func_t) gtk_tree_iter_free );
+    GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(list_store), it);
+    GtkTreeRowReference *ref = gtk_tree_row_reference_new(GTK_TREE_MODEL(list_store), path);
+    gtk_tree_path_free(path);
+    xmmsc_result_notifier_set_full ( res, (xmmsc_result_notifier_t)update_track, ref, (
+					 xmmsc_user_data_free_func_t) gtk_tree_row_reference_free );
     xmmsc_result_unref( res );
 }
 
@@ -1692,7 +1708,7 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
 		xmmsv_get_int( int_value, &id );
                 gtk_list_store_insert_with_values( list_store, &it, pos, COL_ID, id, -1 );
                 /* g_debug("playlist_added: %d", id); */
-                queue_update_track( id, gtk_tree_iter_copy( &it ));
+                queue_update_track( id, &it );
             }
             break;
         case XMMS_PLAYLIST_CHANGED_REMOVE:
@@ -2121,7 +2137,7 @@ static int on_media_lib_entry_changed(xmmsv_t* value, void* user_data)
                 if( _id == id )
                 {
                     /* g_debug("found! update: %d", id); */
-                    queue_update_track( id, gtk_tree_iter_copy( &it ) );
+                    queue_update_track( id, &it );
                     break;
                 }
             }while(gtk_tree_model_iter_next(model, &it));
