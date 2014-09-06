@@ -99,6 +99,8 @@ LXMusicNotification lxmusic_do_notify_prepare(const gchar *artist, const gchar *
     notify_notification_set_timeout (lxn->notify, NOTIFY_EXPIRES_DEFAULT);
     g_string_free( message, TRUE );
     return lxn;
+#else
+    return NULL;
 #endif	/* HAVE_LIBNOTIFY */
 }
 
