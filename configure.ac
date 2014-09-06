@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(lxmusic, 0.4.5, http://lxde.org/)
+AC_INIT(lxmusic, 0.4.6, http://lxde.org/)
 AM_INIT_AUTOMAKE([foreign no-dist-gzip dist-xz])
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE([enable])
