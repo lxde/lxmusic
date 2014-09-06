@@ -16,7 +16,6 @@ ui_DATA= \
 
 EXTRA_DIST = \
 	$(desktop_DATA) \
+	$(desktop_in_files) \
 	$(icon_DATA) \
 	$(ui_DATA)
-
-
