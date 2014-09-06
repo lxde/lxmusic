@@ -696,7 +696,11 @@ static int on_track_info_received(xmmsv_t* value, void* user_data)
     if (tp.size){
 	char buf[100];
 	char *size_str;
+#if GLIB_CHECK_VERSION(2, 30, 0)
+        size_str = g_format_size(tp.size);
+#else
 	size_str = g_format_size_for_display( tp.size );
+#endif
 	strcpy( buf, size_str );
 	g_free( size_str );
 
