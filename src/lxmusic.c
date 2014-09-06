@@ -202,7 +202,9 @@ static void save_config()
 
 static int on_xmms_quit(xmmsv_t *value, void *user_data)
 {
-    gtk_widget_destroy(main_win);
+    if (main_win)
+        gtk_widget_destroy(main_win);
+    main_win = NULL;
     gtk_main_quit();
     return TRUE;
 }
@@ -224,6 +226,7 @@ void on_quit(GtkAction* act, gpointer user_data)
     else
     {
         gtk_widget_destroy(main_win);
+        main_win = NULL;
         gtk_main_quit();
     }
 }
