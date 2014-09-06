@@ -278,6 +278,7 @@ void on_about(GtkWidget* mi, gpointer data)
     gtk_about_dialog_set_license( (GtkAboutDialog*)about, "GNU General Public License" );
     gtk_about_dialog_set_website( (GtkAboutDialog*)about, "http://lxde.org/" );
     gtk_window_set_transient_for( (GtkWindow*)about, (GtkWindow*)main_win );
+    gtk_window_set_destroy_with_parent((GtkWindow*)about, TRUE);
     gtk_dialog_run( (GtkDialog*)about );
     gtk_widget_destroy( about );
 }
@@ -512,6 +513,8 @@ void on_preference(GtkAction* act, gpointer data)
         xmmsc_result_notifier_set_full(res, on_pref_dlg_init_widget, g_object_ref(id3v1_encoding), g_object_unref );
         xmmsc_result_unref(res);
 
+        gtk_window_set_transient_for(GTK_WINDOW(dlg), (GtkWindow*)main_win);
+        gtk_window_set_destroy_with_parent(GTK_WINDOW(dlg), TRUE);
         if( gtk_dialog_run(GTK_DIALOG(dlg)) == GTK_RESPONSE_OK )
         {
             int i;
@@ -998,6 +1001,7 @@ void on_add_files( GtkMenuItem* item, gpointer user_data )
                                                   GTK_STOCK_ADD, RESPONSE_ADD, NULL );
     GtkFileFilter* filter;
 
+    gtk_window_set_destroy_with_parent(GTK_WINDOW(dlg), TRUE);
     gtk_file_chooser_set_select_multiple( (GtkFileChooser*)dlg, TRUE );
 
     /* add a custom filter which filters autio files */
@@ -1038,6 +1042,7 @@ void on_add_url( GtkMenuItem* item, gpointer user_data )
             GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
             GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
     GtkWidget *entry = gtk_entry_new();
+    gtk_window_set_destroy_with_parent(GTK_WINDOW(dlg), TRUE);
     gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->vbox, entry, FALSE, FALSE, 4 );
     gtk_dialog_set_default_response( (GtkDialog*)dlg, GTK_RESPONSE_OK );
     gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
@@ -2351,6 +2356,7 @@ void on_new_playlist(GtkAction* act, gpointer user_data)
             _("Create new playlist"), (GtkWindow*)main_win, GTK_DIALOG_MODAL,
             GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
             GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
+    gtk_window_set_destroy_with_parent(GTK_WINDOW(dlg), TRUE);
     GtkWidget *entry = gtk_entry_new();
     gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->vbox, entry, FALSE, FALSE, 4 );
     gtk_dialog_set_default_response( (GtkDialog*)dlg, GTK_RESPONSE_OK );
