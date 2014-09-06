@@ -24,11 +24,11 @@ typedef struct _LXMusicPluginConfig {
 
 GList* plugin_list();
 static inline Plugin* plugin_nth(int i) {
-    return ( Plugin* ) i>=0?g_list_nth_data( plugin_list(), i ):NULL;
+    return ( Plugin* ) (i>=0?g_list_nth_data( plugin_list(), i ):NULL);
 }
 static inline PluginConfig* plugin_config_nth( Plugin *plugin, int i ) 
 {
-    return (PluginConfig*) i>=0?g_list_nth_data( plugin->config, i ):NULL;
+    return (PluginConfig*) (i>=0?g_list_nth_data( plugin->config, i ):NULL);
 }
 const gchar* plugin_config_gettext(const gchar *lookup) ;
 void plugin_config_setup (xmmsc_connection_t *con);

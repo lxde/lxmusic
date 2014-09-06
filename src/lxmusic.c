@@ -1069,7 +1069,7 @@ void on_add_btn_clicked(GtkButton* btn, gpointer user_data)
 
 static int intcmp( gconstpointer a, gconstpointer b )
 {
-    return (int)b - (int)a;
+    return GPOINTER_TO_INT(b) - GPOINTER_TO_INT(a);
 }
 
 void on_remove_all(GtkAction* act, gpointer user_data)
@@ -1093,7 +1093,7 @@ void on_remove_selected(GtkAction* act, gpointer user_data)
         for( sel = sels; sel; sel = sel->next )
         {
             GtkTreePath* path = (GtkTreePath*)sel->data;
-            sel->data = (gpointer)gtk_tree_path_get_indices( path )[0];
+            sel->data = GINT_TO_POINTER(gtk_tree_path_get_indices( path )[0]);
             gtk_tree_path_free( path );
         }
 
@@ -1106,7 +1106,7 @@ void on_remove_selected(GtkAction* act, gpointer user_data)
         for( sel = sels; sel; sel = sel->next )
         {
             xmmsc_result_t* res;
-            int pos = (int)sel->data;
+            int pos = GPOINTER_TO_INT(sel->data);
             res = xmmsc_playlist_remove_entry( con, cur_playlist, pos );
             xmmsc_result_unref( res );
         }
@@ -1300,7 +1300,7 @@ static int on_picture_front_received ( xmmsv_t* value, void* user_data )
     if (picture_front_pixbuf) 
     {
 	send_notification_pixbuf( lxn, picture_front_pixbuf );
-	gdk_pixbuf_unref( picture_front_pixbuf );
+	g_object_unref( picture_front_pixbuf );
     }
     return TRUE;
 }
@@ -1880,7 +1880,7 @@ static void send_notification_pixbuf( LXMusicNotification lxn, GdkPixbuf *pixbuf
 	/* FIXME: Hardcoded notification icon size */
 	GdkPixbuf *scaled_pixbuf = gdk_pixbuf_scale_simple( pixbuf, 64, 64, GDK_INTERP_HYPER );
 	lxmusic_do_notify_pixbuf( lxn, scaled_pixbuf );
-	gdk_pixbuf_unref( scaled_pixbuf );
+	g_object_unref( scaled_pixbuf );
     }
 }
 
@@ -1989,7 +1989,7 @@ static void get_channel_volumes( const char *key, xmmsv_t *value, void *user_dat
     GSList** volumes = (GSList**)user_data;
     int32_t volume;
     xmmsv_get_int( value , &volume );
-    *volumes = g_slist_prepend(*volumes, (gpointer)volume);
+    *volumes = g_slist_prepend(*volumes, GINT_TO_POINTER(volume));
 }
 
 static void get_channel_volume_names(const char* key, xmmsv_t *value, void *user_data)
