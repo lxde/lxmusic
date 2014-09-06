@@ -608,9 +608,11 @@ static int on_coll_info_received(xmmsv_t* value, void* user_data)
 	xmmsv_t *id_val;
 	int32_t id;
 	xmmsv_list_get (value, i,  &track_info);
-	xmmsv_dict_get ( track_info, "id", &id_val );
-	xmmsv_get_int ( id_val, &id );
-	g_hash_table_insert( id_to_coll_info, GINT_TO_POINTER( id ), track_info );
+	if (xmmsv_dict_get ( track_info, "id", &id_val ))
+	{
+	    xmmsv_get_int ( id_val, &id );
+	    g_hash_table_insert( id_to_coll_info, GINT_TO_POINTER( id ), track_info );
+	}
     }
 
     gtk_tree_model_get_iter_first( model, &it );
@@ -1659,12 +1661,12 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
     if( xmmsv_is_error( value ) )
 	return TRUE;
 
-    xmmsv_dict_get( value, "type", &int_value );
-    if( !xmmsv_get_int( int_value, &type ) )
+    if (!xmmsv_dict_get( value, "type", &int_value ) ||
+        !xmmsv_get_int( int_value, &type ))
         return TRUE;
     
-    xmmsv_dict_get( value, "name", &string_value );
-    if ( !xmmsv_get_string( string_value, &name ) )
+    if (!xmmsv_dict_get( value, "name", &string_value ) ||
+        !xmmsv_get_string( string_value, &name ))
 	return TRUE;
 
     if( ! name || !cur_playlist || strcmp(name, cur_playlist) )
@@ -1703,10 +1705,14 @@ static int on_playlist_content_changed( xmmsv_t* value, void* user_data )
 		{
                     gtk_list_store_remove( list_store, &it );
 		    /* invalidate currently played track */
-		    xmmsv_dict_get( value, "id", &int_value );
-		    xmmsv_get_int( int_value, &id );
-		    if ( id == cur_track_id ) 
-			cur_track_id = 0;
+		    if (xmmsv_dict_get( value, "id", &int_value ))
+		    {
+		        xmmsv_get_int( int_value, &id );
+		        if ( id == cur_track_id ) 
+			    cur_track_id = 0;
+		    }
+		    else
+		        cur_track_id = 0;
 		}
                 gtk_tree_path_free( path );
 	    }
@@ -2058,18 +2064,18 @@ static int on_collection_changed( xmmsv_t* dict, void* user_data )
     /* xmmsc_result_dict_foreach(res, dict_foreach, NULL); */
     
     xmmsv_t *string_value, *int_value;
-    const char *name, *ns;
-    gint32 type;
+    const char *name = NULL, *ns = NULL;
+    gint32 type = -1;
     
     
-    xmmsv_dict_get (dict, "name", &string_value);
-    xmmsv_get_string( string_value, &name);
+    if (xmmsv_dict_get (dict, "name", &string_value))
+        xmmsv_get_string( string_value, &name);
 
-    xmmsv_dict_get (dict, "namespace", &string_value);
-    xmmsv_get_string( string_value, &ns );
+    if (xmmsv_dict_get (dict, "namespace", &string_value))
+        xmmsv_get_string( string_value, &ns );
 
-    xmmsv_dict_get (dict, "type", &int_value);	
-    xmmsv_get_int( int_value, &type );
+    if (xmmsv_dict_get (dict, "type", &int_value))
+        xmmsv_get_int( int_value, &type );
     
     /* g_debug("name=%s, ns=%s, type=%d", name, ns, type); */
 
