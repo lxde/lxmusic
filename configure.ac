@@ -3,7 +3,7 @@ dnl Process this file with autoconf to produce a configure script.
 AC_INIT(lxmusic, 0.4.5, http://lxde.org/)
 AM_INIT_AUTOMAKE([foreign no-dist-gzip dist-xz])
 AM_CONFIG_HEADER(config.h)
-AM_MAINTAINER_MODE
+AM_MAINTAINER_MODE([enable])
 
 # Required Packages
 m4_define([gtk_minimum_version], [2.14.0])
