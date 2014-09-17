@@ -1,3 +1,5 @@
 LXMusic is a simple GUI XMMS2 client with minimal functionality.
 It can do nothing more than playing music files.
 
+Notes for compilation: it requires intltool, GTK+ 2.14 or newer, xmms2
+and libxmms-client 0.7 or newer, libnotify 0.4.1 or newer to compile.
