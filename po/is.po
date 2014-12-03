@@ -1,390 +1,395 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Sveinn í Felli <sv1@fellsnet.is>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2014-12-03 11:41+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.10.0\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr ""
+msgstr "Opinber táknmynd xmms2 eftir Arnaud DIDRY"
 
 #: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
+"Tónlistarspilari fyrir LXDE\n"
+"Einfalt myndrænt viðmót XMMS2"
 
 #. default
 #: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
-msgstr ""
+msgstr "LXMusic"
 
 #: ../src/lxmusic.c:694
 msgid "Bitrate: "
-msgstr ""
+msgstr "Bitahraði: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
-msgstr ""
+msgstr "Hljóðskrár"
 
 #: ../src/lxmusic.c:1001
 msgid "All Files"
-msgstr ""
+msgstr "Allar skrár"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
-msgstr ""
+msgstr "Settu inn slóð"
 
 #: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
-msgstr ""
+msgstr "Í spilun:"
 
 #. metadata available
 #: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
 #: ../src/lxmusic-notify.c:80
 msgid "Artist"
-msgstr ""
+msgstr "Flytjandi"
 
 #: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
-msgstr ""
+msgstr "Albúm"
 
 #: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
 msgid "Title"
-msgstr ""
+msgstr "Titill"
 
 #: ../src/lxmusic.c:1474
 msgid "Length"
-msgstr ""
+msgstr "Lengd"
 
 #: ../src/lxmusic.c:1641
 msgid "Default"
-msgstr ""
+msgstr "Sjálfgefið"
 
 #: ../src/lxmusic.c:1759
 msgid "Pause"
-msgstr ""
+msgstr "Bíða"
 
 #: ../src/lxmusic.c:1773
 msgid "Play"
-msgstr ""
+msgstr "Spila"
 
 #: ../src/lxmusic.c:2326
 msgid "Create new playlist"
-msgstr ""
+msgstr "Búa til nýjan spilunarlista"
 
 #: ../src/utils.c:81
 msgid "Error"
-msgstr ""
+msgstr "Villa"
 
 #. alsa use:
 #. * # xmms2 config_list|egrep "^alsa"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr ""
+msgstr "Advanced Linux Sound Architecture (ALSA)"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
 msgid "Device:"
-msgstr ""
+msgstr "Tæki:"
 
 #: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
 msgid "Mixer:"
-msgstr ""
+msgstr "Hljóðblandari:"
 
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr ""
+msgstr "Open Sound System"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr ""
+msgstr "Fjölkerfa aðgerðasafn fyrir hljóðúttak"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
 msgid "PulseAudio"
-msgstr ""
+msgstr "PulseAudio"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr ""
+msgstr "Heiti:"
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr ""
+msgstr "Netþjónn:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr ""
+msgstr "Sinkur:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr ""
+msgstr "AirTunes"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
 msgid "JACK Audio Connection Kit"
-msgstr ""
+msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr ""
+msgstr "Diskaskrifari"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr ""
+msgstr "Móttökumappa:"
 
 #: ../data/lxmusic.desktop.in.h:1
 msgid "Music Player"
-msgstr ""
+msgstr "Tónlistarspilari"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr ""
+msgstr "Spilaðu tónlistina þína á einfaldan máta"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "No Repeat"
-msgstr ""
+msgstr "Engin endurtekning"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
-msgstr ""
+msgstr "Endurtaka núverandi"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Repeat All"
-msgstr ""
+msgstr "Endurtaka allt"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "All"
-msgstr ""
+msgstr "Allt"
 
 #: ../data/lxmusic.ui.glade.h:7
 msgid "Track Name"
-msgstr ""
+msgstr "Heiti spors"
 
 #: ../data/lxmusic.ui.glade.h:8
 msgid "_File"
-msgstr ""
+msgstr "_Skrá"
 
 #: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
 msgid "File Properties"
-msgstr ""
+msgstr "Eiginleikar skráar"
 
 #: ../data/lxmusic.ui.glade.h:10
 msgid "_Playlist"
-msgstr ""
+msgstr "_Spilunarlisti"
 
 #: ../data/lxmusic.ui.glade.h:11
 msgid "_Switch To Playlist"
-msgstr ""
+msgstr "_Skipta í spilunarlista"
 
 #: ../data/lxmusic.ui.glade.h:12
 msgid "_Locate Currently Played"
-msgstr ""
+msgstr "S_taðsetja það sem er í spilun"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Add To Playlist"
-msgstr ""
+msgstr "Bæta við spilunarlista"
 
 #: ../data/lxmusic.ui.glade.h:14
 msgid "Add Files or Folders"
-msgstr ""
+msgstr "Bæta við skrám eða möppum"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Add URL"
-msgstr ""
+msgstr "Bæta við slóð"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
-msgstr ""
+msgstr "Fjarlæga af spilunarlista"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Remove Selected Items"
-msgstr ""
+msgstr "Fjarlægja valin atriði"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "Remove All Items"
-msgstr ""
+msgstr "Fjarlægja öll atriði"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Create _New Playlist"
-msgstr ""
+msgstr "Búa til _nýjan spilunarlista"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "_Delete Current Playlist"
-msgstr ""
+msgstr "_Eyða núverandi spilunarlista"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "_View"
-msgstr ""
+msgstr "_Skoða"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
-msgstr ""
+msgstr "Birta spilunarlista"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "_Tools"
-msgstr ""
+msgstr "_Verkfæri"
 
 #: ../data/lxmusic.ui.glade.h:24
 msgid "_Help"
-msgstr ""
+msgstr "_Hjálp"
 
 #: ../data/lxmusic.ui.glade.h:26
 msgid "Previous"
-msgstr ""
+msgstr "Fyrra"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Play/Pause"
-msgstr ""
+msgstr "Spila/bíða"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
-msgstr ""
+msgstr "Stöðva"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Next"
-msgstr ""
+msgstr "_Næsta"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "Current Playlist"
-msgstr ""
+msgstr "Núverandi lagalisti"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "Favorites"
-msgstr ""
+msgstr "Eftirlæti"
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "Media Library"
-msgstr ""
+msgstr "Miðlasafn"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "Add files to the playlist"
-msgstr ""
+msgstr "Bæta skrám við spilunarlistann"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "Remove items from the playlist"
-msgstr ""
+msgstr "Fjarlægja skrár af spilunarlistanum"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "Locate currently played track"
-msgstr ""
+msgstr "Staðsetja sporið sem er í spilun"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "Filter:"
-msgstr ""
+msgstr "Sía:"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "Enter keyword here"
-msgstr ""
+msgstr "Settu hér inn stikkorð"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr ""
+msgstr "_Birta aðalglugga"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "Preferences"
-msgstr ""
+msgstr "Kjörstillingar"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "Show system tray icon"
-msgstr ""
+msgstr "Sýna táknmynd í kerfisbakka"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Minimize to system tray on close"
-msgstr ""
+msgstr "Lágmarka í kerfisbakka við lokun"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
+"Hægt er að spila tónlist án myndræns notandaviðmóts til þess að nýta afl "
+"tölvunnar sem best"
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "Continue playback in background after exiting LXMusic"
-msgstr ""
+msgstr "Halda afspilun áfram í bakgrunni eftir að hætt er í LXMusic"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "General"
-msgstr ""
+msgstr "Almennt"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
-msgstr ""
+msgstr "Viðbótarforrit: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "Buffer Size: "
-msgstr ""
+msgstr "Stærð biðminnis: "
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "<b>Output</b>"
-msgstr ""
+msgstr "<b>Úttak</b>"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "CD-ROM Device: "
-msgstr ""
+msgstr "Geisladrif: "
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid "<b>Audio CD</b>"
-msgstr ""
+msgstr "<b>Hljóðdiskur CD</b>"
 
 #: ../data/pref-dlg.ui.glade.h:13
 msgid "Audio"
-msgstr ""
+msgstr "Hljóð"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Default ID3 V1 Encoding: "
-msgstr ""
+msgstr "Sjálfgefin ID3 V1 kóðun: "
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
-msgstr ""
+msgstr "Ýmislegt"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>File Type: </b>"
-msgstr ""
+msgstr "<b>Skráategund: </b>"
 
 #: ../data/track-info.ui.glade.h:3
 msgid "<b>Size: </b>"
-msgstr ""
+msgstr "<b>Stærð: </b>"
 
 #: ../data/track-info.ui.glade.h:4
 msgid "<b>Comment: </b>"
-msgstr ""
+msgstr "<b>Athugasemd: </b>"
 
 #: ../data/track-info.ui.glade.h:5
 msgid "<b>Artist: </b>"
-msgstr ""
+msgstr "<b>Flytjandi: </b>"
 
 #: ../data/track-info.ui.glade.h:6
 msgid "<b>Album: </b>"
-msgstr ""
+msgstr "<b>Albúm: </b>"
 
 #: ../data/track-info.ui.glade.h:7
 msgid "<b>Title: </b>"
-msgstr ""
+msgstr "<b>Titill: </b>"
 
 #: ../data/track-info.ui.glade.h:8
 msgid "<b>File: </b>"
-msgstr ""
+msgstr "<b>Skrá: </b>"
+
+
