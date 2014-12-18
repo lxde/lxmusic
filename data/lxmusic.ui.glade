@@ -370,7 +370,6 @@
                 <property name="width_request">80</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="update_policy">GTK_UPDATE_DELAYED</property>
                 <property name="adjustment">adjustment1</property>
                 <property name="draw_value">False</property>
                 <signal handler="on_progress_bar_changed" name="value_changed"/>

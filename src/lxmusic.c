@@ -252,13 +252,6 @@ void on_main_win_destroy(GtkWidget* win)
     }
 }
 
-static void open_url(GtkAboutDialog* dlg, const char* url, gpointer user_data)
-{
-    const char* argv[] = {"xdg-open", NULL, NULL};
-    argv[1] = url;
-    g_spawn_async("/", (gchar**)argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
-}
-
 void on_about(GtkWidget* mi, gpointer data)
 {
     const char* authors[] = { "洪任諭 (Hong Jen Yee) <pcman.tw@gmail.com>", 
@@ -266,11 +259,9 @@ void on_about(GtkWidget* mi, gpointer data)
     const char* artists[] = { N_("Official icon of xmms2 by Arnaud DIDRY"), NULL };
     GtkWidget* about;
 
-    gtk_about_dialog_set_url_hook(open_url, NULL, NULL);
-
     about = gtk_about_dialog_new();
-    gtk_about_dialog_set_name( (GtkAboutDialog*)about, "LXMusic" );
-    gtk_about_dialog_set_logo_icon_name((GtkAboutDialog*)about, "lxmusic");
+    gtk_about_dialog_set_program_name( (GtkAboutDialog*)about, "LXMusic" );
+    gtk_about_dialog_set_logo((GtkAboutDialog*)about, gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR"/pixmaps/lxmusic.png", NULL));
     gtk_about_dialog_set_version( (GtkAboutDialog*)about, VERSION );
     gtk_about_dialog_set_authors( (GtkAboutDialog*)about, authors );
     gtk_about_dialog_set_artists( (GtkAboutDialog*)about, artists );
@@ -349,7 +340,7 @@ static int on_pref_dlg_init_widget(xmmsv_t* value, void* user_data)
             gtk_spin_button_set_value(GTK_SPIN_BUTTON(w), atoi(val));
         else if( GTK_IS_ENTRY(w) )
             gtk_entry_set_text(GTK_ENTRY(w), val);
-        else if( GTK_IS_COMBO_BOX_ENTRY(w) )
+        else if( GTK_IS_COMBO_BOX(w) && gtk_bin_get_child(GTK_BIN(w)) != NULL )
             gtk_entry_set_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN(w))), val);
         else
             g_debug("%s is not supported", G_OBJECT_TYPE_NAME(w));
@@ -382,7 +373,15 @@ int on_pref_dlg_init_output_plugin(xmmsv_t* value, void* user_data)
 	/* fallback to xmms2 plugin names if no translation available*/
 	if ( label == NULL )
 	    label = xmms2_name;
+#if GTK_CHECK_VERSION(2, 24, 0)
+	GtkListStore *store = GTK_LIST_STORE(gtk_combo_box_get_model(output_plugin_cb));
+	GtkTreeIter iter;
+	/* keeping it as GtkComboBox for backward compatibility with GTK+ < 2.24 */
+	gtk_list_store_append(store, &iter);
+	gtk_list_store_set(store, &iter, 0, label, -1);
+#else
 	gtk_combo_box_append_text( output_plugin_cb, label );
+#endif
     }
     
 
@@ -399,7 +398,7 @@ int on_pref_dlg_init_output_plugin(xmmsv_t* value, void* user_data)
 static void on_tray_icon_activate(GtkStatusIcon* icon, gpointer user_data)
 {
     /* FIXME: should we unload the playlist to free resources here? */
-    if( GTK_WIDGET_VISIBLE(main_win) )
+    if( gtk_widget_get_visible(main_win) )
     {
 		/* save window position before we hide the window */
 		gtk_window_get_position((GtkWindow*)main_win, &win_xpos, &win_ypos);
@@ -448,7 +447,7 @@ static void on_tray_icon_popup_menu(GtkStatusIcon* icon, guint btn, guint time, 
 static void create_tray_icon()
 {
     tray_icon = (GtkWidget*)gtk_status_icon_new_from_icon_name("lxmusic");
-    gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon), _("LXMusic"));
+    gtk_status_icon_set_tooltip_text(GTK_STATUS_ICON(tray_icon), _("LXMusic"));
     g_signal_connect(tray_icon, "activate", G_CALLBACK(on_tray_icon_activate), NULL );
     g_signal_connect(tray_icon, "popup-menu", G_CALLBACK(on_tray_icon_popup_menu), NULL );
     g_signal_connect(tray_icon, "scroll-event", G_CALLBACK(on_volume_btn_scrolled), volume_btn);
@@ -843,7 +842,11 @@ gboolean on_playlist_view_drag_drop(GtkWidget      *widget,
     /*  Don't call the default handler  */
 //    g_signal_stop_emission_by_name( widget, "drag-drop" );
 
+#if GTK_CHECK_VERSION(2, 22, 0)
+    if( g_list_find( gdk_drag_context_list_targets(drag_ctx), target ) )
+#else
     if( g_list_find( drag_ctx->targets, target ) )
+#endif
     {
         gtk_drag_get_data( widget, drag_ctx, target, time );
         return TRUE;
@@ -1047,7 +1050,7 @@ void on_add_url( GtkMenuItem* item, gpointer user_data )
             GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
     GtkWidget *entry = gtk_entry_new();
     gtk_window_set_destroy_with_parent(GTK_WINDOW(dlg), TRUE);
-    gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->vbox, entry, FALSE, FALSE, 4 );
+    gtk_box_pack_start( (GtkBox*)gtk_dialog_get_content_area(GTK_DIALOG(dlg)), entry, FALSE, FALSE, 4 );
     gtk_dialog_set_default_response( (GtkDialog*)dlg, GTK_RESPONSE_OK );
     gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
     gtk_widget_show_all( dlg );
@@ -1128,11 +1131,19 @@ gboolean  on_playlist_view_key_press_event (GtkWidget *widget,
 {
     switch ( event->keyval) 
     {
+#if GTK_CHECK_VERSION(2, 21, 0)
+    case GDK_KEY_Delete:
+#else
     case GDK_Delete:
+#endif
 	/* dummy values: needs cleanup  */
 	on_remove_selected (NULL, NULL); 
 	break;
+#if GTK_CHECK_VERSION(2, 21, 0)
+    case GDK_KEY_Insert:
+#else
     case GDK_Insert:
+#endif
 	/* dummy values: needs cleanup  */
 	on_add_files( NULL, NULL );
 	break;
@@ -1283,7 +1294,7 @@ static int update_track( xmmsv_t *value, GtkTreeRowReference *ref )
 	if( tray_icon ) 
 	{
 	    GString* tray_tooltip = create_window_title(track_properties.artist, track_properties.title, playback_status == XMMS_PLAYBACK_STATUS_PLAY);
-	    gtk_status_icon_set_tooltip( GTK_STATUS_ICON(tray_icon), tray_tooltip->str );
+	    gtk_status_icon_set_tooltip_text( GTK_STATUS_ICON(tray_icon), tray_tooltip->str );
 	    g_string_free( tray_tooltip, TRUE );
 	}
 	
@@ -1425,8 +1436,8 @@ static int on_playlist_entries_received( xmmsv_t* value, GtkWidget* list_view )
     res = xmmsc_coll_get( con, cur_playlist, "Playlists" );
     xmmsc_result_notifier_set_and_unref(res, on_playlist_coll_received, NULL );
 								
-    if( GTK_WIDGET_REALIZED( list_view ) )
-        gdk_window_set_cursor( list_view->window, NULL );
+    if( gtk_widget_get_realized( list_view ) )
+        gdk_window_set_cursor( gtk_widget_get_window(list_view), NULL );
 
     gtk_tree_view_set_model( GTK_TREE_VIEW(list_view), mf );
 
@@ -1455,10 +1466,10 @@ static void update_play_list( GtkWidget* list_view )
 {
     xmmsc_result_t *res;
 
-    if( GTK_WIDGET_REALIZED( list_view ) ) {
+    if( gtk_widget_get_realized( list_view ) ) {
         GdkCursor* cur;
         cur = gdk_cursor_new( GDK_WATCH );
-        gdk_window_set_cursor( list_view->window, cur );
+        gdk_window_set_cursor( gtk_widget_get_window(list_view), cur );
         gdk_cursor_unref( cur );
     }
     /* get current playlist as id_list */
@@ -1860,7 +1871,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
     gtk_window_set_title( GTK_WINDOW(main_win), window_title->str );
     
     if( tray_icon )
-        gtk_status_icon_set_tooltip(GTK_STATUS_ICON(tray_icon), window_title->str);
+        gtk_status_icon_set_tooltip_text(GTK_STATUS_ICON(tray_icon), window_title->str);
 
     LXMusicNotification lxn = lxmusic_do_notify_prepare ( track_properties.artist, track_properties.title,  
 							      _("Now Playing:"), GTK_STATUS_ICON(tray_icon) );
@@ -1879,7 +1890,7 @@ static int on_playback_track_loaded( xmmsv_t* value, void* user_data )
 
 static void send_notification_pixbuf( LXMusicNotification lxn, GdkPixbuf *pixbuf ) 
 {
-    if(!GTK_WIDGET_VISIBLE(main_win))  
+    if(!gtk_widget_get_visible(main_win))
     {
 	/* FIXME: Hardcoded notification icon size */
 	GdkPixbuf *scaled_pixbuf = gdk_pixbuf_scale_simple( pixbuf, 64, 64, GDK_INTERP_HYPER );
@@ -1890,7 +1901,7 @@ static void send_notification_pixbuf( LXMusicNotification lxn, GdkPixbuf *pixbuf
 
 static void send_notification( LXMusicNotification lxn ) 
 {
-    if(!GTK_WIDGET_VISIBLE(main_win)) 
+    if(!gtk_widget_get_visible(main_win))
 	lxmusic_do_notify( lxn );
 }
 
@@ -2325,7 +2336,7 @@ static void setup_ui()
     /* add volume button */
     hbox = (GtkWidget*)gtk_builder_get_object(builder, "top_hbox");
     volume_btn = gtk_volume_button_new();
-    gtk_scale_button_get_adjustment(GTK_SCALE_BUTTON(volume_btn))->upper = 100;
+    gtk_adjustment_set_upper (gtk_scale_button_get_adjustment(GTK_SCALE_BUTTON(volume_btn)), 100);
     gtk_widget_show(volume_btn);
     gtk_box_pack_start(GTK_BOX(hbox), volume_btn, FALSE, TRUE, 0);
     g_signal_connect(volume_btn, "value-changed", G_CALLBACK(on_volume_btn_changed), NULL);
@@ -2362,7 +2373,7 @@ void on_new_playlist(GtkAction* act, gpointer user_data)
             GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
     gtk_window_set_destroy_with_parent(GTK_WINDOW(dlg), TRUE);
     GtkWidget *entry = gtk_entry_new();
-    gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->vbox, entry, FALSE, FALSE, 4 );
+    gtk_box_pack_start( (GtkBox*)gtk_dialog_get_content_area(GTK_DIALOG(dlg)), entry, FALSE, FALSE, 4 );
     gtk_dialog_set_default_response( (GtkDialog*)dlg, GTK_RESPONSE_OK );
     gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
     gtk_widget_show_all( dlg );
@@ -2419,7 +2430,7 @@ void on_del_playlist(GtkAction* act, gpointer user_data)
 void on_show_playlist(GtkAction* act, gpointer user_data)
 {
     show_playlist = gtk_toggle_action_get_active(GTK_TOGGLE_ACTION(act));
-    if(GTK_WIDGET_VISIBLE(inner_vbox))
+    if(gtk_widget_get_visible(inner_vbox))
     {
         if( ! show_playlist )
         {

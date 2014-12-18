@@ -6,7 +6,7 @@ AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE([enable])
 
 # Required Packages
-m4_define([gtk_minimum_version], [2.14.0])
+m4_define([gtk_minimum_version], [2.20.0])
 m4_define([gmodule_export_minimum_version], [2.0])
 m4_define([xmms2_minimum_version], [0.7])
 m4_define([xmms2_client_glib_minimum_version], [0.7])
@@ -22,8 +22,23 @@ AC_HEADER_STDC
 AC_PROG_INTLTOOL(, [no-xml])
 
 dnl check for mandatory modules
+AC_ARG_ENABLE(gtk3,
+AC_HELP_STRING([--enable-gtk3],[enable to use gtk-3.0 instead of gtk-2.0]),
+[case "${enableval}" in
+  yes)  enable_gtk3=yes ;;
+  no)   enable_gtk3=no ;;
+  *) AC_MSG_ERROR([bad value "${enableval}" for --enable-gtk3, use "yes" (default) or "no".]) ;;
+esac],[])
+
+# Checks for libraries.
+if test "x$enable_gtk3" = "xyes" ; then
+  CFLAGS="$CFLAGS -DENABLE_GTK3"
+  gtk_modules="gtk+-3.0 >= 3.0.0"
+else
+  gtk_modules="gtk+-2.0 >= gtk_minimum_version"
+fi
 PKG_CHECK_MODULES(LXMUSIC,
-        [gtk+-2.0 >= gtk_minimum_version
+        [$gtk_modules
 	gmodule-export-2.0 >= gmodule_export_minimum_version
 	xmms2-client >= xmms2_minimum_version
 	xmms2-client-glib >= xmms2_client_glib_minimum_version])
