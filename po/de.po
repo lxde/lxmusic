@@ -1,7 +1,6 @@
 # German translation for lxmusic.
 # Benedikt Klus <b.klus89@web.de>, 2009.
 # Mario Blättermann <mariobl@gnome.org>, 2009.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -16,6 +15,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
+"X-Pootle-Path: /de/lxmusic/po/de.po\n"
+"X-Pootle-Revision: 0\n"
 
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER

@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the lxmusic package.
 # Hong Jen Yee (PCMan) <pcman.tw@gmail.com>, 2008.
 # Anthony Fok <foka@debian.org>, 2009.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.2.3\n"
@@ -18,6 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
+"X-Pootle-Path: /zh_CN/lxmusic/po/zh_CN.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"

@@ -13,8 +13,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+"X-Pootle-Path: /is/lxmusic/po/is.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -391,5 +393,3 @@ msgstr "<b>Titill: </b>"
 #: ../data/track-info.ui.glade.h:8
 msgid "<b>File: </b>"
 msgstr "<b>Skrá: </b>"
-
-

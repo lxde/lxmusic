@@ -9,17 +9,18 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2012-05-20 21:48+0200\n"
-"Last-Translator: Sérgio <smarquespt@gmail.com>\n"
+"PO-Revision-Date: 2015-03-26 13:25+0000\n"
+"Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: PORTUGAL\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1427376321.000000\n"
+"X-Pootle-Path: /pt/lxmusic/po/pt.po\n"
+"X-Pootle-Revision: 68\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -363,7 +364,7 @@ msgstr "Áudio"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Default ID3 V1 Encoding: "
-msgstr "Codificação ID3 V1 pré-definida:"
+msgstr "Codificação ID3 V1 pré-definida: "
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"

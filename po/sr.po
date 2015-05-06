@@ -9,18 +9,20 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2013-09-06 02:40+0100\n"
-"Last-Translator: Jay A.Fleming <tito.nehru.naser@gmail.com>\n"
+"PO-Revision-Date: 2015-05-01 12:32+0000\n"
+"Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: Serbian\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: Serbian\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-POOTLE-MTIME: 1430483537.000000\n"
+"X-Pootle-Path: /sr/lxmusic/po/sr.po\n"
+"X-Pootle-Revision: 777\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -41,7 +43,7 @@ msgstr "Звуковник"
 
 #: ../src/lxmusic.c:694
 msgid "Bitrate: "
-msgstr "Битски проток:"
+msgstr "Битски проток: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
@@ -53,11 +55,11 @@ msgstr "Све датотеке"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
-msgstr "Унесите локацију (URL)"
+msgstr "Унесите место (УРЛ)"
 
 #: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
-msgstr "Управо пуштам: "
+msgstr "Управо пуштам:"
 
 #. metadata available
 #: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
@@ -130,20 +132,20 @@ msgstr "Пулсе-аудио посредник"
 
 #: ../src/lxmusic-plugin-config.c:32
 msgid "Name:"
-msgstr "Име:"
+msgstr "Назив:"
 
 #: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
 msgid "Server:"
-msgstr "Сервер:"
+msgstr "Послужитељ:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr "Sink:"
+msgstr "Пријемник:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
 msgid "AirTunes"
-msgstr "AirTunes"
+msgstr "Ер-тјунс"
 
 #. jack
 #: ../src/lxmusic-plugin-config.c:41
@@ -152,7 +154,7 @@ msgstr "Џек посредник"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr "Disk Writer"
+msgstr "Диск-записничар"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
@@ -216,7 +218,7 @@ msgstr "Додај датотеке или директоријуме"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Add URL"
-msgstr "Додај локацију (URL)"
+msgstr "Додај место (УРЛ)"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
@@ -268,11 +270,11 @@ msgstr "Заустави"
 
 #: ../data/lxmusic.ui.glade.h:29
 msgid "Next"
-msgstr "Следећа"
+msgstr "Наредна"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "Current Playlist"
-msgstr "Тренутна листа"
+msgstr "Текућа листа"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "Favorites"
@@ -296,7 +298,7 @@ msgstr "Иди на песму коју слушам"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "Filter:"
-msgstr "Филтер: "
+msgstr "Филтер:"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "Enter keyword here"
@@ -312,11 +314,11 @@ msgstr "Подешавања"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "Show system tray icon"
-msgstr "Прикажи икону програма у системској касети"
+msgstr "Прикажи икону програма у обавештајној зони"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Minimize to system tray on close"
-msgstr "По затварању прозора постави у системску касету"
+msgstr "По затварању прозора смести у обавештајну зону"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid ""
@@ -338,7 +340,7 @@ msgstr "Додаци: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "Buffer Size: "
-msgstr "Величина привремене оставе: "
+msgstr "Величина бафера: "
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"

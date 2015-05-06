@@ -7,20 +7,22 @@ msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2014-10-25 18:28+0000\n"
-"Last-Translator: jcsl <trcs@gmx.com>\n"
+"PO-Revision-Date: 2015-03-27 20:41+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1414261708.000000\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1427488874.000000\n"
+"X-Pootle-Path: /es/lxmusic/po/es.po\n"
+"X-Pootle-Revision: 211\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Icono oficial de xmms2 por Arnaud DIDRY"
+msgstr "Icono oficial de xmms2 por Arnaud Didry"
 
 #: ../src/lxmusic.c:274
 msgid ""
@@ -277,7 +279,7 @@ msgstr "Favoritos"
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "Media Library"
-msgstr "Biblioteca de medios"
+msgstr "Fonoteca"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "Add files to the playlist"
@@ -297,7 +299,7 @@ msgstr "Filtro:"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "Enter keyword here"
-msgstr "Introduzca aquí la palabra clave"
+msgstr "Escriba aquí la palabra clave"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
