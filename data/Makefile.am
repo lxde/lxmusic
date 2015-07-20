@@ -13,8 +13,7 @@ uidir=$(datadir)/lxmusic
 ui_DATA= \
 	lxmusic.ui.glade \
 	pref-dlg.ui.glade \
-	track-info.ui.glade \
-	popup.ui.glade
+	track-info.ui.glade
 
 EXTRA_DIST = \
 	$(desktop_DATA) \

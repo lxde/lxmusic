@@ -87,6 +87,10 @@ static int 	update_track				( xmmsv_t *value, GtkTreeRowReference* ref );
 static int 	on_coll_info_received			( xmmsv_t* value, void* user_data );
 static int 	on_picture_front_received		( xmmsv_t* value, void* user_data );
 static int 	on_playback_started			( xmmsv_t* value, void* user_data );
+void		on_prev_btn_clicked			( GtkButton* btn, gpointer user_data );
+void		on_next_btn_clicked			( GtkButton* btn, gpointer user_data );
+void		on_play_btn_clicked			( GtkButton* btn, gpointer user_data );
+void		on_stop_btn_clicked			( GtkButton* btn, gpointer user_data );
 
 static xmmsc_connection_t *con = NULL;
 static GtkWidget *main_win = NULL;
@@ -421,25 +425,67 @@ void on_show_main_win(GtkAction* act, gpointer user_data)
 static void on_tray_icon_popup_menu(GtkStatusIcon* icon, guint btn, guint time, gpointer user_data)
 {
 	/* init tray icon widgets */
-	GtkBuilder *builder = gtk_builder_new ();
-	if(gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxmusic/popup.ui.glade", NULL))
-	{
-        	GtkWidget *tray_play_btn = (GtkWidget*)gtk_builder_get_object(builder, "play");
-		GtkWidget *tray_popup = (GtkWidget*)gtk_builder_get_object(builder, "popup");
-        	gtk_builder_connect_signals(builder, NULL);
-		switch (playback_status)
+	GtkMenu *systray_menu;
+	GtkWidget *item = NULL;
+
+	systray_menu = GTK_MENU (gtk_menu_new());
+
+	item = gtk_image_menu_item_new_from_stock(GTK_STOCK_OPEN, NULL);
+	gtk_menu_item_set_label (GTK_MENU_ITEM(item), _("Show Main Window"));
+	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
+	g_signal_connect (G_OBJECT (item), "activate",
+			  G_CALLBACK(on_show_main_win),
+			  NULL);
+
+	item = gtk_separator_menu_item_new();
+	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
+
+	switch (playback_status)
 		{
 			case XMMS_PLAYBACK_STATUS_PLAY:
-				g_object_set ( (GObject*)tray_play_btn, "stock-id", "gtk-media-pause", NULL);
+				item = gtk_image_menu_item_new_from_stock(GTK_STOCK_MEDIA_PAUSE, NULL);
 				break;
 			case XMMS_PLAYBACK_STATUS_PAUSE:
 			case XMMS_PLAYBACK_STATUS_STOP:
-				g_object_set ( (GObject*)tray_play_btn, "stock-id", "gtk-media-play", NULL);
+				item = gtk_image_menu_item_new_from_stock(GTK_STOCK_MEDIA_PLAY, NULL);
 				break;
 		}
-		gtk_menu_popup((GtkMenu*)tray_popup, NULL, NULL, NULL, NULL, btn, time);
-	}
-	g_object_unref(builder);
+
+	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
+	g_signal_connect (G_OBJECT (item), "activate",
+			  G_CALLBACK(on_play_btn_clicked),
+			  NULL);
+
+	item = gtk_image_menu_item_new_from_stock(GTK_STOCK_MEDIA_STOP, NULL);
+	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
+	g_signal_connect (G_OBJECT (item), "activate",
+			  G_CALLBACK(on_stop_btn_clicked),
+			  NULL);
+
+	item = gtk_image_menu_item_new_from_stock(GTK_STOCK_MEDIA_PREVIOUS, NULL);
+	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
+	g_signal_connect (G_OBJECT (item), "activate",
+			  G_CALLBACK(on_prev_btn_clicked),
+			  NULL);
+
+	item = gtk_image_menu_item_new_from_stock(GTK_STOCK_MEDIA_NEXT, NULL);
+	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
+	g_signal_connect (G_OBJECT (item), "activate",
+			  G_CALLBACK(on_next_btn_clicked),
+			  NULL);
+
+	item = gtk_separator_menu_item_new();
+	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
+
+	item = gtk_image_menu_item_new_from_stock(GTK_STOCK_QUIT, NULL);
+	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
+	g_signal_connect (G_OBJECT (item), "activate",
+			  G_CALLBACK(on_quit),
+			  NULL);
+
+	/* show */
+	gtk_widget_show_all(GTK_WIDGET(systray_menu));
+	gtk_menu_popup(GTK_MENU(systray_menu), NULL, NULL, NULL, NULL, btn, time);
 
 	return;
 }
