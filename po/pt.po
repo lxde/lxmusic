@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2015-03-26 13:25+0000\n"
+"PO-Revision-Date: 2015-07-11 20:52+0000\n"
 "Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt\n"
@@ -17,10 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
-"X-POOTLE-MTIME: 1427376321.000000\n"
-"X-Pootle-Path: /pt/lxmusic/po/pt.po\n"
-"X-Pootle-Revision: 68\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1436647944.000000\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -300,7 +298,7 @@ msgstr "Filtro:"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "Enter keyword here"
-msgstr "Indique aqui a palavra chave"
+msgstr "Indique aqui a palavra-chave"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"

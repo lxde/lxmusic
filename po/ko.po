@@ -8,17 +8,16 @@ msgstr ""
 "Project-Id-Version: lxmusic.master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2012-06-29 17:41+0200\n"
-"Last-Translator: Seong-ho <darkcircle.0426@gmail.com>\n"
+"PO-Revision-Date: 2015-07-20 13:53+0000\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: \n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Pootle-Path: /ko/lxmusic/po/ko.po\n"
-"X-Pootle-Revision: 0\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1437400431.000000\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -39,7 +38,7 @@ msgstr "LXMusic"
 
 #: ../src/lxmusic.c:694
 msgid "Bitrate: "
-msgstr "비트 전송율:"
+msgstr "비트 전송율: "
 
 #: ../src/lxmusic.c:996
 msgid "Audio Files"
@@ -334,11 +333,11 @@ msgstr "이반"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
-msgstr "플러그인:"
+msgstr "플러그인: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "Buffer Size: "
-msgstr "버퍼 크기:"
+msgstr "버퍼 크기: "
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
@@ -350,7 +349,7 @@ msgstr "<b>출력</b>"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "CD-ROM Device: "
-msgstr "CD-ROM 장치:"
+msgstr "CD-ROM 장치: "
 
 #: ../data/pref-dlg.ui.glade.h:12
 msgid "<b>Audio CD</b>"
@@ -362,7 +361,7 @@ msgstr "오디오"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Default ID3 V1 Encoding: "
-msgstr "기본 ID3 V1 인코딩:"
+msgstr "기본 ID3 V1 인코딩: "
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"

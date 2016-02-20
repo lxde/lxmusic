@@ -6,17 +6,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2012-07-09 20:28+0200\n"
-"Last-Translator: Daniel <d@winzen4.de>\n"
+"PO-Revision-Date: 2015-06-12 21:41+0000\n"
+"Last-Translator: H.Humpel <H.Humpel@gmx.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Pootle-Path: /de/lxmusic/po/de.po\n"
-"X-Pootle-Revision: 0\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1434145264.000000\n"
 
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
@@ -309,7 +308,7 @@ msgstr "Suchbegriff hier eingeben"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
-msgstr "Hauptfenster anzeigen"
+msgstr "Hauptfen_ster anzeigen"
 
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "Preferences"
@@ -341,11 +340,11 @@ msgstr "Allgemein"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
-msgstr "Plugin:"
+msgstr "Plugin: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "Buffer Size: "
-msgstr "Puffergröße:"
+msgstr "Puffergröße: "
 
 #: ../data/pref-dlg.ui.glade.h:9
 msgid "KB"
@@ -369,7 +368,7 @@ msgstr "Audio"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Default ID3 V1 Encoding: "
-msgstr "Standard ID3 V1 Kodierung:"
+msgstr "Standard ID3 V1 Kodierung: "
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
