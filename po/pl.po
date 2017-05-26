@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: lxmusic 0.4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2015-08-17 01:29+0000\n"
-"Last-Translator: Anonymous Pootle User\n"
+"PO-Revision-Date: 2017-05-25 07:10+0000\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish <>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1439774974.549029\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1495696245.752813\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -101,7 +101,7 @@ msgstr "Błąd"
 #. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
-msgstr "ALSA (Zaawansowana Architektura Dźwięku Linuksa)"
+msgstr "Zaawansowana Architektura Dźwięku Linuksa (ALSA)"
 
 #: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
 #: ../src/lxmusic-plugin-config.c:28
@@ -115,7 +115,7 @@ msgstr "Mikser:"
 #. oss
 #: ../src/lxmusic-plugin-config.c:22
 msgid "Open Sound System"
-msgstr "OSS (Otwarty System Dźwięku)"
+msgstr "Otwarty System Dźwięku (OSS)"
 
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
@@ -163,7 +163,7 @@ msgstr "Odtwarzacz muzyczny"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr "Odtwarza nagrania dźwiękowe przy prostocie obsługi"
+msgstr "Łatwe odtwarzanie nagrań dźwiękowych"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "No Repeat"
@@ -175,7 +175,7 @@ msgstr "Powtarzanie bieżącego utworu"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Repeat All"
-msgstr "Powtarzanie listy odtwarzania"
+msgstr "Powtórz wszystko"
 
 #: ../data/lxmusic.ui.glade.h:4
 msgid "All"
@@ -215,7 +215,7 @@ msgstr "Dodaj pliki lub katalogi"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Add URL"
-msgstr "Adres URL"
+msgstr "Dodaj URL"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
@@ -243,7 +243,7 @@ msgstr "_Widok"
 
 #: ../data/lxmusic.ui.glade.h:22
 msgid "Show Playlist"
-msgstr "Lista odtwarzania"
+msgstr "Wyświetl listę odtwarzania"
 
 #: ../data/lxmusic.ui.glade.h:23
 msgid "_Tools"
