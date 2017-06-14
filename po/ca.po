@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2015-08-16 10:56+0000\n"
+"PO-Revision-Date: 2017-06-12 14:45+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translation group\n"
 "Language: ca\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1439722560.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1497278726.875313\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -50,7 +50,7 @@ msgstr "Tots els fitxers"
 
 #: ../src/lxmusic.c:1028
 msgid "Input a URL"
-msgstr "Introduiu una URL"
+msgstr "Escriviu un URL"
 
 #: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
 msgid "Now Playing:"
@@ -135,7 +135,7 @@ msgstr "Servidor:"
 
 #: ../src/lxmusic-plugin-config.c:34
 msgid "Sink:"
-msgstr "Font:"
+msgstr "Conducte:"
 
 #. airtunes
 #: ../src/lxmusic-plugin-config.c:37
@@ -213,7 +213,7 @@ msgstr "Afegeix fitxers o carpetes"
 
 #: ../data/lxmusic.ui.glade.h:15
 msgid "Add URL"
-msgstr "Afegeix una URL"
+msgstr "Afegeix un URL"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
@@ -297,7 +297,7 @@ msgstr "Filtre:"
 
 #: ../data/lxmusic.ui.glade.h:37
 msgid "Enter keyword here"
-msgstr "Entreu la paraula clau"
+msgstr "Escriviu la paraula clau"
 
 #: ../data/popup.ui.glade.h:1
 msgid "_Show Main Window"
