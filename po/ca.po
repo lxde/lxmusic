@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2017-06-12 14:45+0000\n"
+"PO-Revision-Date: 2017-06-28 16:08+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translation group\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1497278726.875313\n"
+"X-POOTLE-MTIME: 1498666098.792759\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -233,7 +233,7 @@ msgstr "Crea una _nova llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "_Delete Current Playlist"
-msgstr "_Esborra la llista de reproducció actual"
+msgstr "_Elimina la llista de reproducció actual"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "_View"
