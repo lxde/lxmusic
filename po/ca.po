@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2017-06-28 16:08+0000\n"
+"PO-Revision-Date: 2017-09-14 15:07+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translation group\n"
 "Language: ca\n"
@@ -17,18 +17,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1498666098.792759\n"
+"X-POOTLE-MTIME: 1505401643.941918\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Logotip oficial del xmms2 fet per Arnaud DIDRY"
+msgstr "Icona oficial del xmms2 fet per Arnaud DIDRY"
 
 #: ../src/lxmusic.c:274
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
 msgstr ""
-"Reproductor musical per a LXDE\n"
+"Reproductor de música per a LXDE\n"
 "Interfície gràfica simple per a XMMS2"
 
 #. default
@@ -161,7 +161,7 @@ msgstr "Reproductor musical"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Play your music files easily"
-msgstr "Escolteu la vostra música de manera simple"
+msgstr "Escolteu música de manera fàcil"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "No Repeat"
@@ -217,15 +217,15 @@ msgstr "Afegeix un URL"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
-msgstr "Esborra de la llista de reproducció"
+msgstr "Elimina de la llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Remove Selected Items"
-msgstr "Esborra els seleccionats"
+msgstr "Elimina els seleccionats"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "Remove All Items"
-msgstr "Esborra'ls tots"
+msgstr "Elimina'ls tots"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Create _New Playlist"
@@ -285,7 +285,7 @@ msgstr "Afegeix fitxers a la llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "Remove items from the playlist"
-msgstr "Esborra de la llista de reproducció"
+msgstr "Elimina de la llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "Locate currently played track"
@@ -320,8 +320,8 @@ msgid ""
 "Music files can be played without graphical user interface to save system "
 "resources"
 msgstr ""
-"Els arxius d'àudio poden ser reproduïts sense interfície gràfica per "
-"estalviar recursos"
+"Els fitxers d'àudio es poden reproduir sense interfície gràfica per "
+"estalviar recursos del sistema"
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "Continue playback in background after exiting LXMusic"

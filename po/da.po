@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2017-05-23 17:56+0000\n"
+"PO-Revision-Date: 2017-08-16 23:38+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495562190.201372\n"
+"X-POOTLE-MTIME: 1502926693.334620\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -170,7 +170,7 @@ msgstr "Ingen gentagelse"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
-msgstr "Gentag aktuelle"
+msgstr "Gentag nuværende"
 
 #: ../data/lxmusic.ui.glade.h:3
 msgid "Repeat All"
@@ -270,7 +270,7 @@ msgstr "Næste"
 
 #: ../data/lxmusic.ui.glade.h:30
 msgid "Current Playlist"
-msgstr "Aktuel afspilningsliste"
+msgstr "Nuværende afspilningsliste"
 
 #: ../data/lxmusic.ui.glade.h:31
 msgid "Favorites"
@@ -334,7 +334,7 @@ msgstr "Generelt"
 
 #: ../data/pref-dlg.ui.glade.h:7
 msgid "Plugin: "
-msgstr "Udvidelsesmodul: "
+msgstr "Plugin: "
 
 #: ../data/pref-dlg.ui.glade.h:8
 msgid "Buffer Size: "
