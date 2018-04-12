@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2017-08-16 23:38+0000\n"
+"PO-Revision-Date: 2017-11-01 07:36+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1502926693.334620\n"
+"X-POOTLE-MTIME: 1509521760.968981\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -314,7 +314,7 @@ msgstr "Vis statusikon"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Minimize to system tray on close"
-msgstr "Minimer til statusfelt når LXMusic lukkes"
+msgstr "Minimer til systembakke når LXMusic lukkes"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid ""
