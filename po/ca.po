@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2017-09-14 15:07+0000\n"
+"PO-Revision-Date: 2018-08-15 19:30+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translation group\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1505401643.941918\n"
+"X-POOTLE-MTIME: 1534361433.205711\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -217,15 +217,15 @@ msgstr "Afegeix un URL"
 
 #: ../data/lxmusic.ui.glade.h:16
 msgid "Remove From Playlist"
-msgstr "Elimina de la llista de reproducció"
+msgstr "Suprimeix de la llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:17
 msgid "Remove Selected Items"
-msgstr "Elimina els seleccionats"
+msgstr "Suprimeix els elements seleccionats"
 
 #: ../data/lxmusic.ui.glade.h:18
 msgid "Remove All Items"
-msgstr "Elimina'ls tots"
+msgstr "Suprimeix tots els elements"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Create _New Playlist"
@@ -233,7 +233,7 @@ msgstr "Crea una _nova llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "_Delete Current Playlist"
-msgstr "_Elimina la llista de reproducció actual"
+msgstr "_Suprimeix la llista de reproducció actual"
 
 #: ../data/lxmusic.ui.glade.h:21
 msgid "_View"
@@ -285,7 +285,7 @@ msgstr "Afegeix fitxers a la llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:34
 msgid "Remove items from the playlist"
-msgstr "Elimina de la llista de reproducció"
+msgstr "Suprimeix de la llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "Locate currently played track"

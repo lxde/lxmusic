@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:47+0100\n"
-"PO-Revision-Date: 2017-11-01 07:36+0000\n"
+"PO-Revision-Date: 2018-10-01 23:09+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1509521760.968981\n"
+"X-POOTLE-MTIME: 1538435358.967902\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
@@ -118,7 +118,7 @@ msgstr "Open Sound System"
 #. ao
 #: ../src/lxmusic-plugin-config.c:27
 msgid "Cross-platform audio output library"
-msgstr "Krydsplatform lyduddatabibliotek"
+msgstr "Krydsplatform lydoutputbibliotek"
 
 #. pulse
 #: ../src/lxmusic-plugin-config.c:31
@@ -314,7 +314,7 @@ msgstr "Vis statusikon"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Minimize to system tray on close"
-msgstr "Minimer til systembakke når LXMusic lukkes"
+msgstr "Minimer til systembakke ved lukning"
 
 #: ../data/pref-dlg.ui.glade.h:4
 msgid ""
@@ -346,7 +346,7 @@ msgstr "KB"
 
 #: ../data/pref-dlg.ui.glade.h:10
 msgid "<b>Output</b>"
-msgstr "<b>Uddata</b>"
+msgstr "<b>Output</b>"
 
 #: ../data/pref-dlg.ui.glade.h:11
 msgid "CD-ROM Device: "
