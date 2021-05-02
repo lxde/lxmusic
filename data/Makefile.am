@@ -4,7 +4,7 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 desktopdir=$(datadir)/applications
 
 icon_DATA=lxmusic.png
-icondir=$(datadir)/pixmaps
+icondir=$(datadir)/icons/hicolor/128x128/apps
 
 man_MANS = lxmusic.1
 

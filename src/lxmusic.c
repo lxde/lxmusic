@@ -265,7 +265,7 @@ void on_about(GtkWidget* mi, gpointer data)
 
     about = gtk_about_dialog_new();
     gtk_about_dialog_set_program_name( (GtkAboutDialog*)about, "LXMusic" );
-    gtk_about_dialog_set_logo((GtkAboutDialog*)about, gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR"/pixmaps/lxmusic.png", NULL));
+    gtk_about_dialog_set_logo_icon_name((GtkAboutDialog*)about, "lxmusic");
     gtk_about_dialog_set_version( (GtkAboutDialog*)about, VERSION );
     gtk_about_dialog_set_authors( (GtkAboutDialog*)about, authors );
     gtk_about_dialog_set_artists( (GtkAboutDialog*)about, artists );
@@ -2395,7 +2395,7 @@ static void setup_ui()
     gtk_builder_connect_signals(builder, NULL);
 
     /* window icon */
-    gtk_window_set_icon_from_file(GTK_WINDOW(main_win), PACKAGE_DATA_DIR"/pixmaps/lxmusic.png", NULL );
+    gtk_window_set_icon_name(GTK_WINDOW(main_win), "lxmusic");
 
     gtk_window_set_default_size(GTK_WINDOW(main_win), win_width, win_height);
     /* this can trigger signal handler and show or hide the playlist. */
