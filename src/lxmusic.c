@@ -269,9 +269,9 @@ void on_about(GtkWidget* mi, gpointer data)
     gtk_about_dialog_set_version( (GtkAboutDialog*)about, VERSION );
     gtk_about_dialog_set_authors( (GtkAboutDialog*)about, authors );
     gtk_about_dialog_set_artists( (GtkAboutDialog*)about, artists );
-    gtk_about_dialog_set_comments( (GtkAboutDialog*)about, _("Music Player for LXDE\nSimple GUI XMMS2 client") );
-    gtk_about_dialog_set_license( (GtkAboutDialog*)about, "GNU General Public License" );
-    gtk_about_dialog_set_website( (GtkAboutDialog*)about, "http://lxde.org/" );
+    gtk_about_dialog_set_comments( (GtkAboutDialog*)about, _("Music Player for LXDE\nA Simple XMMS2 GUI Client") );
+    gtk_about_dialog_set_license( (GtkAboutDialog*)about, "LXMusic is licensed under the GNU General Public License, version 2.0.\nTo read this license you can visit the GNU Old Licenses Page at\nhttps://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html" );
+    gtk_about_dialog_set_website( (GtkAboutDialog*)about, "https://www.lxde.org/" );
     gtk_window_set_transient_for( (GtkWindow*)about, (GtkWindow*)main_win );
     gtk_window_set_destroy_with_parent((GtkWindow*)about, TRUE);
     gtk_dialog_run( (GtkDialog*)about );
@@ -431,7 +431,7 @@ static void on_tray_icon_popup_menu(GtkStatusIcon* icon, guint btn, guint time, 
 	systray_menu = GTK_MENU (gtk_menu_new());
 
 	item = gtk_image_menu_item_new_from_stock(GTK_STOCK_OPEN, NULL);
-	gtk_menu_item_set_label (GTK_MENU_ITEM(item), _("Show Main Window"));
+	gtk_menu_item_set_label (GTK_MENU_ITEM(item), _("Show LXMusic"));
 	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
 	g_signal_connect (G_OBJECT (item), "activate",
 			  G_CALLBACK(on_show_main_win),
@@ -2495,21 +2495,6 @@ void on_show_playlist(GtkAction* act, gpointer user_data)
             gtk_widget_show(inner_vbox);
         }
     }
-}
-
-void on_playlist_cut(GtkAction* act, gpointer user_data)
-{
-    show_error( GTK_WINDOW(main_win), NULL, "Not yet implemented");
-}
-
-void on_playlist_copy(GtkAction* act, gpointer user_data)
-{
-    show_error( GTK_WINDOW(main_win), NULL, "Not yet implemented");
-}
-
-void on_playlist_paste(GtkAction* act, gpointer user_data)
-{
-    show_error( GTK_WINDOW(main_win), NULL, "Not yet implemented");
 }
 
 

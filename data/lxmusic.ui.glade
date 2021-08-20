@@ -152,20 +152,6 @@
           </object>
         </child>
         <child>
-          <object class="GtkAction" id="cut_mi">
-            <property name="stock_id">gtk-cut</property>
-            <property name="name">cut_mi</property>
-            <signal handler="on_playlist_cut" name="activate"/>
-          </object>
-        </child>
-        <child>
-          <object class="GtkAction" id="paste_mi">
-            <property name="stock_id">gtk-paste</property>
-            <property name="name">paste_mi</property>
-            <signal handler="on_playlist_paste" name="activate"/>
-          </object>
-        </child>
-        <child>
           <object class="GtkAction" id="view_mi">
             <property name="name">view_mi</property>
             <property name="label" translatable="yes">_View</property>
@@ -207,6 +193,8 @@
           <menuitem action="pref_mi"/>
           <separator/>
           <menuitem action="quit_mi"/>
+          <separator />
+          <menuitem action="about_mi" />
         </menu>
         <menu action="playlist_mi">
           <menuitem action="switch_to_pl"/>
@@ -229,10 +217,6 @@
         </menu>
         <menu action="view_mi">
           <menuitem action="show_pl"/>
-        </menu>
-        <menuitem action="tools_mi"/>
-        <menu action="help_mi">
-          <menuitem action="about_mi"/>
         </menu>
       </menubar>
     </ui>
