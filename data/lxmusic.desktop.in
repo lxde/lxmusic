@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-_Name=LXMusic simple music player
+_Name=LXMusic
 _GenericName=Music Player
 _Comment=Play your music files easily
 Categories=AudioVideo;Audio;Player;GTK;
