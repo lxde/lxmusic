@@ -57,7 +57,7 @@
           <object class="GtkAction" id="file_properties">
             <property name="stock_id">gtk-properties</property>
             <property name="name">file_properties</property>
-            <property name="label" translatable="yes">File Properties</property>
+            <property name="label" translatable="yes" context="menu">File Properties</property>
             <signal handler="on_file_properties" name="activate"/>
           </object>
         </child>
