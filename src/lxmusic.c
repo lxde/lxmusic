@@ -260,7 +260,7 @@ void on_about(GtkWidget* mi, gpointer data)
 {
     const char* authors[] = { "洪任諭 (Hong Jen Yee) <pcman.tw@gmail.com>", 
 			      "Jürgen Hötzel <juergen@archlinux.org>", NULL };
-    const char* artists[] = { N_("Official icon of xmms2 by Arnaud DIDRY"), NULL };
+    const char* artists[] = { _("Official icon of xmms2 by Arnaud DIDRY"), NULL };
     GtkWidget* about;
 
     about = gtk_about_dialog_new();
