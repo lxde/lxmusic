@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 23:47+0100\n"
+"POT-Creation-Date: 2023-09-03 15:57+0200\n"
 "PO-Revision-Date: 2015-08-17 01:29+0000\n"
 "Last-Translator: Anonymous Pootle User\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Arnaud DIDRY দ্বারা xmms2 এর আইকন"
 
-#: ../src/lxmusic.c:274
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -31,62 +31,69 @@ msgstr ""
 "LXDE এর জন্য মিউজিক প্লেয়ার \n"
 "সহজ GUI XMMS2 ক্লায়েন্ট"
 
+#: ../src/lxmusic.c:434
+#, fuzzy
+#| msgid "_Show Main Window"
+msgid "Show Main Window"
+msgstr "মূল উইন্ডো প্রদর্শন করুন(_S)"
+
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
+#: ../src/lxmusic.c:496 ../src/utils.c:103 ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:694
+#: ../src/lxmusic.c:755
 msgid "Bitrate: "
 msgstr "বিটরেট: "
 
-#: ../src/lxmusic.c:996
+#: ../src/lxmusic.c:1062
 msgid "Audio Files"
 msgstr "অডিও ফাইল"
 
-#: ../src/lxmusic.c:1001
+#: ../src/lxmusic.c:1067
 msgid "All Files"
 msgstr "সকল ফাইল"
 
-#: ../src/lxmusic.c:1028
+#: ../src/lxmusic.c:1094
 msgid "Input a URL"
 msgstr "একটি URL ইনপুট করুন"
 
-#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
+#: ../src/lxmusic.c:1328 ../src/lxmusic.c:1923
 msgid "Now Playing:"
 msgstr "এখন চলছে:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
-#: ../src/lxmusic-notify.c:80
+#: ../src/lxmusic.c:1539 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic-notify.c:83
 msgid "Artist"
 msgstr "শিল্পী"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
+#: ../src/lxmusic.c:1547 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "অ্যালবাম"
 
-#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
+#: ../src/lxmusic.c:1555 ../src/lxmusic-notify.c:84
 msgid "Title"
 msgstr "নাম"
 
-#: ../src/lxmusic.c:1474
+#: ../src/lxmusic.c:1561
 msgid "Length"
 msgstr "সময়সীমা"
 
-#: ../src/lxmusic.c:1641
+#: ../src/lxmusic.c:1728
 msgid "Default"
 msgstr "ডিফল্ট"
 
-#: ../src/lxmusic.c:1759
+#: ../src/lxmusic.c:1850
 msgid "Pause"
 msgstr "বিরাম"
 
-#: ../src/lxmusic.c:1773
+#: ../src/lxmusic.c:1864
 msgid "Play"
 msgstr "প্লে"
 
-#: ../src/lxmusic.c:2326
+#: ../src/lxmusic.c:2417
 msgid "Create new playlist"
 msgstr "নতুন প্লেলিস্ট তৈরী করুন"
 
@@ -95,8 +102,6 @@ msgid "Error"
 msgstr "ত্রুটি"
 
 #. alsa use:
-#. * # xmms2 config_list|egrep "^alsa"
-#. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
 msgstr "অ্যাডভানসড লিনাক্স সাউন্ড আরকিটেকচার(ALSA)"
@@ -155,11 +160,11 @@ msgstr "ডিস্ক রাইটার"
 msgid "Destination Directory:"
 msgstr "গন্তব্য ডিরেক্টরি:"
 
-#: ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.desktop.in.h:2
 msgid "Music Player"
 msgstr "মিউজিক প্লেয়ার"
 
-#: ../data/lxmusic.desktop.in.h:2
+#: ../data/lxmusic.desktop.in.h:3
 msgid "Play your music files easily"
 msgstr "আপনার মিউজিক ফাইলগুলি সহজে শুনুন"
 
@@ -187,7 +192,10 @@ msgstr "ট্র্যাকের নাম"
 msgid "_File"
 msgstr "ফাইল(_F)"
 
-#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+#: ../data/lxmusic.ui.glade.h:9
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "menu"
 msgid "File Properties"
 msgstr "ফাইলের বিবিধ বৈশিষ্ট্য"
 
@@ -299,10 +307,6 @@ msgstr "ফিল্টার:"
 msgid "Enter keyword here"
 msgstr "এখানে প্রাসঙ্গিক শব্দ লিখুন"
 
-#: ../data/popup.ui.glade.h:1
-msgid "_Show Main Window"
-msgstr "মূল উইন্ডো প্রদর্শন করুন(_S)"
-
 #: ../data/pref-dlg.ui.glade.h:1
 #, fuzzy
 msgid "Preferences"
@@ -366,6 +370,13 @@ msgstr "ডিফল্ট ID3 V1 এনকোডিং: "
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
 msgstr "বিবিধ"
+
+#: ../data/track-info.ui.glade.h:1
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "title"
+msgid "File Properties"
+msgstr "ফাইলের বিবিধ বৈশিষ্ট্য"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>File Type: </b>"

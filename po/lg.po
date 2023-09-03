@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 23:47+0100\n"
+"POT-Creation-Date: 2023-09-03 15:57+0200\n"
 "PO-Revision-Date: 2013-09-01 22:13+0000\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Akafaananyi aka ku xmms2 kaakolebwa Arnaud DIDRY"
 
-#: ../src/lxmusic.c:274
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -30,62 +30,69 @@ msgstr ""
 "Puloguramu entono ey'okuwuliriza nyimba ey'omu LXDE\n"
 "Ekuwa ebirabikira awakolerwa ebikusobozesa okufuga puloguramu eya XMMS2"
 
+#: ../src/lxmusic.c:434
+#, fuzzy
+#| msgid "_Show Main Window"
+msgid "Show Main Window"
+msgstr "_Laga eddirisa erya bulijjo"
+
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
+#: ../src/lxmusic.c:496 ../src/utils.c:103 ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:694
+#: ../src/lxmusic.c:755
 msgid "Bitrate: "
 msgstr "Obwangu bwa bbiti: "
 
-#: ../src/lxmusic.c:996
+#: ../src/lxmusic.c:1062
 msgid "Audio Files"
 msgstr "Fairo ez'ebiwulirizibwa"
 
-#: ../src/lxmusic.c:1001
+#: ../src/lxmusic.c:1067
 msgid "All Files"
 msgstr "Fayiro za bika byonna"
 
-#: ../src/lxmusic.c:1028
+#: ../src/lxmusic.c:1094
 msgid "Input a URL"
 msgstr "Wandika URL"
 
-#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
+#: ../src/lxmusic.c:1328 ../src/lxmusic.c:1923
 msgid "Now Playing:"
 msgstr "Oluliko kati:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
-#: ../src/lxmusic-notify.c:80
+#: ../src/lxmusic.c:1539 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic-notify.c:83
 msgid "Artist"
 msgstr "Mu baluyimba"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
+#: ../src/lxmusic.c:1547 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "Mu alubamu"
 
-#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
+#: ../src/lxmusic.c:1555 ../src/lxmusic-notify.c:84
 msgid "Title"
 msgstr "Luyimba"
 
-#: ../src/lxmusic.c:1474
+#: ../src/lxmusic.c:1561
 msgid "Length"
 msgstr "Buwanvu bwa lwo"
 
-#: ../src/lxmusic.c:1641
+#: ../src/lxmusic.c:1728
 msgid "Default"
 msgstr "Olwabulijjo"
 
-#: ../src/lxmusic.c:1759
+#: ../src/lxmusic.c:1850
 msgid "Pause"
 msgstr "Luyimirizemu"
 
-#: ../src/lxmusic.c:1773
+#: ../src/lxmusic.c:1864
 msgid "Play"
 msgstr "Luwulirize"
 
-#: ../src/lxmusic.c:2326
+#: ../src/lxmusic.c:2417
 msgid "Create new playlist"
 msgstr "Kolawo olukalala lw'enyimba olupya"
 
@@ -94,8 +101,6 @@ msgid "Error"
 msgstr "Kiremya"
 
 #. alsa use:
-#. * # xmms2 config_list|egrep "^alsa"
-#. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
 msgstr "ALSA - Advanced Linux Sound Architecture"
@@ -154,11 +159,11 @@ msgstr "Ewandika ku disiki"
 msgid "Destination Directory:"
 msgstr "Tterekero gye biraga:"
 
-#: ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.desktop.in.h:2
 msgid "Music Player"
 msgstr "Puloguramu esitula nyimba mu fayiro"
 
-#: ../data/lxmusic.desktop.in.h:2
+#: ../data/lxmusic.desktop.in.h:3
 msgid "Play your music files easily"
 msgstr "Ekinaakwanguyiriza okuwuliriza fayiro zo ez'enyimba"
 
@@ -186,7 +191,10 @@ msgstr "Mu ntambi"
 msgid "_File"
 msgstr "_Fayiro"
 
-#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+#: ../data/lxmusic.ui.glade.h:9
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "menu"
 msgid "File Properties"
 msgstr "Ebikwata ku fayiro"
 
@@ -298,10 +306,6 @@ msgstr "Sunsulira ku:"
 msgid "Enter keyword here"
 msgstr "Wandika wano ekigambo eky'okunoonyezesa"
 
-#: ../data/popup.ui.glade.h:1
-msgid "_Show Main Window"
-msgstr "_Laga eddirisa erya bulijjo"
-
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "Preferences"
 msgstr "Enteekateeka"
@@ -366,6 +370,13 @@ msgstr "Enkongojja y'ebya ID3 V1 eya bulijjo: "
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
 msgstr "Biralalala"
+
+#: ../data/track-info.ui.glade.h:1
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "title"
+msgid "File Properties"
+msgstr "Ebikwata ku fayiro"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>File Type: </b>"

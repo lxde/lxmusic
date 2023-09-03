@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 23:47+0100\n"
+"POT-Creation-Date: 2023-09-03 15:57+0200\n"
 "PO-Revision-Date: 2015-08-17 01:29+0000\n"
 "Last-Translator: Anonymous Pootle User\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
-"n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1439774975.551378\n"
 
@@ -25,7 +25,7 @@ msgstr ""
 "Uradna ikona XMMS2:\n"
 "\tArnaud Didry"
 
-#: ../src/lxmusic.c:274
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -33,62 +33,69 @@ msgstr ""
 "Uradna ikona XMMS2:\n"
 "\tArnaud Didry"
 
+#: ../src/lxmusic.c:434
+#, fuzzy
+#| msgid "_Show Main Window"
+msgid "Show Main Window"
+msgstr "Pokaži _glavno okno"
+
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
+#: ../src/lxmusic.c:496 ../src/utils.c:103 ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:694
+#: ../src/lxmusic.c:755
 msgid "Bitrate: "
 msgstr "Bitna hitrost: "
 
-#: ../src/lxmusic.c:996
+#: ../src/lxmusic.c:1062
 msgid "Audio Files"
 msgstr "Zvočne datoteke"
 
-#: ../src/lxmusic.c:1001
+#: ../src/lxmusic.c:1067
 msgid "All Files"
 msgstr "Vse datoteke"
 
-#: ../src/lxmusic.c:1028
+#: ../src/lxmusic.c:1094
 msgid "Input a URL"
 msgstr "Vnesite naslov URL"
 
-#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
+#: ../src/lxmusic.c:1328 ../src/lxmusic.c:1923
 msgid "Now Playing:"
 msgstr "Predvaja se:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
-#: ../src/lxmusic-notify.c:80
+#: ../src/lxmusic.c:1539 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic-notify.c:83
 msgid "Artist"
 msgstr "Izvajalec"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
+#: ../src/lxmusic.c:1547 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "Album"
 
-#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
+#: ../src/lxmusic.c:1555 ../src/lxmusic-notify.c:84
 msgid "Title"
 msgstr "Naslov"
 
-#: ../src/lxmusic.c:1474
+#: ../src/lxmusic.c:1561
 msgid "Length"
 msgstr "Trajanje"
 
-#: ../src/lxmusic.c:1641
+#: ../src/lxmusic.c:1728
 msgid "Default"
 msgstr "Privzeti seznam predvajanja"
 
-#: ../src/lxmusic.c:1759
+#: ../src/lxmusic.c:1850
 msgid "Pause"
 msgstr "Premor"
 
-#: ../src/lxmusic.c:1773
+#: ../src/lxmusic.c:1864
 msgid "Play"
 msgstr "Predvajaj"
 
-#: ../src/lxmusic.c:2326
+#: ../src/lxmusic.c:2417
 msgid "Create new playlist"
 msgstr "Ustvari nov seznam predvajanja"
 
@@ -97,8 +104,6 @@ msgid "Error"
 msgstr "Napaka"
 
 #. alsa use:
-#. * # xmms2 config_list|egrep "^alsa"
-#. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
 msgstr "Advanced Linux Sound Architecture"
@@ -157,11 +162,11 @@ msgstr "Zapisovalec diskov"
 msgid "Destination Directory:"
 msgstr "Ciljna mapa:"
 
-#: ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.desktop.in.h:2
 msgid "Music Player"
 msgstr "Predvajalnik glasbe"
 
-#: ../data/lxmusic.desktop.in.h:2
+#: ../data/lxmusic.desktop.in.h:3
 msgid "Play your music files easily"
 msgstr "Predvajajte svojo glasbo"
 
@@ -189,7 +194,10 @@ msgstr "Naslov skladbe"
 msgid "_File"
 msgstr "_Datoteka"
 
-#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+#: ../data/lxmusic.ui.glade.h:9
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "menu"
 msgid "File Properties"
 msgstr "Lastnosti datoteke"
 
@@ -301,10 +309,6 @@ msgstr "Iskanje:"
 msgid "Enter keyword here"
 msgstr "Vnesite ključne besede"
 
-#: ../data/popup.ui.glade.h:1
-msgid "_Show Main Window"
-msgstr "Pokaži _glavno okno"
-
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "Preferences"
 msgstr "Možnosti"
@@ -368,6 +372,13 @@ msgstr "Privzeto kodiranje ID3 V1: "
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
 msgstr "Razno"
+
+#: ../data/track-info.ui.glade.h:1
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "title"
+msgid "File Properties"
+msgstr "Lastnosti datoteke"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>File Type: </b>"

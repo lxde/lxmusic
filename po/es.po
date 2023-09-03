@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxmusic 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 23:47+0100\n"
+"POT-Creation-Date: 2023-09-03 15:57+0200\n"
 "PO-Revision-Date: 2015-03-27 20:41+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Icono oficial de xmms2 por Arnaud Didry"
 
-#: ../src/lxmusic.c:274
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -30,62 +30,69 @@ msgstr ""
 "Reproductor musical para LXDE\n"
 "Una interfaz gráfica sencilla para XMMS2"
 
+#: ../src/lxmusic.c:434
+#, fuzzy
+#| msgid "_Show Main Window"
+msgid "Show Main Window"
+msgstr "Mo_strar la ventana principal"
+
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
+#: ../src/lxmusic.c:496 ../src/utils.c:103 ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:694
+#: ../src/lxmusic.c:755
 msgid "Bitrate: "
 msgstr "Tasa de bits: "
 
-#: ../src/lxmusic.c:996
+#: ../src/lxmusic.c:1062
 msgid "Audio Files"
 msgstr "Archivos de sonido"
 
-#: ../src/lxmusic.c:1001
+#: ../src/lxmusic.c:1067
 msgid "All Files"
 msgstr "Todos los archivos"
 
-#: ../src/lxmusic.c:1028
+#: ../src/lxmusic.c:1094
 msgid "Input a URL"
 msgstr "Escriba un URL"
 
-#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
+#: ../src/lxmusic.c:1328 ../src/lxmusic.c:1923
 msgid "Now Playing:"
 msgstr "Ahora en reproducción:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
-#: ../src/lxmusic-notify.c:80
+#: ../src/lxmusic.c:1539 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic-notify.c:83
 msgid "Artist"
 msgstr "Artista"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
+#: ../src/lxmusic.c:1547 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "Álbum"
 
-#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
+#: ../src/lxmusic.c:1555 ../src/lxmusic-notify.c:84
 msgid "Title"
 msgstr "Título"
 
-#: ../src/lxmusic.c:1474
+#: ../src/lxmusic.c:1561
 msgid "Length"
 msgstr "Duración"
 
-#: ../src/lxmusic.c:1641
+#: ../src/lxmusic.c:1728
 msgid "Default"
 msgstr "Predeterminado"
 
-#: ../src/lxmusic.c:1759
+#: ../src/lxmusic.c:1850
 msgid "Pause"
 msgstr "Pausar"
 
-#: ../src/lxmusic.c:1773
+#: ../src/lxmusic.c:1864
 msgid "Play"
 msgstr "Reproducir"
 
-#: ../src/lxmusic.c:2326
+#: ../src/lxmusic.c:2417
 msgid "Create new playlist"
 msgstr "Crear lista de reproducción nueva"
 
@@ -94,8 +101,6 @@ msgid "Error"
 msgstr "Error"
 
 #. alsa use:
-#. * # xmms2 config_list|egrep "^alsa"
-#. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
 msgstr "Arquitectura avanzada de sonido de Linux (ALSA)"
@@ -154,11 +159,11 @@ msgstr "Escritura en disco"
 msgid "Destination Directory:"
 msgstr "Directorio de destino:"
 
-#: ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.desktop.in.h:2
 msgid "Music Player"
 msgstr "Reproductor de música"
 
-#: ../data/lxmusic.desktop.in.h:2
+#: ../data/lxmusic.desktop.in.h:3
 msgid "Play your music files easily"
 msgstr "Reproduzca fácilmente sus archivos de música"
 
@@ -186,7 +191,10 @@ msgstr "Nombre de la pista"
 msgid "_File"
 msgstr "_Archivo"
 
-#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+#: ../data/lxmusic.ui.glade.h:9
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "menu"
 msgid "File Properties"
 msgstr "Propiedades del archivo"
 
@@ -299,10 +307,6 @@ msgstr "Filtro:"
 msgid "Enter keyword here"
 msgstr "Escriba aquí la palabra clave"
 
-#: ../data/popup.ui.glade.h:1
-msgid "_Show Main Window"
-msgstr "Mo_strar la ventana principal"
-
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "Preferences"
 msgstr "Preferencias"
@@ -366,6 +370,13 @@ msgstr "Codificación predeterminada para ID3 V1: "
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
 msgstr "Varios"
+
+#: ../data/track-info.ui.glade.h:1
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "title"
+msgid "File Properties"
+msgstr "Propiedades del archivo"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>File Type: </b>"

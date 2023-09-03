@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 23:47+0100\n"
+"POT-Creation-Date: 2023-09-03 15:57+0200\n"
 "PO-Revision-Date: 2015-08-17 01:29+0000\n"
 "Last-Translator: Anonymous Pootle User\n"
 "Language-Team: Greek\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Official icon of xmms2 by Arnaud DIDRY"
 msgstr "Επίσημο εικονίδιο του XMMS2 από τον Arnaud DIDRY"
 
-#: ../src/lxmusic.c:274
+#: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
 "Simple GUI XMMS2 client"
@@ -31,62 +31,69 @@ msgstr ""
 "Αναπαραγωγέας μουσικής για το LXDE\n"
 "Απλό γραφικό πρόγραμμα πελάτης για το XMMS2"
 
+#: ../src/lxmusic.c:434
+#, fuzzy
+#| msgid "_Show Main Window"
+msgid "Show Main Window"
+msgstr "_Εμφάνιση κεντρικού παραθύρου"
+
 #. default
-#: ../src/lxmusic.c:447 ../src/utils.c:98 ../data/lxmusic.ui.glade.h:25
+#: ../src/lxmusic.c:496 ../src/utils.c:103 ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.ui.glade.h:25
 msgid "LXMusic"
 msgstr "LXMusic"
 
-#: ../src/lxmusic.c:694
+#: ../src/lxmusic.c:755
 msgid "Bitrate: "
 msgstr "Bitrate: "
 
-#: ../src/lxmusic.c:996
+#: ../src/lxmusic.c:1062
 msgid "Audio Files"
 msgstr "Αρχεία ήχου"
 
-#: ../src/lxmusic.c:1001
+#: ../src/lxmusic.c:1067
 msgid "All Files"
 msgstr "Όλα τα αρχεία"
 
-#: ../src/lxmusic.c:1028
+#: ../src/lxmusic.c:1094
 msgid "Input a URL"
 msgstr "Εισαγωγή URL"
 
-#: ../src/lxmusic.c:1244 ../src/lxmusic.c:1832
+#: ../src/lxmusic.c:1328 ../src/lxmusic.c:1923
 msgid "Now Playing:"
 msgstr "Τώρα παίζει:"
 
 #. metadata available
-#: ../src/lxmusic.c:1452 ../data/lxmusic.ui.glade.h:5
-#: ../src/lxmusic-notify.c:80
+#: ../src/lxmusic.c:1539 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic-notify.c:83
 msgid "Artist"
 msgstr "Καλλιτέχνης"
 
-#: ../src/lxmusic.c:1460 ../data/lxmusic.ui.glade.h:6
+#: ../src/lxmusic.c:1547 ../data/lxmusic.ui.glade.h:6
 msgid "Album"
 msgstr "Άλμπουμ"
 
-#: ../src/lxmusic.c:1468 ../src/lxmusic-notify.c:81
+#: ../src/lxmusic.c:1555 ../src/lxmusic-notify.c:84
 msgid "Title"
 msgstr "Τίτλος"
 
-#: ../src/lxmusic.c:1474
+#: ../src/lxmusic.c:1561
 msgid "Length"
 msgstr "Διάρκεια"
 
-#: ../src/lxmusic.c:1641
+#: ../src/lxmusic.c:1728
 msgid "Default"
 msgstr "Προκαθορισμένο"
 
-#: ../src/lxmusic.c:1759
+#: ../src/lxmusic.c:1850
 msgid "Pause"
 msgstr "Παύση"
 
-#: ../src/lxmusic.c:1773
+#: ../src/lxmusic.c:1864
 msgid "Play"
 msgstr "Αναπαραγωγή"
 
-#: ../src/lxmusic.c:2326
+#: ../src/lxmusic.c:2417
 msgid "Create new playlist"
 msgstr "Δημιουργία νέας λίστας αναπαραγωγής"
 
@@ -95,8 +102,6 @@ msgid "Error"
 msgstr "Σφάλμα"
 
 #. alsa use:
-#. * # xmms2 config_list|egrep "^alsa"
-#. * to get list of possible config variables
 #: ../src/lxmusic-plugin-config.c:17
 msgid "Advanced Linux Sound Architecture"
 msgstr "Advanced Linux Sound Architecture"
@@ -155,11 +160,11 @@ msgstr "Εγγραφέας δίσκου"
 msgid "Destination Directory:"
 msgstr "Διαδρομή προορισμού:"
 
-#: ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.desktop.in.h:2
 msgid "Music Player"
 msgstr "Αναπαραγωγέας Μουσικής"
 
-#: ../data/lxmusic.desktop.in.h:2
+#: ../data/lxmusic.desktop.in.h:3
 msgid "Play your music files easily"
 msgstr "Εύκολη αναπαραγωγή της μουσικής σας"
 
@@ -187,7 +192,10 @@ msgstr "Όνομα κομματιού"
 msgid "_File"
 msgstr "_Αρχείο"
 
-#: ../data/lxmusic.ui.glade.h:9 ../data/track-info.ui.glade.h:1
+#: ../data/lxmusic.ui.glade.h:9
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "menu"
 msgid "File Properties"
 msgstr "Ιδιότητες αρχείων"
 
@@ -299,10 +307,6 @@ msgstr "Φίλτρο:"
 msgid "Enter keyword here"
 msgstr "Εισαγωγή λέξης κλειδί εδώ"
 
-#: ../data/popup.ui.glade.h:1
-msgid "_Show Main Window"
-msgstr "_Εμφάνιση κεντρικού παραθύρου"
-
 #: ../data/pref-dlg.ui.glade.h:1
 msgid "Preferences"
 msgstr "Προτιμήσεις"
@@ -366,6 +370,13 @@ msgstr "Προκαθορισμένη ID3 V1 κωδικοποίηση:"
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
 msgstr "Διάφορα"
+
+#: ../data/track-info.ui.glade.h:1
+#, fuzzy
+#| msgid "File Properties"
+msgctxt "title"
+msgid "File Properties"
+msgstr "Ιδιότητες αρχείων"
 
 #: ../data/track-info.ui.glade.h:2
 msgid "<b>File Type: </b>"
