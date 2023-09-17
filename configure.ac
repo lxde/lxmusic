@@ -32,7 +32,7 @@ esac],[])
 
 # Checks for libraries.
 if test "x$enable_gtk3" = "xyes" ; then
-  CFLAGS="$CFLAGS -DENABLE_GTK3"
+  CFLAGS="$CFLAGS -DENABLE_GTK3 -Wno-deprecated-declarations"
   gtk_modules="gtk+-3.0 >= 3.0.0"
 else
   gtk_modules="gtk+-2.0 >= gtk_minimum_version"
