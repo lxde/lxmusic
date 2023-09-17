@@ -5,6 +5,10 @@ AM_INIT_AUTOMAKE([foreign no-dist-gzip dist-xz])
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE([enable])
 
+dnl Support silent build rules. Disable by either passing --disable-silent-rules
+dnl to configure or passing V=1 to make
+AM_SILENT_RULES([yes])
+
 # Required Packages
 m4_define([gtk_minimum_version], [2.20.0])
 m4_define([gmodule_export_minimum_version], [2.0])
