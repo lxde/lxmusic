@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-03 15:57+0200\n"
+"POT-Creation-Date: 2024-10-25 14:00+0200\n"
 "PO-Revision-Date: 2015-08-17 01:29+0000\n"
 "Last-Translator: Anonymous Pootle User\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: ../src/lxmusic.c:272
 msgid ""
 "Music Player for LXDE\n"
-"Simple GUI XMMS2 client"
+"Simple XMMS2 GUI client"
 msgstr ""
 
 #: ../src/lxmusic.c:434
