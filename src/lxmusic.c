@@ -270,7 +270,21 @@ void on_about(GtkWidget* mi, gpointer data)
     gtk_about_dialog_set_authors( (GtkAboutDialog*)about, authors );
     gtk_about_dialog_set_artists( (GtkAboutDialog*)about, artists );
     gtk_about_dialog_set_comments( (GtkAboutDialog*)about, _("Music Player for LXDE\nSimple XMMS2 GUI client") );
-    gtk_about_dialog_set_license( (GtkAboutDialog*)about, "GNU General Public License" );
+    gtk_about_dialog_set_license( (GtkAboutDialog*)about,
+    "Copyright \xC2\xA9 2006 Hong Jen Yee (PCMan)\n\n"
+    "This program is free software; you can redistribute it and/or modify\n"
+    "it under the terms of the GNU General Public License as published by\n"
+    "the Free Software Foundation; either version 2 of the License, or\n"
+    "(at your option) any later version.\n"
+    "\n"
+    "This program is distributed in the hope that it will be useful,\n"
+    "but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+    "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+    "See the GNU General Public License for more details.\n"
+    "\n"
+    "You should have received a copy of the GNU General Public License\n"
+    "along with this program; if not, write to the Free Software Foundation,\n"
+    "Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA" );
     gtk_about_dialog_set_website( (GtkAboutDialog*)about, "http://lxde.org/" );
     gtk_window_set_transient_for( (GtkWindow*)about, (GtkWindow*)main_win );
     gtk_window_set_destroy_with_parent((GtkWindow*)about, TRUE);
