@@ -17,3 +17,4 @@ missing
 .intltool-merge-cache
 po/LINGUAS
 po/POTFILES
+compile
