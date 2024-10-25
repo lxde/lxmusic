@@ -285,7 +285,7 @@ void on_about(GtkWidget* mi, gpointer data)
     "You should have received a copy of the GNU General Public License\n"
     "along with this program; if not, write to the Free Software Foundation,\n"
     "Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA" );
-    gtk_about_dialog_set_website( (GtkAboutDialog*)about, "http://lxde.org/" );
+    gtk_about_dialog_set_website( (GtkAboutDialog*)about, "https://www.lxde.org/" );
     gtk_window_set_transient_for( (GtkWindow*)about, (GtkWindow*)main_win );
     gtk_window_set_destroy_with_parent((GtkWindow*)about, TRUE);
     gtk_dialog_run( (GtkDialog*)about );
