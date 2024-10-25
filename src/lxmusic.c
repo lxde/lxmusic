@@ -445,7 +445,7 @@ static void on_tray_icon_popup_menu(GtkStatusIcon* icon, guint btn, guint time, 
 	systray_menu = GTK_MENU (gtk_menu_new());
 
 	item = gtk_image_menu_item_new_from_stock(GTK_STOCK_OPEN, NULL);
-	gtk_menu_item_set_label (GTK_MENU_ITEM(item), _("Show Main Window"));
+	gtk_menu_item_set_label (GTK_MENU_ITEM(item), _("Show LXMusic"));
 	gtk_menu_shell_append(GTK_MENU_SHELL(systray_menu), item);
 	g_signal_connect (G_OBJECT (item), "activate",
 			  G_CALLBACK(on_show_main_win),
