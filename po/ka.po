@@ -1,0 +1,399 @@
+# Georgian translation for lxmusic.
+# Copyright (C) 2025 lxmusic's authors.
+# This file is distributed under the same license as the lxmusic package.
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxmusic\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-25 14:00+0200\n"
+"PO-Revision-Date: 2025-04-01 22:38+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <(nothing)>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+
+#: ../src/lxmusic.c:263
+msgid "Official icon of xmms2 by Arnaud DIDRY"
+msgstr "XMMS2-ის ოფიციალური ხატულის ავტორია Arnaud DIDRY"
+
+#: ../src/lxmusic.c:272
+msgid ""
+"Music Player for LXDE\n"
+"Simple XMMS2 GUI client"
+msgstr ""
+"მუსიკის დამკვრელი LXDE-სთვის\n"
+"XMMS2-ის მარტივი გრაფიკული კლიენტი"
+
+#: ../src/lxmusic.c:434
+msgid "Show Main Window"
+msgstr "მთავარი ფანჯრის ჩვენება"
+
+#. default
+#: ../src/lxmusic.c:496 ../src/utils.c:103 ../data/lxmusic.desktop.in.h:1
+#: ../data/lxmusic.ui.glade.h:25
+msgid "LXMusic"
+msgstr "LXMusic"
+
+#: ../src/lxmusic.c:755
+msgid "Bitrate: "
+msgstr "&ბიტური სიჩქარე: "
+
+#: ../src/lxmusic.c:1062
+msgid "Audio Files"
+msgstr "აუდიო ფაილები"
+
+#: ../src/lxmusic.c:1067
+msgid "All Files"
+msgstr "ყველა ფაილი"
+
+#: ../src/lxmusic.c:1094
+msgid "Input a URL"
+msgstr "შეიყვანეთ URL"
+
+#: ../src/lxmusic.c:1328 ../src/lxmusic.c:1923
+msgid "Now Playing:"
+msgstr "ახლა ვუკრავ:"
+
+#. metadata available
+#: ../src/lxmusic.c:1539 ../data/lxmusic.ui.glade.h:5
+#: ../src/lxmusic-notify.c:83
+msgid "Artist"
+msgstr "შემსრულებელი"
+
+#: ../src/lxmusic.c:1547 ../data/lxmusic.ui.glade.h:6
+msgid "Album"
+msgstr "ალბომი"
+
+#: ../src/lxmusic.c:1555 ../src/lxmusic-notify.c:84
+msgid "Title"
+msgstr "სათაური"
+
+#: ../src/lxmusic.c:1561
+msgid "Length"
+msgstr "სიგრძე"
+
+#: ../src/lxmusic.c:1728
+msgid "Default"
+msgstr "ნაგულისხმევი"
+
+#: ../src/lxmusic.c:1850
+msgid "Pause"
+msgstr "შეჩერება"
+
+#: ../src/lxmusic.c:1864
+msgid "Play"
+msgstr "დაკვრა"
+
+#: ../src/lxmusic.c:2417
+msgid "Create new playlist"
+msgstr "ახალი დასაკრავი სიის შექმნა"
+
+#: ../src/utils.c:81
+msgid "Error"
+msgstr "შეცდომა"
+
+#. alsa use:
+#: ../src/lxmusic-plugin-config.c:17
+msgid "Advanced Linux Sound Architecture"
+msgstr "Advanced Linux Sound Architecture"
+
+#: ../src/lxmusic-plugin-config.c:18 ../src/lxmusic-plugin-config.c:23
+#: ../src/lxmusic-plugin-config.c:28
+msgid "Device:"
+msgstr "მოწყობილობა:"
+
+#: ../src/lxmusic-plugin-config.c:19 ../src/lxmusic-plugin-config.c:24
+msgid "Mixer:"
+msgstr "მიქსერი:"
+
+#. oss
+#: ../src/lxmusic-plugin-config.c:22
+msgid "Open Sound System"
+msgstr "Open Sound System"
+
+#. ao
+#: ../src/lxmusic-plugin-config.c:27
+msgid "Cross-platform audio output library"
+msgstr "პლატფორმათაშორისი ხმის გამოტანის ბიბლიოთეკა"
+
+#. pulse
+#: ../src/lxmusic-plugin-config.c:31
+msgid "PulseAudio"
+msgstr "PulseAudio"
+
+#: ../src/lxmusic-plugin-config.c:32
+msgid "Name:"
+msgstr "სახელი:"
+
+#: ../src/lxmusic-plugin-config.c:33 ../src/lxmusic-plugin-config.c:38
+msgid "Server:"
+msgstr "სერვერი:"
+
+#: ../src/lxmusic-plugin-config.c:34
+msgid "Sink:"
+msgstr "მიმღები:"
+
+#. airtunes
+#: ../src/lxmusic-plugin-config.c:37
+msgid "AirTunes"
+msgstr "AirTunes"
+
+#. jack
+#: ../src/lxmusic-plugin-config.c:41
+msgid "JACK Audio Connection Kit"
+msgstr "JACK Audio Connection Kit"
+
+#: ../src/lxmusic-plugin-config.c:43
+msgid "Disk Writer"
+msgstr "დისკის ჩამწერი"
+
+#: ../src/lxmusic-plugin-config.c:44
+msgid "Destination Directory:"
+msgstr "სამიზნე საქაღალდე:"
+
+#: ../data/lxmusic.desktop.in.h:2
+msgid "Music Player"
+msgstr "მუსიკის დამკვრელი"
+
+#: ../data/lxmusic.desktop.in.h:3
+msgid "Play your music files easily"
+msgstr "დაუკარით თქვენი მუსიკის ფაილები მარტივად"
+
+#: ../data/lxmusic.ui.glade.h:1
+msgid "No Repeat"
+msgstr "გამეორების გარეშე"
+
+#: ../data/lxmusic.ui.glade.h:2
+msgid "Repeat Current"
+msgstr "მიმდინარეს გამეორება"
+
+#: ../data/lxmusic.ui.glade.h:3
+msgid "Repeat All"
+msgstr "ყველას გამეორება"
+
+#: ../data/lxmusic.ui.glade.h:4
+msgid "All"
+msgstr "ყველა"
+
+#: ../data/lxmusic.ui.glade.h:7
+msgid "Track Name"
+msgstr "აუდიობილიკის სახელი"
+
+#: ../data/lxmusic.ui.glade.h:8
+msgid "_File"
+msgstr "_ფაილი"
+
+#: ../data/lxmusic.ui.glade.h:9
+msgctxt "menu"
+msgid "File Properties"
+msgstr "ფაილის თვისებები"
+
+#: ../data/lxmusic.ui.glade.h:10
+msgid "_Playlist"
+msgstr "_დასაკრავი სია"
+
+#: ../data/lxmusic.ui.glade.h:11
+msgid "_Switch To Playlist"
+msgstr "გადართვა დასაკრავ &სიაზე"
+
+#: ../data/lxmusic.ui.glade.h:12
+msgid "_Locate Currently Played"
+msgstr "ამჟამად დაკრუ_ლის მიგნება"
+
+#: ../data/lxmusic.ui.glade.h:13
+msgid "Add To Playlist"
+msgstr "დასაკრავი სიაში დამატება"
+
+#: ../data/lxmusic.ui.glade.h:14
+msgid "Add Files or Folders"
+msgstr "დაამატეთ ფაილები, ან საქაღალდეები"
+
+#: ../data/lxmusic.ui.glade.h:15
+msgid "Add URL"
+msgstr "ბმულის დამატება"
+
+#: ../data/lxmusic.ui.glade.h:16
+msgid "Remove From Playlist"
+msgstr "დასაკრავი სიიდან წაშლა"
+
+#: ../data/lxmusic.ui.glade.h:17
+msgid "Remove Selected Items"
+msgstr "Მონიშნული ელემენტების წაშლა"
+
+#: ../data/lxmusic.ui.glade.h:18
+msgid "Remove All Items"
+msgstr "ყველა ელემენტის წაშლა"
+
+#: ../data/lxmusic.ui.glade.h:19
+msgid "Create _New Playlist"
+msgstr "ახალი დასაკრავი სიის შექმ_ნა"
+
+#: ../data/lxmusic.ui.glade.h:20
+msgid "_Delete Current Playlist"
+msgstr "მიმდინარე _დასაკრავი სიის წაშლა"
+
+#: ../data/lxmusic.ui.glade.h:21
+msgid "_View"
+msgstr "_ხედი"
+
+#: ../data/lxmusic.ui.glade.h:22
+msgid "Show Playlist"
+msgstr "დასაკრავი სიის ჩვენება"
+
+#: ../data/lxmusic.ui.glade.h:23
+msgid "_Tools"
+msgstr "_ხელსაწყოები"
+
+#: ../data/lxmusic.ui.glade.h:24
+msgid "_Help"
+msgstr "_დახმარება"
+
+#: ../data/lxmusic.ui.glade.h:26
+msgid "Previous"
+msgstr "წინა"
+
+#: ../data/lxmusic.ui.glade.h:27
+msgid "Play/Pause"
+msgstr "დაკვრა/პაუზა"
+
+#: ../data/lxmusic.ui.glade.h:28
+msgid "Stop"
+msgstr "გაჩერება"
+
+#: ../data/lxmusic.ui.glade.h:29
+msgid "Next"
+msgstr "შემდეგი"
+
+#: ../data/lxmusic.ui.glade.h:30
+msgid "Current Playlist"
+msgstr "მიმდინარე დასაკრავი სია"
+
+#: ../data/lxmusic.ui.glade.h:31
+msgid "Favorites"
+msgstr "სანიშნეები"
+
+#: ../data/lxmusic.ui.glade.h:32
+msgid "Media Library"
+msgstr "მედიაბიბლიოთეკა"
+
+#: ../data/lxmusic.ui.glade.h:33
+msgid "Add files to the playlist"
+msgstr "ყველა ფაილის ჩამატება დასაკრავ სიაში"
+
+#: ../data/lxmusic.ui.glade.h:34
+msgid "Remove items from the playlist"
+msgstr "ელემენტების წაშლა დასაკრავი სიიდან"
+
+#: ../data/lxmusic.ui.glade.h:35
+msgid "Locate currently played track"
+msgstr "ამჟამად დაკრული ტრეკის პოვნა"
+
+#: ../data/lxmusic.ui.glade.h:36
+msgid "Filter:"
+msgstr "ფილტრი:"
+
+#: ../data/lxmusic.ui.glade.h:37
+msgid "Enter keyword here"
+msgstr "შეიყვანეთ საკვანძო სიტყვა"
+
+#: ../data/pref-dlg.ui.glade.h:1
+msgid "Preferences"
+msgstr "მორგება"
+
+#: ../data/pref-dlg.ui.glade.h:2
+msgid "Show system tray icon"
+msgstr "სისტემის კუთხეში ხატულის ჩვენება"
+
+#: ../data/pref-dlg.ui.glade.h:3
+msgid "Minimize to system tray on close"
+msgstr "დახურვისას სისტემურ კუთხეში ჩაკეცვა"
+
+#: ../data/pref-dlg.ui.glade.h:4
+msgid ""
+"Music files can be played without graphical user interface to save system "
+"resources"
+msgstr ""
+"მუსიკის ფაილების დაკვრა გრაფიკული ინტერფეისის გარეშეც შეგიძლიათ, "
+"სისტემური რესურსების დასაზოგად"
+
+#: ../data/pref-dlg.ui.glade.h:5
+msgid "Continue playback in background after exiting LXMusic"
+msgstr "დაკვრის ფონში გაგრძელება LXMusic-დან გასვლის შემდეგ"
+
+#: ../data/pref-dlg.ui.glade.h:6
+msgid "General"
+msgstr "ზოგადი"
+
+#: ../data/pref-dlg.ui.glade.h:7
+msgid "Plugin: "
+msgstr "დამატება: "
+
+#: ../data/pref-dlg.ui.glade.h:8
+msgid "Buffer Size: "
+msgstr "ბუფერის ზომა: "
+
+#: ../data/pref-dlg.ui.glade.h:9
+msgid "KB"
+msgstr "კბ"
+
+#: ../data/pref-dlg.ui.glade.h:10
+msgid "<b>Output</b>"
+msgstr "<b>გამოტანა</b>"
+
+#: ../data/pref-dlg.ui.glade.h:11
+msgid "CD-ROM Device: "
+msgstr "CD-ROM მოწყობილობა: "
+
+#: ../data/pref-dlg.ui.glade.h:12
+msgid "<b>Audio CD</b>"
+msgstr "<b>აუდიო CD</b>"
+
+#: ../data/pref-dlg.ui.glade.h:13
+msgid "Audio"
+msgstr "აუდიო"
+
+#: ../data/pref-dlg.ui.glade.h:14
+msgid "Default ID3 V1 Encoding: "
+msgstr "ნაგულისხმევი ID3 V1 კოდირება: "
+
+#: ../data/pref-dlg.ui.glade.h:15
+msgid "Misc"
+msgstr "სხვა"
+
+#: ../data/track-info.ui.glade.h:1
+msgctxt "title"
+msgid "File Properties"
+msgstr "ფაილის თვისებები"
+
+#: ../data/track-info.ui.glade.h:2
+msgid "<b>File Type: </b>"
+msgstr "<b>ფაილის ტიპი: </b>"
+
+#: ../data/track-info.ui.glade.h:3
+msgid "<b>Size: </b>"
+msgstr "<b>ზომა: </b>"
+
+#: ../data/track-info.ui.glade.h:4
+msgid "<b>Comment: </b>"
+msgstr "<b>კომენტარი: </b>"
+
+#: ../data/track-info.ui.glade.h:5
+msgid "<b>Artist: </b>"
+msgstr "<b>შემსრულებელი: </b>"
+
+#: ../data/track-info.ui.glade.h:6
+msgid "<b>Album: </b>"
+msgstr "<b>ალბომი: </b>"
+
+#: ../data/track-info.ui.glade.h:7
+msgid "<b>Title: </b>"
+msgstr "<b>სათაური: </b>"
+
+#: ../data/track-info.ui.glade.h:8
+msgid "<b>File: </b>"
+msgstr "<b>ფაილი: </b>"
