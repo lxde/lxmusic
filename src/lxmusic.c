@@ -237,7 +237,11 @@ void on_quit(GtkAction* act, gpointer user_data)
 
 gboolean on_main_win_delete_event(GtkWidget* win, GdkEvent* evt, gpointer user_data)
 {
+#if GTK_CHECK_VERSION(3, 0, 0)
+    if( close_to_tray && GDK_IS_X11_DISPLAY(gdk_display_get_default()) )
+#else
     if( close_to_tray )
+#endif
     {
         gtk_widget_hide( win );
         return TRUE;
