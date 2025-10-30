@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-25 14:00+0200\n"
-"PO-Revision-Date: 2018-08-15 19:30+0000\n"
+"PO-Revision-Date: 2025-10-30 12:28+0100\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translation group\n"
 "Language: ca\n"
@@ -16,30 +16,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.8\n"
+"X-Generator: Poedit 3.6\n"
 "X-POOTLE-MTIME: 1534361433.205711\n"
 
 #: ../src/lxmusic.c:263
 msgid "Official icon of xmms2 by Arnaud DIDRY"
-msgstr "Icona oficial del xmms2 fet per Arnaud DIDRY"
+msgstr "Icona oficial de l'xmms2, feta per Arnaud DIDRY"
 
 #: ../src/lxmusic.c:272
-#, fuzzy
-#| msgid ""
-#| "Music Player for LXDE\n"
-#| "Simple GUI XMMS2 client"
 msgid ""
 "Music Player for LXDE\n"
 "Simple XMMS2 GUI client"
 msgstr ""
-"Reproductor de música per a LXDE\n"
+"Reproductor de música per a l'LXDE\n"
 "Interfície gràfica simple per a XMMS2"
 
 #: ../src/lxmusic.c:434
-#, fuzzy
-#| msgid "_Show Main Window"
 msgid "Show Main Window"
-msgstr "_Mostra la finestra principal"
+msgstr "Mostra la finestra principal"
 
 #. default
 #: ../src/lxmusic.c:496 ../src/utils.c:103 ../data/lxmusic.desktop.in.h:1
@@ -91,7 +85,7 @@ msgstr "Per defecte"
 
 #: ../src/lxmusic.c:1850
 msgid "Pause"
-msgstr "Atura"
+msgstr "Interromp"
 
 #: ../src/lxmusic.c:1864
 msgid "Play"
@@ -99,7 +93,7 @@ msgstr "Reprodueix"
 
 #: ../src/lxmusic.c:2417
 msgid "Create new playlist"
-msgstr "Crea una nova llista de reproducció"
+msgstr "Crea una llista de reproducció nova"
 
 #: ../src/utils.c:81
 msgid "Error"
@@ -158,15 +152,15 @@ msgstr "JACK Audio Connection Kit"
 
 #: ../src/lxmusic-plugin-config.c:43
 msgid "Disk Writer"
-msgstr "Enregistrador de discs"
+msgstr "Gravador de discs"
 
 #: ../src/lxmusic-plugin-config.c:44
 msgid "Destination Directory:"
-msgstr "Directori arrel:"
+msgstr "Directori d'arrel:"
 
 #: ../data/lxmusic.desktop.in.h:2
 msgid "Music Player"
-msgstr "Reproductor musical"
+msgstr "Reproductor de música"
 
 #: ../data/lxmusic.desktop.in.h:3
 msgid "Play your music files easily"
@@ -174,7 +168,7 @@ msgstr "Escolteu música de manera fàcil"
 
 #: ../data/lxmusic.ui.glade.h:1
 msgid "No Repeat"
-msgstr "No repeteixis"
+msgstr "No ho repeteixis"
 
 #: ../data/lxmusic.ui.glade.h:2
 msgid "Repeat Current"
@@ -197,8 +191,6 @@ msgid "_File"
 msgstr "_Fitxer"
 
 #: ../data/lxmusic.ui.glade.h:9
-#, fuzzy
-#| msgid "File Properties"
 msgctxt "menu"
 msgid "File Properties"
 msgstr "Propietats del fitxer"
@@ -213,7 +205,7 @@ msgstr "_Canvia a la llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:12
 msgid "_Locate Currently Played"
-msgstr "_Localitza la que està en reproducció"
+msgstr "Ubica e_l que es reprodueix ara"
 
 #: ../data/lxmusic.ui.glade.h:13
 msgid "Add To Playlist"
@@ -241,7 +233,7 @@ msgstr "Suprimeix tots els elements"
 
 #: ../data/lxmusic.ui.glade.h:19
 msgid "Create _New Playlist"
-msgstr "Crea una _nova llista de reproducció"
+msgstr "Crea una llista de reproducció _nova"
 
 #: ../data/lxmusic.ui.glade.h:20
 msgid "_Delete Current Playlist"
@@ -269,7 +261,7 @@ msgstr "Anterior"
 
 #: ../data/lxmusic.ui.glade.h:27
 msgid "Play/Pause"
-msgstr "Reprodueix/Atura"
+msgstr "Reprodueix / Interromp"
 
 #: ../data/lxmusic.ui.glade.h:28
 msgid "Stop"
@@ -289,7 +281,7 @@ msgstr "Favorits"
 
 #: ../data/lxmusic.ui.glade.h:32
 msgid "Media Library"
-msgstr "Biblioteca multimedia"
+msgstr "Biblioteca multimèdia"
 
 #: ../data/lxmusic.ui.glade.h:33
 msgid "Add files to the playlist"
@@ -301,7 +293,7 @@ msgstr "Suprimeix de la llista de reproducció"
 
 #: ../data/lxmusic.ui.glade.h:35
 msgid "Locate currently played track"
-msgstr "Ubicació de la pista actualment en reproducció"
+msgstr "Ubicació de la pista que es reprodueix ara"
 
 #: ../data/lxmusic.ui.glade.h:36
 msgid "Filter:"
@@ -317,7 +309,7 @@ msgstr "Preferències"
 
 #: ../data/pref-dlg.ui.glade.h:2
 msgid "Show system tray icon"
-msgstr "Mostra l'icona de la safata del sistema"
+msgstr "Mostra la icona de la safata del sistema"
 
 #: ../data/pref-dlg.ui.glade.h:3
 msgid "Minimize to system tray on close"
@@ -333,7 +325,7 @@ msgstr ""
 
 #: ../data/pref-dlg.ui.glade.h:5
 msgid "Continue playback in background after exiting LXMusic"
-msgstr "Continua la reproducció en segon plà en sortir del LXMusic"
+msgstr "Continua la reproducció en segon pla en sortir de l'LXMusic"
 
 #: ../data/pref-dlg.ui.glade.h:6
 msgid "General"
@@ -369,15 +361,13 @@ msgstr "Àudio"
 
 #: ../data/pref-dlg.ui.glade.h:14
 msgid "Default ID3 V1 Encoding: "
-msgstr "Codificació predeterminada ID3 V1: "
+msgstr "Codificació predeterminada d'ID3 V1: "
 
 #: ../data/pref-dlg.ui.glade.h:15
 msgid "Misc"
 msgstr "Miscel·lània"
 
 #: ../data/track-info.ui.glade.h:1
-#, fuzzy
-#| msgid "File Properties"
 msgctxt "title"
 msgid "File Properties"
 msgstr "Propietats del fitxer"
