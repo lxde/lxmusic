@@ -799,6 +799,7 @@ void on_file_properties(GtkAction* act, gpointer data)
                 xmmsc_result_notifier_set_full(res, on_track_info_received, g_object_ref(builder), g_object_unref);
                 xmmsc_result_unref(res);
 
+                gtk_window_set_transient_for(GTK_WINDOW(dlg), (GtkWindow*)main_win);
                 gtk_window_present(GTK_WINDOW(dlg));
             }
             g_object_unref(builder);
